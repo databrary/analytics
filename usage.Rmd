@@ -1,12 +1,21 @@
 ---
 title: "PIs-Volumes-Sessions-Hrs"
 author: "Rick O. Gilmore"
-date: "February 13, 2017"
-output: html_document
+date: "`r Sys.time()`"
+output: 
+  github_document: default
+  html_document: default
 ---
 
+## Purpose
+
+Summarize Databrary usage as of ~Feburary 2017.
+
+## Preliminaries
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
 ```
 
 ## Import data
@@ -18,8 +27,6 @@ pis.vols.sess.hrs <- read.csv("analysis/csv/pi.vols.sess.hrs.csv")
 ## By Number of Volumes
 
 ```{r most-vols}
-library(dplyr)
-library(ggplot2)
 pis.vols.sess.hrs %>%
   select(pi, institution, vols, sessions, hrs) %>%
   arrange(desc(vols)) %>%
@@ -29,8 +36,6 @@ pis.vols.sess.hrs %>%
 ## By Sessions
 
 ```{r most-sessions}
-library(dplyr)
-library(ggplot2)
 pis.vols.sess.hrs %>%
   select(pi, institution, vols, sessions, hrs) %>%
   arrange(desc(sessions)) %>%
@@ -40,8 +45,6 @@ pis.vols.sess.hrs %>%
 ## By Hours
 
 ```{r most-hrs}
-library(dplyr)
-library(ggplot2)
 pis.vols.sess.hrs %>%
   select(pi, institution, vols, sessions, hrs) %>%
   arrange(desc(hrs)) %>%

@@ -1,8 +1,10 @@
 ---
 title: "Zip downloads"
 author: "Rick Gilmore"
-date: "6/8/2017"
-output: html_document
+date: "`r Sys.time()`"
+output: 
+  github_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -10,6 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(ggplot2)
 ```
+
+## Purpose
+
+Analyze download logs of zip files for 2017-06-09 Databrary Advisory Board meeting.
 
 ## Preliminaries
 
