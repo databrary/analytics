@@ -1,0 +1,159 @@
+# Investigators and Institutions
+
+## Institutions {-}
+
+```{r}
+library(targets)
+tar_load(inst_df, store = "../_targets/")
+
+inst_daa_df <- dplyr::filter(inst_df , daa == TRUE)
+```
+
+There are `r dim(inst_df)[1]` total institutions in the Databrary system.
+
+Of these, `r dim(inst_daa_df)[1]` or `r paste0(format(dim(inst_daa_df)[1]/dim(inst_df)[1] * 100, digits = 3, nsmall = 1), "%")` have active Databrary Access Agreements (DAA).
+
+## Investigators per institution  {-}
+
+```{r}
+ai_stats <- fivenum(inst_daa_df$n_auth_invest)
+```
+
+The number of authorized investigators/institution is in the range of [`r ai_stats[1]`, `r ai_stats[5]`], with a median of `r ai_stats[3]` and a mean of `r format(mean(inst_daa_df$n_auth_invest), digits = 3, nsmall = 1)`.
+
+```{r n-investigators-per-inst, fig.cap="Distribution of investigators/authorized institution"}
+inst_daa_df |>
+  ggplot() +
+  aes(n_auth_invest) +
+  geom_histogram()
+```
+
+### $n$ Authorized Investigators by Institution {-}
+
+```{r}
+inst_daa_df |>
+  dplyr::select(-c("lat", "lon", "daa", "inst_url", "databrary_url")) |>
+  dplyr::arrange(desc(n_auth_invest)) |>
+  kableExtra::kable(format = 'html') |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+### Map {-}
+
+```{r site-map, fig.align='center', out.width='100%'}
+lat_lon_df <- inst_daa_df |>
+  dplyr::filter(!is.na(lat), !is.na(lon))
+
+ggmap::qmplot(lon, lat, 
+              data = lat_lon_df, 
+              geom = "point",
+              scale = 4)
+```
+
+::: {.rmdnote}
+
+**TODO**: Add the automatic creation of the JSON file needed to update and render the map on the Databrary home page.
+
+:::
+
+## Investigators {-}
+
+```{r}
+tar_load(invest_df, store = "../_targets/")
+
+invest_df <- dplyr::distinct(invest_df)
+```
+
+```{r}
+gte2_affils <- invest_df |>
+  dplyr::filter(n_affils >= 2) |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::distinct()
+gte5_affils <- invest_df |>
+  dplyr::filter(n_affils >= 5) |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::distinct()
+gte10_affils <- invest_df |>
+  dplyr::filter(n_affils >= 10) |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::distinct()
+no_affils <- invest_df |>
+  dplyr::filter(n_affils < 1) |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::distinct()
+```
+
+There are $n=$ `r dim(gte10_affils)[1]` Authorized Investigators with 10 or more affiliates; $n=$ `r dim(gte5_affils)[1]` with 5 or more; $n=$ `r dim(gte2_affils)[1]` with 2 or more affiliates; and $n=$ `r dim(no_affils)[1]` with no affilates.
+
+#### 10+ affiliates {-}
+
+```{r}
+ggplot(gte10_affils) +
+  aes(n_affils) +
+  geom_histogram(bins = 10)
+```
+
+```{r}
+gte10_affils |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+#### 5+ affiliates  {-}
+
+```{r}
+ggplot(gte5_affils) +
+  aes(n_affils) +
+  geom_histogram(bins = 10)
+```
+
+```{r}
+gte5_affils |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+#### 2+ affiliates {-}
+
+```{r}
+ggplot(gte2_affils) +
+  aes(n_affils) +
+  geom_histogram(bins = 15)
+```
+
+```{r}
+gte2_affils |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+#### All  {-}
+
+```{r}
+ggplot(invest_df) +
+  aes(n_affils) +
+  geom_histogram(bins = 20)
+```
+
+```{r}
+invest_df |>
+  dplyr::arrange(desc(n_affils)) |>
+  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```

@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-databrary-analytics.Rproj
 gh-databrary-analytics.Rproj
+.DS_Store
+.databrary.RData
