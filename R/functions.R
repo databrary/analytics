@@ -752,7 +752,7 @@ get_volume_ss_save_csv <-
 #-------------------------------------------------------------------------------
 get_volume_birthdate <- function(vol_id, vb = FALSE) {
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   if (vb)
     message(paste0(
       "....Gathering participant_birthdate data from volume ",
@@ -775,7 +775,7 @@ get_volume_birthdate <- function(vol_id, vb = FALSE) {
 #-------------------------------------------------------------------------------
 get_volume_session_date <- function(vol_id, vb = FALSE) {
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   if (vb)
     message(paste0("....Gathering session_date data from volume ",
                    vol_id))
@@ -793,7 +793,7 @@ get_volume_session_date <- function(vol_id, vb = FALSE) {
 #-------------------------------------------------------------------------------
 get_volume_gender <- function(vol_id, vb = FALSE) {
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   if (vb)
     message(paste0("....Gathering participant_gender data from volume ", vol_id))
   
@@ -813,7 +813,7 @@ get_volume_gender <- function(vol_id, vb = FALSE) {
 #-------------------------------------------------------------------------------
 get_volume_race <- function(vol_id, vb = FALSE) {
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   if (vb)
     message(paste0("....Gathering participant_race data from volume ", vol_id))
   
@@ -833,7 +833,7 @@ get_volume_race <- function(vol_id, vb = FALSE) {
 #-------------------------------------------------------------------------------
 get_volume_ethnicity <- function(vol_id, vb = FALSE) {
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   if (vb)
     message(paste0(
       "....Gathering participant_ethnicity data from volume ",
@@ -1279,7 +1279,7 @@ get_volume_ss <- function(vol_id = 1,
   }
   
   v_ss <-
-    try(databraryr::download_session_csv(vol_id), silent = TRUE)
+    try(databraryr::get_session_as_df(vol_id), silent = TRUE)
   
   if ('try-error' %in% class(v_ss)) {
     message(".Error loading CSV for volume ", vol_id)

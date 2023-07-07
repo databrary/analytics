@@ -16,9 +16,12 @@ max_party_id|stem|max_party_id|0|built
 inst_df|stem|inst_df|0|started
 inst_df|stem|inst_df|0|built
 inst_invest_csv|stem|inst_invest_csv|0|skipped
-volume_funders_df|stem|volume_funders_df|0|skipped
-volume_tags_df|stem|volume_tags_df|0|skipped
-volume_owners_csv|stem|volume_owners_csv|0|skipped
+volume_funders_df|stem|volume_funders_df|0|started
+volume_funders_df|stem|volume_funders_df|0|built
+volume_tags_df|stem|volume_tags_df|0|started
+volume_tags_df|stem|volume_tags_df|0|built
+volume_owners_csv|stem|volume_owners_csv|0|started
+volume_owners_csv|stem|volume_owners_csv|0|built
 vols_sess_df|stem|vols_sess_df|0|started
 vols_sess_df|stem|vols_sess_df|0|built
 volume_ss_csvs|stem|volume_ss_csvs|0|started
