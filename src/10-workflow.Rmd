@@ -23,14 +23,14 @@ We use a number of R packages in the workflow.
 
 ### Databrary API {-}
 
-The [`databraryapi` package](https://github.com/PLAY-behaviorome/databraryapi/) provides a set of tools for interacting with the Databrary API and gathering data from the site.
+The [`databraryr` package](https://github.com/databrary/databraryr/) provides a set of tools for interacting with the Databrary API and gathering data from the site.
 This package may be useful to some analysts whether or not they care about Databrary-specific analytics.
 
-Most data and metadata used in these reports can be accessed by the public, but specific data about individual participants requires that the user be authorized and logged in to the site using the `databraryapi::db_login()` function.
+Most data and metadata used in these reports can be accessed by the public, but specific data about individual participants requires that the user be authorized and logged in to the site using the `databraryr::db_login()` function.
 
-The package may be installed via `devtools::install_github(repo="PLAY-behaviorome/databraryapi")`.
+The package may be installed via `devtools::install_github(repo="databrary/databraryr")`.
 
-See <https://play-behaviorome.github.io/databraryapi/> for documentation about the package.
+See <https://databrary.github.io/databraryr/> for documentation about the package.
 
 ### Targets {-}
 
@@ -99,7 +99,7 @@ Gilmore takes some solace in the following quotation from the father of literate
     - ~~Done for `*.Rmd` files~~, but not `*.R` files as of 2023-02-24.
 
 ```{r logut-databrary, include=FALSE}
-databraryapi::logout_db()
+databraryr::logout_db()
 if (file.exists(".databrary.RData")) {
   unlink(".databrary.RData", recursive = TRUE)
 }

@@ -15,7 +15,7 @@ tar_option_set(
     "ggplot2",
     "purrr",
     "stringr",
-    "databraryapi",
+    "databraryr",
     "broom",
     "knitr",
     "rmarkdown",

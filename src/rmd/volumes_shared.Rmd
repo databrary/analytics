@@ -6,7 +6,7 @@ date:  "`r Sys.time()`"
 
 
 ```{r get-new-db-stats}
-new_stats <- databraryapi::get_db_stats()
+new_stats <- databraryr::get_db_stats()
 new_stats$date <- lubridate::as_datetime(new_stats$date)
 ```
 
@@ -135,7 +135,7 @@ if (as.logical(params$update_csv)) {
 
 ```{r new-volumes}
 # define helper functions
-new_volumes <- databraryapi::get_db_stats(type = "datasets")
+new_volumes <- databraryr::get_db_stats(type = "datasets")
 if (is.null(new_volumes)) {
   stop('New volumes data not downloaded.')
 }

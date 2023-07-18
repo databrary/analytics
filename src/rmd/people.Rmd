@@ -5,7 +5,7 @@ date:  "`r Sys.time()`"
 ---
 
 ```{r db-people-table}
-new_people <- databraryapi::get_db_stats(type = "people")
+new_people <- databraryr::get_db_stats(type = "people")
 if (!is.null(new_people)) {
   new_people %>%
     dplyr::mutate(db_url = paste0("https://databrary.org/party/", id)) %>%

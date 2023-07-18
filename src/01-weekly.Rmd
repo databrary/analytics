@@ -3,7 +3,7 @@
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
-databraryapi::login_db(Sys.getenv("DATABRARY_LOGIN"))
+databraryr::login_db(Sys.getenv("databraryr_LOGIN"))
 
 # Graphic theme elements
 ln_size <- 3
