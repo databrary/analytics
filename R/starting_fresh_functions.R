@@ -25,20 +25,37 @@ setup_anew <- function(my_db_login, vb = TRUE) {
   message("\nChecking credentials for external services...")
   check_all_credentials(my_db_login)
   
-  message("\nGenerating new institution-level CSVs...")
-  generate_fresh_inst_csvs(delete_old = TRUE)
+  message("\nChecking for existence of historical/stored data files...")
+  if (!file.exists("src/csv/institutions-investigators.csv")) {
+    stop("'src/csv/institutions-investigators.csv' not found.")
+  } else {
+    message("'src/csv/institutions-investigators.csv' found.")
+  }
+  if (!file.exists("src/csv/volumes-shared-unshared.csv")) {
+    stop("'src/csv/volumes-shared-unshared.csv' not found.")
+  } else {
+    message("'src/csv/institutions-investigators.csv' found.")
+  }
+  if (!file.exists("src/csv/citations-monthly.csv")) {
+    stop("'src/csv/citations-monthly.csv' not found.")
+  } else {
+    message("'src/csv/citations-monthly.csv' found.")
+  }
   
+  message("\nGenerating new institution-level CSV...")
+  generate_fresh_inst_csv(delete_old = TRUE)
+  
+  message("\nGenerating session-level asset statistics...")
+  generate_fresh_asset_stats_csvs(delete_old = TRUE)
+
+  message("\nGenerating volume demographics CSVs...")
+  generate_fresh_volume_demo_csvs(delete_old = TRUE)
+
+  message("\nGenerating volume owner CSVs...")
+  generate_fresh_owners_csvs()
+  
+  message("\nRunning `targets::tar_make()`...")
   update_csv_folders_data_rpt()
-  
-  # if (vb) message("\nGenerating session-level asset statistics...")
-  # generate_fresh_asset_stats_csvs(delete_old = TRUE)
-  # 
-  # if (vb) message("\nGenerating volume demographics CSVs...")
-  # generate_fresh_volume_demo_csvs(delete_old = TRUE)
-  # 
-  # if (vb) message("\nGenerating volume owner CSVs...")
-  # generate_fresh_owners_csvs()
-  
 }
 
 #------------------------------------------------------------------------------
@@ -99,11 +116,11 @@ generate_fresh_owners_csvs <- function(delete_old = FALSE) {
 }
 
 #------------------------------------------------------------------------------
-generate_fresh_inst_csvs <- function(delete_old = FALSE) {
+generate_fresh_inst_csv <- function(delete_old = FALSE) {
   if (delete_old) unlink("src/csv/institutions.csv")
   
   max_ids <- update_max_vol_party_ids()
-  update_inst_csv(max_id = max_ids$MAX_PARTY_ID, update_geo = TRUE)
+  update_inst_csv(max_id = max_ids$MAX_PARTY_ID, update_geo = TRUE, vb = TRUE)
 }
 
 #------------------------------------------------------------------------------

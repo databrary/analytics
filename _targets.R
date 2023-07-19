@@ -115,7 +115,7 @@ list(
   ),
   tar_target(
     add_new_inst_csvs,
-    get_save_many_inst_csvs(max(c(extract_inst_csv_id(), 1)), max_party_id, update_geo = TRUE)
+    get_save_many_inst_csvs(max(max(extract_inst_csv_id()), 1), max_party_id, update_geo = TRUE)
   ),
   # tar_target(
   #   invest_df,
