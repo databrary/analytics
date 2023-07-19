@@ -18,28 +18,27 @@ source("R/functions.R")
 setup_anew <- function(my_db_login, vb = TRUE) {
   
   stopifnot(is.character(my_db_login))
-  stopifnot(is.logical(vb))
   
-  if (vb) message("\nChecking R package dependencies")
+  message("\nChecking R package dependencies")
   check_dependencies()
   
-  if (vb) message("\nChecking credentials for external services...")
+  message("\nChecking credentials for external services...")
   check_all_credentials(my_db_login)
   
-  if (vb) message("\nChecking data directories and .gitignore files...")
-  prepare_to_update_csvs()
-  
-  if (vb) message("\nGenerating new institution-level CSVs...")
+  message("\nGenerating new institution-level CSVs...")
   generate_fresh_inst_csvs(delete_old = TRUE)
   
-  if (vb) message("\nGenerating session-level asset statistics...")
-  generate_fresh_asset_stats_csvs(delete_old = TRUE)
+  update_csv_folders_data_rpt()
   
-  if (vb) message("\nGenerating volume demographics CSVs...")
-  generate_fresh_volume_demo_csvs(delete_old = TRUE)
+  # if (vb) message("\nGenerating session-level asset statistics...")
+  # generate_fresh_asset_stats_csvs(delete_old = TRUE)
+  # 
+  # if (vb) message("\nGenerating volume demographics CSVs...")
+  # generate_fresh_volume_demo_csvs(delete_old = TRUE)
+  # 
+  # if (vb) message("\nGenerating volume owner CSVs...")
+  # generate_fresh_owners_csvs()
   
-  if (vb) message("\nGenerating volume owner CSVs...")
-  generate_fresh_owners_csvs()
 }
 
 #------------------------------------------------------------------------------
@@ -164,11 +163,15 @@ prepare_to_update_csvs <- function() {
 }
 
 #------------------------------------------------------------------------------
-update_csv_folders_data_rpt <- function() {
+update_csv_folders_data_rpt <- function(vb = TRUE) {
+
+  message("\nChecking data directories and .gitignore files...")
   prepare_to_update_csvs()
   
-  message("Updating supporting CSV files. Please be patient.")
+  message("\nUpdating supporting CSV files. Please be patient.")
   targets::tar_make()
   
+  message("\nGenerating HTML report.")
   bookdown::render_book('src')
+  utils::browseURL("docs/index.html")
 }
