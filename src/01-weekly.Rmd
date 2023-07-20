@@ -1,22 +1,28 @@
 # Weekly
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+These data are collected and reported on roughly a weekly basis.
 
-databraryr::login_db(Sys.getenv("databraryr_LOGIN"))
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
 
 # Graphic theme elements
 ln_size <- 3
 base_size <- 14
 color_orange <- "#ec7751"
 color_teal <- "#4CAE99"
-color_purple <-"#AB00FF"
+color_purple <- "#AB00FF"
 
-databrary_theme <- 
+databrary_theme <-
   ggplot2::theme_classic(base_size = base_size) +
   ggplot2::theme(axis.title.x = ggplot2::element_blank()) +
-  ggplot2::theme(legend.position="none", 
-        axis.text = ggplot2::element_text(size = ggplot2::rel(0.8), colour = "black")) +
+  ggplot2::theme(
+    legend.position = "none",
+    axis.text = ggplot2::element_text(size = ggplot2::rel(0.8), colour = "black")
+  ) +
   ggplot2::theme(axis.line = ggplot2::element_blank()) +
   ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
 ```
@@ -24,8 +30,10 @@ databrary_theme <-
 ## Institutions & Authorized Users {-}
 
 ```{r}
-targets::tar_load(inst_invest_csv, store = '../_targets/')
-updated_stats <- inst_invest_csv
+# targets::tar_load(inst_invest_csv, store = '../_targets/')
+# updated_stats <- inst_invest_csv
+targets::tar_load(inst_invest_df, store = '../_targets/')
+updated_stats <- inst_invest_df
 ```
 
 ```{r}
@@ -46,10 +54,10 @@ updated_stats <- updated_stats %>%
 
 <!-- Now, we plot the data. -->
 
-```{r}
+```{r fig-databrary-inst-invest-timeseries, fig.cap="Change over time in authorized investigators and authorizing institutions"}
 # Create a tidy form for plotting both institutions and investigators and affiliates
 gathered_stats <- updated_stats %>%
-  tidyr::gather(., key = "type", value = "count", -date) %>%
+  tidyr::gather(., key = "type", value = "count",-date) %>%
   dplyr::mutate(date = lubridate::as_date(date)) %>%
   dplyr::select(date, count, type) %>%
   dplyr::filter(type %in% c('institutions', 'investigators')) %>%
@@ -72,18 +80,37 @@ users_plot <- gathered_stats %>%
   databrary_theme +
   scale_y_continuous(breaks = seq(0, plyr::round_any(max(
     gathered_stats$count
-  ), 100, ceiling), 100), expand = c(0, 0)) +
+  ), 100, ceiling), 100),
+  expand = c(0, 0)) +
   coord_cartesian(ylim = c(0, plyr::round_any(max(
     gathered_stats$count
   ), 100, ceiling)))
 
 cowplot::ggdraw(users_plot) +
-  cowplot::draw_label(paste0(
-    "Investigators: ", updated_stats$investigators[n_rows],
-    " (+ ", delta_investigators, ")"), colour = color_teal, .65, .8) +
-  cowplot::draw_label(paste0(
-    "Institutions: ", updated_stats$institutions[n_rows],
-    " (+ ", delta_institutions, ")"), colour = color_orange, .75, .5)
+  cowplot::draw_label(
+    paste0(
+      "Investigators: ",
+      updated_stats$investigators[n_rows],
+      " (+ ",
+      delta_investigators,
+      ")"
+    ),
+    colour = color_teal,
+    .65,
+    .8
+  ) +
+  cowplot::draw_label(
+    paste0(
+      "Institutions: ",
+      updated_stats$institutions[n_rows],
+      " (+ ",
+      delta_institutions,
+      ")"
+    ),
+    colour = color_orange,
+    .75,
+    .5
+  )
 ```
 
 ### New Institutions {-}
@@ -110,9 +137,10 @@ if (!is.null(new_people)) {
   new_people %>%
     dplyr::mutate(db_url = paste0("https://databrary.org/party/", id)) %>%
     dplyr::select(., sortname, prename, affiliation, db_url) %>%
-    tidyr::unite(col = "Investigator Name", prename, sortname, sep=" ") %>%
-    knitr::kable(col.names = c("Full Name", "Affiliation", 
-                               "Databrary URL"), "html") %>%
+    tidyr::unite(col = "Investigator Name", prename, sortname, sep = " ") %>%
+    knitr::kable(col.names = c("Full Name", "Affiliation",
+                               "Databrary URL"),
+                 "html") %>%
     kableExtra::kable_styling(.) #%>%
 } else {
   cat("No new investigators since last report.")
@@ -174,7 +202,7 @@ gathered_vols <- updated_vols %>%
   tidyr::gather(., key = "type", value = "count", -date)
 ```
 
-```{r db-vols-plot}
+```{r db-vols-plot, fig.cap="Change in shared and unshared volumes over time."}
 # Plot
 vols_plot <- gathered_vols %>%
   ggplot(., aes(
@@ -351,7 +379,7 @@ citations <- citations %>%
 ```
 
 
-```{r db-dv-citations-plot}
+```{r db-dv-citations-plot, fig.cap="Change in citations of Databrary and Datavyu over time"}
 gathered_citations <- citations %>%
   tidyr::gather(., key = "type", value = "count", -date)
 

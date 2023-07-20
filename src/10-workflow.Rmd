@@ -8,9 +8,8 @@ This page describes the set of tools we use to generate these data and present t
 
 We use GitHub's pages feature to serve the web site files.
 
-At present, we are using a repository associated with Rick Gilmore's lab group (https://github.com/gilmore-lab/databrary-analytics/).
-Once the migration to the `bookdown` package is complete, we will move the repo to the Databrary organization on GitHub.
-That will result in the analytics site having the following url: https://databrary.github.io/analytics/.
+At present, we are using a repository associated with the Databrary organization (https://github.com/databrary/analytics).
+This results in the analytics site having the following url: https://databrary.github.io/analytics/.
 
 The site is built locally by Rick Gilmore or Andrea Seisler, then pushed to GitHub.
 
@@ -21,7 +20,7 @@ Most of the code is in R Markdown and R, with some CSS and JavaScript.
 
 We use a number of R packages in the workflow.
 
-### Databrary API {-}
+### Databraryr {-}
 
 The [`databraryr` package](https://github.com/databrary/databraryr/) provides a set of tools for interacting with the Databrary API and gathering data from the site.
 This package may be useful to some analysts whether or not they care about Databrary-specific analytics.
@@ -69,7 +68,7 @@ We use the [`renv`](https://rstudio.github.io/renv/articles/renv.html) package t
 ## Strategy {-}
 
 Some of the data elements in the report change often, but others do not.
-We have found it is faster and more convenient in many cases to download various data files from Databrary and store copies as comma-separated value (CSV) text files in `src/csv`. 
+We have found it is faster and more convenient in many cases to download various data files from Databrary and store copies as comma-separated value (CSV) text files in `src/csv`.
 
 Some of the CSVs contain potentially identifiable human subjects data, so we use a special `.gitignore` file to keep those files out of the git tracking scheme and prevent uploading them to GitHub.
 
@@ -82,9 +81,17 @@ Gilmore takes some solace in the following quotation from the father of literate
 
 >...the real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.
 
+### File-level dependencies
+
+Several files contain historical data and are used for generating the time series plots in the weekly report:
+
+- `src/csv/volumes-shared-unshared.csv`
+- `src/csv/citations-monthly.csv`
+- `src/csv/institutions-investigators.csv`
+- `src/csv/max-ids.csv`
+
 ### Roadmap {-}
 
-- Migrate ARS to `bookdown` branch; merge into main (March 2023).
 - Fix when targets are run for which flows.
     - This is a work in-progress.
 - Separate functions in `R/functions.R` into separate files based on their context. The current `R/functions.R` contains mostly old code from the pre-`bookdown` version of the site. The styles are inconsistent and the large file is hard to maintain.
@@ -100,7 +107,7 @@ Gilmore takes some solace in the following quotation from the father of literate
 
 ```{r logut-databrary, include=FALSE}
 databraryr::logout_db()
-if (file.exists(".databrary.RData")) {
-  unlink(".databrary.RData", recursive = TRUE)
+if (file.exists("../.databrary.RData")) {
+  unlink("../.databrary.RData", recursive = TRUE)
 }
 ```

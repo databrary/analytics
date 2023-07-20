@@ -1,19 +1,21 @@
 # Investigators and Institutions
 
+
+
 ## Institutions {-}
 
 ```{r}
 library(targets)
 tar_load(inst_df, store = "../_targets/")
 
-inst_daa_df <- dplyr::filter(inst_df , daa == TRUE)
+inst_daa_df <- dplyr::filter(inst_df, daa == TRUE)
 ```
 
 There are `r dim(inst_df)[1]` total institutions in the Databrary system.
 
 Of these, `r dim(inst_daa_df)[1]` or `r paste0(format(dim(inst_daa_df)[1]/dim(inst_df)[1] * 100, digits = 3, nsmall = 1), "%")` have active Databrary Access Agreements (DAA).
 
-## Investigators per institution  {-}
+## Investigators per institution {-}
 
 ```{r}
 ai_stats <- fivenum(inst_daa_df$n_auth_invest)

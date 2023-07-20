@@ -6,6 +6,66 @@
 # These functions process data about institutions and authorized investigators
 
 #-------------------------------------------------------------------------------
+update_inst_invest_df <-
+  function(csv_dir = "csv", csv_fn = "institutions-investigators.csv") {
+    stopifnot(is.character(csv_dir))
+    stopifnot(is.character(csv_fn))
+    
+    old_df <- load_old_inst_invest_data(csv_dir, csv_fn)
+    new_item <- get_inst_invest_datab()
+    
+    new_df <- old_df
+    next_entry <- dim(old_df)[1] + 1
+    new_df[next_entry, ] = NA
+    new_df[next_entry, ] <- new_item
+    new_df
+  }
+
+#-------------------------------------------------------------------------------
+load_old_inst_invest_data <-
+  function(csv_dir = "csv", csv_fn = "institutions-investigators.csv") {
+    stopifnot(dir.exists(csv_dir))
+    stopifnot(file.exists(file.path(csv_dir, csv_fn)))
+    
+    old_stats <-
+      readr::read_csv(file.path(csv_dir, csv_fn), show_col_types = FALSE)
+    dplyr::mutate(old_stats, date = lubridate::as_datetime(date))
+  }
+
+#-------------------------------------------------------------------------------
+get_inst_invest_datab <- function() {
+  # suppressPackageStartupMessages(require(tidyverse))
+  
+  new_stats <- databraryr::get_db_stats()
+  new_stats$date <- lubridate::as_datetime(new_stats$date)
+  
+  new_stats <- new_stats %>%
+    dplyr::select(date, institutions, investigators, affiliates) %>%
+    dplyr::mutate(date = lubridate::as_datetime(date))
+  
+  if (rlang::is_empty(new_stats)) {
+    warning("Unable to retrieve new statistics from Databrary.")
+    NULL
+  } else {
+    new_stats
+  }
+}
+
+#-------------------------------------------------------------------------------
+update_inst_invest_csv <-
+  function(df,
+           csv_dir = "csv",
+           csv_fn = "institutions-investigators.csv") {
+    stopifnot(!rlang::is_empty(df))
+    stopifnot(dir.exists(csv_dir))
+    stopifnot(file.exists(file.path(csv_dir, csv_fn)))
+    
+    fn <- file.path(csv_dir, csv_fn)
+    readr::write_csv(df, fn)
+    fn
+  }
+
+#-------------------------------------------------------------------------------
 update_invest_csv <- function(all_inst_df,
                               csv_dir = "src/csv",
                               vb = FALSE) {
@@ -37,6 +97,8 @@ update_invest_csv <- function(all_inst_df,
   if (vb)
     message("Writing CSV: ", fn)
   readr::write_csv(ais_df, fn)
+  
+  fn
 }
 
 #-------------------------------------------------------------------------------
@@ -310,6 +372,8 @@ get_save_many_inst_csvs <-
                 csv_dir,
                 vb,
                 .progress = "Inst CSVs:")
+    
+    list.files(csv_dir, "inst\\-[0-9]+\\.csv", full.names = TRUE)
   }
 
 #-------------------------------------------------------------------------------
@@ -355,13 +419,11 @@ extract_inst_csv_id <- function(csv_dir = "src/csv", vb = FALSE) {
 
 #-------------------------------------------------------------------------------
 make_inst_df_from_csvs <-
-  function(n_inst_csvs, csv_dir = "src/csv",
+  function(csv_dir = "src/csv",
            omit_inst_id = '00002',
            vb = FALSE) {
     stopifnot(is.character(csv_dir))
     stopifnot(dir.exists(csv_dir))
-    
-    if (vb) message("Stored n CSVS: ", n_inst_csvs)
     
     fl <-
       list.files(csv_dir, "inst\\-[0-9]+\\.csv", full.names = TRUE)
