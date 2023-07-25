@@ -152,6 +152,7 @@ update_all_vol_stats <- function(max_volume_id,
   )
   
   databraryr::logout_db()
+  list.files(path = "src/csv", pattern = '-assets\\.csv', full.names = TRUE)
 }
 
 #-------------------------------------------------------------------------------

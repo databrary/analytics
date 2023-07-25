@@ -42,10 +42,15 @@ list(
   ),
   #----------------------------------------------------------------------------
   # Volume tags and keywords
-  tar_target(volume_tags_df,
-             refresh_volume_tags_df(1:max_vol_id)),
+  tarchetypes::tar_age(
+    volume_tags_df,
+    refresh_volume_tags_df(1:max_vol_id),
+    age = as.difftime(4, units = "weeks")
+  ),
   tar_target(vol_tags_csv,
-             update_vol_tags_csv(volume_tags_df, "src/csv")),
+             format = "file",
+             update_vol_tags_csv(volume_tags_df, "src/csv")
+  ),
   #----------------------------------------------------------------------------
   # Funders
   tar_target(volume_funders_df,
@@ -61,11 +66,16 @@ list(
     generate_volume_asset_csv_list("src/csv"),
     cue = tar_cue(mode = "always")
   ),
-  tar_target(volume_asset_stats_csvs,
-             update_all_vol_stats(max_vol_id)),
-  tar_target(
+  tarchetypes::tar_age(
+    volume_asset_stats_csvs,
+    update_all_vol_stats(max_vol_id),
+    format = "file",
+    age = as.difftime(4, units = "weeks")
+  ),
+  tarchetypes::tar_age(
     volume_asset_stats_df,
-    make_volume_assets_stats_df(volume_asset_csv_list)
+    make_volume_assets_stats_df(volume_asset_csv_list),
+    age = as.difftime(4, units = "weeks")
   ),
   #----------------------------------------------------------------------------
   # Volume demographics from spreadsheets
@@ -99,16 +109,15 @@ list(
     # Starts with the max current party_id stored locally or 1 (if no files)
     command = get_save_many_inst_csvs(max(extract_inst_csv_id(), 1), max_party_id, update_geo = TRUE),
     format = "file",
-    age = as.difftime(1, units = "weeks")
+    age = as.difftime(2, units = "weeks")
   ),
-  tarchetypes::tar_age(
-    inst_df,
-    make_inst_df_from_csvs(),
-    age = as.difftime(3, units = "days")),
+  tarchetypes::tar_age(inst_df,
+                       make_inst_df_from_csvs(),
+                       age = as.difftime(6, units = "days")),
   tarchetypes::tar_age(
     invest_df,
     readr::read_csv('src/csv/all-ais.csv', show_col_types = FALSE),
-    age = as.difftime(3, units = "days")
+    age = as.difftime(6, units = "days")
   ),
   tarchetypes::tar_age(
     make_all_ais_csv,
