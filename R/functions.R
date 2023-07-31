@@ -169,7 +169,7 @@ load_old_tags_data <-
   }
 
 #-------------------------------------------------------------------------------
-refresh_volume_tags_df <- function(vol_ids = 1:100) {
+refresh_volume_tags_df <- function(vol_ids = 1:100, vb = TRUE) {
   message(
     "Refreshing tags & keywords data for volumes ",
     min(vol_ids),
@@ -179,6 +179,7 @@ refresh_volume_tags_df <- function(vol_ids = 1:100) {
   )
   purrr::map_df(.x = vol_ids,
                 .f = make_volume_tags_df,
+                vb = vb,
                 .progress = "Vol tags:")
 }
 

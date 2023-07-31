@@ -42,15 +42,15 @@ list(
   ),
   #----------------------------------------------------------------------------
   # Volume tags and keywords
-  tarchetypes::tar_age(
-    volume_tags_df,
-    refresh_volume_tags_df(1:max_vol_id),
-    age = as.difftime(4, units = "weeks")
-  ),
-  tar_target(vol_tags_csv,
-             format = "file",
-             update_vol_tags_csv(volume_tags_df, "src/csv")
-  ),
+  # tarchetypes::tar_age(
+  #   volume_tags_df,
+  #   refresh_volume_tags_df(1:max_vol_id),
+  #   age = as.difftime(4, units = "weeks")
+  # ),
+  # tar_target(vol_tags_csv,
+  #            format = "file",
+  #            update_vol_tags_csv(volume_tags_df, "src/csv")
+  # ),
   #----------------------------------------------------------------------------
   # Funders
   tar_target(volume_funders_df,
@@ -61,10 +61,10 @@ list(
   ),
   #----------------------------------------------------------------------------
   # Volume assets
-  tar_target(
+  tarchetypes::tar_age(
     volume_asset_csv_list,
     generate_volume_asset_csv_list("src/csv"),
-    cue = tar_cue(mode = "always")
+    age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
     volume_asset_stats_csvs,
