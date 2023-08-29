@@ -12,3 +12,10 @@ Analyses of Databrary usage, downloads, & data.
 - Execute `setup_anew("<my_email@my_inst.edu>")` from the R console, substituting your Databrary login email for `<my_email@my_inst.edu>`. **Note**: This will complete the setup needed for running the analytics reports, including generating local copies of various CSV files needed for the 
 system-wide reports. The process can take 1.5-2 hours, so please be patient.
 - When `setup_anew()` finishes, the (`bookdown`) rendered report should open in your default browser.
+- save Databrary login in .Renviron file 
+     - Run `usethis::edit_r_environ()` 
+     - Enter this line `DATABRARY_LOGIN="youremail@address"`
+- make sure file was saved `Sys.getenv("DATABRARY_LOGIN")`
+- run `targets::tar_make()`
+     
+
