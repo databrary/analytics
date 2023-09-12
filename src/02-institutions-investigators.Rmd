@@ -41,23 +41,23 @@ inst_daa_df |>
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
-### Map {-}
+<!-- ### Map {-} -->
 
-```{r site-map, fig.align='center', out.width='100%'}
-lat_lon_df <- inst_daa_df |>
-  dplyr::filter(!is.na(lat), !is.na(lon))
+<!-- ```{r site-map, fig.align='center', out.width='100%'} -->
+<!-- lat_lon_df <- inst_daa_df |> -->
+<!--   dplyr::filter(!is.na(lat), !is.na(lon)) -->
 
-ggmap::qmplot(lon, lat, 
-              data = lat_lon_df, 
-              geom = "point",
-              scale = 4)
-```
+<!-- ggmap::qmplot(lon, lat,  -->
+<!--               data = lat_lon_df,  -->
+<!--               geom = "point", -->
+<!--               scale = 4) -->
+<!-- ``` -->
 
-::: {.rmdnote}
+<!-- ::: {.rmdnote} -->
 
-**TODO**: Add the automatic creation of the JSON file needed to update and render the map on the Databrary home page.
+<!-- **TODO**: Add the automatic creation of the JSON file needed to update and render the map on the Databrary home page. -->
 
-:::
+<!-- ::: -->
 
 ## Investigators {-}
 
