@@ -96,7 +96,7 @@ cowplot::ggdraw(users_plot) +
       ")"
     ),
     colour = color_teal,
-    .65,
+    .6,
     .8
   ) +
   cowplot::draw_label(
@@ -237,8 +237,8 @@ cowplot::ggdraw(vols_plot) +
       ")"
     ),
     colour = color_teal,
-    .6,
-    .85
+    .75,
+    .50
   ) +
   cowplot::draw_label(
     paste0(
@@ -249,8 +249,8 @@ cowplot::ggdraw(vols_plot) +
       ")"
     ),
     colour = color_orange,
-    .75,
-    .50
+    .6,
+    .85
   )
 ```
 
