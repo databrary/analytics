@@ -3,7 +3,7 @@
 library(targets)
 library(tarchetypes)
 
-source("R/functions.R")
+source("R/report_functions.R")
 source("R/volume_asset_functions.R")
 source("R/institution_investigator_functions.R")
 source("R/constants.R")
@@ -25,6 +25,15 @@ tar_option_set(
 )
 
 list(
+  #----------------------------------------------------------------------------
+  # Login Databrary
+  tar_target(
+    databrary_login_status,
+    databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"), store = TRUE),
+    cue = tar_cue(mode = "always")
+  ),
+  #----------------------------------------------------------------------------
+  # Max party and volume ids
   tar_target(max_ids,
              update_max_vol_party_ids(),
              cue = tar_cue(mode = "always")),
@@ -62,14 +71,15 @@ list(
   #----------------------------------------------------------------------------
   # Volume assets
   tarchetypes::tar_age(
-    volume_asset_csv_list,
-    generate_volume_asset_csv_list("src/csv"),
+    volume_asset_stats_csvs,
+    update_all_vol_stats(max_vol_id, 
+                         db_login_status = databrary_login_status),
+    format = "file",
     age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
-    volume_asset_stats_csvs,
-    update_all_vol_stats(max_vol_id),
-    format = "file",
+    volume_asset_csv_list,
+    generate_volume_asset_csv_list("src/csv"),
     age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
@@ -79,10 +89,13 @@ list(
   ),
   #----------------------------------------------------------------------------
   # Volume demographics from spreadsheets
-  tar_target(volume_ss_csvs,
-             get_volume_demo_save_csv_mult(1, max_vol_id)),
   tar_target(volume_owners_csv,
              get_all_owners_save_csvs(max_vol_id)),
+  tar_target(
+    volume_ss_csvs,
+    get_volume_demo_save_csv_mult(1, max_vol_id, 
+                                  db_login_status = databrary_login_status)
+  ),
   tar_target(
     volume_ss_csv_fl,
     list.files('src/csv', "[0-9]+\\-sess\\-materials\\.csv", full.names = TRUE),
@@ -93,21 +106,25 @@ list(
   #----------------------------------------------------------------------------
   # Institutions and investigators (detailed)
   #
-  # Every 3 days, we create a new inst_df from the saved CSVs, just to keep it fresh
-  # Every 1 week, we update the institution CSVs starting with the max party_id
+  # Every 6 days, we create a new inst_df from the saved CSVs, just to keep it fresh
+  # Every 6 days, we create a new invest_df from the saved CSVs, just to keep it fresh
+  # Every 2 weeks, we update the institution CSVs starting with the max party_id
   # Every 4 weeks, we update _all_ of the institution CSVs to capture changes
   # Every 4 weeks, we update the investigators at all of the institutions and
   #  save it as a CSV 'src/csv/all-ais.csv'.
   tarchetypes::tar_age(
     update_all_inst_csvs,
-    get_save_many_inst_csvs(1, max_party_id, update_geo = TRUE),
+    get_save_many_inst_csvs(1, max_party_id, update_geo = FALSE, 
+                            db_login_status = databrary_login_status),
     format = "file",
     age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
     name = add_new_inst_csvs,
     # Starts with the max current party_id stored locally or 1 (if no files)
-    command = get_save_many_inst_csvs(max(extract_inst_csv_id(), 1), max_party_id, update_geo = TRUE),
+    command = get_save_many_inst_csvs(max(extract_inst_csv_id(), 1), 
+                                      max_party_id, update_geo = FALSE,
+                                      db_login_status = databrary_login_status),
     format = "file",
     age = as.difftime(2, units = "weeks")
   ),
@@ -128,5 +145,6 @@ list(
   #-----------------------------------------------------------------------------
   # Volume-level sessions
   tar_target(vols_sess_df,
-             get_many_volumes_data(1, max_vol_id))
+             get_many_volumes_data(1, max_vol_id, 
+                                   db_login_status = databrary_login_status))
 )

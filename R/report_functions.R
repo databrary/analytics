@@ -102,7 +102,7 @@ auth_to_google <- function(gacct = "rick.o.gilmore") {
 #   function(csv_dir = "csv", csv_fn = "institutions-investigators.csv") {
 #     stopifnot(dir.exists(csv_dir))
 #     stopifnot(file.exists(file.path(csv_dir, csv_fn)))
-#
+#     
 #     old_stats <-
 #       readr::read_csv(file.path(csv_dir, csv_fn), show_col_types = FALSE)
 #     dplyr::mutate(old_stats, date = lubridate::as_datetime(date))
@@ -111,14 +111,14 @@ auth_to_google <- function(gacct = "rick.o.gilmore") {
 #-------------------------------------------------------------------------------
 # get_inst_invest_datab <- function() {
 #   suppressPackageStartupMessages(require(tidyverse))
-#
+#   
 #   new_stats <- databraryr::get_db_stats()
 #   new_stats$date <- lubridate::as_datetime(new_stats$date)
-#
+#   
 #   new_stats <- new_stats %>%
 #     dplyr::select(date, institutions, investigators, affiliates) %>%
 #     dplyr::mutate(date = lubridate::as_datetime(date))
-#
+#   
 #   if (rlang::is_empty(new_stats)) {
 #     warning("Unable to retrieve new statistics from Databrary.")
 #     NULL
@@ -132,7 +132,7 @@ auth_to_google <- function(gacct = "rick.o.gilmore") {
 #   function(csv_dir = "csv", csv_fn = "institutions-investigators.csv") {
 #     old_df <- load_old_inst_invest_data(csv_dir, csv_fn)
 #     new_item <- get_inst_invest_datab()
-#
+#     
 #     new_df <- old_df
 #     next_entry <- dim(old_df)[1] + 1
 #     new_df[next_entry, ] = NA
@@ -148,7 +148,7 @@ auth_to_google <- function(gacct = "rick.o.gilmore") {
 #     stopifnot(!rlang::is_empty(df))
 #     stopifnot(dir.exists(csv_dir))
 #     stopifnot(file.exists(file.path(csv_dir, csv_fn)))
-#
+#     
 #     fn <- file.path(csv_dir, csv_fn)
 #     readr::write_csv(df, fn)
 #     fn
@@ -177,12 +177,10 @@ refresh_volume_tags_df <- function(vol_ids = 1:100, vb = TRUE) {
     max(vol_ids),
     ". Please be patient."
   )
-  purrr::map_df(
-    .x = vol_ids,
-    .f = make_volume_tags_df,
-    vb = vb,
-    .progress = "Vol tags:"
-  )
+  purrr::map_df(.x = vol_ids,
+                .f = make_volume_tags_df,
+                vb = vb,
+                .progress = "Vol tags:")
 }
 
 #-------------------------------------------------------------------------------
@@ -247,7 +245,7 @@ make_stem_tags_df <- function(tags_df,
   
   stem_vols_df <- stem_vols_df %>%
     dplyr::filter(., vol_id != 109) %>% # Empty volume
-    dplyr::select(., -owners, -permission, -doi)
+    dplyr::select(.,-owners,-permission,-doi)
   
   stem_vols_df
 }
@@ -266,10 +264,6 @@ get_volume_funding <- function(vol_id, vb = FALSE) {
 
 #-------------------------------------------------------------------------------
 refresh_volume_funders_df <- function(vol_ids = 1:1520) {
-  assertthat::is.number(vol_ids)
-  assertthat::assert_that(sum(vol_ids > 0) == length(vol_ids), 
-                          msg = "Not all volume indices are positive numbers")
-  
   message(
     "Refreshing funders data for volumes ",
     min(vol_ids),
@@ -643,7 +637,7 @@ get_volume_demog <- function(vol_id = 4, vb = FALSE) {
     names(r_df) <- stringr::str_replace_all(names(r_df),
                                             pattern = "[\\-|\\.| ]", replacement = "_")
     r_df <-
-      dplyr::filter(r_df,!(stringr::str_detect(session_date, 'materials')))
+      dplyr::filter(r_df, !(stringr::str_detect(session_date, 'materials')))
     r_df <- dplyr::mutate(r_df,
                           session_id = as.character(session_id))
     # TODO: Devise a more elegant way to clean-up/normalize the spreadsheet data
@@ -900,7 +894,8 @@ get_volumes_demo <- function(min_vol_id = 1,
 get_volume_demo_save_csv_mult <- function(min_vol_id = 1,
                                           max_vol_id = 10,
                                           csv_dir = 'src/csv',
-                                          vb = FALSE) {
+                                          vb = FALSE,
+                                          db_login_status = FALSE) {
   stopifnot(is.numeric(min_vol_id))
   stopifnot(min_vol_id > 0)
   stopifnot(is.numeric(max_vol_id))
@@ -909,12 +904,15 @@ get_volume_demo_save_csv_mult <- function(min_vol_id = 1,
   stopifnot(is.character(csv_dir))
   stopifnot(dir.exists(csv_dir))
   
+  if (!db_login_status) stop("Not logged in to Databrary.")
+  
   vols_range <- min_vol_id:max_vol_id
   
-  db_status <- databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
-  if (!db_status) {
-    message("Unable to login to Databrary. Only public data will be gathered")
-  }
+ 
+  # db_status <- databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
+  # if (!db_status) {
+  #   message("Unable to login to Databrary. Only public data will be gathered")
+  # }
   
   if (vb)
     message(paste0(
@@ -927,7 +925,7 @@ get_volume_demo_save_csv_mult <- function(min_vol_id = 1,
   
   purrr::walk(vols_range, get_volume_ss_save_csv, csv_dir, vb, .progress = "Vol ss:")
   
-  databraryr::logout_db()
+  #databraryr::logout_db()
 }
 
 #-------------------------------------------------------------------------------
@@ -1094,7 +1092,7 @@ get_volume_first_owner <- function(vol_id) {
   if (rlang::is_empty(df)) {
     NULL
   } else {
-    df[1, ]
+    df[1,]
   }
 }
 
@@ -1218,10 +1216,15 @@ get_all_owners_save_csvs <-
     stopifnot(dir.exists(dir))
     
     # TODO: Fix this hack
+    message("Get owners from volumes 1:500")
     get_save_volumes_owners(1, 500)
+    message("Get owners from volumes 501:1000")
     get_save_volumes_owners(501, 1000)
+    message("Get owners from volumes 1001:1275")
     get_save_volumes_owners(1001, 1275) # skip 1276 & 1277 because no owners
+    message("Get owners from volumes 1278:1500")
     get_save_volumes_owners(1278, 1500)
+    message("Get owners from volumes 1501:", max_vol_id)
     get_save_volumes_owners(1501, max_vol_id)
   }
 
@@ -1302,7 +1305,7 @@ get_volume_ss <- function(vol_id = 1,
     df <- v_ss
     if (omit_materials) {
       df <-
-        dplyr::filter(df,!(stringr::str_detect(session_date, 'materials')))
+        dplyr::filter(df, !(stringr::str_detect(session_date, 'materials')))
     }
     df$vol_id <- vol_id
     return(df)
@@ -1354,7 +1357,7 @@ get_volume_ss_vroom <- function(vol_id = 4,
     names(df) <- stringr::str_replace_all(names(df), '[-\\. ]', '_')
     if (omit_materials) {
       df <-
-        dplyr::filter(df,!(stringr::str_detect(session_date, 'materials')))
+        dplyr::filter(df, !(stringr::str_detect(session_date, 'materials')))
     }
     df$vol_id <- as.character(vol_id)
     return(df)
@@ -1444,7 +1447,7 @@ extract_sessions_from_vol_csv <-
         message("CSV empty: ", csv_fn)
       NULL
     } else {
-      dplyr::filter(df,!(stringr::str_detect(session_date, 'materials')))
+      dplyr::filter(df, !(stringr::str_detect(session_date, 'materials')))
     }
   }
 
@@ -1461,7 +1464,7 @@ count_sessions_materials_folders <-
       NULL
     } else {
       df_sess <-
-        dplyr::filter(df,!(stringr::str_detect(session_date, 'materials')))
+        dplyr::filter(df, !(stringr::str_detect(session_date, 'materials')))
       n_sess <- dim(df_sess)[1]
       
       df_materials <-
@@ -1600,7 +1603,7 @@ extract_particip_info_session_date <- function(df) {
 
 #-------------------------------------------------------------------------------
 remove_materials <- function(df) {
-  dplyr::filter(df,!str_detect(df$`session-date`, '[Mm]aterials'))
+  dplyr::filter(df, !str_detect(df$`session-date`, '[Mm]aterials'))
 }
 
 #-------------------------------------------------------------------------------
@@ -1787,26 +1790,26 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #   # Filter
 #   # if (vb) message("Getting updated institutional info")
 #   # all_inst_df <- get_all_inst(csv_dir, save_csv = TRUE, vb)
-#
+#   
 #   if (vb)
 #     message("Filtering for active institutions with AIs.")
 #   inst_ids <-
 #     dplyr::filter(all_inst_df, daa == TRUE, n_auth_invest > 0) %>%
 #     dplyr::select(inst_id)
 #   ids <- as.integer(unlist(inst_ids))
-#
+#   
 #   if (vb)
 #     message("There are n=",
 #             dim(ids)[1],
 #             " institutions with AIs. Retrieving AI info.")
-#
+#   
 #   ais_l <-
 #     purrr::map(ids, get_ais_from_inst, vb, .progress = "AIs from insts:")
-#
+#   
 #   if (vb)
 #     message("Making data frame.")
 #   ais_df <- purrr::list_rbind(ais_l)
-#
+#   
 #   fn <- file.path(csv_dir, "all-ais.csv")
 #   if (vb)
 #     message("Writing CSV: ", fn)
@@ -1833,16 +1836,16 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #                          save_csv = TRUE,
 #                          vb = FALSE) {
 #   inst_fl <- list.files(csv_dir, "inst\\-[0-9]+", full.names = TRUE)
-#
+#   
 #   if (vb)
 #     message("Loading institution CSVs from ", csv_dir)
 #   inst_l <-
 #     purrr::map(inst_fl, readr::read_csv, show_col_types = FALSE)
-#
+#   
 #   if (vb)
 #     message("Making dataframe.")
 #   inst_df <- purrr::list_rbind(inst_l)
-#
+#   
 #   if (save_csv) {
 #     fn <- file.path(csv_dir, "all-institutions.csv")
 #     if (vb)
@@ -1851,20 +1854,20 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #   }
 #   inst_df
 # }
-#
+# 
 # #-------------------------------------------------------------------------------
 # get_ais_from_inst <- function(inst_id = 8, vb = FALSE) {
 #   if (vb)
 #     message("Getting AIs from institution ", inst_id)
 #   inst_df <- databraryr::list_party(inst_id)
-#
+#   
 #   if (!is.null(dim(inst_df$children))) {
 #     ais_df <- as.data.frame(inst_df$children$party)
 #     ais_df <- dplyr::rename(ais_df,
 #                             ai_id = id,
 #                             ai_last = sortname,
 #                             ai_first = prename)
-#
+#     
 #     df <- tibble::tibble(ais_df)
 #     df <- dplyr::mutate(
 #       df,
@@ -1874,14 +1877,14 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #       ai_db_url = paste0("https://nyu.databrary.org/party/", ai_id)
 #     )
 #     df$n_affils <- count_affiliates_for_ais(df$ai_id)
-#
+#     
 #     df <- dplyr::arrange(df, desc(n_affils), ai_last, ai_first)
 #     df
 #   } else {
 #     NULL
 #   }
 # }
-#
+# 
 # #-------------------------------------------------------------------------------
 # count_affiliates_for_ai <- function(ai_id) {
 #   affils <- databraryr::list_affiliates(ai_id)
@@ -1892,7 +1895,7 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #   }
 #   x
 # }
-#
+# 
 # #-------------------------------------------------------------------------------
 # count_affiliates_for_ais <- function(ai_ids) {
 #   purrr::map_dbl(ai_ids, count_affiliates_for_ai)
@@ -1950,7 +1953,7 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #   }
 #   df
 # }
-#
+# 
 # #-------------------------------------------------------------------------------
 # get_inst_info <-
 #   function(inst_id = 8,
@@ -1960,9 +1963,9 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #       warning('`inst_id` must be a number.')
 #       inst_id <- as.numeric(inst_id)
 #     }
-#
+#     
 #     suppressPackageStartupMessages(require(databraryr))
-#
+#     
 #     if (!db_credentials_valid()) {
 #       message(
 #         "Not logged in to Databrary. Running `databraryr::login_db()` with default credentials."
@@ -1970,12 +1973,12 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #       databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
 #       return(NULL)
 #     }
-#
+#     
 #     if (inst_id > 0) {
 #       if (databraryr::is_institution(inst_id)) {
 #         if (vb)
 #           message("Getting information for institution ", inst_id)
-#
+#         
 #         inst_df <- databraryr::list_party(inst_id)
 #         df <- data.frame(
 #           inst_id = inst_df$id,
@@ -2012,7 +2015,7 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #         message("`inst_id` must be a positive number.")
 #     }
 #   }
-#
+# 
 # #-------------------------------------------------------------------------------
 # get_inst_info_save_csv <-
 #   function(party_id = 8,
@@ -2024,14 +2027,14 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #     stopifnot(party_id > 0)
 #     stopifnot(is.character(csv_dir))
 #     stopifnot(dir.exists(csv_dir))
-#
+#     
 #     if (party_id %in% non_insts) {
 #       if (vb)
 #         message("Party ", party_id, " is not a physical institution. Skipping.")
 #       return(NULL)
 #     }
 #     this_inst <- get_inst_info(party_id, update_geo, vb)
-#
+#     
 #     if (!is.null(this_inst)) {
 #       fn <-
 #         file.path(csv_dir, paste0("inst-", stringr::str_pad(party_id, 5, pad = "0"), ".csv"))
@@ -2040,8 +2043,8 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #       readr::write_csv(this_inst, fn)
 #     }
 #   }
-#
-#
+# 
+# 
 # #-------------------------------------------------------------------------------
 # get_save_many_inst_csvs <-
 #   function(min_id = 1,
@@ -2056,12 +2059,12 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #     stopifnot(max_id >= min_id)
 #     stopifnot(is.character(csv_dir))
 #     stopifnot(dir.exists(csv_dir))
-#
+#     
 #     if (!ggmap::has_google_key()) {
 #       if (vb) message("No Google maps key found. No geo info will be updated.")
 #       update_geo = FALSE
 #     }
-#
+#     
 #     purrr::walk(min_id:max_id,
 #                 get_inst_info_save_csv,
 #                 update_geo,
@@ -2069,48 +2072,48 @@ create_complete_demog_df <- function(fl, vb = FALSE) {
 #                 vb,
 #                 .progress = "Inst CSVs:")
 #   }
-#
+# 
 # #-------------------------------------------------------------------------------
 # load_inst_df_from_csvs <- function(csv_fl, vb = FALSE) {
 #   stopifnot(is.character(csv_fl))
-#
+#   
 #   if (vb)
 #     message("Creating data frame from institution CSVs.")
 #   purrr::map(csv_fl, readr::read_csv, show_col_types = FALSE) |> purrr::list_rbind()
 # }
 
 #-------------------------------------------------------------------------------
-db_credentials_valid <- function() {
-  if (file.exists('.databrary.RData')) {
-    TRUE
-  } else {
-    FALSE
-  }
-}
+# db_credentials_valid <- function() {
+#   if (file.exists('.databrary.RData')) {
+#     TRUE
+#   } else {
+#     FALSE
+#   }
+# }
 
 # #-------------------------------------------------------------------------------
 # update_inst_lat_lon <- function(inst_df, vb = FALSE) {
 #   stopifnot(is.data.frame(inst_df))
-#
+#   
 #   if (vb) message(" Calling ggmap::geocode() with '", inst_df$inst_name, "'.")
 #   ll <- ggmap::geocode(as.character(inst_df$inst_name), override_limit = TRUE)
-#
+#   
 #   inst_df$lat = NA
 #   inst_df$lon = NA
-#
+#   
 #   if (!is.na(ll$lat))
 #     inst_df$lat <- ll$lat
 #   if (!is.na(ll$lon))
 #     inst_df$lon <- ll$lon
-#
+#   
 #   inst_df
 # }
-#
+# 
 # #-------------------------------------------------------------------------------
 # extract_inst_csv_id <- function(csv_dir = "src/csv", vb = FALSE) {
 #   stopifnot(is.character(csv_dir))
 #   stopifnot(dir.exists(csv_dir))
-#
+#   
 #   inst_fl <- list.files(csv_dir, "^inst\\-[0-9]{5}")
 #   as.numeric(stringr::str_extract(inst_fl, "[0-9]{5}"))
 # }
@@ -2158,13 +2161,16 @@ get_volume_data <-
 get_many_volumes_data <-
   function(min_vol = 1,
            max_vol = 10,
-           vb = FALSE) {
+           vb = FALSE,
+           db_login_status = FALSE) {
     stopifnot(is.numeric(min_vol))
     stopifnot(min_vol > 0)
     stopifnot(is.numeric(max_vol))
     stopifnot(max_vol > 0)
     stopifnot(min_vol < max_vol)
-    stopifnot(databraryr::login_db(Sys.getenv("DATABRARY_LOGIN")))
+    
+    if (!db_login_status) stop("Not logged in to Databrary")
+    #stopifnot(databraryr::login_db(Sys.getenv("DATABRARY_LOGIN")))
     
     vol_index <- min_vol:max_vol
     # vols_data <- lapply(vol_index, get_volume_data)

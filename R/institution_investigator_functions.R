@@ -39,8 +39,8 @@ get_inst_invest_datab <- function() {
   new_stats <- databraryr::get_db_stats()
   new_stats$date <- lubridate::as_datetime(new_stats$date)
   
-  new_stats <- new_stats %>%
-    dplyr::select(date, institutions, investigators, affiliates) %>%
+  new_stats <- new_stats |>
+    dplyr::select(date, institutions, investigators, affiliates) |>
     dplyr::mutate(date = lubridate::as_datetime(date))
   
   if (rlang::is_empty(new_stats)) {
@@ -203,9 +203,9 @@ update_inst_csv <- function(csv_fn = "src/csv/institutions.csv",
                             max_id = 10868,
                             save_new = TRUE,
                             update_geo = FALSE,
-                            vb = FALSE) {
-  require(tidyverse)
-  
+                            vb = FALSE,
+                            db_login_status = FALSE) {
+
   if (file.exists(csv_fn)) {
     if (vb)
       message("Reading from saved file.")
@@ -221,6 +221,7 @@ update_inst_csv <- function(csv_fn = "src/csv/institutions.csv",
         purrr::map_df((max_old_inst_id + 1):max_id,
                       get_inst_info,
                       update_geo,
+                      db_login_status = db_login_status,
                       .progress = "Geo coords:")
       if (vb)
         message(" ", paste0(dim(new_inst)[1], " new institutions added."))
@@ -243,6 +244,7 @@ update_inst_csv <- function(csv_fn = "src/csv/institutions.csv",
                     get_inst_info,
                     update_geo = update_geo,
                     vb,
+                    db_login_status = db_login_status,
                     .progress = "Inst :")
     if (save_new) {
       if (vb)
@@ -257,21 +259,24 @@ update_inst_csv <- function(csv_fn = "src/csv/institutions.csv",
 get_inst_info <-
   function(inst_id = 8,
            update_geo = FALSE,
-           vb = FALSE) {
+           vb = FALSE,
+           db_login_status = FALSE) {
     if (!is.numeric(inst_id)) {
       warning('`inst_id` must be a number.')
       inst_id <- as.numeric(inst_id)
     }
     
-    suppressPackageStartupMessages(require(databraryr))
+    # suppressPackageStartupMessages(require(databraryr))
+    # 
+    # if (!db_credentials_valid()) {
+    #   message(
+    #     "Not logged in to Databrary. Running `databraryr::login_db()` with default credentials."
+    #   )
+    #   databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
+    #   return(NULL)
+    # }
     
-    if (!db_credentials_valid()) {
-      message(
-        "Not logged in to Databrary. Running `databraryr::login_db()` with default credentials."
-      )
-      databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
-      return(NULL)
-    }
+    if(!db_login_status) stop("Not logged in to Databrary.")
     
     if (inst_id > 0) {
       if (databraryr::is_institution(inst_id)) {
@@ -322,7 +327,8 @@ get_inst_info_save_csv <-
            update_geo = FALSE,
            csv_dir = "src/csv",
            vb = FALSE,
-           non_insts = c(2, 9, 10, 12, 15)) {
+           non_insts = c(2, 9, 10, 12, 15),
+           db_login_status = FALSE) {
     stopifnot(is.numeric(party_id))
     stopifnot(party_id > 0)
     stopifnot(is.character(csv_dir))
@@ -333,7 +339,7 @@ get_inst_info_save_csv <-
         message("Party ", party_id, " is not a physical institution. Skipping.")
       return(NULL)
     }
-    this_inst <- get_inst_info(party_id, update_geo, vb)
+    this_inst <- get_inst_info(party_id, update_geo, vb, db_login_status = db_login_status)
     
     if (!is.null(this_inst)) {
       fn <-
@@ -351,7 +357,8 @@ get_save_many_inst_csvs <-
            max_id = 100,
            update_geo = FALSE,
            csv_dir = 'src/csv',
-           vb = FALSE) {
+           vb = FALSE,
+           db_login_status = FALSE) {
     stopifnot(is.numeric(min_id))
     stopifnot(min_id > 0)
     stopifnot(is.numeric(max_id))
@@ -371,6 +378,7 @@ get_save_many_inst_csvs <-
                 update_geo,
                 csv_dir,
                 vb,
+                db_login_status = db_login_status,
                 .progress = "Inst CSVs:")
     
     list.files(csv_dir, "inst\\-[0-9]+\\.csv", full.names = TRUE)

@@ -119,7 +119,7 @@ update_all_vol_stats <- function(max_volume_id,
                                  save_file = TRUE,
                                  save_path = 'src/csv',
                                  vb = FALSE,
-                                 db_login = Sys.getenv("DATABRARY_LOGIN")) {
+                                 db_login_status) {
   stopifnot(is.numeric(max_volume_id))
   stopifnot(max_volume_id > 0)
   stopifnot(is.numeric(vols_per_pass))
@@ -128,11 +128,13 @@ update_all_vol_stats <- function(max_volume_id,
   stopifnot(is.character(save_path))
   stopifnot(dir.exists(save_path))
   stopifnot(is.logical(vb))
-  stopifnot(is.character(db_login))
+  stopifnot(is.logical(db_login_status))
   
   options(dplyr.summarise.inform = FALSE)
   
-  databraryr::login_db(db_login)
+  if (!db_login_status) stop("Not logged in to Databrary")
+  
+  #databraryr::login_db(db_login)
   
   # It may be unnecessary, but I do this in separate chunks
   # Some of the larger volumes have a lot of assets, and this
@@ -151,7 +153,7 @@ update_all_vol_stats <- function(max_volume_id,
     vb = vb
   )
   
-  databraryr::logout_db()
+  #databraryr::logout_db()
   list.files(path = "src/csv", pattern = '-assets\\.csv', full.names = TRUE)
 }
 
