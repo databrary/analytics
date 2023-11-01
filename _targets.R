@@ -44,7 +44,8 @@ list(
   #----------------------------------------------------------------------------
   # institution and investigator aggregate numbers
   tar_target(inst_invest_df,
-             update_inst_invest_df("src/csv")),
+             update_inst_invest_df("src/csv"),
+             age = as.difftime(6, units = "days")),
   tar_target(
     inst_invest_csv,
     update_inst_invest_csv(inst_invest_df, "src/csv")
