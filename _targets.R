@@ -43,11 +43,14 @@ list(
              max_ids$MAX_VOL_ID),
   #----------------------------------------------------------------------------
   # institution and investigator aggregate numbers
-  tar_target(inst_invest_df,
-             update_inst_invest_df("src/csv"),
-             age = as.difftime(6, units = "days")),
+  tarchetypes::tar_age(
+    inst_invest_df,
+    update_inst_invest_df("src/csv"),
+    age = as.difftime(6, units = "days")
+  ),
   tar_target(
     inst_invest_csv,
+    format = "file",
     update_inst_invest_csv(inst_invest_df, "src/csv")
   ),
   #----------------------------------------------------------------------------
@@ -73,7 +76,7 @@ list(
   # Volume assets
   tarchetypes::tar_age(
     volume_asset_stats_csvs,
-    update_all_vol_stats(max_vol_id, 
+    update_all_vol_stats(max_vol_id,
                          db_login_status = databrary_login_status),
     format = "file",
     age = as.difftime(4, units = "weeks")
@@ -94,7 +97,7 @@ list(
              get_all_owners_save_csvs(max_vol_id)),
   tar_target(
     volume_ss_csvs,
-    get_volume_demo_save_csv_mult(1, max_vol_id, 
+    get_volume_demo_save_csv_mult(1, max_vol_id,
                                   db_login_status = databrary_login_status)
   ),
   tar_target(
@@ -115,17 +118,24 @@ list(
   #  save it as a CSV 'src/csv/all-ais.csv'.
   tarchetypes::tar_age(
     update_all_inst_csvs,
-    get_save_many_inst_csvs(1, max_party_id, update_geo = FALSE, 
-                            db_login_status = databrary_login_status),
+    get_save_many_inst_csvs(
+      1,
+      max_party_id,
+      update_geo = FALSE,
+      db_login_status = databrary_login_status
+    ),
     format = "file",
     age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
     name = add_new_inst_csvs,
     # Starts with the max current party_id stored locally or 1 (if no files)
-    command = get_save_many_inst_csvs(max(extract_inst_csv_id(), 1), 
-                                      max_party_id, update_geo = FALSE,
-                                      db_login_status = databrary_login_status),
+    command = get_save_many_inst_csvs(
+      max(extract_inst_csv_id(), 1),
+      max_party_id,
+      update_geo = FALSE,
+      db_login_status = databrary_login_status
+    ),
     format = "file",
     age = as.difftime(2, units = "weeks")
   ),
@@ -145,7 +155,9 @@ list(
   ),
   #-----------------------------------------------------------------------------
   # Volume-level sessions
-  tar_target(vols_sess_df,
-             get_many_volumes_data(1, max_vol_id, 
-                                   db_login_status = databrary_login_status))
+  tar_target(
+    vols_sess_df,
+    get_many_volumes_data(1, max_vol_id,
+                          db_login_status = databrary_login_status)
+  )
 )
