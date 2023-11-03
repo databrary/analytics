@@ -45,13 +45,13 @@ list(
   # institution and investigator aggregate numbers
   tarchetypes::tar_age(
     inst_invest_df,
-    update_inst_invest_df("src/csv"),
+    update_inst_invest_df(paste0(here::here(), '/src/csv')),
     age = as.difftime(6, units = "days")
   ),
   tar_target(
     inst_invest_csv,
     format = "file",
-    update_inst_invest_csv(inst_invest_df, "src/csv")
+    update_inst_invest_csv(inst_invest_df, paste0(here::here(), '/src/csv'))
   ),
   #----------------------------------------------------------------------------
   # Volume tags and keywords
@@ -70,7 +70,7 @@ list(
              refresh_volume_funders_df(1:max_vol_id)),
   tar_target(
     volume_funders_csv,
-    update_volume_funders_csv(volume_funders_df, "src/csv")
+    update_volume_funders_csv(volume_funders_df, paste0(here::here(), '/src/csv'))
   ),
   #----------------------------------------------------------------------------
   # Volume assets
@@ -83,7 +83,7 @@ list(
   ),
   tarchetypes::tar_age(
     volume_asset_csv_list,
-    generate_volume_asset_csv_list("src/csv"),
+    generate_volume_asset_csv_list(paste0(here::here(), '/src/csv')),
     age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
@@ -102,7 +102,7 @@ list(
   ),
   tar_target(
     volume_ss_csv_fl,
-    list.files('src/csv', "[0-9]+\\-sess\\-materials\\.csv", full.names = TRUE),
+    list.files(paste0(here::here(), '/src/csv'), "[0-9]+\\-sess\\-materials\\.csv", full.names = TRUE),
     cue = tar_cue(mode = "always")
   ),
   tar_target(volume_demog_df,
@@ -144,7 +144,7 @@ list(
                        age = as.difftime(6, units = "days")),
   tarchetypes::tar_age(
     invest_df,
-    readr::read_csv('src/csv/all-ais.csv', show_col_types = FALSE),
+    readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'), show_col_types = FALSE),
     age = as.difftime(6, units = "days")
   ),
   tarchetypes::tar_age(

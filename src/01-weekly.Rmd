@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
 
-databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"))
+databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"), store = TRUE)
 
 # Graphic theme elements
 ln_size <- 3

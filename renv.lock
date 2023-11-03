@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.1",
+    "Version": "4.3.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -410,16 +410,13 @@
     },
     "databraryr": {
       "Package": "databraryr",
-      "Version": "0.4.1.9001",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "databraryr",
-      "RemoteUsername": "databrary",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "4795f6030080bc5f5425dbb1b7693d4efcb4f69f",
+      "Version": "0.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
+        "assertthat",
         "dplyr",
+        "getPass",
         "httr",
         "jsonlite",
         "keyring",
@@ -428,14 +425,13 @@
         "methods",
         "plyr",
         "purrr",
-        "rstudioapi",
         "rvest",
         "stringr",
         "tibble",
         "tidyr",
         "utils"
       ],
-      "Hash": "a5957d094b27b34d659fc08bfdf48dbd"
+      "Hash": "99b31e4aa833ac5ace5ccb629d580fae"
     },
     "dbplyr": {
       "Package": "dbplyr",
@@ -688,6 +684,18 @@
       ],
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86"
     },
+    "getPass": {
+      "Package": "getPass",
+      "Version": "0.2-2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "rstudioapi",
+        "utils"
+      ],
+      "Hash": "07a91f99e56951818ab911366db77700"
+    },
     "ggmap": {
       "Package": "ggmap",
       "Version": "3.0.2",
@@ -853,6 +861,16 @@
       ],
       "Hash": "9b302fe352f9cfc5dcf0a4139af3a565"
     },
+    "here": {
+      "Package": "here",
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "rprojroot"
+      ],
+      "Hash": "24b224366f9c2e7534d2344d10d59211"
+    },
     "highr": {
       "Package": "highr",
       "Version": "0.10",
@@ -897,9 +915,9 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.6.11",
+      "Version": "1.6.12",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
@@ -908,7 +926,7 @@
         "promises",
         "utils"
       ],
-      "Hash": "838602f54e32c1a0f8cc80708cefcefa"
+      "Hash": "c992f75861325961c29a188b45e549f7"
     },
     "httr": {
       "Package": "httr",
@@ -1342,18 +1360,19 @@
     },
     "promises": {
       "Package": "promises",
-      "Version": "1.2.0.1",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R6",
         "Rcpp",
+        "fastmap",
         "later",
         "magrittr",
         "rlang",
         "stats"
       ],
-      "Hash": "4ab2c43adb4d4699cf3690acd378d75d"
+      "Hash": "0d8a15c9d000970ada1ab21405387dee"
     },
     "ps": {
       "Package": "ps",
@@ -1524,6 +1543,16 @@
       ],
       "Hash": "79f14e53725f28900d936f692bfdd69f"
     },
+    "rprojroot": {
+      "Package": "rprojroot",
+      "Version": "2.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "1de7ab598047a87bba48434ba35d497d"
+    },
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.15.0",
@@ -1598,9 +1627,9 @@
     },
     "shiny": {
       "Package": "shiny",
-      "Version": "1.7.4.1",
+      "Version": "1.7.5.1",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "R6",
@@ -1628,7 +1657,7 @@
         "withr",
         "xtable"
       ],
-      "Hash": "f7f201522eedbc95f10ef323b100ff29"
+      "Hash": "5ec01cc255f2138fc2f0dc74d2b1a1a1"
     },
     "sodium": {
       "Package": "sodium",
