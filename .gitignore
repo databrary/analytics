@@ -5,3 +5,5 @@
 gh-databrary-analytics.Rproj
 .DS_Store
 .databrary.RData
+analytics.Rproj
+analytics-test.Rproj
