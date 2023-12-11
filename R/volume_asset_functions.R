@@ -2,6 +2,9 @@
 
 library(tidyverse)
 
+FIGSHARE_TB <- 3500 #https://knowledge.figshare.com/plus
+DRYAD_TB <- 5000 #https://datadryad.org/stash/faq
+
 #-------------------------------------------------------------------------------
 get_assets_in_vol <- function(vol_id, vb = FALSE) {
   stopifnot(is.numeric(vol_id))
@@ -232,8 +235,8 @@ ms_to_hrs <- function(ms) {
 
 storage_gb_by_vol <-
   function(df,
-           deposit_fee_figshare_gb = 2.34,
-           deposit_fee_dryad_gb = 5) {
+           deposit_fee_figshare_gb = FIGSHARE_TB/1000,
+           deposit_fee_dryad_gb = DRYAD_TB/1000) {
     df_new <- df |>
       dplyr::group_by(vol_id) |>
       dplyr::summarise(n_tot_files = sum(n_files),
