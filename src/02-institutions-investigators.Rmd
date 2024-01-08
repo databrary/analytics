@@ -1,7 +1,5 @@
 # Investigators and Institutions
 
-
-
 ## Institutions {-}
 
 ```{r}
@@ -14,6 +12,19 @@ inst_daa_df <- dplyr::filter(inst_df, daa == TRUE)
 There are `r dim(inst_df)[1]` total institutions in the Databrary system.
 
 Of these, `r dim(inst_daa_df)[1]` or `r paste0(format(dim(inst_daa_df)[1]/dim(inst_df)[1] * 100, digits = 3, nsmall = 1), "%")` have active Databrary Access Agreements (DAA).
+
+### Institutions with inactive DAAs
+
+The following institutions previously had active DAAs:
+
+```{r inactive-daas}
+inst_df |>
+  dplyr::filter(daa = FALSE) |>
+  dplyr::select(c('inst_id', 'inst_name')) |>
+  kableExtra::kable(format = 'html') |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
 
 ## Investigators per institution {-}
 
