@@ -3,14 +3,25 @@
 # These functions update the analytics data and render the report.
 
 #-------------------------------------------------------------------------------
-update_analytics_data <- function() {
-  library(targets)
-  tar_make()
-}
-
-#-------------------------------------------------------------------------------
-render_report_and_open <- function() {
-  bookdown::render_book('src')
-  browseURL("docs/index.html")
+report_update_render <- function(src_dir = 'src',
+                                 open_rpt = TRUE,
+                                 rpt_URL = 'docs/index.html') {
+  
+  assertthat::is.string(src_dir)
+  assertthat::is.readable(src_dir)
+  assertthat::assert_that(is.logical(open_rpt))
+  assertthat::is.string(rpt_URL)
+  
+  suppressPackageStartupMessages(require(targets))
+  suppressPackageStartupMessages(require(bookdown))
+  
+  message("\n-------Updating data-------")
+  targets::tar_make()
+  
+  message("\n-------Rendering report-------")
+  bookdown::render_book(src_dir)
+  
+  if (open_rpt)
+    browseURL(rpt_URL)
 }
 
