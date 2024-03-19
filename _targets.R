@@ -120,13 +120,14 @@ list(
   # Every 4 weeks, we update _all_ of the institution CSVs to capture changes
   # Every 4 weeks, we update the investigators at all of the institutions and
   #  save it as a CSV 'src/csv/all-ais.csv'.
+  # TODO: 2024-03-19 start refactor here.
   tarchetypes::tar_age(
     update_all_inst_csvs,
     get_save_many_inst_csvs(
       1,
       max_party_id,
       update_geo = FALSE,
-      db_login_status = databrary_login_status
+      rq = rq
     ),
     format = "file",
     age = as.difftime(4, units = "weeks")

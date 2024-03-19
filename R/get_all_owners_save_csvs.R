@@ -8,9 +8,9 @@ get_all_owners_save_csvs <-
     stopifnot(dir.exists(dir))
     
     # TODO: Fix this hack
-    get_save_volumes_owners(1, 500)
-    get_save_volumes_owners(501, 1000)
-    get_save_volumes_owners(1001, 1275) # skip 1276 & 1277 because no owners
-    get_save_volumes_owners(1278, 1500)
-    get_save_volumes_owners(1501, max_vol_id)
+    get_save_volumes_owners(1, 500, rq = rq)
+    get_save_volumes_owners(501, 1000, rq = rq)
+    get_save_volumes_owners(1001, 1275, rq = rq) # skip 1276 & 1277 because no owners
+    get_save_volumes_owners(1278, 1500, rq = rq)
+    get_save_volumes_owners(1501, max_vol_id, rq = rq)
   }
