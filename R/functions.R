@@ -1,98 +1,6 @@
 # functions.R
 
 #-------------------------------------------------------------------------------
-party_id_exists <- function(party_id = 1) {
-  p = databraryr::download_party(party_id)
-  
-  if (is.null(p)) {
-    FALSE
-  } else {
-    TRUE
-  }
-}
-
-#-------------------------------------------------------------------------------
-get_max_party_id <- function(start_id = 10922,
-                             increment = 20) {
-  stopifnot(is.numeric(start_id))
-  stopifnot(start_id > 0)
-  stopifnot(is.numeric(increment))
-  stopifnot(increment > 0)
-  
-  p_ids <- start_id:(start_id + increment)
-  ps_exist <- purrr::map(p_ids, party_id_exists) |>
-    unlist()
-  
-  new_max <- max(p_ids[ps_exist])
-  # Sys.setenv("MAX_PARTY_ID" = as.character(new_max))
-  new_max
-}
-
-#-------------------------------------------------------------------------------
-vol_id_exists <- function(vol_id = 1) {
-  v = databraryr::list_volume(vol_id)
-  
-  if (is.null(v)) {
-    FALSE
-  } else {
-    TRUE
-  }
-}
-
-#-------------------------------------------------------------------------------
-get_max_vol_id <- function(start_id = 1568,
-                           increment = 20) {
-  stopifnot(is.numeric(start_id))
-  stopifnot(start_id > 0)
-  stopifnot(is.numeric(increment))
-  stopifnot(increment > 0)
-  
-  v_ids <- start_id:(start_id + increment)
-  vs_exist <- purrr::map(v_ids, vol_id_exists) |>
-    unlist()
-  
-  new_max <- max(v_ids[vs_exist])
-  # Sys.setenv("MAX_VOL_ID" = as.character(new_max))
-  new_max
-}
-
-#-------------------------------------------------------------------------------
-update_max_vol_party_ids <-
-  function(csv_dir = "src/csv",
-           default_vol = 1567,
-           default_party = 10941,
-           vb = FALSE) {
-    stopifnot(is.character(csv_dir))
-    stopifnot(dir.exists(csv_dir))
-    
-    fn <- file.path(csv_dir, 'max-ids.csv')
-    if (!file.exists(fn)) {
-      if (vb)
-        message(paste0('File does not exist: ', fn, "'. Creating."))
-      max_ids <-
-        data.frame(MAX_VOL_ID = default_vol, MAX_PARTY_ID = default_party)
-      readr::write_csv(max_ids, fn)
-    }
-    old_max_ids <- readr::read_csv(fn, show_col_types = FALSE)
-    if (is.data.frame(old_max_ids)) {
-      if (vb)
-        message("Updating max vol and party IDs.")
-      new_max_vol_id <- get_max_vol_id(old_max_ids$MAX_VOL_ID)
-      new_max_party_id <- get_max_party_id(old_max_ids$MAX_PARTY_ID)
-      max_ids <-
-        data.frame(MAX_VOL_ID = new_max_vol_id, MAX_PARTY_ID = new_max_party_id)
-      if (vb)
-        message("Writing IDs to '", fn, "'.")
-      readr::write_csv(max_ids, fn)
-    } else {
-      if (vb)
-        message("Error opening '", fn, '.')
-      return(NULL)
-    }
-    max_ids
-  }
-
-#-------------------------------------------------------------------------------
 auth_to_google <- function(gacct = "rick.o.gilmore") {
   googledrive::drive_auth(email = gacct)
 }
@@ -264,37 +172,7 @@ get_volume_funding <- function(vol_id, vb = FALSE) {
   databraryr::list_volume_funding(vol_id)
 }
 
-#-------------------------------------------------------------------------------
-refresh_volume_funders_df <- function(vol_ids = 1:1520) {
-  assertthat::is.number(vol_ids)
-  assertthat::assert_that(sum(vol_ids > 0) == length(vol_ids), 
-                          msg = "Not all volume indices are positive numbers")
-  
-  message(
-    "Refreshing funders data for volumes ",
-    min(vol_ids),
-    ":",
-    max(vol_ids),
-    ". Please be patient."
-  )
-  purrr::map_df(.x = vol_ids,
-                .f = get_volume_funding,
-                .progress = "Vol funders:")
-}
 
-#-------------------------------------------------------------------------------
-update_volume_funders_csv <-
-  function(df,
-           csv_dir = "csv",
-           csv_fn = "funders.csv") {
-    stopifnot(!rlang::is_empty(df))
-    stopifnot(dir.exists(csv_dir))
-    if (!file.exists(file.path(csv_dir, csv_fn))) {
-      warning("File does not exist: ", file.path(csv_dir, csv_fn))
-      warning("Creating new file: ", file.path(csv_dir, csv_fn))
-    }
-    readr::write_csv(df, file.path(csv_dir, csv_fn))
-  }
 
 # ###############################################################################
 # # Volume-level assets
@@ -1069,25 +947,6 @@ load_demog_csvs <- function(dir = "participant-demographics/csv") {
                  show_col_types = FALSE)
 }
 
-#-------------------------------------------------------------------------------
-get_volumes_owners <- function(min_vol_id = 1,
-                               max_vol_id = 10,
-                               vb = FALSE) {
-  stopifnot(is.numeric(min_vol_id))
-  stopifnot(is.numeric(max_vol_id))
-  stopifnot(min_vol_id > 0)
-  stopifnot(max_vol_id > 0)
-  stopifnot(min_vol_id < max_vol_id)
-  
-  vols_range <- min_vol_id:max_vol_id
-  if (vb)
-    message("Gathering owners from volumes ", min_vol_id, ":", max_vol_id)
-  purrr::map_dfr(
-    .x = vols_range,
-    .f = databraryr::list_volume_owners,
-    .progress = "Vol owners:"
-  )
-}
 
 get_volume_first_owner <- function(vol_id) {
   df <- databraryr::list_volume_owners(vol_id)
@@ -1120,57 +979,8 @@ get_volumes_first_owners <-
                    .progress = "Vol 1st owners:")
   }
 
-#-------------------------------------------------------------------------------
-save_volumes_owners <- function(df,
-                                min_vol_id,
-                                max_vol_id,
-                                dir = "src/csv",
-                                fn_suffix = "-owners.csv",
-                                vb = FALSE) {
-  stopifnot(is.data.frame(df))
-  stopifnot(is.numeric(min_vol_id))
-  stopifnot(is.numeric(max_vol_id))
-  stopifnot(min_vol_id > 0)
-  stopifnot(max_vol_id > 0)
-  stopifnot(min_vol_id < max_vol_id)
-  stopifnot(is.character(dir))
-  stopifnot(dir.exists(dir))
-  
-  fn <-
-    paste0(
-      dir,
-      "/",
-      stringr::str_pad(min_vol_id, 5, pad = "0"),
-      "-",
-      stringr::str_pad(max_vol_id, 5, pad = "0"),
-      fn_suffix
-    )
-  if (vb)
-    message(paste0("Saving volume owner data to ", fn, "."))
-  readr::write_csv(df, fn)
-}
 
-#-------------------------------------------------------------------------------
-get_save_volumes_owners <-
-  function(min_vol_id = 1,
-           max_vol_id = 10,
-           dir = "src/csv",
-           vb = FALSE) {
-    stopifnot(is.numeric(min_vol_id))
-    stopifnot(is.numeric(max_vol_id))
-    stopifnot(min_vol_id > 0)
-    stopifnot(max_vol_id > 0)
-    stopifnot(min_vol_id < max_vol_id)
-    stopifnot(is.character(dir))
-    stopifnot(dir.exists(dir))
-    
-    if (vb)
-      message(paste0("Getting owner data for volumes ", min_vol_id, ":", max_vol_id))
-    df <- get_volumes_owners(min_vol_id, max_vol_id, vb)
-    if (vb)
-      message(paste0("Saving owner data for volumes ", min_vol_id, "-", max_vol_id))
-    save_volumes_owners(df, min_vol_id, max_vol_id, dir, fn_suffix = "-owners.csv", vb)
-  }
+
 
 #-------------------------------------------------------------------------------
 get_save_volumes_first_owners <-
@@ -1207,23 +1017,6 @@ get_save_volumes_first_owners <-
     save_volumes_owners(df, min_vol_id, max_vol_id, dir, fn_suffix = "-first-owners.csv", vb)
   }
 
-#-------------------------------------------------------------------------------
-get_all_owners_save_csvs <-
-  function(max_vol_id = 1520,
-           dir = "src/csv",
-           vb = FALSE) {
-    stopifnot(is.numeric(max_vol_id))
-    stopifnot(max_vol_id > 0)
-    stopifnot(is.character(dir))
-    stopifnot(dir.exists(dir))
-    
-    # TODO: Fix this hack
-    get_save_volumes_owners(1, 500)
-    get_save_volumes_owners(501, 1000)
-    get_save_volumes_owners(1001, 1275) # skip 1276 & 1277 because no owners
-    get_save_volumes_owners(1278, 1500)
-    get_save_volumes_owners(1501, max_vol_id)
-  }
 
 #-------------------------------------------------------------------------------
 load_owner_csvs <- function(dir = "src/csv",

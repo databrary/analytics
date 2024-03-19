@@ -24,12 +24,15 @@ tar_option_set(
   )
 )
 
+drq <- databraryr::make_default_request()
+
 list(
   #----------------------------------------------------------------------------
   # Login Databrary
   tar_target(
     databrary_login_status,
-    databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"), store = TRUE),
+    databraryr::login_db(Sys.getenv("DATABRARY_LOGIN"), store = TRUE,
+                         rq = drq),
     cue = tar_cue(mode = "always")
   ),
   #----------------------------------------------------------------------------
@@ -45,7 +48,7 @@ list(
   # institution and investigator aggregate numbers
   tarchetypes::tar_age(
     inst_invest_df,
-    update_inst_invest_df(paste0(here::here(), '/src/csv')),
+    update_inst_invest_df(paste0(here::here(), '/src/csv'), rq = drq),
     age = as.difftime(6, units = "days")
   ),
   tar_target(
@@ -67,7 +70,8 @@ list(
   #----------------------------------------------------------------------------
   # Funders
   tar_target(volume_funders_df,
-             refresh_volume_funders_df(1:max_vol_id)),
+             refresh_volume_funders_df(1:max_vol_id),
+             rq = drq),
   tar_target(
     volume_funders_csv,
     update_volume_funders_csv(volume_funders_df, paste0(here::here(), '/src/csv'))
