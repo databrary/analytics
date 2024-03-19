@@ -24,7 +24,7 @@ volume_asset_stats_df |>
   kableExtra::kable_styling()
 ```
 
-## Assets by volume and comparative storage fees {-}
+## Assets by volume {-}
 
 The following shows data about the number of files and total storage by shared volume. 
 
