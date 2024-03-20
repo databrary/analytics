@@ -3,10 +3,13 @@
 library(targets)
 library(tarchetypes)
 
-source("R/report_functions.R")
-source("R/volume_asset_functions.R")
-source("R/institution_investigator_functions.R")
-source("R/constants.R")
+# source("R/report_functions.R")
+# source("R/volume_asset_functions.R")
+# source("R/institution_investigator_functions.R")
+# source("R/constants.R")
+# Source files
+list.files("R", "\\.R$", full.names = TRUE) |>
+  purrr::walk(source, echo = FALSE, print.eval = FALSE)
 
 tar_option_set(
   packages = c(
@@ -127,7 +130,7 @@ list(
       1,
       max_party_id,
       update_geo = FALSE,
-      rq = rq
+      rq = drq
     ),
     format = "file",
     age = as.difftime(4, units = "weeks")
@@ -139,7 +142,7 @@ list(
       max(extract_inst_csv_id(), 1),
       max_party_id,
       update_geo = FALSE,
-      db_login_status = databrary_login_status
+      rq = drq
     ),
     format = "file",
     age = as.difftime(2, units = "weeks")
@@ -162,7 +165,6 @@ list(
   # Volume-level sessions
   tar_target(
     vols_sess_df,
-    get_many_volumes_data(1, max_vol_id,
-                          db_login_status = databrary_login_status)
+    get_many_volumes_data(1, max_vol_id, rq = drq)
   )
 )

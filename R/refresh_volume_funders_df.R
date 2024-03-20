@@ -11,7 +11,7 @@ refresh_volume_funders_df <- function(vol_ids = 1:1520, rq = NULL) {
     ". Please be patient."
   )
   purrr::map_df(.x = vol_ids,
-                .f = databraryr::get_volume_funding,
+                .f = databraryr::list_volume_funding,
                 rq = rq,
                 .progress = "Vol funders:")
 }
