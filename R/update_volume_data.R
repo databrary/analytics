@@ -46,14 +46,19 @@ update_volume_data <- function(vol_id = 1,
   if (is.null(vol_data$owners)) {
     if (vb) message("No owners data for volume, ", vol_id)
   } else {
-    if (vb) message("Saving owner info for volume ", vol_id)
-    owner_fn <- paste0("vol-", stringr::str_pad(vol_id, 5, pad = "0"), "-owners.csv")
-    owners_full_fn <- file.path(csv_dir, owner_fn)
-    purrr::map(vol_data$owners, tibble::as_tibble) |>
-      purrr::list_rbind() |>
-      dplyr::mutate(vol_id = vol_id)
-      dplyr::rename(person_id = id, person_name = name) |>
-      readr::write_csv(file = owners_full_fn)    
+    vol_owners <- purrr::map(vol_data$owners, tibble::as_tibble) |>
+      purrr::list_rbind()
+    if (dim(vol_owners)[1] > 0) {
+      if (vb) message("Saving owner info for volume ", vol_id)
+      owner_fn <- paste0("vol-", stringr::str_pad(vol_id, 5, pad = "0"), "-owners.csv")
+      owners_full_fn <- file.path(csv_dir, owner_fn)
+      vol_owners |>
+        dplyr::mutate(vol_id = vol_id) |>
+        dplyr::rename(person_id = id, person_name = name) |>
+        readr::write_csv(file = owners_full_fn)       
+    } else {
+      if (vb) message("No owners data for volume, ", vol_id)
+    }
   }
   
   # session summary
