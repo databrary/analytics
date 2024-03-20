@@ -92,6 +92,7 @@ update_party_data <- function(party_id = 6,
   }
   
   # party sponsors/parents
+  if (vb) message("Party sponsors...")
   if (is.null(party_data$parents)) {
     if (vb)
       message("No sponsors for party ", party_id)
@@ -120,16 +121,12 @@ update_party_data <- function(party_id = 6,
         dplyr::select(all_of(
           c(
             "party.id",
-            "party.sortname",
-            "party.prename",
-            "party.affiliation"
+            "party.sortname"
           )
         )) |>
         dplyr::rename(
           party_id = party.id,
-          party_last = party.sortname,
-          party_first = party.prename,
-          party_affiliation = party.affiliation
+          party_last = party.sortname
         ) |>
         dplyr::mutate(party_is_institution = is_institution) |>
         readr::write_csv(file = party_sponsors_full_fn)
@@ -137,59 +134,53 @@ update_party_data <- function(party_id = 6,
   }
   
   # volume access
-  # TODO: The party access list has me stumped. Going to quit for now.
-  # if (is.null(party_data$access)) {
-  #   if (vb)
-  #     message("Party ", party_id, " has no access to volumes")
-  # } else {
-  #   party_access <- purrr::map(party_data$access, extract_party_volume_info) |>
-  #     purrr::list_rbind()
-  #   if (dim(party_access)[1] == 0) {
-  #     if (vb)
-  #       message("Party ", party_id, " has no access to volumes")
-  #   } else {
-  #     if (vb)
-  #       message("Saving volume access info for party ", party_id)
-  #     party_access_fn <-
-  #       paste0("party-",
-  #              stringr::str_pad(party_id, 5, pad = "0"),
-  #              "-access.csv")
-  #     party_access_full_fn <-
-  #       file.path(csv_dir, party_access_fn)
-  #     party_access |>
-  #       readr::write_csv(file = party_access_full_fn)
-  #   }
-  # }
-}
-
-#-------------------------------------------------------------------------------
-extract_party_volume_info <- function(i, party_access_list_item) {
-  #assertthat::assert_that("list" %in% class(party_access_list_item))
-  
-  if (!("volume" %in% names(party_access_list_item[[1]]))) {
-    return(NULL)
+  if (vb) message("Party access to volumes...")
+  if (is.null(party_data$access)) {
+    if (vb)
+      message("Party ", party_id, " has no access to volumes")
+  } else {
+    party_access <- purrr::map(1:100,
+                               extract_party_volume_info, 
+                               party_data$access, vb = vb) |>
+      purrr::list_rbind() |>
+      dplyr::mutate(party_id = party_id)
+    if (dim(party_access)[1] == 0) {
+      if (vb)
+        message("Party ", party_id, " has no access to volumes")
+    } else {
+      if (vb)
+        message("Saving volume access info for party ", party_id)
+      party_access_fn <-
+        paste0("party-",
+               stringr::str_pad(party_id, 5, pad = "0"),
+               "-access.csv")
+      party_access_full_fn <-
+        file.path(csv_dir, party_access_fn)
+      party_access |>
+        readr::write_csv(file = party_access_full_fn)
+    }
   }
-  message("Index: ", i)
-  this_item <- party_access_list_item[i]
-  volume <- this_item[[1]]$volume
-  vol_id <- volume$id
-  vol_name <- volume$name
-  vol_doi <- volume$doi
-  vol_creation <- volume$creation
-  vol_permission <- volume$permission
-  vol_public <- volume$publicsharefull
-  tibble::tibble(
-    vol_id = vol_id,
-    vol_name = vol_name,
-    vol_doi = vol_doi,
-    vol_creation = vol_creation,
-    vol_public = vol_public
-  )
 }
 
 #-------------------------------------------------------------------------------
-extract_party_volume_info_2 <- function(party_access_list_item) {
-  item <- purrr::flatten(party_access_list_item)
-  tibble::as_tibble(item$volume) |>
-    dplyr::select(id, name, creation, permission, publicsharefull)
-}
+extract_party_volume_info <-
+  function(i, p_access_list, vb = FALSE) {
+    if (vb)
+      message("index: ", i)
+    x <- purrr::pluck(p_access_list, i, 3) |>
+      tibble::as_tibble()
+    if ("id" %in% names(x)) {
+      x |>
+        dplyr::select(id, name, creation, permission, owners, publicsharefull) |>
+        dplyr::rename(
+          vol_id = id,
+          vol_name = name,
+          vol_creation = creation,
+          vol_owners = owners,
+          vol_permission = permission,
+          vol_public = publicsharefull
+        )
+    } else {
+      return(NULL)
+    }
+  }
