@@ -100,13 +100,13 @@ list(
     get_volume_demo_save_csv_mult(1, max_vol_id,
                                   db_login_status = databrary_login_status)
   ),
-  tar_target(
-    volume_ss_csv_fl,
-    list.files(paste0(here::here(), '/src/csv'), "[0-9]+\\-sess\\-materials\\.csv", full.names = TRUE),
-    cue = tar_cue(mode = "always")
-  ),
-  tar_target(volume_demog_df,
-             create_complete_demog_df(volume_ss_csv_fl)),
+  # tar_target(
+  #   volume_ss_csv_fl,
+  #   list.files(paste0(here::here(), '/src/csv'), "[0-9]+\\-sess\\-materials\\.csv", full.names = TRUE),
+  #   cue = tar_cue(mode = "always")
+  # ),
+  # tar_target(volume_demog_df,
+  #            create_complete_demog_df(volume_ss_csv_fl)),
   #----------------------------------------------------------------------------
   # Institutions and investigators (detailed)
   #
@@ -125,7 +125,7 @@ list(
       db_login_status = databrary_login_status
     ),
     format = "file",
-    age = as.difftime(4, units = "weeks")
+    age = as.difftime(4, units = "weeks") 
   ),
   tarchetypes::tar_age(
     name = add_new_inst_csvs,

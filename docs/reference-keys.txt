@@ -9,7 +9,6 @@ about
 weekly
 investigators-and-institutions
 tags-and-keywords
-funders
 assets
 participant-demographics
 shared-volumes-and-sessions
