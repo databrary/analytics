@@ -32,7 +32,7 @@ drq <- databraryr::make_default_request()
 
 # Parameters for debugging
 verbose_feedback <- FALSE
-n_time <- 1
+n_time <- 5
 time_units <- "days" # Typically days or weeks
 
 list(
@@ -147,12 +147,12 @@ list(
   tarchetypes::tar_age(inst_df,
                        make_inst_df_from_csvs(),
                        age = as.difftime(n_time, units = time_units)),
-  tarchetypes::tar_age(
-    invest_df,
-    readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),
-                    show_col_types = FALSE),
-    age = as.difftime(n_time, units = time_units)
-  ),
+  # tarchetypes::tar_age(
+  #   invest_df,
+  #   readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),
+  #                   show_col_types = FALSE),
+  #   age = as.difftime(n_time, units = time_units)
+  # ),
   tarchetypes::tar_age(
     name = add_new_inst_csvs,
     # Starts with the max current party_id stored locally or 1 (if no files)
