@@ -19,7 +19,8 @@ update_invest_csv <- function(all_inst_df,
             " institutions with AIs. Retrieving AI info.")
   
   ais_l <-
-    purrr::map(ids, get_ais_from_inst, vb, .progress = "AIs from insts:")
+    purrr::map(ids, get_ais_from_inst, vb = vb, rq = rq,
+               .progress = "AIs from insts:")
   
   if (vb)
     message("Making data frame.")
@@ -34,21 +35,30 @@ update_invest_csv <- function(all_inst_df,
 }
 
 #-------------------------------------------------------------------------------
-get_ais_from_inst <- function(inst_id = 8, vb = FALSE) {
+get_ais_from_inst <- function(inst_id = 8, vb = NULL, rq = NULL) {
   if (vb)
     message("Getting AIs from institution ", inst_id)
-  inst_df <- databraryr::list_party(inst_id)
+  #inst_df <- databraryr::list_party(inst_id)
+  inst_df <- databraryr::get_party_by_id(inst_id, vb = vb, rq = rq)
   
   if (!is.null(dim(inst_df$children))) {
-    ais_df <- as.data.frame(inst_df$children$party)
-    ais_df <- dplyr::rename(ais_df,
-                            ai_id = id,
-                            ai_last = sortname,
-                            ai_first = prename)
+    #ais_df <- as.data.frame(inst_df$children$party)
+    ais_df <- purrr::map(inst_df$children, as.data.frame) %>%
+      purrr::list_rbind()
     
-    df <- tibble::tibble(ais_df)
+    # ais_df <- dplyr::rename(ais_df,
+    #                         ai_id = id,
+    #                         ai_last = sortname,
+    #                         ai_first = prename)
+    
+    ais_df <- dplyr::rename(ais_df,
+                            ai_id = party.id,
+                            ai_last = party.sortname,
+                            ai_first = party.prename)
+    
+    #df <- tibble::tibble(ais_df)
     df <- dplyr::mutate(
-      df,
+      ais_df,
       inst_id = inst_df$id,
       inst_name = inst_df$sortname,
       inst_db_url = paste0("https://nyu.databrary.org/party/", inst_df$id),

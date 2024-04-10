@@ -30,7 +30,7 @@ get_save_many_inst_csvs <-
       .progress = "Inst CSVs:"
     )
     
-    list.files(csv_dir, "inst\\-[0-9]+\\.csv", full.names = TRUE)
+    #list.files(csv_dir, "inst\\-[0-9]+\\.csv", full.names = TRUE)
   }
 
 #-------------------------------------------------------------------------------
@@ -65,6 +65,10 @@ get_inst_info_save_csv <-
       if (vb)
         message(" Saving ", fn)
       readr::write_csv(this_inst, fn)
+      fn
+    } else {
+      if (vb) message("No institutional data saved for party_id ", party_id)
+      NULL
     }
   }
 
@@ -95,13 +99,28 @@ get_inst_info <-
           inst_url = ifelse('url' %in% names(inst_df), inst_df$url, NA),
           databrary_url = paste0("https://nyu.databrary.org/party/", inst_id)
         )
-        if (!is.null(dim(inst_df$children))) {
-          df$n_auth_invest <- dim(inst_df$children)[1]
+        
+        if (!is.null(inst_df$children)) {
+          ais_df <- purrr::map(inst_df$children, as.data.frame) |>
+            purrr::list_rbind()
+          
+          df$n_auth_invest <- dim(ais_df)[1]
         } else {
-          df$n_auth_invest = 0
+          df$n_auth_invest <- 0
         }
-        if (!is.null(dim(inst_df$parents))) {
-          df$daa <- TRUE
+        
+        if (!is.null(inst_df$parents)) {
+          auth_inst <- purrr::map(inst_df$parents, as.data.frame) |>
+            purrr::list_rbind()
+          if (dim(auth_inst)[1] > 0) {
+            if ("Databrary" %in% auth_inst$party.sortname) {
+              df$daa <- TRUE
+            } else {
+              df$daa = FALSE
+            }
+          } else {
+            df$daa = FALSE
+          }
         } else {
           df$daa <- FALSE
         }
@@ -126,6 +145,14 @@ get_inst_info <-
     }
   }
 
+#-------------------------------------------------------------------------------
+extract_inst_csv_id <- function(csv_dir = "src/csv", vb = FALSE) {
+  stopifnot(is.character(csv_dir))
+  stopifnot(dir.exists(csv_dir))
+  
+  inst_fl <- list.files(csv_dir, "^inst\\-[0-9]{5}")
+  as.numeric(stringr::str_extract(inst_fl, "[0-9]{5}"))
+}
 #-------------------------------------------------------------------------------
 update_inst_lat_lon <- function(inst_df, vb = FALSE) {
   stopifnot(is.data.frame(inst_df))

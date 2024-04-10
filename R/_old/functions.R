@@ -20,22 +20,7 @@ load_old_tags_data <-
     old_tags
   }
 
-#-------------------------------------------------------------------------------
-refresh_volume_tags_df <- function(vol_ids = 1:100, vb = TRUE) {
-  message(
-    "Refreshing tags & keywords data for volumes ",
-    min(vol_ids),
-    ":",
-    max(vol_ids),
-    ". Please be patient."
-  )
-  purrr::map_df(
-    .x = vol_ids,
-    .f = make_volume_tags_df,
-    vb = vb,
-    .progress = "Vol tags:"
-  )
-}
+
 
 #-------------------------------------------------------------------------------
 update_vol_tags_csv <-
@@ -49,60 +34,8 @@ update_vol_tags_csv <-
     readr::write_csv(df, file.path(csv_dir, csv_fn))
   }
 
-#-------------------------------------------------------------------------------
-make_volume_tags_df <- function(vol_id, vb = FALSE) {
-  if (vb)
-    message(paste0("Gathering tags from volume ", vol_id))
-  these_tags <- databraryr::list_volume_tags(vol_id)
-  if (rlang::is_empty(these_tags)) {
-    df <- data.frame(
-      vol_id = vol_id,
-      url = paste0("https://nyu.databrary.org/volume/",
-                   vol_id),
-      tags = NA,
-      weight = NA
-    )
-  } else {
-    these_tags <- these_tags %>%
-      dplyr::select(., id, weight) %>%
-      dplyr::rename(., tags = id)
-    df <- these_tags
-    df$vol_id = vol_id
-    df$url <- paste0("https://nyu.databrary.org/volume/", vol_id)
-  }
-  dplyr::select(df, vol_id, url, tags, weight)
-}
 
-#-------------------------------------------------------------------------------
-make_stem_tags_df <- function(tags_df,
-                              vb = FALSE,
-                              save_csv = TRUE) {
-  stem_tags <- dplyr::filter(tags_df, tags %in% select_tags)
-  stem_tags <- dplyr::arrange(stem_tags, vol_id, tags)
-  
-  # Unique vol ids to get volume metadata, esp title
-  stem_vol_ids <- unique(stem_tags$vol_id)
-  
-  # Pull titles
-  if (vb)
-    message("Gathering STEM-related tags from n=",
-            length(stem_vol_ids),
-            " volumes.")
-  stem_vols_df <- purrr::map_df(
-    .x = stem_vol_ids,
-    .f = databraryr::list_volume_metadata,
-    .progress = "STEM tags:"
-  )
-  
-  stem_vols_df <-
-    dplyr::left_join(stem_vols_df, stem_tags, multiple = "all")
-  
-  stem_vols_df <- stem_vols_df %>%
-    dplyr::filter(., vol_id != 109) %>% # Empty volume
-    dplyr::select(., -owners, -permission, -doi)
-  
-  stem_vols_df
-}
+
 
 ###############################################################################
 # Funders

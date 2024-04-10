@@ -2,16 +2,29 @@ update_all_vol_stats <- function(max_volume_id,
                                  vols_per_pass = 50,
                                  save_file = TRUE,
                                  save_path = 'src/csv',
-                                 vb = FALSE) {
+                                 vb = FALSE,
+                                 rq = NULL) {
   stopifnot(is.numeric(max_volume_id))
   stopifnot(max_volume_id > 0)
+  
   stopifnot(is.numeric(vols_per_pass))
   stopifnot(vols_per_pass > 0)
+  
   stopifnot(is.logical(save_file))
+  
   stopifnot(is.character(save_path))
   stopifnot(dir.exists(save_path))
+  
   stopifnot(is.logical(vb))
-  stopifnot(is.logical(db_login_status))
+  
+  # Handle NULL rq
+  if (is.null(rq)) {
+    if (vb) {
+      message("NULL request object. Will generate default.")
+      message("Not logged in. Only public information will be returned.")
+    }
+    rq <- databraryr::make_default_request()
+  }
   
   options(dplyr.summarise.inform = FALSE)
   
@@ -33,10 +46,13 @@ update_all_vol_stats <- function(max_volume_id,
     update_vol_asset_stats,
     save_file = save_file,
     save_path = save_path,
-    vb = vb
+    vb = vb,
+    rq = rq
   )
   
-  list.files(path = "src/csv", pattern = '-assets\\.csv', full.names = TRUE)
+  list.files(path = "src/csv",
+             pattern = '-assets\\.csv',
+             full.names = TRUE)
 }
 
 #-------------------------------------------------------------------------------
@@ -45,7 +61,8 @@ update_vol_asset_stats <-
            end_vol_id,
            save_file = TRUE,
            save_path = 'src/csv',
-           vb = FALSE) {
+           vb = FALSE,
+           rq = NULL) {
     stopifnot(is.numeric(start_vol_id))
     stopifnot(start_vol_id > 0)
     stopifnot(is.numeric(end_vol_id))
@@ -66,12 +83,13 @@ update_vol_asset_stats <-
       )
     )
     message("Please be patient.")
-    purrr::map(
+    purrr::walk(
       c(start_vol_id:end_vol_id),
       calculate_vol_asset_stats,
       save_file,
       save_path,
-      vb,
+      vb = vb,
+      rq = rq,
       .progress = "Vol assets:"
     )
   }
@@ -80,7 +98,8 @@ update_vol_asset_stats <-
 calculate_vol_asset_stats <- function(vol_id,
                                       save_file = FALSE,
                                       save_path = 'src/csv',
-                                      vb = FALSE) {
+                                      vb = FALSE,
+                                      rq = NULL) {
   stopifnot(is.numeric(vol_id))
   stopifnot(vol_id > 0)
   stopifnot(is.logical(save_file))
@@ -88,12 +107,14 @@ calculate_vol_asset_stats <- function(vol_id,
   stopifnot(dir.exists(save_path))
   stopifnot(is.logical(vb))
   
+  options(dplyr.summarise.inform = FALSE)
+  
   if (vb)
     message(paste0('Retrieving asset data for volume ', vol_id))
   vol_assets <- databraryr::list_volume_assets(vol_id, vb, rq = rq)
   if (is.null(vol_assets)) {
     if (vb)
-      message(paste0(" No shared data in volume ", vol_id))
+      message(paste0("No shared data in volume ", vol_id, "."))
     NULL
   } else {
     vol_summary <- vol_assets %>%
@@ -102,8 +123,8 @@ calculate_vol_asset_stats <- function(vol_id,
       dplyr::summarise(
         .,
         n_files = n(),
-        tot_size_gb = bytes_to_gb(sum(size, na.rm = TRUE)),
-        tot_dur_hrs = ms_to_hrs(sum(duration, na.rm = TRUE))
+        tot_size_gb = bytes_to_gb(sum(asset_size, na.rm = TRUE)),
+        tot_dur_hrs = ms_to_hrs(sum(asset_duration, na.rm = TRUE))
       )
     
     if (save_file) {
@@ -114,10 +135,13 @@ calculate_vol_asset_stats <- function(vol_id,
           message("File exists: ", out_fn, ". Overwritten.")
       }
       if (vb)
-        message(paste0(" Saving data to ", out_fn))
+        message(paste0("Saving data to ", out_fn))
+      
       readr::write_csv(vol_summary, file = out_fn)
+      out_fn
+    } else {
+      vol_summary
     }
-    vol_summary
   }
 }
 

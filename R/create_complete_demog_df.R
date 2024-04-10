@@ -102,7 +102,7 @@ calculate_age_days <- function(df, vb = FALSE) {
     }
   } else {
     if (vb)
-      message(' Data frame lacking data needed to calculate ages.')
+      message(' Data frame lacks data needed to calculate ages.')
   }
   df
 }
@@ -125,5 +125,5 @@ extract_particip_info_session_date <- function(df) {
 
 #-------------------------------------------------------------------------------
 remove_materials <- function(df) {
-  dplyr::filter(df,!str_detect(df$`session-date`, '[Mm]aterials'))
+  dplyr::filter(df, !str_detect(df$`session-date`, '[Mm]aterials'))
 }
