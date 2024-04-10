@@ -6,10 +6,6 @@
 # These functions process data about institutions and authorized investigators
 
 
-
-
-
-
 #-------------------------------------------------------------------------------
 make_ais_df <- function(all_inst_df, vb = TRUE) {
   

@@ -33,7 +33,7 @@ drq <- databraryr::make_default_request()
 # Parameters for debugging
 verbose_feedback <- FALSE
 n_time <- 1
-time_units <- "weeks" # Typically weeks
+time_units <- "days" # Typically days or weeks
 
 list(
   #----------------------------------------------------------------------------
@@ -146,12 +146,12 @@ list(
   #  save it as a CSV 'src/csv/all-ais.csv'.
   tarchetypes::tar_age(inst_df,
                        make_inst_df_from_csvs(),
-                       age = as.difftime(6, units = "days")),
+                       age = as.difftime(n_time, units = time_units)),
   tarchetypes::tar_age(
     invest_df,
     readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),
                     show_col_types = FALSE),
-    age = as.difftime(6, units = "days")
+    age = as.difftime(n_time, units = time_units)
   ),
   tarchetypes::tar_age(
     name = add_new_inst_csvs,
@@ -162,7 +162,7 @@ list(
       update_geo = FALSE,
       rq = drq
     ),
-    age = as.difftime(6, units = "days")
+    age = as.difftime(n_time, units = time_units)
   ),
   tarchetypes::tar_age(
     update_all_inst_csvs,
@@ -173,13 +173,13 @@ list(
       vb = verbose_feedback,
       rq = drq
     ),
-    age = as.difftime(4, units = "weeks")
+    age = as.difftime(n_time, units = time_units)
   ),
   tarchetypes::tar_age(
     make_all_ais_csv,
-    update_invest_csv(inst_df, vb = verbose_feedback),
+    update_invest_csv(inst_df, vb = verbose_feedback, rq = drq),
     format = "file",
-    age = as.difftime(4, units = "weeks")
+    age = as.difftime(n_time, units = time_units)
   ),
   #-----------------------------------------------------------------------------
   # Volume-level sessions

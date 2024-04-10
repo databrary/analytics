@@ -1,6 +1,7 @@
 update_invest_csv <- function(all_inst_df,
                               csv_dir = "src/csv",
-                              vb = FALSE) {
+                              vb = FALSE,
+                              rq = NULL) {
   stopifnot(is.data.frame(all_inst_df))
   stopifnot(is.character(csv_dir))
   stopifnot(dir.exists(csv_dir))
@@ -15,12 +16,17 @@ update_invest_csv <- function(all_inst_df,
   
   if (vb)
     message("There are n=",
-            dim(ids)[1],
+            length(ids)[1],
             " institutions with AIs. Retrieving AI info.")
   
   ais_l <-
-    purrr::map(ids, get_ais_from_inst, vb = vb, rq = rq,
-               .progress = "AIs from insts:")
+    purrr::map(
+      ids,
+      get_ais_from_inst,
+      vb = vb,
+      rq = rq,
+      .progress = "AIs from insts:"
+    )
   
   if (vb)
     message("Making data frame.")
@@ -35,40 +41,68 @@ update_invest_csv <- function(all_inst_df,
 }
 
 #-------------------------------------------------------------------------------
-get_ais_from_inst <- function(inst_id = 8, vb = NULL, rq = NULL) {
+get_ais_from_inst <- function(inst_id = 8,
+                              vb = NULL,
+                              rq = NULL) {
   if (vb)
     message("Getting AIs from institution ", inst_id)
-  #inst_df <- databraryr::list_party(inst_id)
   inst_df <- databraryr::get_party_by_id(inst_id, vb = vb, rq = rq)
   
-  if (!is.null(dim(inst_df$children))) {
+  if (!is.null(inst_df)) {
     #ais_df <- as.data.frame(inst_df$children$party)
     ais_df <- purrr::map(inst_df$children, as.data.frame) %>%
       purrr::list_rbind()
     
-    # ais_df <- dplyr::rename(ais_df,
-    #                         ai_id = id,
-    #                         ai_last = sortname,
-    #                         ai_first = prename)
-    
-    ais_df <- dplyr::rename(ais_df,
-                            ai_id = party.id,
-                            ai_last = party.sortname,
-                            ai_first = party.prename)
-    
-    #df <- tibble::tibble(ais_df)
-    df <- dplyr::mutate(
-      ais_df,
-      inst_id = inst_df$id,
-      inst_name = inst_df$sortname,
-      inst_db_url = paste0("https://nyu.databrary.org/party/", inst_df$id),
-      ai_db_url = paste0("https://nyu.databrary.org/party/", ai_id)
-    )
-    df$n_affils <- count_affiliates_for_ais(df$ai_id)
-    
-    df <- dplyr::arrange(df, desc(n_affils), ai_last, ai_first)
-    df
+    if (!is.null(ais_df)) {
+      if (dim(ais_df)[1] == 0 ) {
+        if (vb) message("No AIs for institution ", inst_id)
+        return(NULL)
+      }
+      if (vb) message("Processing AI info.")
+      party.affiliation = NA
+      ais_df <- dplyr::rename(ais_df,
+                              ai_id = party.id,
+                              ai_last = party.sortname,
+                              ai_first = party.prename)
+      
+      if ("party.affiliation" %in% names(ais_df)) {
+        ais_df <- dplyr::rename(ais_df, ai_affiliation = party.affiliation)
+      } else {
+        if (vb) message("No party.affiliation field found; substituting NA")
+        ais_df <- dplyr::mutate(ais_df, ai_affiliation = NA)
+      }
+      if ("party.url" %in% names(ais_df)) {
+        ais_df <- dplyr::rename(ais_df, ai_url = party.url)
+      } else {
+        if (vb) message("No party.url field found; substituting NA")
+        ais_df <- dplyr::mutate(ais_df, ai_url = NA)
+      }
+      if ("party.orcid" %in% names(ais_df)) {
+        ais_df <- dplyr::rename(ais_df, ai_orcid = party.orcid)
+      } else {
+        if (vb) message("No party.orcid field found; substituting NA")
+        ais_df <- dplyr::mutate(ais_df, ai_orcid = NA)
+      }      
+      
+      df <- dplyr::mutate(
+        ais_df,
+        inst_id = inst_df$id,
+        inst_name = inst_df$sortname,
+        inst_db_url = paste0("https://nyu.databrary.org/party/", inst_df$id),
+        ai_db_url = paste0("https://nyu.databrary.org/party/", ai_id)
+      )
+      df$n_affils <- count_affiliates_for_ais(df$ai_id)
+      
+      df <- dplyr::arrange(df, desc(n_affils), ai_last, ai_first)
+      df
+    } else {
+      if (vb)
+        message("No AIs retrieved from institution with id ", inst_id)
+      NULL
+    }
   } else {
+    if (vb)
+      message("No info retrieved for institituion with id ", inst_id)
     NULL
   }
 }
