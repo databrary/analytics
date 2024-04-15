@@ -4,6 +4,8 @@
 
 ```{r}
 library(targets)
+library(tidyverse)
+
 tar_load(inst_df, store = "../_targets/")
 
 inst_daa_df <- dplyr::filter(inst_df, daa == TRUE)
@@ -73,7 +75,8 @@ inst_daa_df |>
 ## Investigators {-}
 
 ```{r}
-tar_load(invest_df, store = "../_targets/")
+# tar_load(invest_df, store = "../_targets/")
+invest_df <- readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),               show_col_types = FALSE)
 
 invest_df <- dplyr::distinct(invest_df)
 ```
@@ -82,22 +85,22 @@ invest_df <- dplyr::distinct(invest_df)
 gte2_affils <- invest_df |>
   dplyr::filter(n_affils >= 2) |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   dplyr::distinct()
 gte5_affils <- invest_df |>
   dplyr::filter(n_affils >= 5) |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   dplyr::distinct()
 gte10_affils <- invest_df |>
   dplyr::filter(n_affils >= 10) |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   dplyr::distinct()
 no_affils <- invest_df |>
   dplyr::filter(n_affils < 1) |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   dplyr::distinct()
 ```
 
@@ -114,7 +117,7 @@ ggplot(gte10_affils) +
 ```{r}
 gte10_affils |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   kableExtra::kbl() |>
   kableExtra::kable_styling() |>
   kableExtra::scroll_box(width = "100%", height = "300px")
@@ -131,7 +134,7 @@ ggplot(gte5_affils) +
 ```{r}
 gte5_affils |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   kableExtra::kbl() |>
   kableExtra::kable_styling() |>
   kableExtra::scroll_box(width = "100%", height = "300px")
@@ -148,7 +151,7 @@ ggplot(gte2_affils) +
 ```{r}
 gte2_affils |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   kableExtra::kbl() |>
   kableExtra::kable_styling() |>
   kableExtra::scroll_box(width = "100%", height = "300px")
@@ -165,7 +168,7 @@ ggplot(invest_df) +
 ```{r}
 invest_df |>
   dplyr::arrange(desc(n_affils)) |>
-  dplyr::select(ai_id, ai_last, ai_first, affiliation, n_affils) |>
+  dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
   kableExtra::kbl() |>
   kableExtra::kable_styling() |>
   kableExtra::scroll_box(width = "100%", height = "300px")

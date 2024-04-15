@@ -1,8 +1,8 @@
-# report_rendering_functions.R
-
-# These functions update the analytics data and render the report.
-
-#-------------------------------------------------------------------------------
+#' Update Databrary Data And Render Report
+#' 
+#' @param src_dir A character string. The directory for the source files for the report.
+#' @param open_rp A logical value. Open the rendered report in a browser.
+#' @param rpt_URL A character string. The local path to the rendered report.
 report_update_render <- function(src_dir = 'src',
                                  open_rpt = TRUE,
                                  rpt_URL = 'docs/index.html') {

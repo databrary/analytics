@@ -6,7 +6,7 @@ This report summarizes the types of files (assets) that are stored and shared.
 tar_load(volume_asset_stats_df, store = "../_targets/")
 # asset_list <- generate_volume_asset_csv_list('csv')
 # volume_asset_stats_df <- make_volume_assets_stats_df(asset_list)
-source("../R/volume_asset_functions.R")
+#source("../R/volume_asset_functions.R")
 ```
 
 ## Volumes with shared assets {-}
