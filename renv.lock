@@ -103,7 +103,7 @@
       "Package": "askpass",
       "Version": "1.2.0",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "sys"
       ],
@@ -412,6 +412,7 @@
     },
     "databraryr": {
       "Package": "databraryr",
+<<<<<<< HEAD
       "Version": "0.6.3.9006",
       "Source": "GitHub",
       "RemoteType": "github",
