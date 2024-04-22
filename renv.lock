@@ -412,16 +412,9 @@
     },
     "databraryr": {
       "Package": "databraryr",
-<<<<<<< HEAD
-      "Version": "0.6.3.9006",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "databraryr",
-      "RemoteUsername": "databrary",
-      "RemotePkgRef": "databrary/databraryr",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "eb213919ad3ec5d98e4491fb6fc20d2b4f534e8a",
+      "Version": "0.6.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "assertthat",
         "dplyr",
@@ -442,7 +435,7 @@
         "utils",
         "xfun"
       ],
-      "Hash": "f2375ea7c7278b67fd05d16d0e0f9dbc"
+      "Hash": "d7e47d3dc701610574e88c56af5a8f79"
     },
     "dbplyr": {
       "Package": "dbplyr",
