@@ -22,6 +22,7 @@ The following institutions previously had active DAAs:
 ```{r inactive-daas}
 inst_df |>
   dplyr::filter(daa == FALSE) |>
+  dplyr::filter(!(inst_id %in% c(8545, 8717, 8720, 9238, 10551, 12569))) |>
   dplyr::select(c('inst_id', 'inst_name')) |>
   kableExtra::kable(format = 'html') |>
   kableExtra::kable_styling() |>
