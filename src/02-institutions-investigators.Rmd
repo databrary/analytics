@@ -31,10 +31,12 @@ inst_df |>
 
 ## Map of institutions {-}
 
-**Under construction**
-
-```{r, eval = FALSE}
-ggmap::qmplot(lon, lat, data = inst_daa_df, color = I("red"), zoom = 3)
+```{r}
+ggmap::get_googlemap("Spain", zoom = 1) |>
+  ggmap::ggmap(maprange = TRUE) + 
+  ggplot2::geom_point(data = inst_daa_df, color = I("red")) +
+  ggplot2::xlim(c(-180, 180)) +
+  ggplot2::ylim(c(-60, 60))
 ```
 
 ## Investigators per institution {-}
