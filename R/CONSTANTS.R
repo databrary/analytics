@@ -1,5 +1,7 @@
 # constants.R
 
+NON_INSTITUTIONS = c(2, 9, 10, 15, 8545, 8717, 8720, 9238, 10551, 12569)
+
 weekly_interval <- 1
 weekly <- "weeks"
 quarterly_interval <- 13 #(weeks)

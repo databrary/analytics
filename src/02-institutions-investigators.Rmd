@@ -29,6 +29,14 @@ inst_df |>
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
+## Map of institutions {-}
+
+**Under construction**
+
+```{r, eval = FALSE}
+ggmap::qmplot(lon, lat, data = inst_daa_df, color = I("red"), zoom = 3)
+```
+
 ## Investigators per institution {-}
 
 ```{r}

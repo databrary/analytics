@@ -111,7 +111,6 @@ list(
   ),
   #----------------------------------------------------------------------------
   # Volume demographics from spreadsheets
-  
   tarchetypes::tar_age(
     volume_owners_csv,
     get_all_owners_save_csvs(max_vol_id, vb = verbose_feedback,
@@ -137,13 +136,6 @@ list(
   #            create_complete_demog_df(volume_ss_csv_fl)),
   # #----------------------------------------------------------------------------
   # Institutions and investigators (detailed)
-  #
-  # Every 6 days, we create a new inst_df from the saved CSVs, just to keep it fresh
-  # Every 6 days, we create a new invest_df from the saved CSVs, just to keep it fresh
-  # Every 6 days, we update the institution CSVs starting with the max party_id
-  # Every 4 weeks, we update _all_ of the institution CSVs to capture changes
-  # Every 4 weeks, we update the investigators at all of the institutions and
-  #  save it as a CSV 'src/csv/all-ais.csv'.
   tarchetypes::tar_age(inst_df,
                        make_inst_df_from_csvs(),
                        age = as.difftime(n_time, units = time_units)),
@@ -159,21 +151,22 @@ list(
     command = get_save_many_inst_csvs(
       max(extract_inst_csv_id(), 1),
       max_party_id,
-      update_geo = FALSE,
+      update_geo = TRUE,
       rq = drq
     ),
     age = as.difftime(n_time, units = time_units)
   ),
+  # Regenerate/update all institutions every 4 weeks
   tarchetypes::tar_age(
     update_all_inst_csvs,
     get_save_many_inst_csvs(
       1,
       max_party_id,
-      update_geo = FALSE,
+      update_geo = TRUE,
       vb = verbose_feedback,
       rq = drq
     ),
-    age = as.difftime(n_time, units = time_units)
+    age = as.difftime(4, units = "weeks")
   ),
   tarchetypes::tar_age(
     make_all_ais_csv,

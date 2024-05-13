@@ -39,7 +39,7 @@ get_inst_info_save_csv <-
            update_geo = FALSE,
            csv_dir = "src/csv",
            vb = FALSE,
-           non_insts = c(2, 9, 10, 15, 8545, 8717, 8720, 9238, 10551, 12569),
+           non_insts = NON_INSTITUTIONS,
            rq = NULL) {
     stopifnot(is.numeric(party_id))
     stopifnot(party_id > 0)
