@@ -120,7 +120,7 @@ cowplot::ggdraw(users_plot) +
 
 ```{r db-inst-table}
 new_institutions <- databraryr::get_db_stats(type = "institutions")
-if (!is.null(new_institutions)) {
+if (!is.null(new_institutions) && dim(new_institutions)[1] > 0) {
   new_institutions %>%
     dplyr::filter(institution == TRUE) %>%
     dplyr::mutate(db_url = paste0("https://databrary.org/party/", id)) %>%
@@ -137,7 +137,7 @@ if (!is.null(new_institutions)) {
 
 ```{r db-people-table}
 new_people <- databraryr::get_db_stats(type = "people")
-if (!is.null(new_people)) {
+if (!is.null(new_people) && dim(new_people)[1] > 0) {
   new_people %>%
     dplyr::mutate(db_url = paste0("https://databrary.org/party/", id)) %>%
     dplyr::select(., sortname, prename, affiliation, db_url) %>%
