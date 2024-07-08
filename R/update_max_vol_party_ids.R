@@ -9,6 +9,9 @@ update_max_vol_party_ids <-
   function(csv_dir = "src/csv",
            default_vol = 1567,
            default_party = 10941,
+           default_increment = 100,
+           update_vol = TRUE,
+           update_party = TRUE,
            vb = FALSE) {
     stopifnot(is.character(csv_dir))
     stopifnot(dir.exists(csv_dir))
@@ -25,8 +28,17 @@ update_max_vol_party_ids <-
     if (is.data.frame(old_max_ids)) {
       if (vb)
         message("Updating max vol and party IDs.")
-      new_max_vol_id <- get_max_vol_id(old_max_ids$MAX_VOL_ID)
-      new_max_party_id <- get_max_party_id(old_max_ids$MAX_PARTY_ID)
+      new_max_vol_id <- old_max_ids$MAX_VOL_ID
+      if (update_vol) {
+        new_max_vol_id <- get_max_vol_id(old_max_ids$MAX_VOL_ID, 
+                                         increment = default_increment, vb = vb)        
+      }
+      
+      if (update_party) {
+        new_max_party_id <- get_max_party_id(old_max_ids$MAX_PARTY_ID, 
+                                             increment = default_increment, vb = vb)        
+      }
+      
       max_ids <-
         data.frame(MAX_VOL_ID = new_max_vol_id, MAX_PARTY_ID = new_max_party_id)
       if (vb)
@@ -42,14 +54,16 @@ update_max_vol_party_ids <-
 
 #-------------------------------------------------------------------------------
 get_max_vol_id <- function(start_id = 1568,
-                           increment = 20) {
+                           increment = 20,
+                           vb = FALSE) {
   stopifnot(is.numeric(start_id))
   stopifnot(start_id > 0)
   stopifnot(is.numeric(increment))
   stopifnot(increment > 0)
   
+  if (vb) message("Determining max vol_id.")
   v_ids <- start_id:(start_id + increment)
-  vs_exist <- purrr::map(v_ids, vol_id_exists) |>
+  vs_exist <- purrr::map(v_ids, vol_id_exists, vb = vb, .progress = TRUE) |>
     unlist()
   
   new_max <- max(v_ids[vs_exist])
@@ -58,14 +72,16 @@ get_max_vol_id <- function(start_id = 1568,
 
 #-------------------------------------------------------------------------------
 get_max_party_id <- function(start_id = 10922,
-                             increment = 20) {
+                             increment = 20,
+                             vb = FALSE) {
   stopifnot(is.numeric(start_id))
   stopifnot(start_id > 0)
   stopifnot(is.numeric(increment))
   stopifnot(increment > 0)
   
+  if (vb) message("Determining max party_id.")
   p_ids <- start_id:(start_id + increment)
-  ps_exist <- purrr::map(p_ids, party_id_exists) |>
+  ps_exist <- purrr::map(p_ids, party_id_exists, vb = vb, .progress = TRUE) |>
     unlist()
   
   new_max <- max(p_ids[ps_exist])
@@ -73,8 +89,9 @@ get_max_party_id <- function(start_id = 10922,
 }
 
 #-------------------------------------------------------------------------------
-vol_id_exists <- function(vol_id = 1) {
-  v = databraryr::list_volume(vol_id)
+vol_id_exists <- function(vol_id = 1, vb = FALSE) {
+  if (vb) message("Accessing vol_id ", vol_id, ".")
+  v = databraryr::get_volume_by_id(vol_id, vb = vb)
   
   if (is.null(v)) {
     FALSE
@@ -84,8 +101,9 @@ vol_id_exists <- function(vol_id = 1) {
 }
 
 #-------------------------------------------------------------------------------
-party_id_exists <- function(party_id = 1) {
-  p = databraryr::download_party(party_id)
+party_id_exists <- function(party_id = 1, vb = FALSE) {
+  if (vb) message("Accessing party_id ", party_id)
+  p = databraryr::get_party_by_id(party_id, vb = vb)
   
   if (is.null(p)) {
     FALSE

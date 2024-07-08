@@ -109,7 +109,8 @@ get_ais_from_inst <- function(inst_id = 8,
 
 #-------------------------------------------------------------------------------
 count_affiliates_for_ai <- function(ai_id) {
-  affils <- databraryr::list_affiliates(ai_id)
+  affils <- databraryr::list_party_affiliates(ai_id)
+  #affils <- databraryr::list_affiliates(ai_id)
   if (is.null(affils)) {
     x <- 0
   } else {

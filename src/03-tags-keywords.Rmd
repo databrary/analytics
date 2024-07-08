@@ -72,22 +72,4 @@ tags |>
 
 ## STEM-relevant tags {-}
 
-The following tags are thought to be science, technology, engineering, or mathematics (STEM)-relevant:
-
-```{r}
-select_tags
-```
-
-```{r}
-stem_vols_df <- make_stem_tags_df(tags) |>
-  dplyr::distinct()
-```
-
-$n=$ `r dim(stem_vols_df)[1]` volumes contain STEM-relevant tags.
-
-```{r}
-stem_vols_df |>
-  knitr::kable("html") |>
-  kableExtra::kable_styling() |>
-  kableExtra::scroll_box(width = "100%", height = "300px")
-```
+This section has been omitted pending a future software update.

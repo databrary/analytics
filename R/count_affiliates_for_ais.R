@@ -4,7 +4,8 @@ count_affiliates_for_ais <- function(ai_ids) {
 }
 
 count_affiliates_for_ai <- function(ai_id) {
-  affils <- databraryr::list_affiliates(ai_id)
+  affils <- databraryr::list_party_affiliates(ai_id)
+  #affils <- databraryr::list_affiliates(ai_id)
   if (is.null(affils)) {
     x <- 0
   } else {
