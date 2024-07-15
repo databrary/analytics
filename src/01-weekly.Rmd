@@ -2,7 +2,7 @@
 
 These data are collected and reported on roughly a weekly basis.
 
-```{r setup, include=FALSE}
+```{r weekly-setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
@@ -32,14 +32,14 @@ databrary_theme <-
 
 ## Institutions & Authorized Users {-}
 
-```{r}
+```{r weekly-load-inst-invest}
 # targets::tar_load(inst_invest_csv, store = '../_targets/')
 # updated_stats <- inst_invest_csv
 targets::tar_load(inst_invest_df, store = '../_targets/')
 updated_stats <- inst_invest_df
 ```
 
-```{r}
+```{r weekly-calculate-delta}
 # Calculate change
 n_rows <- dim(updated_stats)[1]
 
@@ -250,13 +250,13 @@ if (is.null(new_volumes)) {
 }
 ```
 
-```{r}
+```{r weekly-unnest-vols}
 unnested_vols <- new_volumes %>%
   dplyr::rename(vol_id = id, vol_name = name) %>%
   tidyr::unnest(., cols = c(owners))
 ```
 
-```{r}
+```{r weekly-add-url}
 unnested_vols <- unnested_vols %>%
   dplyr::mutate(
     .,
@@ -265,7 +265,7 @@ unnested_vols <- unnested_vols %>%
   )
 ```
 
-```{r}
+```{r weekly-volume-table}
 unnested_vols %>%
   dplyr::select(., vol_name, date_created, url) %>%
   knitr::kable(col.names = c("Volume Name", "Date Created", "Databrary URL"), "html") %>%
@@ -274,7 +274,7 @@ unnested_vols %>%
 
 ## Citations {-}
 
-```{r}
+```{r weekly-get-old-citation-data}
 if (params$from_gs) {
 } else {
   old_citations <- readr::read_csv("csv/citations-monthly.csv", show_col_types = FALSE)
@@ -316,7 +316,7 @@ databrary_cites <- get_citation_stats('databrary')
 datavyu_cites <- get_citation_stats('datavyu')
 ```
 
-```{r}
+```{r weekly-merge-old-cite-new}
 # Merge old with new
 citations <- old_citations
 if (as.logical(params$update_stats)) {

@@ -110,7 +110,7 @@ calculate_vol_asset_stats <- function(vol_id,
   options(dplyr.summarise.inform = FALSE)
   
   if (vb)
-    message(paste0('Retrieving asset data for volume ', vol_id))
+    message(paste0('\nRetrieving asset data for volume ', vol_id))
   vol_assets <- databraryr::list_volume_assets(vol_id, vb, rq = rq)
   if (is.null(vol_assets)) {
     if (vb)

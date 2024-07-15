@@ -2,7 +2,7 @@
 
 ## Institutions {-}
 
-```{r}
+```{r inst-inv-setup}
 library(targets)
 library(tidyverse)
 
@@ -31,7 +31,7 @@ inst_df |>
 
 ## Map of institutions {-}
 
-```{r}
+```{r inst-inv-map}
 ggmap::get_googlemap("Spain", zoom = 1) |>
   ggmap::ggmap(maprange = TRUE) + 
   ggplot2::geom_point(data = inst_daa_df, color = I("red")) +
@@ -41,7 +41,7 @@ ggmap::get_googlemap("Spain", zoom = 1) |>
 
 ## Investigators per institution {-}
 
-```{r}
+```{r inst-inv-ai-stats}
 ai_stats <- fivenum(inst_daa_df$n_auth_invest)
 ```
 
@@ -56,7 +56,7 @@ inst_daa_df |>
 
 ### $n$ Authorized Investigators by Institution {-}
 
-```{r}
+```{r inst-inv-table-by-ins}
 inst_daa_df |>
   dplyr::select(-c("lat", "lon", "daa", "inst_url", "databrary_url")) |>
   dplyr::arrange(desc(n_auth_invest)) |>
@@ -85,14 +85,14 @@ inst_daa_df |>
 
 ## Investigators {-}
 
-```{r}
+```{r inst-inv-load-ais}
 # tar_load(invest_df, store = "../_targets/")
 invest_df <- readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),               show_col_types = FALSE)
 
 invest_df <- dplyr::distinct(invest_df)
 ```
 
-```{r}
+```{r inst-inv-add-affils}
 gte2_affils <- invest_df |>
   dplyr::filter(n_affils >= 2) |>
   dplyr::arrange(desc(n_affils)) |>
@@ -119,13 +119,13 @@ There are $n=$ `r dim(gte10_affils)[1]` Authorized Investigators with 10 or more
 
 #### 10+ affiliates {-}
 
-```{r}
+```{r inst-inv-table-affils-1}
 ggplot(gte10_affils) +
   aes(n_affils) +
   geom_histogram(bins = 10)
 ```
 
-```{r}
+```{r inst-inv-table-affils-2}
 gte10_affils |>
   dplyr::arrange(desc(n_affils)) |>
   dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
@@ -136,13 +136,13 @@ gte10_affils |>
 
 #### 5+ affiliates  {-}
 
-```{r}
+```{r inst-inv-table-affils-3}
 ggplot(gte5_affils) +
   aes(n_affils) +
   geom_histogram(bins = 10)
 ```
 
-```{r}
+```{r inst-inv-table-affils-4}
 gte5_affils |>
   dplyr::arrange(desc(n_affils)) |>
   dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
@@ -153,13 +153,13 @@ gte5_affils |>
 
 #### 2+ affiliates {-}
 
-```{r}
+```{r inst-inv-table-affils-5}
 ggplot(gte2_affils) +
   aes(n_affils) +
   geom_histogram(bins = 15)
 ```
 
-```{r}
+```{r inst-inv-table-affils-6}
 gte2_affils |>
   dplyr::arrange(desc(n_affils)) |>
   dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>
@@ -170,13 +170,13 @@ gte2_affils |>
 
 #### All  {-}
 
-```{r}
+```{r inst-inv-plot-affils-7}
 ggplot(invest_df) +
   aes(n_affils) +
   geom_histogram(bins = 20)
 ```
 
-```{r}
+```{r inst-inv-table-affils-8}
 invest_df |>
   dplyr::arrange(desc(n_affils)) |>
   dplyr::select(ai_id, ai_last, ai_first, ai_affiliation, n_affils) |>

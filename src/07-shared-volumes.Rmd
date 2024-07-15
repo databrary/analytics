@@ -2,13 +2,13 @@
 
 This report summarizes the number of shared volumes by sharing type and by investigator.
 
-```{r}
+```{r shared-vol-setup}
 tar_load(vols_sess_df, store = "../_targets/")
 ```
 
 ## How shared by unique volume {-}
 
-```{r}
+```{r shared-vols-stats}
 unique_vols <- vols_sess_df |>
   dplyr::rename(investigator = owner_name,
                 party_id = owner_id,
@@ -29,14 +29,14 @@ There are $n=$ `r dim(unique_vols)[1]` total shared volumes on Databrary.
 
 ### Full volume {-}
 
-```{r}
+```{r shared-vols-full}
 unique_vols_full <- unique_vols |>
   dplyr::filter(shared_type == "full_volume")
 ```
 
 There are $n=$ `r dim(unique_vols_full)[1]` volumes fully shared on Databrary.
 
-```{r}
+```{r shared-vols-full-table}
 unique_vols_full |>
   dplyr::arrange(desc(n_sessions)) |>
   knitr::kable("html") |>
@@ -46,14 +46,14 @@ unique_vols_full |>
 
 ### Overview only {-}
 
-```{r}
+```{r shared-vols-overview}
 unique_vols_overview <- unique_vols |>
   dplyr::filter(shared_type == "overview_only")
 ```
 
 There are $n=$ `r dim(unique_vols_overview)[1]` volume overviews shared on Databrary.
 
-```{r}
+```{r shared-vols-overview-table}
 unique_vols_overview |>
   dplyr::arrange(desc(n_sessions)) |>
   knitr::kable("html") |>
@@ -63,7 +63,7 @@ unique_vols_overview |>
 
 ## How shared by investigator {-}
 
-```{r}
+```{r shared-vols-how-shared}
 vols_dat <- vols_sess_df |>
   # change variable names, create full_volume vs. overview_only
   dplyr::group_by(owner_name, owner_id) |>
@@ -93,7 +93,7 @@ Sorted by `tot_sess`, the total number of sessions from these Authorized Investi
 
 ### Full volume {-}
 
-```{r}
+```{r shared-vols-by-ai}
 vols_dat |>
   dplyr::filter(shared_type == "full_volume") |>
   knitr::kable("html") |>
@@ -103,7 +103,7 @@ vols_dat |>
 
 ### Overview only {-}
 
-```{r}
+```{r shared-vols-by-ai-overview}
 vols_dat |>
   dplyr::filter(shared_type == "overview_only") |>
   knitr::kable("html") |>

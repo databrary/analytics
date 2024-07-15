@@ -137,7 +137,7 @@ xtabs(formula = ~ participant_gender, data = demo_df) |>
 
 ### Volumes and sessions {-}
 
-```{r race-volumesE}
+```{r race-volumes}
 race_df <- demo_df |>
   dplyr::filter(!is.na(participant_race)) |>
   dplyr::group_by(vol_id, vol_url) |>
@@ -157,7 +157,7 @@ There are $n=$ `r unique(race_df$n_vols_w_demo)` shared volumes reporting `parti
 
 ### $n$ participants {-}
 
-```{r race-table,}
+```{r race-table}
 xtabs(formula = ~ participant_race, data = demo_df) |>
   knitr::kable("html") |>
   kableExtra::kable_styling() |>

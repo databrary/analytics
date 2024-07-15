@@ -6,14 +6,14 @@ The tags data is updated approximately every 13 weeks.
 
 The most recent tags data were collected on `r file.info("csv/databrary-tags.csv")$mtime`.
 
-```{r}
+```{r tags-setup}
 targets::tar_load(volume_tags_df, store = '../_targets/')
 tags <- volume_tags_df
 ```
 
 ## Tag stats {-}
 
-```{r}
+```{r tags-stats}
 vols_without_tags <- tags |>
   dplyr::filter(is.na(tags))
 
@@ -25,7 +25,7 @@ vols_with_tags <- tags |>
 
 ### Histogram of tags/volume {-}
 
-```{r}
+```{r tags-hist}
 vols_with_tags |>
   ggplot2::ggplot() +
   aes(n_tags) +
@@ -34,7 +34,7 @@ vols_with_tags |>
 
 ### Unique tags {-}
 
-```{r}
+```{r tags-unique}
 unique_tags <- tags |>
   dplyr::select(tags, weight) |>
   dplyr::filter(!is.na(tags)) |>
@@ -45,7 +45,7 @@ unique_tags <- tags |>
 
 There are `r dim(unique_tags)[1]` unique tags.
 
-```{r}
+```{r tags-unique-table}
 unique_tags |>
   knitr::kable("html") |>
   kableExtra::kable_styling() |>
@@ -54,14 +54,14 @@ unique_tags |>
 
 ### Word cloud {-}
 
-```{r}
+```{r tags-wordcloud}
 wordcloud::wordcloud(words = unique_tags$tags, 
                      freq = unique_tags$n_vols_using)
 ```
 
 ## Tags by volume {-}
 
-```{r}
+```{r tags-by-vol}
 tags |> 
   dplyr::filter(!is.na(weight)) |>
   dplyr::arrange(vol_id, weight) |>
