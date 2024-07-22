@@ -117,13 +117,12 @@ p <- cowplot::ggdraw(users_plot) +
     ),
     colour = color_orange,
     .7,
-    .4
+    .3
   )
 p
 
 ggsave("include/img/invest-inst-for-hnds-i.png", width=11, height=6.5, dpi=300)
 ```
-
 
 
 ### New Institutions {-}
