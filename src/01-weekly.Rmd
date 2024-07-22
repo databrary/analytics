@@ -66,6 +66,9 @@ gathered_stats <- updated_stats %>%
   dplyr::filter(type %in% c('institutions', 'investigators')) %>%
   dplyr::filter(!is.na(count))
 
+ratio.display <- 550/250
+ratio.values <- 3757/max(gathered_stats$count)
+
 # Plot
 users_plot <- gathered_stats %>%
   ggplot(., aes(
@@ -78,18 +81,20 @@ users_plot <- gathered_stats %>%
   geom_point() +
   geom_line(linewidth = ln_size) +
   scale_colour_manual(values = c(color_orange, color_teal)) +
-  ggtitle(paste("Authorizations as of ", Sys.Date())) +
+  ggtitle(paste("Authorizations as of", Sys.Date())) +
   ylab("Authorizations") +
   databrary_theme +
-  scale_y_continuous(breaks = seq(0, plyr::round_any(max(
-    gathered_stats$count
-  ), 100, ceiling), 100),
-  expand = c(0, 0)) +
-  coord_cartesian(ylim = c(0, plyr::round_any(max(
-    gathered_stats$count
-  ), 100, ceiling)))
+  # scale_y_continuous(breaks = seq(0, plyr::round_any(max(
+  #   gathered_stats$count), 400, ceiling), 400), expand = c(0, 0)) +
+  scale_y_continuous(breaks = c(0, 300, 600, 900, 1200, 1500, 1800)) +
+  # coord_cartesian(ylim = c(0, plyr::round_any(max(
+  #   gathered_stats$count
+  # ), 400, ceiling))) +
+  coord_fixed(ratio = ratio.values / ratio.display)
 
-cowplot::ggdraw(users_plot) +
+ggsave("include/img/invest-inst-for-hnds-i.png", width=11, height=6.5, dpi=300)
+
+p <- cowplot::ggdraw(users_plot) +
   cowplot::draw_label(
     paste0(
       "Investigators: ",
@@ -100,7 +105,7 @@ cowplot::ggdraw(users_plot) +
     ),
     colour = color_teal,
     .6,
-    .8
+    .75
   ) +
   cowplot::draw_label(
     paste0(
@@ -111,10 +116,15 @@ cowplot::ggdraw(users_plot) +
       ")"
     ),
     colour = color_orange,
-    .75,
-    .5
+    .7,
+    .4
   )
+p
+
+ggsave("include/img/invest-inst-for-hnds-i.png", width=11, height=6.5, dpi=300)
 ```
+
+
 
 ### New Institutions {-}
 
