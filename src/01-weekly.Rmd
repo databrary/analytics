@@ -304,12 +304,26 @@ get_citation_stats <- function(project = 'databrary') {
       'https://scholar.google.com/scholar?hl=en&as_sdt=1%2C39&as_vis=1&q=%22Datavyu%22+%22datavyu%22&btnG='
   }
   
-  r <- httr::GET(url = url)
-  if (httr::status_code(r) == 200) {
-    content <- httr::content(r, 'text')
-  } else {
-    message(paste0('Download Failed, HTTP status ', httr::status_code(r)))
+  # r <- httr::GET(url = url)
+  # if (httr::status_code(r) == 200) {
+  #   content <- httr::content(r, 'text')
+  # } else {
+  #   message(paste0('Download Failed, HTTP status ', httr::status_code(r)))
+  # }
+  
+  rq <- httr2::request(url)
+  resp <- tryCatch(httr2::req_perform(rq),
+    httr2_error = function(cnd) {
+      message("Error retrieving citation data from Google Scholar.")
+      return(resp)
+    }
+  )
+  
+  if(is.null(resp)) {
+    return(resp)
   }
+  
+  content <- httr2::resp_body_string(resp)
   
   n_results <-
     stringr::str_match(content, pattern = "About ([0-9]+)")[2]

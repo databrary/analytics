@@ -15,11 +15,14 @@ report_update_render <- function(src_dir = 'src',
   suppressPackageStartupMessages(require(targets))
   suppressPackageStartupMessages(require(bookdown))
   
+  start_time <- Sys.time()
   message("\n-------Updating data-------")
   targets::tar_make()
   
   message("\n-------Rendering report-------")
   bookdown::render_book(src_dir)
+  
+  message("\n------- Report rendered in ", Sys.time() - start_time)
   
   if (open_rpt)
     browseURL(rpt_URL)
