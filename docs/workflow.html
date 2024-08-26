@@ -1,137 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Workflow | Databrary analytics</title>
-<meta name="author" content="Rick Gilmore &amp; Andrea Seisler">
-<meta name="description" content="This page describes the set of tools we use to generate these data and present them in this site. GitHub We use GitHub’s pages feature to serve the web site files. At present, we are using a...">
-<meta name="generator" content="bookdown 0.39 with bs4_book()">
-<meta property="og:title" content="Workflow | Databrary analytics">
-<meta property="og:type" content="book">
-<meta property="og:description" content="This page describes the set of tools we use to generate these data and present them in this site. GitHub We use GitHub’s pages feature to serve the web site files. At present, we are using a...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Workflow | Databrary analytics">
-<meta name="twitter:description" content="This page describes the set of tools we use to generate these data and present them in this site. GitHub We use GitHub’s pages feature to serve the web site files. At present, we are using a...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<link rel="stylesheet" href="include/css/style.css">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Databrary Analytics - Workflow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./shared-volumes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body class="nav-sidebar floating">
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Databrary analytics</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflow.html">Workflow</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
-
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
-<li><a class="" href="weekly.html"><span class="header-section-number">2</span> Weekly</a></li>
-<li><a class="" href="investigators-and-institutions.html"><span class="header-section-number">3</span> Investigators and Institutions</a></li>
-<li><a class="" href="tags-and-keywords.html"><span class="header-section-number">4</span> Tags and keywords</a></li>
-<li><a class="" href="funders.html"><span class="header-section-number">5</span> Funders</a></li>
-<li><a class="" href="assets.html"><span class="header-section-number">6</span> Assets</a></li>
-<li><a class="" href="participant-demographics.html"><span class="header-section-number">7</span> Participant demographics</a></li>
-<li><a class="" href="shared-volumes-and-sessions.html"><span class="header-section-number">8</span> Shared volumes and sessions</a></li>
-<li><a class="" href="unshared-data.html"><span class="header-section-number">9</span> Unshared Data</a></li>
-<li class="book-part">Appendix</li>
-<li><a class="active" href="workflow.html">Workflow</a></li>
-</ul>
-
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/gilmore-lab/databrary-analytics">View book source <i class="fab fa-github"></i></a></p>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Databrary Analytics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/databrary/analytics/tree/main/src/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </nav>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weekly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weekly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./institutions-investigators.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Investigators and Institutions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tags-keywords.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tags and keywords</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./funders.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Funders</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Assets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demographics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Participant demographics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./shared-volumes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Shared volumes and sessions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workflow</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#github" id="toc-github" class="nav-link active" data-scroll-target="#github">GitHub</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a>
+  <ul class="collapse">
+  <li><a href="#databraryr" id="toc-databraryr" class="nav-link" data-scroll-target="#databraryr">Databraryr</a></li>
+  <li><a href="#targets" id="toc-targets" class="nav-link" data-scroll-target="#targets">Targets</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#package-reproducibility" id="toc-package-reproducibility" class="nav-link" data-scroll-target="#package-reproducibility">Package Reproducibility</a></li>
+  </ul></li>
+  <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a>
+  <ul class="collapse">
+  <li><a href="#file-level-dependencies" id="toc-file-level-dependencies" class="nav-link" data-scroll-target="#file-level-dependencies">File-level dependencies</a></li>
+  <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap">Roadmap</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/databrary/analytics/edit/main/src/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/databrary/analytics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Workflow</h1>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="workflow" class="section level1 unnumbered">
-<h1>Workflow<a class="anchor" aria-label="anchor" href="#workflow"><i class="fas fa-link"></i></a>
-</h1>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 26, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>This page describes the set of tools we use to generate these data and present them in this site.</p>
-<div id="github" class="section level2 unnumbered">
-<h2>GitHub<a class="anchor" aria-label="anchor" href="#github"><i class="fas fa-link"></i></a>
-</h2>
+<section id="github" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="github">GitHub</h2>
 <p>We use GitHub’s pages feature to serve the web site files.</p>
-<p>At present, we are using a repository associated with the Databrary organization (<a href="https://github.com/databrary/analytics" class="uri">https://github.com/databrary/analytics</a>).
-This results in the analytics site having the following url: <a href="https://databrary.github.io/analytics/" class="uri">https://databrary.github.io/analytics/</a>.</p>
+<p>At present, we are using a repository associated with the Databrary organization (https://github.com/databrary/analytics). This results in the analytics site having the following url: https://databrary.github.io/analytics/.</p>
 <p>The site is built locally by Rick Gilmore or Andrea Seisler, then pushed to GitHub.</p>
-</div>
-<div id="rstudio" class="section level2 unnumbered">
-<h2>RStudio<a class="anchor" aria-label="anchor" href="#rstudio"><i class="fas fa-link"></i></a>
-</h2>
-<p>We use <a href="https://posit.co/products/open-source/rstudio/">RStudio</a> as the integrated development environment for the site.
-Most of the code is in R Markdown and R, with some CSS and JavaScript.</p>
+</section>
+<section id="rstudio" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="rstudio">RStudio</h2>
+<p>We use <a href="https://posit.co/products/open-source/rstudio/">RStudio</a> as the integrated development environment for the site. Most of the code is in R Markdown and R, with some CSS and JavaScript.</p>
 <p>We use a number of R packages in the workflow.</p>
-<div id="databraryr" class="section level3 unnumbered">
-<h3>Databraryr<a class="anchor" aria-label="anchor" href="#databraryr"><i class="fas fa-link"></i></a>
-</h3>
-<p>The <a href="https://github.com/databrary/databraryr/"><code>databraryr</code> package</a> provides a set of tools for interacting with the Databrary API and gathering data from the site.
-This package may be useful to some analysts whether or not they care about Databrary-specific analytics.</p>
+<section id="databraryr" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="databraryr">Databraryr</h3>
+<p>The <a href="https://github.com/databrary/databraryr/"><code>databraryr</code> package</a> provides a set of tools for interacting with the Databrary API and gathering data from the site. This package may be useful to some analysts whether or not they care about Databrary-specific analytics.</p>
 <p>Most data and metadata used in these reports can be accessed by the public, but specific data about individual participants requires that the user be authorized and logged in to the site using the <code>databraryr::db_login()</code> function.</p>
 <p>The package may be installed via <code>devtools::install_github(repo="databrary/databraryr")</code>.</p>
 <p>See <a href="https://databrary.github.io/databraryr/" class="uri">https://databrary.github.io/databraryr/</a> for documentation about the package.</p>
-</div>
-<div id="targets" class="section level3 unnumbered">
-<h3>Targets<a class="anchor" aria-label="anchor" href="#targets"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="targets" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="targets">Targets</h3>
 <p>We use the <a href="https://books.ropensci.org/targets/"><code>targets</code></a> package to generate data and metadata files that are used to create the visualizations and summaries.</p>
 <p>Some of the components are rendered on a regular, time-determined basis, like the weekly report. Others are rendered less often, typically quarterly.</p>
 <p>Most of the targets call functions in <code>R/functions.R</code>. The specific targets can be viewed in the <code>_targets.R</code> file in the root directory of the repository.</p>
 <p>A typical workflow to ‘make’ or update the <em>data</em> files, is as follows:</p>
-<pre><code><a href="https://docs.ropensci.org/targets/">library(targets)
-tar_make()</a></code></pre>
-</div>
-<div id="bookdown" class="section level3 unnumbered">
-<h3>Bookdown<a class="anchor" aria-label="anchor" href="#bookdown"><i class="fas fa-link"></i></a>
-</h3>
-<p>To generate the site, we use the <a href="https://bookdown.org/yihui/bookdown/"><code>bookdown</code></a> package.</p>
+<pre><code>library(targets)
+tar_make()</code></pre>
+</section>
+<section id="quarto" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="quarto">Quarto</h3>
+<p>To generate the site, we use <a href="https://quarto.org"><code>Quarto</code></a>.</p>
 <p>A typical sequence of commands to regenerate the site is the following:</p>
-<pre><code>bookdown::render_book('src')</code></pre>
-<p>Configuration files using the YAML markup language control the rendering process.
-These files and the source R Markdown (.Rmd) files used to generate the site are in the <code>src/</code> directory.</p>
+<pre><code>quarto render src</code></pre>
+<p>Configuration files using the YAML markup language control the rendering process. These files and the source R Markdown (.Rmd) files used to generate the site are in the <code>src/</code> directory.</p>
 <p>The rendering command creates a full website in the <code>docs/</code> directory.</p>
-</div>
-<div id="package-reproducibility" class="section level3 unnumbered">
-<h3>Package Reproducibility<a class="anchor" aria-label="anchor" href="#package-reproducibility"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="package-reproducibility" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="package-reproducibility">Package Reproducibility</h3>
 <p>We use the <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a> package to track package dependencies.</p>
-</div>
-</div>
-<div id="strategy" class="section level2 unnumbered">
-<h2>Strategy<a class="anchor" aria-label="anchor" href="#strategy"><i class="fas fa-link"></i></a>
-</h2>
-<p>Some of the data elements in the report change often, but others do not.
-We have found it is faster and more convenient in many cases to download various data files from Databrary and store copies as comma-separated value (CSV) text files in <code>src/csv</code>.</p>
+</section>
+</section>
+<section id="strategy" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="strategy">Strategy</h2>
+<p>Some of the data elements in the report change often, but others do not. We have found it is faster and more convenient in many cases to download various data files from Databrary and store copies as comma-separated value (CSV) text files in <code>src/csv</code>.</p>
 <p>Some of the CSVs contain potentially identifiable human subjects data, so we use a special <code>.gitignore</code> file to keep those files out of the git tracking scheme and prevent uploading them to GitHub.</p>
-<p>These data analyses and visualizations have developed piecemeal over several years.
-They could undoubtedly be optimized and improved.</p>
-<p>The primary developer (Rick Gilmore) has had a ‘git-er-done’ attitude toward the project, especially with the latest refactoring to <a href="https://github.com/rstudio/bookdown">bookdown</a>, <a href="https://docs.ropensci.org/targets/">targets</a>, and <a href="https://rstudio.github.io/renv/">renv</a>.</p>
+<p>These data analyses and visualizations have developed piecemeal over several years. They could undoubtedly be optimized and improved.</p>
+<p>The primary developer (Rick Gilmore) has had a ‘git-er-done’ attitude toward the project, especially with the latest refactoring to <code>{bookdown}</code>, <code>{targets}</code>, and <code>{renv}</code>.</p>
 <p>Gilmore takes some solace in the following quotation from the father of literate programming, <a href="https://en.wikiquote.org/wiki/Donald_Knuth">Donald Knuth</a>:</p>
-<blockquote>
+<blockquote class="blockquote">
 <p>…the real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.</p>
 </blockquote>
-<div id="file-level-dependencies" class="section level3" number="9.1.1">
-<h3>
-<span class="header-section-number">1.1</span> File-level dependencies<a class="anchor" aria-label="anchor" href="#file-level-dependencies"><i class="fas fa-link"></i></a>
-</h3>
+<section id="file-level-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="file-level-dependencies">File-level dependencies</h3>
 <p>Several files contain historical data and are used for generating the time series plots in the weekly report:</p>
 <ul>
 <li><code>src/csv/volumes-shared-unshared.csv</code></li>
@@ -139,114 +267,429 @@ They could undoubtedly be optimized and improved.</p>
 <li><code>src/csv/institutions-investigators.csv</code></li>
 <li><code>src/csv/max-ids.csv</code></li>
 </ul>
-</div>
-<div id="roadmap" class="section level3 unnumbered">
-<h3>Roadmap<a class="anchor" aria-label="anchor" href="#roadmap"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="roadmap" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="roadmap">Roadmap</h3>
 <ul>
-<li>Fix when targets are run for which flows.
-<ul>
-<li>This is a work in-progress.</li>
-</ul>
-</li>
-<li>Separate functions in <code>R/functions.R</code> into separate files based on their context. The current <code>R/functions.R</code> contains mostly old code from the pre-<code>bookdown</code> version of the site. The styles are inconsistent and the large file is hard to maintain.
-<ul>
-<li>This is in-process as of 2023-02-24.</li>
-</ul>
-</li>
+<li><del>Fix when targets are run for which flows.</del></li>
+<li><del>Separate functions in <code>R/functions.R</code> into separate files based on their context. The current <code>R/functions.R</code> contains mostly old code from the pre-<code>bookdown</code> version of the site. The styles are inconsistent and the large file is hard to maintain.</del></li>
 <li>Devise visualizations of assets by investigator/institution.</li>
-<li>
-<del>Function to determine max party_id and max volume_id interactively</del>.</li>
-<li>Eliminate YAML params from <code>index.Rmd</code>.</li>
+<li><del>Function to determine max party_id and max volume_id interactively</del>.</li>
+<li><del>Eliminate YAML params from <code>index.Rmd</code>.</del></li>
 <li>Create JSON lat, lon file for Databrary home page.</li>
-<li>
-<del>Add state, country summaries to demographics</del>.</li>
-<li>Allow user to show code.</li>
+<li><del>Add state, country summaries to demographics</del>.</li>
+<li><del>Allow user to show code.</del></li>
 <li>Move from old pipe <code>%&gt;%</code> to new <code>|&gt;</code>.
 <ul>
-<li>
-<del>Done for <code>*.Rmd</code> files</del>, but not <code>*.R</code> files as of 2023-02-24.</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="prev"><a href="unshared-data.html"><span class="header-section-number">9</span> Unshared Data</a></div>
-<div class="empty"></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#workflow">Workflow</a></li>
-<li><a class="nav-link" href="#github">GitHub</a></li>
-<li>
-<a class="nav-link" href="#rstudio">RStudio</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#databraryr">Databraryr</a></li>
-<li><a class="nav-link" href="#targets">Targets</a></li>
-<li><a class="nav-link" href="#bookdown">Bookdown</a></li>
-<li><a class="nav-link" href="#package-reproducibility">Package Reproducibility</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#strategy">Strategy</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#file-level-dependencies"><span class="header-section-number">9.1.1</span> File-level dependencies</a></li>
-<li><a class="nav-link" href="#roadmap">Roadmap</a></li>
-</ul>
-</li>
+<li><del>Done for <code>*.Rmd</code> files</del>, but not <code>*.R</code> files as of 2023-02-24.</li>
+</ul></li>
+<li><del>Migrate to Quarto</del></li>
 </ul>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/gilmore-lab/databrary-analytics/blob/main/src/10-workflow.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/gilmore-lab/databrary-analytics/edit/main/src/10-workflow.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
 
-</div>
-</div> <!-- .container -->
+</section>
+</section>
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Databrary analytics</strong>" was written by Rick Gilmore &amp; Andrea Seisler. It was last built on 2024-08-26.</p>
-  </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
   }
-}
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
 </script>
-</body>
-</html>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./shared-volumes.html" class="pagination-link  aria-label=" &lt;span="" volumes="" and="" sessions&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Shared volumes and sessions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/databrary/analytics/edit/main/src/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/databrary/analytics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

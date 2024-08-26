@@ -1,0 +1,6 @@
+db_account: email@provider.com
+update_gs: False
+update_stats: True
+from_gs: False
+update_csv: True
+vols_to_test: 10

@@ -1,0 +1,57 @@
+# Funders
+
+This page describes funders associated with Databrary volumes (projects).
+
+## Set-up
+
+```{r funders-setup}
+source("../R/storage_gb_by_vol.R")
+targets::tar_load(volume_funders_df, store = "../_targets/")
+funders_df <- volume_funders_df |>
+  dplyr::distinct()
+```
+
+## Volumes by funder {-}
+
+### $n$ volumes listing funders {-}
+
+```{r funder-filter}
+vols_w_funders <- funders_df |>
+  dplyr::filter(!is.na(funder_id), !is.na(funder_name)) |>
+  dplyr::group_by(vol_id)
+```
+
+There are *n=* `r length(unique(vols_w_funders$vol_id))` volumes that list funders.
+
+```{r funders-table}
+vols_w_funders |>
+  dplyr::select(-funder_id) |>
+  kableExtra::kable(format = 'html') |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+### Funders by number of volumes {-}
+
+```{r funders-by-vol}
+funders_filtered <- funders_df |>
+  dplyr::filter(!is.na(funder_id), !is.na(funder_name)) |>
+  dplyr::group_by(funder_name) |>
+  dplyr::summarize(n_vols = dplyr::n()) |>
+  dplyr::arrange(desc(n_vols))
+
+funders_filtered |>
+  kableExtra::kable(format = 'html') |>
+  kableExtra::kable_styling()
+```
+
+### NSF-specific data {-}
+
+The following is based on functions created for  <https://databrary.github.io/nsf-oac-2032713/nsf-funding.html>
+
+```{r funders-nsf}
+db_w_nsf <- readr::read_csv("csv/databrary-vols-w-nsf-funding-all.csv", 
+                            show_col_types = FALSE)
+```
+
+There are *n=* `r dim(db_w_nsf)[1]` shared Databrary volumes that list NSF as a funder and *n=* `r unique(db_w_nsf$award_id) |> length()` unique awards.

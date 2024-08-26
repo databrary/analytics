@@ -4,3 +4,5 @@ rmd
 include
 archive
 _main.html
+
+/.quarto/
