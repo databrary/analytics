@@ -1,0 +1,26 @@
+# 
+
+```{r setup-index, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.align = "center",
+                      fig.path = "include/img/")
+
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(targets))
+suppressPackageStartupMessages(library(ggmap))
+
+#source("../R/constants.R")
+list.files("../R", "\\.R$", full.names = TRUE) |>
+  purrr::walk(source, echo = FALSE, print.eval = FALSE)
+```
+
+## About
+
+These pages summarize information about the Databrary data library.
+
+## Purpose {-}
+
+The separate reports take different views of Databrary's holdings.
+The goal of the reports together is to provide useful information to the people who are running the repository and to those who wish to use data from it.
+
+For information about Databrary, see <https://databrary.github.io/guide/>.
