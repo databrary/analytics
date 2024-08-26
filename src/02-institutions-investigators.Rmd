@@ -8,7 +8,8 @@ library(tidyverse)
 
 tar_load(inst_df, store = "../_targets/")
 
-inst_daa_df <- dplyr::filter(inst_df, daa == TRUE)
+inst_daa_df <- inst_df |>
+  dplyr::filter(daa == TRUE)
 ```
 
 There are `r dim(inst_df)[1]` total institutions in the Databrary system.
@@ -31,7 +32,17 @@ inst_df |>
 
 ## Map of institutions {-}
 
-```{r inst-inv-map}
+```{r inst-inv-stadia-map}
+inst_daa_df_lat_lon <- inst_daa_df |>
+  dplyr::filter(!is.na(lat), !is.na(lon))
+
+world_map <- get_stadiamap(bbox = c(-179, -50, 179, 65), zoom = 1, maptype = "stamen_terrain_background")
+
+ggmap::ggmap(world_map) +
+  ggplot2::geom_point(data = inst_daa_df, color = I("red"), size = 0.3)
+```
+
+```{r inst-inv-map, eval=FALSE}
 ggmap::get_googlemap("Spain", zoom = 1) |>
   ggmap::ggmap(maprange = TRUE) + 
   ggplot2::geom_point(data = inst_daa_df, color = I("red")) +

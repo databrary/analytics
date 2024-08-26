@@ -42,29 +42,31 @@ funders_filtered |>
   kableExtra::kable_styling()
 ```
 
-### NSF-specific data
+### NSF-specific data {-}
 
-The following functions come from <https://databrary.github.io/nsf-oac-2032713/nsf-funding.html>
+The following is based on functions created for  <https://databrary.github.io/nsf-oac-2032713/nsf-funding.html>
 
 ```{r funders-nsf}
-max_ids_df <- readr::read_csv("csv/max-ids.csv", show_col_types = FALSE)
+db_w_nsf <- readr::read_csv("csv/databrary-vols-w-nsf-funding-all.csv")
 
-if (max_ids_df$MAX_VOL_ID > 1) {
-  max_vol_id <- max_ids_df$MAX_VOL_ID
-} else {
-  message("Cannot extract max_vol_id. Using default of 1772")
-  max_vol_id <- 1772
-}
-
-db_w_nsf <-
-  purrr::map(1:max_vol_id,
-             get_vol_awards,
-             funder_str = "NSF",
-             .progress = "Databrary vols w/ NSF:") |> 
-  purrr::list_rbind() |>
-  add_clean_nsf_award_id()
-
-readr::write_csv(db_w_nsf, "csv/databrary-vols-w-nsf-funding-all.csv")
+# max_ids_df <- readr::read_csv("csv/max-ids.csv", show_col_types = FALSE)
+# 
+# if (max_ids_df$MAX_VOL_ID > 1) {
+#   max_vol_id <- max_ids_df$MAX_VOL_ID
+# } else {
+#   message("Cannot extract max_vol_id. Using default of 1772")
+#   max_vol_id <- 1772
+# }
+# 
+# db_w_nsf <-
+#   purrr::map(1:max_vol_id,
+#              get_vol_awards,
+#              funder_str = "NSF",
+#              .progress = "Databrary vols w/ NSF:") |> 
+#   purrr::list_rbind() |>
+#   add_clean_nsf_award_id()
+# 
+# readr::write_csv(db_w_nsf, "csv/databrary-vols-w-nsf-funding-all.csv")
 ```
 
-There are $n=$`r dim(db_w_nsf)[1]` shared Databrary volumes that list NSF as a funder and $n=$`r unique(db_w_nsf$award_id) |> length()` awards.
+There are *n=* `r dim(db_w_nsf)[1]` shared Databrary volumes that list NSF as a funder and *n=* `r unique(db_w_nsf$award_id) |> length()` unique awards.

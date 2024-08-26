@@ -10,7 +10,6 @@ weekly
 investigators-and-institutions
 tags-and-keywords
 funders
-nsf-specific-data
 assets
 participant-demographics
 shared-volumes-and-sessions

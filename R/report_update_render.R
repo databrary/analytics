@@ -16,10 +16,10 @@ report_update_render <- function(src_dir = 'src',
   suppressPackageStartupMessages(require(bookdown))
   
   start_time <- Sys.time()
-  message("\n-------Updating data-------")
+  message("\n-------Updating data------- ", paste(start_time))
   targets::tar_make()
   
-  message("\n-------Rendering report-------")
+  message("\n-------Rendering report-------", paste(Sys.time()))
   bookdown::render_book(src_dir)
   
   message("\n------- Report rendered in ", Sys.time() - start_time)

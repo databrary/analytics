@@ -32,30 +32,14 @@ drq <- databraryr::make_default_request()
 
 # Parameters for debugging
 verbose_feedback <- FALSE
-n_time <- 5
-time_units <- "days" # Typically days or weeks
+n_time <- 1
+time_units <- "hours" # Typically days or weeks
 
 list(
-  #----------------------------------------------------------------------------
-  # Login Databrary
-  # tar_target(
-  #   databrary_login_status,
-  #   databraryr::login_db(
-  #     Sys.getenv("DATABRARY_LOGIN"),
-  #     store = TRUE,
-  #     rq = drq
-  #   ),
-  #   cue = tar_cue(mode = "always")
-  # ),
-  #----------------------------------------------------------------------------
   # Max party and volume ids
-  tar_target(max_ids,
-             update_max_vol_party_ids(),
-             cue = tar_cue(mode = "always")),
-  tar_target(max_party_id,
-             max_ids$MAX_PARTY_ID),
-  tar_target(max_vol_id,
-             max_ids$MAX_VOL_ID),
+  tar_target(max_ids, update_max_vol_party_ids(), cue = tar_cue(mode = "always")),
+  tar_target(max_party_id, max_ids$MAX_PARTY_ID),
+  tar_target(max_vol_id, max_ids$MAX_VOL_ID),
   #----------------------------------------------------------------------------
   # institution and investigator aggregate numbers
   tarchetypes::tar_age(
@@ -66,8 +50,7 @@ list(
   tar_target(
     inst_invest_csv,
     format = "file",
-    update_inst_invest_csv(inst_invest_df, paste0(here::here(), '/src/csv'),
-                           vb = verbose_feedback)
+    update_inst_invest_csv(inst_invest_df, paste0(here::here(), '/src/csv'), vb = verbose_feedback)
   ),
   #----------------------------------------------------------------------------
   # Volume tags and keywords
@@ -76,9 +59,7 @@ list(
     refresh_volume_tags_df(1:max_vol_id),
     age = as.difftime(4, units = "weeks")
   ),
-  tar_target(vol_tags_csv,
-             update_vol_tags_csv(volume_tags_df, "src/csv")
-  ),
+  tar_target(vol_tags_csv, update_vol_tags_csv(volume_tags_df, "src/csv")),
   #----------------------------------------------------------------------------
   # Funders
   tar_target(
@@ -87,9 +68,19 @@ list(
   ),
   tar_target(
     volume_funders_csv,
-    update_volume_funders_csv(volume_funders_df,
-                              paste0(here::here(), '/src/csv'),
-                              vb = verbose_feedback)
+    update_volume_funders_csv(volume_funders_df, paste0(here::here(), '/src/csv'), vb = verbose_feedback)
+  ),
+  # tar_target(
+  #   nsf_funders_csv,
+  #   update_nsf_funding_csv(max_vol_id, file.path(here:here(), 'src', 'csv'))
+  # ),
+  # The following functions come from 
+  # <https://databrary.github.io/nsf-oac-2032713/nsf-funding.html>
+  tarchetypes::tar_age(
+    nsf_funders_csv,
+    update_nsf_funding_csv(max_vol_id, file.path(here:here(), 'src', 'csv')),
+    format = "file",
+    age = as.difftime(n_time, units = time_units)
   ),
   #----------------------------------------------------------------------------
   # Volume assets
@@ -113,14 +104,12 @@ list(
   # Volume demographics from spreadsheets
   tarchetypes::tar_age(
     volume_owners_csv,
-    get_all_owners_save_csvs(max_vol_id, vb = verbose_feedback,
-                             rq = drq),
+    get_all_owners_save_csvs(max_vol_id, vb = verbose_feedback, rq = drq),
     age = as.difftime(n_time, units = time_units)
   ),
   tarchetypes::tar_age(
     volume_ss_csvs,
-    get_volume_demo_save_csv_mult(1, max_vol_id, vb = verbose_feedback,
-                                  rq = drq),
+    get_volume_demo_save_csv_mult(1, max_vol_id, vb = verbose_feedback, rq = drq),
     age = as.difftime(n_time, units = time_units)
   ),
   tar_target(
@@ -136,9 +125,11 @@ list(
   #            create_complete_demog_df(volume_ss_csv_fl)),
   # #----------------------------------------------------------------------------
   # Institutions and investigators (detailed)
-  tarchetypes::tar_age(inst_df,
-                       make_inst_df_from_csvs(),
-                       age = as.difftime(n_time, units = time_units)),
+  tarchetypes::tar_age(
+    inst_df,
+    make_inst_df_from_csvs(),
+    age = as.difftime(n_time, units = time_units)
+  ),
   # tarchetypes::tar_age(
   #   invest_df,
   #   readr::read_csv(paste0(here::here(), '/src/csv/all-ais.csv'),
@@ -178,7 +169,6 @@ list(
   # Volume-level sessions
   tar_target(
     vols_sess_df,
-    get_many_volumes_data(1, max_vol_id, vb = verbose_feedback,
-                          rq = drq)
+    get_many_volumes_data(1, max_vol_id, vb = verbose_feedback, rq = drq)
   )
 )
