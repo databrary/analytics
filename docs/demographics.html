@@ -105,35 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -186,7 +157,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./institutions-investigators.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Investigators and Institutions</span></a>
+  <a href="./institutions-investigators.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Institutions and Investigators</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -235,48 +206,48 @@ window.Quarto = {
   <li><a href="#age" id="toc-age" class="nav-link" data-scroll-target="#age">Age</a>
   <ul class="collapse">
   <li><a href="#volumes-and-session" id="toc-volumes-and-session" class="nav-link" data-scroll-target="#volumes-and-session">Volumes and session</a></li>
-  <li><a href="#n-participants-and-age-distribution" id="toc-n-participants-and-age-distribution" class="nav-link" data-scroll-target="#n-participants-and-age-distribution"><span class="math inline">\(n\)</span> participants and age distribution</a></li>
+  <li><a href="#n-participants-and-age-distribution" id="toc-n-participants-and-age-distribution" class="nav-link" data-scroll-target="#n-participants-and-age-distribution"><em>n</em> participants and age distribution</a></li>
   </ul></li>
   <li><a href="#gender" id="toc-gender" class="nav-link" data-scroll-target="#gender">Gender</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions" id="toc-volumes-and-sessions" class="nav-link" data-scroll-target="#volumes-and-sessions">Volumes and sessions</a></li>
-  <li><a href="#n-participants" id="toc-n-participants" class="nav-link" data-scroll-target="#n-participants"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants" id="toc-n-participants" class="nav-link" data-scroll-target="#n-participants"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#race" id="toc-race" class="nav-link" data-scroll-target="#race">Race</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-1" id="toc-volumes-and-sessions-1" class="nav-link" data-scroll-target="#volumes-and-sessions-1">Volumes and sessions</a></li>
-  <li><a href="#n-participants-1" id="toc-n-participants-1" class="nav-link" data-scroll-target="#n-participants-1"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-1" id="toc-n-participants-1" class="nav-link" data-scroll-target="#n-participants-1"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#ethnicity" id="toc-ethnicity" class="nav-link" data-scroll-target="#ethnicity">Ethnicity</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-2" id="toc-volumes-and-sessions-2" class="nav-link" data-scroll-target="#volumes-and-sessions-2">Volumes and sessions</a></li>
-  <li><a href="#n-participants-2" id="toc-n-participants-2" class="nav-link" data-scroll-target="#n-participants-2"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-2" id="toc-n-participants-2" class="nav-link" data-scroll-target="#n-participants-2"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#participant-language" id="toc-participant-language" class="nav-link" data-scroll-target="#participant-language">Participant language</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-3" id="toc-volumes-and-sessions-3" class="nav-link" data-scroll-target="#volumes-and-sessions-3">Volumes and sessions</a></li>
-  <li><a href="#n-participants-3" id="toc-n-participants-3" class="nav-link" data-scroll-target="#n-participants-3"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-3" id="toc-n-participants-3" class="nav-link" data-scroll-target="#n-participants-3"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#pregnancy-term" id="toc-pregnancy-term" class="nav-link" data-scroll-target="#pregnancy-term">Pregnancy term</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-4" id="toc-volumes-and-sessions-4" class="nav-link" data-scroll-target="#volumes-and-sessions-4">Volumes and sessions</a></li>
-  <li><a href="#n-participants-4" id="toc-n-participants-4" class="nav-link" data-scroll-target="#n-participants-4"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-4" id="toc-n-participants-4" class="nav-link" data-scroll-target="#n-participants-4"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#birthweight" id="toc-birthweight" class="nav-link" data-scroll-target="#birthweight">Birthweight</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-5" id="toc-volumes-and-sessions-5" class="nav-link" data-scroll-target="#volumes-and-sessions-5">Volumes and sessions</a></li>
-  <li><a href="#n-participants-5" id="toc-n-participants-5" class="nav-link" data-scroll-target="#n-participants-5"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-5" id="toc-n-participants-5" class="nav-link" data-scroll-target="#n-participants-5"><em>n</em> participants</a></li>
   <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
   </ul></li>
   <li><a href="#disability" id="toc-disability" class="nav-link" data-scroll-target="#disability">Disability</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-6" id="toc-volumes-and-sessions-6" class="nav-link" data-scroll-target="#volumes-and-sessions-6">Volumes and sessions</a></li>
-  <li><a href="#n-participants-6" id="toc-n-participants-6" class="nav-link" data-scroll-target="#n-participants-6"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-6" id="toc-n-participants-6" class="nav-link" data-scroll-target="#n-participants-6"><em>n</em> participants</a></li>
   </ul></li>
   <li><a href="#country" id="toc-country" class="nav-link" data-scroll-target="#country">Country</a>
   <ul class="collapse">
   <li><a href="#volumes-and-sessions-7" id="toc-volumes-and-sessions-7" class="nav-link" data-scroll-target="#volumes-and-sessions-7">Volumes and sessions</a></li>
-  <li><a href="#n-participants-7" id="toc-n-participants-7" class="nav-link" data-scroll-target="#n-participants-7"><span class="math inline">\(n\)</span> participants</a></li>
+  <li><a href="#n-participants-7" id="toc-n-participants-7" class="nav-link" data-scroll-target="#n-participants-7"><em>n</em> participants</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/databrary/analytics/edit/main/src/demographics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/databrary/analytics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -298,7 +269,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 26, 2024</p>
+      <p class="date-modified">August 27, 2024</p>
     </div>
   </div>
     
@@ -1147,7 +1118,7 @@ Note
 <p>There are <em>n</em>= 147 shared volumes reporting <code>age_days</code>.</p>
 </section>
 <section id="n-participants-and-age-distribution" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-and-age-distribution"><span class="math inline">\(n\)</span> participants and age distribution</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-and-age-distribution"><em>n</em> participants and age distribution</h3>
 <p>The following summarizes the number of individual participant-sessions for whom there are data.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2050,7 +2021,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 153 shared volumes reporting <code>participant_gender</code>.</p>
 </section>
 <section id="n-participants" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2832,7 +2803,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 136 shared volumes reporting <code>participant_race</code>.</p>
 </section>
 <section id="n-participants-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-1"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-1"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -3857,7 +3828,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 135 shared volumes reporting <code>participant_ethnicity</code>.</p>
 </section>
 <section id="n-participants-2" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-2"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-2"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -4631,7 +4602,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 120 shared volumes reporting <code>participant_language</code>.</p>
 </section>
 <section id="n-participants-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-3"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-3"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -5426,7 +5397,7 @@ Defaulting to continuous.
 <p>There are 21 shared volumes reporting <code>participant_pregnancy_term</code>.</p>
 </section>
 <section id="n-participants-4" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-4"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-4"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -5575,7 +5546,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 3 shared volumes reporting <code>participant_birth_weight</code>.</p>
 </section>
 <section id="n-participants-5" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-5"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-5"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -6347,7 +6318,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 87 shared volumes reporting <code>participant_disability</code>.</p>
 </section>
 <section id="n-participants-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-6"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-6"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -6507,7 +6478,7 @@ Defaulting to continuous.
 <p>There are <em>n</em>= 2 shared volumes reporting <code>participant_country</code>.</p>
 </section>
 <section id="n-participants-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="n-participants-7"><span class="math inline">\(n\)</span> participants</h3>
+<h3 class="unnumbered anchored" data-anchor-id="n-participants-7"><em>n</em> participants</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>

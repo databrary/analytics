@@ -62,7 +62,7 @@ age_df |>
 
 There are *n*= `r unique(age_df$n_vols_w_demo)` shared volumes reporting `age_days`.
 
-### $n$ participants and age distribution  {-}
+### *n* participants and age distribution  {-}
 
 The following summarizes the number of individual participant-sessions for whom there are data.
 
@@ -124,7 +124,7 @@ gender_df |>
 
 There are *n*= `r unique(gender_df$n_vols_w_demo)` shared volumes reporting `participant_gender`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r gender-table}
 xtabs(formula = ~ participant_gender, data = demo_df) |>
@@ -155,7 +155,7 @@ race_df |>
 
 There are *n*= `r unique(race_df$n_vols_w_demo)` shared volumes reporting `participant_race`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r race-table}
 xtabs(formula = ~ participant_race, data = demo_df) |>
@@ -187,7 +187,7 @@ ethnicity_df |>
 
 There are *n*= `r unique(ethnicity_df$n_vols_w_demo)` shared volumes reporting `participant_ethnicity`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r ethnicity-table}
 xtabs(formula = ~ participant_ethnicity, data = demo_df) |>
@@ -219,7 +219,7 @@ language_df |>
 
 There are *n*= `r unique(language_df$n_vols_w_demo)` shared volumes reporting `participant_language`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r language-table}
 xtabs(formula = ~ participant_language, data = demo_df) |>
@@ -250,7 +250,7 @@ participant_pregnancy_term_df |>
 
 There are `r unique(participant_pregnancy_term_df$n_vols_w_demo)` shared volumes reporting `participant_pregnancy_term`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r pregnancy-term-table}
 xtabs(formula = ~ participant_pregnancy_term, data = demo_df) |>
@@ -282,7 +282,7 @@ participant_birth_weight_df |>
 
 There are *n*= `r unique(participant_birth_weight_df$n_vols_w_demo)` shared volumes reporting `participant_birth_weight`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r birthweight-table}
 xtabs(formula = ~ participant_birth_weight, data = demo_df) |>
@@ -323,7 +323,7 @@ participant_disability_df |>
 
 There are *n*= `r unique(participant_disability_df$n_vols_w_demo)` shared volumes reporting `participant_disability`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r disability-table}
 xtabs(formula = ~ participant_disability, data = demo_df) |>
@@ -355,7 +355,7 @@ participant_country_df |>
 
 There are *n*= `r unique(participant_country_df$n_vols_w_demo)` shared volumes reporting `participant_country`.
 
-### $n$ participants {-}
+### *n* participants {-}
 
 ```{r country-table}
 xtabs(formula = ~ participant_country, data = demo_df) |>
