@@ -363,3 +363,66 @@ xtabs(formula = ~ participant_country, data = demo_df) |>
   kableExtra::kable_styling() |>
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
+
+
+## State {-}
+
+### Volumes and sessions {-}
+
+```{r participant_state-volumes}
+participant_state_df <- demo_df |>
+  dplyr::filter(!is.na(participant_state)) |>
+  dplyr::group_by(vol_id, vol_url) |>
+  dplyr::summarize(n_sessions = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::mutate(n_vols_w_demo = dplyr::n())
+
+participant_state_df |>
+  dplyr::select(vol_id, vol_url, n_sessions) |>
+  dplyr::arrange(desc(n_sessions)) |>
+  knitr::kable("html") |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+There are *n*= `r unique(participant_state_df$n_vols_w_demo)` shared volumes reporting `participant_state`.
+
+### *n* participants {-}
+
+```{r state-table}
+xtabs(formula = ~ participant_state, data = demo_df) |>
+  knitr::kable("html") |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+## Setting {-}
+
+### Volumes and sessions {-}
+
+```{r participant_setting-volumes}
+participant_setting_df <- demo_df |>
+  dplyr::filter(!is.na(participant_setting)) |>
+  dplyr::group_by(vol_id, vol_url) |>
+  dplyr::summarize(n_sessions = dplyr::n()) |>
+  dplyr::ungroup() |>
+  dplyr::mutate(n_vols_w_demo = dplyr::n())
+
+participant_setting_df |>
+  dplyr::select(vol_id, vol_url, n_sessions) |>
+  dplyr::arrange(desc(n_sessions)) |>
+  knitr::kable("html") |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```
+
+There are *n*= `r unique(participant_setting_df$n_vols_w_demo)` shared volumes reporting `participant_setting`.
+
+### *n* participants {-}
+
+```{r setting-table}
+xtabs(formula = ~ participant_setting, data = demo_df) |>
+  knitr::kable("html") |>
+  kableExtra::kable_styling() |>
+  kableExtra::scroll_box(width = "100%", height = "300px")
+```

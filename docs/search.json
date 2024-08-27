@@ -378,5 +378,25 @@
     "crumbs": [
       "Workflow"
     ]
+  },
+  {
+    "objectID": "demographics.html#state",
+    "href": "demographics.html#state",
+    "title": "Participant demographics",
+    "section": "State",
+    "text": "State\n\nVolumes and sessions\n\n\nCode\nparticipant_state_df &lt;- demo_df |&gt;\n  dplyr::filter(!is.na(participant_state)) |&gt;\n  dplyr::group_by(vol_id, vol_url) |&gt;\n  dplyr::summarize(n_sessions = dplyr::n()) |&gt;\n  dplyr::ungroup() |&gt;\n  dplyr::mutate(n_vols_w_demo = dplyr::n())\n\n\n`summarise()` has grouped output by 'vol_id'. You can override using the\n`.groups` argument.\n\n\nCode\nparticipant_state_df |&gt;\n  dplyr::select(vol_id, vol_url, n_sessions) |&gt;\n  dplyr::arrange(desc(n_sessions)) |&gt;\n  knitr::kable(\"html\") |&gt;\n  kableExtra::kable_styling() |&gt;\n  kableExtra::scroll_box(width = \"100%\", height = \"300px\")\n\n\n\n\n\n\nvol_id\nvol_url\nn_sessions\n\n\n\n\n00184\nhttps://nyu.databrary.org/volume/184\n161\n\n\n00149\nhttps://nyu.databrary.org/volume/149\n155\n\n\n00207\nhttps://nyu.databrary.org/volume/207\n115\n\n\n00253\nhttps://nyu.databrary.org/volume/253\n113\n\n\n00150\nhttps://nyu.databrary.org/volume/150\n109\n\n\n00269\nhttps://nyu.databrary.org/volume/269\n105\n\n\n00073\nhttps://nyu.databrary.org/volume/73\n31\n\n\n00171\nhttps://nyu.databrary.org/volume/171\n17\n\n\n00390\nhttps://nyu.databrary.org/volume/390\n15\n\n\n\n\n\n\n\nThere are n= 9 shared volumes reporting participant_state.\n\n\nn participants\n\n\nCode\nxtabs(formula = ~ participant_state, data = demo_df) |&gt;\n  knitr::kable(\"html\") |&gt;\n  kableExtra::kable_styling() |&gt;\n  kableExtra::scroll_box(width = \"100%\", height = \"300px\")\n\n\n\n\n\n\nparticipant_state\nFreq\n\n\n\n\nBs.As\n1\n\n\nBs.As.\n2\n\n\nCA\n3\n\n\nCP\n3\n\n\nMB\n3\n\n\nNJ\n2\n\n\nNY\n3\n\n\nPA\n804",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Participant demographics</span>"
+    ]
+  },
+  {
+    "objectID": "demographics.html#setting",
+    "href": "demographics.html#setting",
+    "title": "Participant demographics",
+    "section": "Setting",
+    "text": "Setting\n\nVolumes and sessions\n\n\nCode\nparticipant_setting_df &lt;- demo_df |&gt;\n  dplyr::filter(!is.na(participant_setting)) |&gt;\n  dplyr::group_by(vol_id, vol_url) |&gt;\n  dplyr::summarize(n_sessions = dplyr::n()) |&gt;\n  dplyr::ungroup() |&gt;\n  dplyr::mutate(n_vols_w_demo = dplyr::n())\n\n\n`summarise()` has grouped output by 'vol_id'. You can override using the\n`.groups` argument.\n\n\nCode\nparticipant_setting_df |&gt;\n  dplyr::select(vol_id, vol_url, n_sessions) |&gt;\n  dplyr::arrange(desc(n_sessions)) |&gt;\n  knitr::kable(\"html\") |&gt;\n  kableExtra::kable_styling() |&gt;\n  kableExtra::scroll_box(width = \"100%\", height = \"300px\")\n\n\n\n\n\n\nvol_id\nvol_url\nn_sessions\n\n\n\n\n00322\nhttps://nyu.databrary.org/volume/322\n173\n\n\n00073\nhttps://nyu.databrary.org/volume/73\n31\n\n\n\n\n\n\n\nThere are n= 2 shared volumes reporting participant_setting.\n\n\nn participants\n\n\nCode\nxtabs(formula = ~ participant_setting, data = demo_df) |&gt;\n  knitr::kable(\"html\") |&gt;\n  kableExtra::kable_styling() |&gt;\n  kableExtra::scroll_box(width = \"100%\", height = \"300px\")\n\n\n\n\n\n\nparticipant_setting\nFreq\n\n\n\n\nLab\n204",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Participant demographics</span>"
+    ]
   }
 ]
