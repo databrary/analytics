@@ -1,4 +1,4 @@
-# Shared volumes and sessions
+# Volumes & sessions
 
 This page summarizes the number of shared volumes by sharing type and by investigator.
 

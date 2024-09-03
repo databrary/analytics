@@ -1,4 +1,4 @@
-# Participant demographics
+# Demographics
 
 This page summarizes the demographic characteristics of participants in shared volumes on Databrary.
 

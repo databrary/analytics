@@ -78,8 +78,7 @@ list(
   # <https://databrary.github.io/nsf-oac-2032713/nsf-funding.html>
   tarchetypes::tar_age(
     nsf_funders_csv,
-    update_nsf_funding_csv(max_vol_id, file.path(here:here(), 'src', 'csv')),
-    format = "file",
+    update_nsf_funding_csv(max_vol_id, file.path(here::here(), 'src', 'csv')),
     age = as.difftime(n_time, units = time_units)
   ),
   #----------------------------------------------------------------------------
