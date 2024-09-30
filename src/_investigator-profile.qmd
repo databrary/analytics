@@ -1,0 +1,30 @@
+# Investigator Profile
+
+## About
+
+This page presents information about an investigator.
+
+## Setup
+
+```{r setup}
+library(databraryr)
+library(tidyverse)
+
+rq <- databraryr::make_default_request()
+databraryr::login_db(email = Sys.getenv("DB_ADMIN_ACCT"), store = TRUE, rq = rq)
+```
+
+## Volumes
+
+```{r get-volume-info}
+party_info <- databraryr::get_party_by_id(5, rq = rq)
+```
+
+### Summary stats
+
+### Fully shared
+
+### Overview shared
+
+### Private
+

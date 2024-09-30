@@ -1,0 +1,13 @@
+# Institution profile
+
+## About
+
+This page creates a report for an institution.
+
+## Setup
+
+```{r}
+library(databraryr)
+library(tidyverse)
+```
+
