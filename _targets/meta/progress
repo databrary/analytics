@@ -19,10 +19,8 @@ max_party_id|stem|max_party_id|0|dispatched
 max_party_id|stem|max_party_id|0|completed
 inst_invest_csv|stem|inst_invest_csv|0|dispatched
 inst_invest_csv|stem|inst_invest_csv|0|completed
-volume_funders_df|stem|volume_funders_df|0|dispatched
-volume_funders_df|stem|volume_funders_df|0|completed
-volume_tags_df|stem|volume_tags_df|0|dispatched
-volume_tags_df|stem|volume_tags_df|0|completed
+volume_funders_df|stem|volume_funders_df|0|skipped
+volume_tags_df|stem|volume_tags_df|0|skipped
 volume_owners_csv|stem|volume_owners_csv|0|dispatched
 volume_owners_csv|stem|volume_owners_csv|0|completed
 vols_sess_df|stem|vols_sess_df|0|dispatched
@@ -37,7 +35,5 @@ add_new_inst_csvs|stem|add_new_inst_csvs|0|dispatched
 add_new_inst_csvs|stem|add_new_inst_csvs|0|completed
 update_all_inst_csvs|stem|update_all_inst_csvs|0|dispatched
 update_all_inst_csvs|stem|update_all_inst_csvs|0|completed
-volume_funders_csv|stem|volume_funders_csv|0|dispatched
-volume_funders_csv|stem|volume_funders_csv|0|completed
-vol_tags_csv|stem|vol_tags_csv|0|dispatched
-vol_tags_csv|stem|vol_tags_csv|0|completed
+volume_funders_csv|stem|volume_funders_csv|0|skipped
+vol_tags_csv|stem|vol_tags_csv|0|skipped
