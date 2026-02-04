@@ -25,5 +25,10 @@ format:
     theme: cosmo
     number-sections: false
     date-modified: last-modified
+    date: today
     fontsize: 1.2em
     code-fold: true
+    
+knitr:
+  opts_chunk:
+    fig.path: include/fig/
