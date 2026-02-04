@@ -4,18 +4,18 @@ project:
   
 book:
   title: "Databrary Analytics"
-  author: "Rick Gilmore & Andrea Seisler"
+  author: ["Rick Gilmore", "Andrea Seisler"]
   cover-image: "include/img/databrary-new-leaf.jpg"
   chapters:
     - index.qmd
     - weekly.qmd
-    - institutions-investigators.qmd
-    - tags-keywords.qmd
-    - funders.qmd
-    - assets.qmd
-    - demographics.qmd
-    - shared-volumes.qmd
-    - workflow.qmd
+    # - institutions-investigators.qmd
+    # - tags-keywords.qmd
+    # - funders.qmd
+    # - assets.qmd
+    # - demographics.qmd
+    # - shared-volumes.qmd
+    # - workflow.qmd
   repo-url: https://github.com/databrary/analytics
   repo-actions: [edit, issue]
   repo-subdir: src
