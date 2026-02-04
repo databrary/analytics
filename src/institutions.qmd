@@ -1,0 +1,84 @@
+---
+title: "Institutions"
+format: html
+---
+
+## About
+
+This page provides information about Databrary's institutional partners.
+
+For more information about institutional roles and responsibilities, see the [Databrary Guide](https://databrary.github.io/guide).
+
+```{r}
+#| label: set-up
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+library(dplyr)
+library(ggplot2)
+library(databraryr)
+
+# Login to Databrary
+x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Summary
+
+```{r}
+#| label: gather-institutional-data
+institutions <- list_institutions()
+```
+
+We have n=`{r} dim(institutions)[1]` active institutional partners.
+
+## Recent additions
+
+```{r}
+#| label: tbl-institutions-recent-additions
+institutions |> 
+  dplyr::arrange(desc(institution_id)) |> 
+  dplyr::select(institution_name, institution_url) |>
+  head(n = 10) |>
+  kableExtra::kable(format = "html") |>
+  kableExtra::kable_material() |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+## Full list
+
+::: {.callout-warning}
+This is a work-in-progress.
+:::
+
+Here is a full list in alphabetical order.
+
+```{r}
+#| label: tbl-databrary-institutions
+
+institutions |>
+  dplyr::select(institution_name, institution_url) |>
+  kableExtra::kable(format = "html") |>
+  kableExtra::kable_material() |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px", height = "500px")
+```
+
+## Map
+
+::: {.callout-warning}
+This is a work-in-progress.
+:::
+
+```{r}
+#| label: clean-up-logout
+logout_db()
+```

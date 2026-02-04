@@ -9,6 +9,8 @@ book:
   chapters:
     - index.qmd
     - weekly.qmd
+    - institutions.qmd
+    - investigators.qmd
     # - institutions-investigators.qmd
     # - tags-keywords.qmd
     # - funders.qmd
@@ -32,3 +34,6 @@ format:
 knitr:
   opts_chunk:
     fig.path: include/fig/
+    echo: false
+    message: false
+    warning: false

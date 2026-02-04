@@ -6,7 +6,7 @@ These data are collected and reported on roughly a weekly basis.
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(databraryr)
 
@@ -456,4 +456,9 @@ if (!(is_empty(citations))) {
 } else {
   message("No new citations data to write.")
 }
+```
+
+```{r}
+#| label: clean-up-logout
+logout_db()
 ```

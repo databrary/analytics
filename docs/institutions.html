@@ -1,0 +1,4330 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-02-04">
+
+<title>Institutions – Databrary Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./investigators.html" rel="next">
+<link href="./weekly.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6698441f6ad479f3c9f3342229ab47cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./institutions.html"><span class="chapter-title">Institutions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Databrary Analytics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/databrary/analytics/tree/main/src/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weekly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weekly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./institutions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Institutions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./investigators.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Investigators</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#recent-additions" id="toc-recent-additions" class="nav-link" data-scroll-target="#recent-additions">Recent additions</a></li>
+  <li><a href="#full-list" id="toc-full-list" class="nav-link" data-scroll-target="#full-list">Full list</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">Map</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/databrary/analytics/edit/main/src/institutions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/databrary/analytics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Institutions</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 4, 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 4, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>This page provides information about Databrary’s institutional partners.</p>
+<p>For more information about institutional roles and responsibilities, see the <a href="https://databrary.github.io/guide">Databrary Guide</a>.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>We have n=895 active institutional partners.</p>
+</section>
+<section id="recent-additions" class="level2">
+<h2 class="anchored" data-anchor-id="recent-additions">Recent additions</h2>
+<div class="cell">
+<div id="tbl-institutions-recent-additions" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-institutions-recent-additions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1
+</figcaption>
+<div aria-describedby="tbl-institutions-recent-additions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:800px; ">
+<table class="lightable-material table table-striped table-hover do-not-create-environment caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">institution_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">institution_url</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Czech Technical University In Prague</td>
+<td style="text-align: left;">https://www.cvut.cz/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Nebraska Medical Center</td>
+<td style="text-align: left;">https://www.unmc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Acadia University</td>
+<td style="text-align: left;">https://www2.acadiau.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elmira College</td>
+<td style="text-align: left;">https://www.elmira.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Malaya</td>
+<td style="text-align: left;">https://www.um.edu.my/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saint Xavier University</td>
+<td style="text-align: left;">https://www.sxu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Firat Universty</td>
+<td style="text-align: left;">https://www.firat.edu.tr/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Toronto Metropolitan University</td>
+<td style="text-align: left;">https://www.torontomu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Gronigen</td>
+<td style="text-align: left;">https://www.rug.nl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University School For Advanced Studies Iuss Pavia</td>
+<td style="text-align: left;">http://www.iusspavia.it/en</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="full-list" class="level2">
+<h2 class="anchored" data-anchor-id="full-list">Full list</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a work-in-progress.</p>
+</div>
+</div>
+<p>Here is a full list in alphabetical order.</p>
+<div class="cell">
+<div id="tbl-databrary-institutions" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-databrary-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2
+</figcaption>
+<div aria-describedby="tbl-databrary-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:800px; ">
+<table class="lightable-material table table-striped table-hover do-not-create-environment caption-top table-sm small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">institution_name</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">institution_url</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aalborg University</td>
+<td style="text-align: left;">https://www.en.aau.dk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aalto University</td>
+<td style="text-align: left;">http://www.aalto.fi/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Acadia University</td>
+<td style="text-align: left;">https://www2.acadiau.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adam Mickiewicz University</td>
+<td style="text-align: left;">http://international.amu.edu.pl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelphi University</td>
+<td style="text-align: left;">http://www.adelphi.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Agency for Science, Technology and Research (A*STAR)</td>
+<td style="text-align: left;">https://www.a-star.edu.sg/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aix-Marseille University</td>
+<td style="text-align: left;">https://www.univ-amu.fr/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Albert Einstein College of Medicine</td>
+<td style="text-align: left;">http://www.einstein.yu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Albion College</td>
+<td style="text-align: left;">https://www.albion.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Albright College</td>
+<td style="text-align: left;">https://www.albright.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alexandru Ioan Cuza University</td>
+<td style="text-align: left;">http://www.uaic.ro/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Al-Farabi Kazakh National University</td>
+<td style="text-align: left;">https://www.kaznu.kz/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alverno College</td>
+<td style="text-align: left;">https://www.alverno.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">American University</td>
+<td style="text-align: left;">https://www.american.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">American University of Beirut</td>
+<td style="text-align: left;">https://www.aub.edu.lb/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amherst College</td>
+<td style="text-align: left;">https://www.amherst.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amrita Vishwa Vidyapeetham</td>
+<td style="text-align: left;">https://www.amrita.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amsterdam UMC</td>
+<td style="text-align: left;">https://www.amsterdamumc.org/nl.htm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amsterdam University College</td>
+<td style="text-align: left;">http://www.auc.nl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anglia Ruskin University</td>
+<td style="text-align: left;">https://aru.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anna Maria College</td>
+<td style="text-align: left;">https://www.annamaria.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arizona State University</td>
+<td style="text-align: left;">https://www.asu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ashkelon Academic College</td>
+<td style="text-align: left;">https://www.aac.ac.il/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ashland University</td>
+<td style="text-align: left;">https://www.ashland.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Association Italian Teachers Method Feldenkrais (AIIMF)</td>
+<td style="text-align: left;">http://www.feldenkrais.it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Assumption College</td>
+<td style="text-align: left;">https://www.assumption.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Athens State University</td>
+<td style="text-align: left;">https://www.athens.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Auburn University</td>
+<td style="text-align: left;">https://www.auburn.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Augsburg University</td>
+<td style="text-align: left;">http://www.augsburg.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Augustana College</td>
+<td style="text-align: left;">https://www.augustana.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Augustana University</td>
+<td style="text-align: left;">https://www.augie.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Australian Catholic University</td>
+<td style="text-align: left;">http://www.acu.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Australian College of Applied Professions</td>
+<td style="text-align: left;">https://www.acap.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Australian National University</td>
+<td style="text-align: left;">http://www.anu.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Avila University</td>
+<td style="text-align: left;">https://www.avila.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Avinashilingam University for Women</td>
+<td style="text-align: left;">https://avinuty.ac.in/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Babes-Bolyai University</td>
+<td style="text-align: left;">http://www.ubbcluj.ro/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Banja Luka University</td>
+<td style="text-align: left;">http://www.unibl.org/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bard College</td>
+<td style="text-align: left;">http://www.bard.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bar-Ilan University</td>
+<td style="text-align: left;">https://www1.biu.ac.il/indexE.php</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Barnard College, Columbia University</td>
+<td style="text-align: left;">https://barnard.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baruch College, CUNY</td>
+<td style="text-align: left;">http://www.baruch.cuny.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bates College</td>
+<td style="text-align: left;">https://www.bates.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baylor College of Medicine</td>
+<td style="text-align: left;">https://www.bcm.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baylor University</td>
+<td style="text-align: left;">https://www.baylor.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beijing Normal University</td>
+<td style="text-align: left;">https://english.bnu.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Beijing Normal University, Zhuhai</td>
+<td style="text-align: left;">https://english.bnuzh.edu.cn/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belmont University</td>
+<td style="text-align: left;">http://www.belmont.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ben-Gurion University of the Negev</td>
+<td style="text-align: left;">http://in.bgu.ac.il/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bethel College</td>
+<td style="text-align: left;">https://www.bethelks.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bielefeld University</td>
+<td style="text-align: left;">https://www.uni-bielefeld.de/(en)/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bilkent University</td>
+<td style="text-align: left;">http://w3.bilkent.edu.tr/bilkent/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Binghamton University</td>
+<td style="text-align: left;">https://www.binghamton.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Birkbeck, University of London</td>
+<td style="text-align: left;">http://www.bbk.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Birmingham-Southern College</td>
+<td style="text-align: left;">https://www.bsc.edu/index.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bogazici University</td>
+<td style="text-align: left;">http://www.boun.edu.tr/en_US</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Borough of Manhattan Community College, CUNY</td>
+<td style="text-align: left;">https://www.bmcc.cuny.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Boston Children's Hospital</td>
+<td style="text-align: left;">http://www.childrenshospital.org/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Boston College</td>
+<td style="text-align: left;">https://www.bc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Boston Medical Center</td>
+<td style="text-align: left;">https://www.bmc.org/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Boston University</td>
+<td style="text-align: left;">https://www.bu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bournemouth University</td>
+<td style="text-align: left;">https://www.bournemouth.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Boys Town Research Hosptial</td>
+<td style="text-align: left;">https://www.boystownhospital.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bradley University</td>
+<td style="text-align: left;">https://www.bradley.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brevard College</td>
+<td style="text-align: left;">https://brevard.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brigham Young University</td>
+<td style="text-align: left;">https://www.byu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brigham Young University, Idaho</td>
+<td style="text-align: left;">https://www.byui.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brock University</td>
+<td style="text-align: left;">https://brocku.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn College, CUNY</td>
+<td style="text-align: left;">http://www.brooklyn.cuny.edu/web/home.php</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brown University</td>
+<td style="text-align: left;">https://www.brown.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brunel University London</td>
+<td style="text-align: left;">https://www.brunel.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bucknell University</td>
+<td style="text-align: left;">http://www.bucknell.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Buffalo State University</td>
+<td style="text-align: left;">https://suny.buffalostate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bundeswehr University Munich</td>
+<td style="text-align: left;">https://www.unibw.de/home</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Butler University</td>
+<td style="text-align: left;">https://www.butler.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California Institute of Integral Studies</td>
+<td style="text-align: left;">https://www.ciis.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California Institute of Technology</td>
+<td style="text-align: left;">https://www.caltech.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California Lutheran University</td>
+<td style="text-align: left;">https://www.callutheran.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California Polytechnic State University, San Luis Obispo</td>
+<td style="text-align: left;">https://www.calpoly.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State Polytechnic University, Pomona</td>
+<td style="text-align: left;">http://www.cpp.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California State University, Channel Islands</td>
+<td style="text-align: left;">https://www.csuci.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State University, Dominguez Hills</td>
+<td style="text-align: left;">https://www.csudh.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California State University, Fresno</td>
+<td style="text-align: left;">https://www.csufresno.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State University, Fullerton</td>
+<td style="text-align: left;">https://www.fullerton.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California State University, Long Beach</td>
+<td style="text-align: left;">http://www.csulb.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State University, Los Angeles</td>
+<td style="text-align: left;">https://www.calstatela.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California State University, Northridge</td>
+<td style="text-align: left;">https://www.csun.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State University, Sacramento</td>
+<td style="text-align: left;">https://www.csus.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California State University, San Bernardino</td>
+<td style="text-align: left;">https://www.csusb.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California State University, Stanislaus</td>
+<td style="text-align: left;">https://www.csustan.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Canisius College</td>
+<td style="text-align: left;">https://www.canisius.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cardiff University</td>
+<td style="text-align: left;">https://www.cardiff.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carleton University</td>
+<td style="text-align: left;">http://carleton.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carlos Albizu University, San Juan</td>
+<td style="text-align: left;">http://www.albizu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carlow University</td>
+<td style="text-align: left;">https://www.carlow.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carnegie Mellon University (CMU)</td>
+<td style="text-align: left;">https://www.cmu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Carroll University</td>
+<td style="text-align: left;">https://www.carrollu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carthage College</td>
+<td style="text-align: left;">https://www.carthage.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Catholic University of Portugal</td>
+<td style="text-align: left;">http://www.porto.ucp.pt/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Center for Medical Education and Clinical Research (CEMIC)</td>
+<td style="text-align: left;">https://www.cemic.edu.ar/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Central European University</td>
+<td style="text-align: left;">https://www.ceu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Central Michigan University</td>
+<td style="text-align: left;">https://www.cmich.edu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Central New Mexico College</td>
+<td style="text-align: left;">https://www.cnm.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chapman University</td>
+<td style="text-align: left;">https://www.chapman.edu/index.aspx</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Charité - University Medicine Berlin</td>
+<td style="text-align: left;">https://www.charite.de/forschung/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chatham University</td>
+<td style="text-align: left;">https://www.chatham.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiba University</td>
+<td style="text-align: left;">https://www.chiba-u.ac.jp/e/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Children's Hospital of Philadelphia (CHOP)</td>
+<td style="text-align: left;">http://www.chop.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Children’s Mercy Kansas City</td>
+<td style="text-align: left;">https://www.childrensmercy.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chosun University</td>
+<td style="text-align: left;">https://eng.chosun.ac.kr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Christopher Newport University</td>
+<td style="text-align: left;">http://cnu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chukyo University</td>
+<td style="text-align: left;">https://kenkyu-db.chukyo-u.ac.jp/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cincinnati Children’s Hospital Medical Center</td>
+<td style="text-align: left;">https://www.cincinnatichildrens.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">City, University of London</td>
+<td style="text-align: left;">https://www.city.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont Graduate University</td>
+<td style="text-align: left;">https://www.cgu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clarkson University</td>
+<td style="text-align: left;">https://www.clarkson.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Clark University</td>
+<td style="text-align: left;">http://www.clarku.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Claude Bernard University Lyon 1</td>
+<td style="text-align: left;">https://www.univ-lyon1.fr/en/home-759942.kjsp</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Clemson University</td>
+<td style="text-align: left;">http://www.clemson.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cleveland State University</td>
+<td style="text-align: left;">https://www.csuohio.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cognition and Learning Research Center (CeRCA)</td>
+<td style="text-align: left;">https://cerca.labo.univ-poitiers.fr/en/research-centre-on-cognition-and-learning-2/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colby College</td>
+<td style="text-align: left;">https://www.colby.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">College of Southern Nevada</td>
+<td style="text-align: left;">https://www.csn.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">College of Staten Island, CUNY</td>
+<td style="text-align: left;">https://www.csi.cuny.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">College of the Holy Cross</td>
+<td style="text-align: left;">https://www.holycross.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">College of William &amp; Mary</td>
+<td style="text-align: left;">https://www.wm.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colombian School of Engineering Julio Garavito</td>
+<td style="text-align: left;">https://www.escuelaing.edu.co/es/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colorado College</td>
+<td style="text-align: left;">https://www.coloradocollege.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colorado State University</td>
+<td style="text-align: left;">https://www.colostate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Columbia University</td>
+<td style="text-align: left;">https://www.columbia.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Columbus State University</td>
+<td style="text-align: left;">https://www.columbusstate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Concordia University</td>
+<td style="text-align: left;">https://www.concordia.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Connecticut College</td>
+<td style="text-align: left;">https://www.conncoll.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Copenhagen Business School</td>
+<td style="text-align: left;">https://www.cbs.dk/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cornell University</td>
+<td style="text-align: left;">https://www.cornell.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curtin University</td>
+<td style="text-align: left;">http://www.curtin.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech Technical University In Prague</td>
+<td style="text-align: left;">https://www.cvut.cz/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dalton State College</td>
+<td style="text-align: left;">https://www.daltonstate.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D'annunzio University of Chieti–pescara</td>
+<td style="text-align: left;">https://www.unich.it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dartmouth College</td>
+<td style="text-align: left;">https://home.dartmouth.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Databrary</td>
+<td style="text-align: left;">https://databrary.org</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Davidson College</td>
+<td style="text-align: left;">https://www.davidson.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Deakin University</td>
+<td style="text-align: left;">http://www.deakin.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Denison University</td>
+<td style="text-align: left;">https://denison.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DePaul University</td>
+<td style="text-align: left;">https://www.depaul.edu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dickinson College</td>
+<td style="text-align: left;">https://www.dickinson.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dominican College</td>
+<td style="text-align: left;">https://www.dc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Donders Institute</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Drew University</td>
+<td style="text-align: left;">https://www.drew.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Drexel University</td>
+<td style="text-align: left;">https://drexel.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dublin City University</td>
+<td style="text-align: left;">https://www.dcu.ie/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Duke Kunshan University</td>
+<td style="text-align: left;">https://dukekunshan.edu.cn/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Duke University</td>
+<td style="text-align: left;">https://www.duke.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Duke University, School of Medicine</td>
+<td style="text-align: left;">https://medschool.duke.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Duquesne University</td>
+<td style="text-align: left;">https://www.duq.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Earlham College</td>
+<td style="text-align: left;">http://earlham.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">East Carolina University</td>
+<td style="text-align: left;">https://www.ecu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">East China Normal University</td>
+<td style="text-align: left;">http://english.ecnu.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eastern Michigan University</td>
+<td style="text-align: left;">http://www.emich.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">East Tennessee State University</td>
+<td style="text-align: left;">http://www.etsu.edu/ehome/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eckerd College</td>
+<td style="text-align: left;">https://www.eckerd.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">École Normale Supérieure (ens Paris)</td>
+<td style="text-align: left;">https://www.ens.psl.eu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Edge Hill University</td>
+<td style="text-align: left;">https://www.edgehill.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edogawa University</td>
+<td style="text-align: left;">http://www.edogawa-u.ac.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Testing Service</td>
+<td style="text-align: left;">https://www.ets.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elmira College</td>
+<td style="text-align: left;">https://www.elmira.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elon University</td>
+<td style="text-align: left;">https://www.elon.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Emerson College</td>
+<td style="text-align: left;">https://www.emerson.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Emirates College for Advanced Education</td>
+<td style="text-align: left;">http://www.ecae.ac.ae/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Emory University</td>
+<td style="text-align: left;">http://www.emory.edu/home/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Endicott College</td>
+<td style="text-align: left;">https://www.endicott.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Everybody</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Farmingdale State College</td>
+<td style="text-align: left;">https://www.farmingdale.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Federal University Juiz de Fora</td>
+<td style="text-align: left;">https://www2.ufjf.br/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Federal University of Alagoas</td>
+<td style="text-align: left;">http://www.ufal.edu.br/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Federal University of Minas Gerais</td>
+<td style="text-align: left;">https://ufmg.br/international-visitors</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Federal University of Paraiba</td>
+<td style="text-align: left;">http://www.ufpb.br/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Federal University of Parana</td>
+<td style="text-align: left;">http://www.ufpr.br/portalufpr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Federal University of Rio Grande North</td>
+<td style="text-align: left;">http://www.ufrgs.br/english/home</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Federal University of Santa Catarina</td>
+<td style="text-align: left;">https://ufsc.br/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Firat Universty</td>
+<td style="text-align: left;">https://www.firat.edu.tr/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida Atlantic University</td>
+<td style="text-align: left;">https://www.fau.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Florida International University</td>
+<td style="text-align: left;">https://www.fiu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida State University</td>
+<td style="text-align: left;">https://www.fsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fordham University</td>
+<td style="text-align: left;">https://www.fordham.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Frankfurt Institute for Advanced Studies</td>
+<td style="text-align: left;">https://fias.institute/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Franklin and Marshall College</td>
+<td style="text-align: left;">https://www.fandm.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Free University of Berlin</td>
+<td style="text-align: left;">https://www.fu-berlin.de/en/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Free University of Brussels</td>
+<td style="text-align: left;">http://www.ulb.ac.be/ulb/presentation/uk.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fudan University</td>
+<td style="text-align: left;">https://www.fudan.edu.cn/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fujita Health University</td>
+<td style="text-align: left;">https://www.fujita-hu.ac.jp/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gallaudet University</td>
+<td style="text-align: left;">https://my.gallaudet.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">General Hospital of Mexico</td>
+<td style="text-align: left;">http://www.hgm.salud.gob.mx/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">George Mason University</td>
+<td style="text-align: left;">https://www2.gmu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgetown University</td>
+<td style="text-align: left;">https://www.georgetown.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">George Washington University</td>
+<td style="text-align: left;">https://www.gwu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia College &amp; State University</td>
+<td style="text-align: left;">http://www.gcsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Georgia Institute of Technology</td>
+<td style="text-align: left;">https://www.gatech.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia State University</td>
+<td style="text-align: left;">http://www.gsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gettysburg College</td>
+<td style="text-align: left;">http://www.gettysburg.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gifu University</td>
+<td style="text-align: left;">https://www.gifu-u.ac.jp/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Goethe University, Frankfurt</td>
+<td style="text-align: left;">https://www.goethe-university-frankfurt.de/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gordon College</td>
+<td style="text-align: left;">https://www.gordon.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grand Valley State University</td>
+<td style="text-align: left;">https://www.gvsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grinnell College</td>
+<td style="text-align: left;">https://www.grinnell.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guilford College</td>
+<td style="text-align: left;">https://www.guilford.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gustave Eiffel University</td>
+<td style="text-align: left;">https://www.univ-gustave-eiffel.fr/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gustavus Adolphus College</td>
+<td style="text-align: left;">https://gustavus.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hampshire College</td>
+<td style="text-align: left;">https://www.hampshire.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hangzhou Normal University</td>
+<td style="text-align: left;">http://english.hznu.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hanover College</td>
+<td style="text-align: left;">https://www.hanover.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hartwick College</td>
+<td style="text-align: left;">https://www.hartwick.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Harvard Medical School</td>
+<td style="text-align: left;">https://hms.harvard.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Harvard University</td>
+<td style="text-align: left;">https://www.harvard.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Harvey Mudd College</td>
+<td style="text-align: left;">https://www.hmc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hasselt University</td>
+<td style="text-align: left;">https://www.uhasselt.be/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Haverford College</td>
+<td style="text-align: left;">https://www.haverford.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Heriot-watt University</td>
+<td style="text-align: left;">https://www.hw.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">High Point University</td>
+<td style="text-align: left;">http://www.highpoint.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hiroshima University</td>
+<td style="text-align: left;">https://www.hiroshima-u.ac.jp/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hofstra University</td>
+<td style="text-align: left;">https://www.hofstra.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hong Kong University of Science and Technology</td>
+<td style="text-align: left;">http://www.ust.hk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hood College</td>
+<td style="text-align: left;">https://www.hood.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Humboldt State University</td>
+<td style="text-align: left;">https://www.humboldt.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Humboldt University of Berlin</td>
+<td style="text-align: left;">https://www.hu-berlin.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hunter College, CUNY</td>
+<td style="text-align: left;">http://www.hunter.cuny.edu/main/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hunter New England Health</td>
+<td style="text-align: left;">http://www.hnehealth.nsw.gov.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Huntington University</td>
+<td style="text-align: left;">https://www.huntington.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ICESI University</td>
+<td style="text-align: left;">https://www.icesi.edu.co/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Idaho State University</td>
+<td style="text-align: left;">https://www.isu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IE University</td>
+<td style="text-align: left;">https://www.ie.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Illinois Institute of Technology: Illinois Tech</td>
+<td style="text-align: left;">https://www.iit.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Illinois State University</td>
+<td style="text-align: left;">https://illinoisstate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Indiana University</td>
+<td style="text-align: left;">https://www.indiana.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indiana University, Purdue University Columbus</td>
+<td style="text-align: left;">https://www.iupuc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Indiana University, Purdue University Indianapolis</td>
+<td style="text-align: left;">https://www.iupui.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indiana University, South Bend</td>
+<td style="text-align: left;">https://www.iusb.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Indiana Wesleyan University</td>
+<td style="text-align: left;">https://www.indwes.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indian Institute of Technology Bombay</td>
+<td style="text-align: left;">https://www.iitb.ac.in/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Indraprastha Institute of Information Technology Delhi</td>
+<td style="text-align: left;">https://www.iiitd.ac.in/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">INSERM</td>
+<td style="text-align: left;">http://english.inserm.fr/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Institute of Psychology, Chinese Academy of Sciences</td>
+<td style="text-align: left;">http://english.psych.cas.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Institute of Systems and Robotics, University of Coimbra</td>
+<td style="text-align: left;">https://www.isr.uc.pt/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interdisciplinary Center Herzliya</td>
+<td style="text-align: left;">https://www.idc.ac.il/he/pages/home.aspx</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">International Congress on Infant Studies (ICIS)</td>
+<td style="text-align: left;">http://www.infantstudies.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iowa State University</td>
+<td style="text-align: left;">https://www.iastate.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IRCCS Eugenio Medea</td>
+<td style="text-align: left;">https://emedea.it/medea/it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IRCCS Stella Maris Foundation</td>
+<td style="text-align: left;">http://www.fsm.unipi.it/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISCTE - University Institute of Lisbon (IUL)</td>
+<td style="text-align: left;">https://www.iscte-iul.pt/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Istanbul Technical University</td>
+<td style="text-align: left;">http://www.itu.edu.tr/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Italian Hospital of Buenos Aires</td>
+<td style="text-align: left;">https://www.hospitalitaliano.org.ar/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">It University of Copenhagen</td>
+<td style="text-align: left;">https://en.itu.dk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jagiellonian University</td>
+<td style="text-align: left;">http://www.en.uj.edu.pl/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">James Madison University</td>
+<td style="text-align: left;">https://www.jmu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jissen Women's University</td>
+<td style="text-align: left;">https://www.jissen.ac.jp/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Johns Hopkins University</td>
+<td style="text-align: left;">https://www.jhu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kansas City University</td>
+<td style="text-align: left;">http://kansascity.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kansas State University</td>
+<td style="text-align: left;">http://www.k-state.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karolinska Institute</td>
+<td style="text-align: left;">https://ki.se/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Keene State College</td>
+<td style="text-align: left;">https://www.keene.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Keil University</td>
+<td style="text-align: left;">https://www.uni-kiel.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Keimyung University</td>
+<td style="text-align: left;">http://www.kmu.ac.kr/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kennesaw State University</td>
+<td style="text-align: left;">https://www.kennesaw.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kessler Foundation</td>
+<td style="text-align: left;">https://kesslerfoundation.org/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">King's College London</td>
+<td style="text-align: left;">https://www.kcl.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kingston University London</td>
+<td style="text-align: left;">http://www.kingston.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">King's University College at the University of Western Ontario</td>
+<td style="text-align: left;">https://www.kings.uwo.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kobe University</td>
+<td style="text-align: left;">http://www.kobe-u.ac.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Koc University</td>
+<td style="text-align: left;">https://www.ku.edu.tr/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Korea Advanced Institute of Science and Technology (kaist)</td>
+<td style="text-align: left;">https://kaist.ac.kr/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KTH Royal Institute of Technology</td>
+<td style="text-align: left;">https://www.kth.se/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kumamoto University</td>
+<td style="text-align: left;">http://ewww.kumamoto-u.ac.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kutztown University of Pennsylvania</td>
+<td style="text-align: left;">https://www.kutztown.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantlen Polytechnic University</td>
+<td style="text-align: left;">https://www.kpu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kyoto University</td>
+<td style="text-align: left;">http://www.kyoto-u.ac.jp/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kyushu University</td>
+<td style="text-align: left;">https://www.kyushu-u.ac.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lafayette College</td>
+<td style="text-align: left;">https://www.lafayette.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lancaster University</td>
+<td style="text-align: left;">http://www.lancaster.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">La Trobe University</td>
+<td style="text-align: left;">https://www.latrobe.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Laval University</td>
+<td style="text-align: left;">https://www.ulaval.ca/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lawrence University</td>
+<td style="text-align: left;">https://www.lawrence.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lebanon Valley College</td>
+<td style="text-align: left;">https://www.lvc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lehigh University</td>
+<td style="text-align: left;">https://www1.lehigh.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lehman College, CUNY</td>
+<td style="text-align: left;">http://www.lehman.cuny.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Leibniz-centre General Linguistics (zas)</td>
+<td style="text-align: left;">https://www.leibniz-zas.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Leiden University</td>
+<td style="text-align: left;">https://www.universiteitleiden.nl/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Leiden University Medical Center</td>
+<td style="text-align: left;">https://www.lumc.nl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Linköpig University</td>
+<td style="text-align: left;">https://liu.se/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lipscomb University</td>
+<td style="text-align: left;">https://lipscomb.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Liverpool Hope University</td>
+<td style="text-align: left;">https://www.hope.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Liverpool University</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lock Haven University</td>
+<td style="text-align: left;">https://www.lockhaven.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">London School of Economics and Political Science</td>
+<td style="text-align: left;">http://www.lse.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">London South Bank University</td>
+<td style="text-align: left;">https://www.lsbu.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Longwood University</td>
+<td style="text-align: left;">http://www.longwood.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Louisiana State University</td>
+<td style="text-align: left;">http://www.lsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loyola University Chicago</td>
+<td style="text-align: left;">http://www.luc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Loyola University Maryland</td>
+<td style="text-align: left;">https://www.loyola.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ludwig Maximilian University of Munich</td>
+<td style="text-align: left;">https://www.en.uni-muenchen.de/index.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lycoming College</td>
+<td style="text-align: left;">https://www.lycoming.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lynchburg College</td>
+<td style="text-align: left;">https://www.lynchburg.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maastricht University</td>
+<td style="text-align: left;">https://www.maastrichtuniversity.nl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Macalester College</td>
+<td style="text-align: left;">https://www.macalester.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Macquarie University</td>
+<td style="text-align: left;">http://mq.edu.au</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mansoura University</td>
+<td style="text-align: left;">https://www.mans.edu.eg/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Marshall University</td>
+<td style="text-align: left;">http://www.marshall.edu/home/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maryville University</td>
+<td style="text-align: left;">https://www.maryville.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Marywood University</td>
+<td style="text-align: left;">http://www.marywood.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Massachusetts College of Pharmacy and Health Sciences</td>
+<td style="text-align: left;">https://www.mcphs.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Massachusetts General Hospital</td>
+<td style="text-align: left;">https://www.massgeneral.org/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Massachusetts Institute of Technology</td>
+<td style="text-align: left;">http://web.mit.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Max Planck Institute for Biological Cybernetics</td>
+<td style="text-align: left;">https://www.kyb.tuebingen.mpg.de/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Max Planck Institute for Evolutionary Anthropology</td>
+<td style="text-align: left;">http://www.eva.mpg.de/index.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Max Planck Institute for Human Development</td>
+<td style="text-align: left;">https://www.mpib-berlin.mpg.de/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Max Planck Institute for Psycholinguistics</td>
+<td style="text-align: left;">http://www.mpi.nl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">McGill University</td>
+<td style="text-align: left;">http://www.mcgill.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">McMaster University</td>
+<td style="text-align: left;">http://www.mcmaster.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Medical University of South Carolina</td>
+<td style="text-align: left;">https://www.musc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MedStar Health Research Institute</td>
+<td style="text-align: left;">https://www.medstarhealth.org/mhri/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MEF University</td>
+<td style="text-align: left;">https://www.mef.edu.tr/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Memorial University</td>
+<td style="text-align: left;">https://www.mun.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mercer University</td>
+<td style="text-align: left;">https://www.mercer.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mercy College</td>
+<td style="text-align: left;">https://www.mercy.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Meritorious Autonomous University of Puebla</td>
+<td style="text-align: left;">https://www.buap.mx/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Methodist University</td>
+<td style="text-align: left;">http://www.methodist.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Metropolitan State University of Denver</td>
+<td style="text-align: left;">https://www.msudenver.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MGH Institute of Health Professions</td>
+<td style="text-align: left;">https://www.mghihp.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Miami University</td>
+<td style="text-align: left;">http://miamioh.edu/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michigan State University</td>
+<td style="text-align: left;">https://msu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michigan Technological University</td>
+<td style="text-align: left;">https://www.mtu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Middlesex University</td>
+<td style="text-align: left;">http://www.mdx.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Middle Tennessee State University</td>
+<td style="text-align: left;">https://www.mtsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Millersville University</td>
+<td style="text-align: left;">https://www.millersville.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Milwaukee School of Engineering</td>
+<td style="text-align: left;">https://www.msoe.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Minerva University</td>
+<td style="text-align: left;">https://www.minerva.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Misericordia University</td>
+<td style="text-align: left;">https://www.misericordia.edu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Missouri State University</td>
+<td style="text-align: left;">https://www.missouristate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monash University</td>
+<td style="text-align: left;">https://www.monash.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Montana State University</td>
+<td style="text-align: left;">http://www.montana.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Montclair State University</td>
+<td style="text-align: left;">http://www.montclair.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Moravian University</td>
+<td style="text-align: left;">https://www.moravian.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mount Holyoke College</td>
+<td style="text-align: left;">https://www.mtholyoke.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mount Saint Mary's University</td>
+<td style="text-align: left;">https://msmary.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mount Saint Vincent University, Halifax, Nova Scotia</td>
+<td style="text-align: left;">https://www.msvu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Muhlenberg College</td>
+<td style="text-align: left;">https://www.muhlenberg.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nagoya University</td>
+<td style="text-align: left;">https://en.nagoya-u.ac.jp/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nanyang Technological University</td>
+<td style="text-align: left;">http://www.ntu.edu.sg/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nara Institute of Science and Technology</td>
+<td style="text-align: left;">https://www.naist.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Acoustic Laboratories</td>
+<td style="text-align: left;">https://www.nal.gov.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Autonomous University of Mexico</td>
+<td style="text-align: left;">https://www.unam.mx/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Centre for Scientific Research (CNRS)</td>
+<td style="text-align: left;">https://www.cnrs.fr/en/cnrs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National College of Ireland</td>
+<td style="text-align: left;">https://www.ncirl.ie/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Institute for Basic Biology</td>
+<td style="text-align: left;">https://www.nibb.ac.jp/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Institute for Research in Digital Science and Technology (INRIA)</td>
+<td style="text-align: left;">https://www.inria.fr/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Institute of Advanced Industrial Science and Technology (AIST)</td>
+<td style="text-align: left;">https://www.aist.go.jp/index_en.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Institute of Astrophysics, Optics and Electronics (INAOE)</td>
+<td style="text-align: left;">http://inaoep.mx/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Institute of Child Health and Human Development (NICHD)</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Institute on Deafness and Communication Disorders</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Institutes of Health (NIH)</td>
+<td style="text-align: left;">https://www.nih.gov/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Polytechnic Institute</td>
+<td style="text-align: left;">https://www.ipn.mx/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Research Council of Italy (CNR) of Messina</td>
+<td style="text-align: left;">https://www.messina.irib.cnr.it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National School of Engineers of Carthage (ENICarthage)</td>
+<td style="text-align: left;">http://www.enicarthage.rnu.tn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Science Foundation (NSF)</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Scientific and Technical Research Council (CONICET)</td>
+<td style="text-align: left;">http://www.conicet.gov.ar/?lan=en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Taipei University of Technology</td>
+<td style="text-align: left;">http://www-en.ntut.edu.tw/bin/home.php</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National Taiwan University</td>
+<td style="text-align: left;">https://www.ntu.edu.tw/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National Tsing Hua University</td>
+<td style="text-align: left;">https://nthu-en.site.nthu.edu.tw/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National University of Córdoba</td>
+<td style="text-align: left;">https://www.unc.edu.ar/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">National University of La Plata</td>
+<td style="text-align: left;">https://unlp.edu.ar/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">National University of Singapore</td>
+<td style="text-align: left;">http://www.nus.edu.sg/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nationwide Children's Hospital</td>
+<td style="text-align: left;">http://www.nationwidechildrens.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Newcastle University</td>
+<td style="text-align: left;">http://www.ncl.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New College of Florida</td>
+<td style="text-align: left;">https://www.ncf.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New School University</td>
+<td style="text-align: left;">https://www.newschool.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New University of Lisbon</td>
+<td style="text-align: left;">https://www.unl.pt/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York State Institute for Basic Research in Developmental Disabilities</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New York State Psychiatric Institute</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York University, Abu Dhabi</td>
+<td style="text-align: left;">https://nyuad.nyu.edu/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New York University (NYU)</td>
+<td style="text-align: left;">http://www.nyu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New York University, School of Medicine</td>
+<td style="text-align: left;">https://med.nyu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Niagara University</td>
+<td style="text-align: left;">https://www.niagara.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Niigata University</td>
+<td style="text-align: left;">https://www.niigata-u.ac.jp/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">North Dakota State University</td>
+<td style="text-align: left;">https://www.ndsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Northeastern Illinois University</td>
+<td style="text-align: left;">https://www.neiu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Northeastern University</td>
+<td style="text-align: left;">https://www.northeastern.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Northeast Ohio Medical University</td>
+<td style="text-align: left;">https://www.neomed.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Northern Illinois University</td>
+<td style="text-align: left;">https://www.niu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">North Park University</td>
+<td style="text-align: left;">https://www.northpark.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Northwestern University</td>
+<td style="text-align: left;">http://www.northwestern.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Norwegian University of Science and Technology</td>
+<td style="text-align: left;">https://www.ntnu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nottingham Trent University</td>
+<td style="text-align: left;">https://www.ntu.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oberlin College</td>
+<td style="text-align: left;">https://www.oberlin.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Occidental College</td>
+<td style="text-align: left;">https://www.oxy.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ocean University of China</td>
+<td style="text-align: left;">http://eweb.ouc.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ohio Dominican University</td>
+<td style="text-align: left;">https://www.ohiodominican.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ohio University</td>
+<td style="text-align: left;">https://www.ohio.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Okayama University</td>
+<td style="text-align: left;">http://www.okayama-u.ac.jp/index_e.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Okinawa Institute of Science and Technology (OIST)</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oklahoma State University</td>
+<td style="text-align: left;">https://go.okstate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Old Dominion University</td>
+<td style="text-align: left;">https://www.odu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Omsk State Pedagogical University</td>
+<td style="text-align: left;">http://www.omgpu.ru/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oregon Health &amp; Science University</td>
+<td style="text-align: left;">https://www.ohsu.edu/xd/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oregon State University</td>
+<td style="text-align: left;">https://oregonstate.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Osaka City University, Graduate School of Medicine</td>
+<td style="text-align: left;">http://www.med.osaka-u.ac.jp/eng/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Osaka University</td>
+<td style="text-align: left;">http://www.osaka-u.ac.jp/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Osaka University of Economics</td>
+<td style="text-align: left;">https://www.osaka-ue.ac.jp/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oxford Brookes University</td>
+<td style="text-align: left;">https://www.brookes.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ozyegin University</td>
+<td style="text-align: left;">https://www.ozyegin.edu.tr/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pablo de Olavide University, Seville</td>
+<td style="text-align: left;">https://www.upo.es</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pace University</td>
+<td style="text-align: left;">http://www.pace.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pacific Lutheran University</td>
+<td style="text-align: left;">https://www.plu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Palo Alto University</td>
+<td style="text-align: left;">https://www.paloaltou.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pamukkale University</td>
+<td style="text-align: left;">http://www.pau.edu.tr/pau/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Paris City University</td>
+<td style="text-align: left;">https://u-paris.fr/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Paul Valéry University, Montpellier 3</td>
+<td style="text-align: left;">https://www.univ-montp3.fr/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Peking University</td>
+<td style="text-align: left;">https://english.pku.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PES University</td>
+<td style="text-align: left;">http://pesitsouth.pes.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Politehnica University of Bucharest</td>
+<td style="text-align: left;">https://upb.ro/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Polytechnic Institute of Santarem</td>
+<td style="text-align: left;">https://www.ipsantarem.pt/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona College</td>
+<td style="text-align: left;">https://www.pomona.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pontifical Catholic University of Chile</td>
+<td style="text-align: left;">http://www.uc.cl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pontifical Catholic University of Goias</td>
+<td style="text-align: left;">https://www.pucgoias.edu.br/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pontifical Catholic University of Rio de Janeiro</td>
+<td style="text-align: left;">http://www.puc-rio.br/english/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pontifical Catholic University of Rio Grande do Sul</td>
+<td style="text-align: left;">http://www.pucrs.br/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Portland State University</td>
+<td style="text-align: left;">https://www.pdx.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Presbyterian College</td>
+<td style="text-align: left;">https://www.presby.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Princeton University</td>
+<td style="text-align: left;">https://www.princeton.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Providence College</td>
+<td style="text-align: left;">https://www.providence.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public University of Navarre</td>
+<td style="text-align: left;">https://www.unavarra.es/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Purdue University</td>
+<td style="text-align: left;">http://www.purdue.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queen Mary University of London</td>
+<td style="text-align: left;">https://www.qmul.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens College, CUNY</td>
+<td style="text-align: left;">https://www.qc.cuny.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queen's University</td>
+<td style="text-align: left;">http://www.queensu.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queen's University, Belfast</td>
+<td style="text-align: left;">https://www.qub.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quinnipiac University</td>
+<td style="text-align: left;">https://www.qu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Radboud University</td>
+<td style="text-align: left;">http://www.ru.nl/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ramapo College</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Randolph-Macon College</td>
+<td style="text-align: left;">http://www.rmc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reed College</td>
+<td style="text-align: left;">https://www.reed.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rhodes College</td>
+<td style="text-align: left;">https://www.rhodes.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rhodes University</td>
+<td style="text-align: left;">https://www.ru.ac.za/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rikkyo University</td>
+<td style="text-align: left;">http://english.rikkyo.ac.jp/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ripon College</td>
+<td style="text-align: left;">https://www.ripon.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robert Bosch Hospital</td>
+<td style="text-align: left;">https://www.rbk.de/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rochester Institute of Technology</td>
+<td style="text-align: left;">http://www.rit.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Roger Williams University</td>
+<td style="text-align: left;">https://www.rwu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rollins College</td>
+<td style="text-align: left;">https://www.rollins.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Roosevelt University</td>
+<td style="text-align: left;">https://www.roosevelt.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rosalind Franklin University of Medicine and Science</td>
+<td style="text-align: left;">https://www.rosalindfranklin.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rowan University</td>
+<td style="text-align: left;">https://www.rowan.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Royal Holloway University of London</td>
+<td style="text-align: left;">https://www.royalholloway.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Royal United Hospitals, Bath</td>
+<td style="text-align: left;">https://www.ruh.nhs.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ruhr University Bochum</td>
+<td style="text-align: left;">https://www.ruhr-uni-bochum.de/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rush University</td>
+<td style="text-align: left;">https://www.rushu.rush.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Russell Sage College</td>
+<td style="text-align: left;">https://www.sage.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rutgers University, Camden</td>
+<td style="text-align: left;">https://www.camden.rutgers.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rutgers University, Newark</td>
+<td style="text-align: left;">https://www.newark.rutgers.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rutgers University, New Brunswick</td>
+<td style="text-align: left;">https://newbrunswick.rutgers.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ryerson University</td>
+<td style="text-align: left;">http://www.ryerson.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saarland University</td>
+<td style="text-align: left;">http://www.uni-saarland.de/nc/en/home.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sabanci University</td>
+<td style="text-align: left;">http://www.sabanciuniv.edu/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sacred Heart University</td>
+<td style="text-align: left;">http://www.sacredheart.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Saint Anselm College</td>
+<td style="text-align: left;">https://www.anselm.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saint Francis University</td>
+<td style="text-align: left;">https://www.francis.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Saint Joseph's University</td>
+<td style="text-align: left;">https://www.sju.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saint Vincent College</td>
+<td style="text-align: left;">http://www.stvincent.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Saint Xavier University</td>
+<td style="text-align: left;">https://www.sxu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sam Houston State University</td>
+<td style="text-align: left;">http://www.shsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Diego State University</td>
+<td style="text-align: left;">https://www.sdsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Francisco de Quito University</td>
+<td style="text-align: left;">https://www.usfq.edu.ec/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Francisco State University</td>
+<td style="text-align: left;">http://www.sfsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Jose State University</td>
+<td style="text-align: left;">http://www.sjsu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Santa Clara University</td>
+<td style="text-align: left;">https://www.scu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sant Joan de Déu Hospital, Barcelona</td>
+<td style="text-align: left;">https://www.sjdhospitalbarcelona.org/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sapienza University of Rome</td>
+<td style="text-align: left;">http://en.uniroma1.it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Seoul National University</td>
+<td style="text-align: left;">https://en.snu.ac.kr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Seton Hall University</td>
+<td style="text-align: left;">https://www.shu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shahid Beheshti University</td>
+<td style="text-align: left;">https://en.sbu.ac.ir/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ShanghaiTech University</td>
+<td style="text-align: left;">https://www.shanghaitech.edu.cn/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shenyang Normal University</td>
+<td style="text-align: left;">https://www.synu.edu.cn/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sidra Medicine</td>
+<td style="text-align: left;">https://www.sidra.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Simon Fraser University</td>
+<td style="text-align: left;">https://www.sfu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Singapore Institute of Technology</td>
+<td style="text-align: left;">https://www.singaporetech.edu.sg/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skidmore College</td>
+<td style="text-align: left;">https://www.skidmore.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slippery Rock University</td>
+<td style="text-align: left;">https://www.sru.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smith College</td>
+<td style="text-align: left;">https://www.smith.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Smith-Kettlewell Eye Research Institute</td>
+<td style="text-align: left;">http://www.ski.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sookmyung Women's University</td>
+<td style="text-align: left;">https://e.sookmyung.ac.kr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soonchunhyang University</td>
+<td style="text-align: left;">http://sgee.sch.ac.kr/main/eng_main.php</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South China University of Technology</td>
+<td style="text-align: left;">https://www.scut.edu.cn/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Southern Cross University</td>
+<td style="text-align: left;">https://www.scu.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Southern Illinois University</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Southern Methodist University</td>
+<td style="text-align: left;">https://www.smu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Southern New Hampshire University</td>
+<td style="text-align: left;">https://www.snhu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Southwestern University</td>
+<td style="text-align: left;">https://www.southwestern.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spelman College</td>
+<td style="text-align: left;">http://www.spelman.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spokane Community College</td>
+<td style="text-align: left;">http://scc.spokane.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spring Hill College</td>
+<td style="text-align: left;">https://www.shc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sreenidhi Institute of Science and Technology</td>
+<td style="text-align: left;">https://www.sreenidhi.edu.in/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SRI International</td>
+<td style="text-align: left;">https://www.sri.com/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sri Lanka Institute of Information Technology</td>
+<td style="text-align: left;">https://www.sliit.lk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stanford University</td>
+<td style="text-align: left;">https://www.stanford.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">State University of New York at Fredonia</td>
+<td style="text-align: left;">http://home.fredonia.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stellenbosch University</td>
+<td style="text-align: left;">http://www.sun.ac.za/english</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stevens Institute of Technology</td>
+<td style="text-align: left;">https://www.stevens.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">St. Francis Xavier University</td>
+<td style="text-align: left;">https://www.stfx.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">St. John's University</td>
+<td style="text-align: left;">https://www.stjohns.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">St. Joseph's University, New York</td>
+<td style="text-align: left;">https://www.sjny.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">St. Lawrence University</td>
+<td style="text-align: left;">https://www.stlawu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stockholm University</td>
+<td style="text-align: left;">http://www.su.se/english/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stockton University</td>
+<td style="text-align: left;">https://stockton.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">St. Olaf College</td>
+<td style="text-align: left;">https://wp.stolaf.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Strategic Education Research Partnership (SERP) Institute</td>
+<td style="text-align: left;">https://serpinstitute.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sungkyunkwan University</td>
+<td style="text-align: left;">http://www.skku.edu/eng/index.do</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SUNY College at Old Westbury</td>
+<td style="text-align: left;">https://www.oldwestbury.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Swansea University</td>
+<td style="text-align: left;">https://www.swansea.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Swarthmore College</td>
+<td style="text-align: left;">https://www.swarthmore.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Swinburne University of Technology</td>
+<td style="text-align: left;">http://www.swinburne.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SWPS University of Social Sciences and Humanities</td>
+<td style="text-align: left;">http://english.swps.pl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Symbiosis International University</td>
+<td style="text-align: left;">https://siu.edu.in/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Syracuse University</td>
+<td style="text-align: left;">https://www.syracuse.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Taif University</td>
+<td style="text-align: left;">https://www.tu.edu.sa/En/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tampere University</td>
+<td style="text-align: left;">http://www2.uta.fi/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Teachers College, Columbia University</td>
+<td style="text-align: left;">http://www.tc.columbia.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Technion – Israel Institute of Technology</td>
+<td style="text-align: left;">https://www.technion.ac.il/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Teesside University</td>
+<td style="text-align: left;">https://www.tees.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tel Aviv University</td>
+<td style="text-align: left;">https://english.tau.ac.il/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temple University</td>
+<td style="text-align: left;">https://www.temple.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Texas A&amp;M University</td>
+<td style="text-align: left;">https://www.tamu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Texas A&amp;m University, San Antonio</td>
+<td style="text-align: left;">https://www.tamusa.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Texas Christian University</td>
+<td style="text-align: left;">http://www.tcu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Texas State University</td>
+<td style="text-align: left;">https://www.txstate.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Texas Tech University</td>
+<td style="text-align: left;">https://www.ttu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Texas Woman's University</td>
+<td style="text-align: left;">https://twu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Arctic University of Norway</td>
+<td style="text-align: left;">https://en.uit.no/startsida</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Catholic University of America</td>
+<td style="text-align: left;">https://www.catholic.edu/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Chicago School of Professional Psychology</td>
+<td style="text-align: left;">https://www.thechicagoschool.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Chinese University of Hong Kong</td>
+<td style="text-align: left;">http://www.cuhk.edu.hk/english/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The City College of New York, Cuny</td>
+<td style="text-align: left;">https://www.ccny.cuny.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The College at Brockport, SUNY</td>
+<td style="text-align: left;">https://www.brockport.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The College of Idaho</td>
+<td style="text-align: left;">https://www.collegeofidaho.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Education University of Hong Kong</td>
+<td style="text-align: left;">https://www.eduhk.hk/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Graduate Center, CUNY</td>
+<td style="text-align: left;">https://www.gc.cuny.edu/Home</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Hebrew University of Jerusalem</td>
+<td style="text-align: left;">https://new.huji.ac.il/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Hospital for Sick Children (SickKids)</td>
+<td style="text-align: left;">https://www.sickkids.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Institute of Physical and Chemical Research (RIKEN)</td>
+<td style="text-align: left;">https://www.riken.jp/en/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Ohio State University</td>
+<td style="text-align: left;">https://www.osu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Ohio State University, Lima</td>
+<td style="text-align: left;">https://lima.osu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Open University</td>
+<td style="text-align: left;">http://www.open.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Pennsylvania State University, Abington</td>
+<td style="text-align: left;">https://abington.psu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Pennsylvania State University, Applied Research Laboratory</td>
+<td style="text-align: left;">https://arl.psu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Pennsylvania State University, Brandywine</td>
+<td style="text-align: left;">https://brandywine.psu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Pennsylvania State University, Harrisburg</td>
+<td style="text-align: left;">https://harrisburg.psu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Pennsylvania State University, Shenango</td>
+<td style="text-align: left;">https://shenango.psu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Pennsylvania State University, University Park</td>
+<td style="text-align: left;">http://www.psu.edu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Pennsylvania State University, Worthington-Scranton</td>
+<td style="text-align: left;">https://scranton.psu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Akron</td>
+<td style="text-align: left;">https://www.uakron.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Alabama</td>
+<td style="text-align: left;">https://www.ua.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Alabama in Huntsville</td>
+<td style="text-align: left;">https://www.uah.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Arizona</td>
+<td style="text-align: left;">https://www.arizona.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Auckland</td>
+<td style="text-align: left;">https://www.auckland.ac.nz/en.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of British Columbia, Okanagan</td>
+<td style="text-align: left;">https://ok.ubc.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of British Columbia, Vancouver</td>
+<td style="text-align: left;">https://www.ubc.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Chicago</td>
+<td style="text-align: left;">https://www.uchicago.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Edinburgh</td>
+<td style="text-align: left;">https://www.ed.ac.uk/home</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Geneva</td>
+<td style="text-align: left;">https://www.unige.ch/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Hong Kong</td>
+<td style="text-align: left;">https://www.hku.hk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Iowa</td>
+<td style="text-align: left;">https://uiowa.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Kansas</td>
+<td style="text-align: left;">https://ku.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Louisiana, Monroe</td>
+<td style="text-align: left;">https://www.ulm.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Montana</td>
+<td style="text-align: left;">https://www.umt.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Newcastle</td>
+<td style="text-align: left;">https://www.newcastle.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of North Carolina</td>
+<td style="text-align: left;">https://www.unc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Oklahoma</td>
+<td style="text-align: left;">http://www.ou.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Osaka</td>
+<td style="text-align: left;">https://www.osaka-u.ac.jp/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Oxford</td>
+<td style="text-align: left;">https://www.ox.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Pennsylvania</td>
+<td style="text-align: left;">https://www.upenn.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Scranton</td>
+<td style="text-align: left;">http://www.scranton.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Sydney</td>
+<td style="text-align: left;">http://sydney.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Tennessee Health Science Center</td>
+<td style="text-align: left;">https://uthsc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Texas at Austin</td>
+<td style="text-align: left;">https://www.utexas.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Texas at Dallas</td>
+<td style="text-align: left;">http://www.utdallas.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Texas at El Paso</td>
+<td style="text-align: left;">https://www.utep.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Texas Health Science Center at Houston</td>
+<td style="text-align: left;">https://www.uth.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Tokyo</td>
+<td style="text-align: left;">https://www.u-tokyo.ac.jp/en/index.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Utah</td>
+<td style="text-align: left;">https://www.utah.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The University of Waikato</td>
+<td style="text-align: left;">https://www.waikato.ac.nz/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The University of Western Australia</td>
+<td style="text-align: left;">https://www.uwa.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Thompson Rivers University</td>
+<td style="text-align: left;">http://www.tru.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tilburg University</td>
+<td style="text-align: left;">https://www.tilburguniversity.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tokyo Institute of Technology</td>
+<td style="text-align: left;">https://www.titech.ac.jp/english/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tokyo Metropolitan University</td>
+<td style="text-align: left;">http://www.tmu.ac.jp/english/index.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Toronto Metropolitan University</td>
+<td style="text-align: left;">https://www.torontomu.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trent University</td>
+<td style="text-align: left;">https://www.trentu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Trinity College</td>
+<td style="text-align: left;">https://www.trincoll.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trinity College Dublin</td>
+<td style="text-align: left;">https://www.tcd.ie/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Trinity University</td>
+<td style="text-align: left;">https://new.trinity.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Truman State University</td>
+<td style="text-align: left;">https://www.truman.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tsinghua University</td>
+<td style="text-align: left;">https://www.tsinghua.edu.cn/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tufts University</td>
+<td style="text-align: left;">https://www.tufts.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tulane University</td>
+<td style="text-align: left;">https://tulane.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ulm University</td>
+<td style="text-align: left;">http://www.uni-ulm.de/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ulster University</td>
+<td style="text-align: left;">https://www.ulster.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Union College</td>
+<td style="text-align: left;">https://www.union.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Université de Bretagne Sud</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University At Albany, Suny</td>
+<td style="text-align: left;">https://www.albany.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University at Buffalo</td>
+<td style="text-align: left;">https://www.buffalo.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University College Dublin</td>
+<td style="text-align: left;">https://www.ucd.ie/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University College London</td>
+<td style="text-align: left;">https://www.ucl.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University Health Network</td>
+<td style="text-align: left;">https://www.uhn.ca/TorontoRehab/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University Mannheim</td>
+<td style="text-align: left;">https://www.uni-mannheim.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University Medical Center Groningen</td>
+<td style="text-align: left;">https://www.umcg.nl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Aberdeen</td>
+<td style="text-align: left;">https://www.abdn.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Adelaide</td>
+<td style="text-align: left;">https://www.adelaide.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Akureyri</td>
+<td style="text-align: left;">https://www.unak.is/english</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Alberta</td>
+<td style="text-align: left;">https://www.ualberta.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Algarve</td>
+<td style="text-align: left;">http://www.ualg.pt/pt</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Almeria</td>
+<td style="text-align: left;">https://www.ual.es/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Angers</td>
+<td style="text-align: left;">http://www.univ-angers.fr/en/university.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Antwerp</td>
+<td style="text-align: left;">https://www.uantwerpen.be/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Applied Sciences, Jena</td>
+<td style="text-align: left;">https://www.eah-jena.de/de-de</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Applied Sciences, Potsdam</td>
+<td style="text-align: left;">https://www.potsdam.de/node/276355</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Arkansas</td>
+<td style="text-align: left;">https://www.uark.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Arkansas at Little Rock</td>
+<td style="text-align: left;">http://ualr.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Arkansas for Medical Sciences</td>
+<td style="text-align: left;">https://www.uams.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Atacama</td>
+<td style="text-align: left;">https://uda.cl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Baltimore</td>
+<td style="text-align: left;">http://www.ubalt.edu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Bamberg</td>
+<td style="text-align: left;">https://www.uni-bamberg.de/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Bari</td>
+<td style="text-align: left;">https://www.uniba.it/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Basel</td>
+<td style="text-align: left;">https://www.unibas.ch/en.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Belgrade</td>
+<td style="text-align: left;">http://www.bg.ac.rs/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Bergen</td>
+<td style="text-align: left;">https://www.uib.no/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Bern</td>
+<td style="text-align: left;">https://www.unibe.ch/index_eng.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Bologna</td>
+<td style="text-align: left;">https://www.unibo.it/it</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Brest</td>
+<td style="text-align: left;">https://www.univ-brest.fr/GB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Bristol</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Burgos</td>
+<td style="text-align: left;">https://www.ubu.es/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of California, Berkeley</td>
+<td style="text-align: left;">http://www.berkeley.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of California, Davis</td>
+<td style="text-align: left;">https://www.ucdavis.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of California, Irvine</td>
+<td style="text-align: left;">https://uci.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of California, Los Angeles</td>
+<td style="text-align: left;">http://www.ucla.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of California, Merced</td>
+<td style="text-align: left;">https://www.ucmerced.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of California, Riverside</td>
+<td style="text-align: left;">http://www.ucr.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of California, San Diego</td>
+<td style="text-align: left;">https://ucsd.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of California, San Francisco</td>
+<td style="text-align: left;">https://www.ucsf.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of California, Santa Barbara</td>
+<td style="text-align: left;">https://www.ucsb.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of California, Santa Cruz</td>
+<td style="text-align: left;">https://www.ucsc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Cambridge</td>
+<td style="text-align: left;">https://www.cam.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Campania Luigi Vanvitelli</td>
+<td style="text-align: left;">http://www.unicampania.it/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Campinas</td>
+<td style="text-align: left;">http://www.unicamp.br/unicamp/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Canterbury</td>
+<td style="text-align: left;">http://www.canterbury.ac.nz/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Cape Town</td>
+<td style="text-align: left;">https://www.uct.ac.za/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Central Florida</td>
+<td style="text-align: left;">https://www.ucf.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Central Lancashire</td>
+<td style="text-align: left;">https://www.uclan.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Chester</td>
+<td style="text-align: left;">https://www1.chester.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Chile</td>
+<td style="text-align: left;">https://ie.uchile.cl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Cleveland</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Cologne</td>
+<td style="text-align: left;">https://www.uni-koeln.de/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Colorado, Boulder</td>
+<td style="text-align: left;">https://www.colorado.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Colorado, Colorado Springs</td>
+<td style="text-align: left;">https://www.uccs.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Colorado, Denver</td>
+<td style="text-align: left;">http://www.ucdenver.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Connecticut</td>
+<td style="text-align: left;">https://uconn.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Copenhagen</td>
+<td style="text-align: left;">https://www.ku.dk/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Denver</td>
+<td style="text-align: left;">https://www.du.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Derby</td>
+<td style="text-align: left;">https://www.derby.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Detroit Mercy</td>
+<td style="text-align: left;">https://www.udmercy.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of East Anglia</td>
+<td style="text-align: left;">https://www.uea.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of East London</td>
+<td style="text-align: left;">https://www.uel.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Erlangen-Nuremberg</td>
+<td style="text-align: left;">https://www.fau.de/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Essex</td>
+<td style="text-align: left;">https://www.essex.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Florida</td>
+<td style="text-align: left;">http://www.ufl.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Georgia</td>
+<td style="text-align: left;">https://www.uga.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Girona</td>
+<td style="text-align: left;">https://www.udg.edu/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Glasgow</td>
+<td style="text-align: left;">https://www.gla.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Goettingen</td>
+<td style="text-align: left;">http://www.uni-goettingen.de/en/1.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Granada</td>
+<td style="text-align: left;">https://www.ugr.es/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Greifswald</td>
+<td style="text-align: left;">https://www.uni-greifswald.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Gronigen</td>
+<td style="text-align: left;">https://www.rug.nl/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Guadalajara</td>
+<td style="text-align: left;">http://www.udg.mx/en/welcome-university-guadalajara</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Guelph</td>
+<td style="text-align: left;">https://www.uoguelph.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Haifa</td>
+<td style="text-align: left;">http://www.haifa.ac.il/index.php/en/home-eng</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Hamburg</td>
+<td style="text-align: left;">https://www.uni-hamburg.de/en.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Hartford</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Hawaii at Manoa</td>
+<td style="text-align: left;">https://manoa.hawaii.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Hertfordshire</td>
+<td style="text-align: left;">https://www.herts.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Houston</td>
+<td style="text-align: left;">http://www.uh.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Hull</td>
+<td style="text-align: left;">http://www.hull.ac.uk/Home.aspx</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Illinois</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Illinois at Chicago</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Illinois at Urbana-Champaign</td>
+<td style="text-align: left;">http://illinois.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Innsbruck</td>
+<td style="text-align: left;">https://www.uibk.ac.at/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Jeddah</td>
+<td style="text-align: left;">https://uj.edu.sa/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Kansas, Medical Center</td>
+<td style="text-align: left;">https://www.kumc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Kassel</td>
+<td style="text-align: left;">https://www.uni-kassel.de/uni/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Kent</td>
+<td style="text-align: left;">https://www.kent.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Kentucky</td>
+<td style="text-align: left;">http://www.uky.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Konstanz</td>
+<td style="text-align: left;">https://www.uni-konstanz.de/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of L'Aquila</td>
+<td style="text-align: left;">http://www.univaq.it/en/index.php</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Leeds</td>
+<td style="text-align: left;">https://www.leeds.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Lille</td>
+<td style="text-align: left;">https://www.univ-lille.fr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Lincoln</td>
+<td style="text-align: left;">http://www.lincoln.ac.uk/home/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Lisbon</td>
+<td style="text-align: left;">https://www.ulisboa.pt/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Liverpool</td>
+<td style="text-align: left;">https://www.liverpool.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Lorraine</td>
+<td style="text-align: left;">https://www.univ-lorraine.fr/en/univ-lorraine/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Los Andes</td>
+<td style="text-align: left;">https://uniandes.edu.co/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Louisiana, Lafayette</td>
+<td style="text-align: left;">https://louisiana.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Louisville</td>
+<td style="text-align: left;">http://louisville.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Magdeburg</td>
+<td style="text-align: left;">https://www.ovgu.de/en/University.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Malaya</td>
+<td style="text-align: left;">https://www.um.edu.my/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Manchester</td>
+<td style="text-align: left;">https://www.manchester.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Manitoba</td>
+<td style="text-align: left;">http://umanitoba.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Maryland, Baltimore County</td>
+<td style="text-align: left;">https://www.umbc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Maryland, College Park</td>
+<td style="text-align: left;">https://www.umd.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Maryland, Eastern Shore</td>
+<td style="text-align: left;">https://wwwcp.umes.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Massachusetts, Amherst</td>
+<td style="text-align: left;">https://www.umass.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Massachusetts, Boston</td>
+<td style="text-align: left;">https://www.umb.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Massachusetts, Dartmouth</td>
+<td style="text-align: left;">https://www.umassd.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Massachusetts, Lowell</td>
+<td style="text-align: left;">https://www.uml.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Melbourne</td>
+<td style="text-align: left;">https://www.unimelb.edu.au/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Memphis</td>
+<td style="text-align: left;">http://www.memphis.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Miami</td>
+<td style="text-align: left;">https://welcome.miami.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Michigan</td>
+<td style="text-align: left;">https://umich.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Michigan, Dearborn</td>
+<td style="text-align: left;">https://umdearborn.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Milano-Bicocca</td>
+<td style="text-align: left;">https://www.unimib.it/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Minnesota</td>
+<td style="text-align: left;">https://twin-cities.umn.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Mississippi</td>
+<td style="text-align: left;">https://olemiss.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Missouri, Columbia</td>
+<td style="text-align: left;">https://missouri.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Missouri, Kansas City</td>
+<td style="text-align: left;">https://www.umkc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Missouri, St. Louis</td>
+<td style="text-align: left;">https://www.umsl.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Mons</td>
+<td style="text-align: left;">http://portail.umons.ac.be/en2/Pages/default.aspx</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Montreal</td>
+<td style="text-align: left;">https://www.umontreal.ca/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Moratuwa</td>
+<td style="text-align: left;">https://uom.lk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Mosul</td>
+<td style="text-align: left;">https://www.uomosul.edu.iq/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Muenster</td>
+<td style="text-align: left;">http://www.uni-muenster.de/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nantes</td>
+<td style="text-align: left;">http://www.univ-nantes.fr/english-version/welcome-to-universite-de-nantes-714591.kjsp</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Nebraska</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nebraska, Lincoln</td>
+<td style="text-align: left;">https://www.unl.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Nebraska Medical Center</td>
+<td style="text-align: left;">https://www.unmc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nebraska, Omaha</td>
+<td style="text-align: left;">https://www.unomaha.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Neuchatel</td>
+<td style="text-align: left;">https://www.unine.ch/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nevada, Las Vegas</td>
+<td style="text-align: left;">https://www.unlv.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Nevada, Reno</td>
+<td style="text-align: left;">https://www.unr.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of New Hampshire</td>
+<td style="text-align: left;">http://www.unh.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of New Mexico</td>
+<td style="text-align: left;">http://www.unm.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of New Orleans</td>
+<td style="text-align: left;">https://www.uno.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of New South Wales</td>
+<td style="text-align: left;">https://www.unsw.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nicosia</td>
+<td style="text-align: left;">https://www.unic.ac.cy/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of North Carolina, Asheville</td>
+<td style="text-align: left;">https://www.unca.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of North Carolina, Chapel Hill</td>
+<td style="text-align: left;">https://www.unc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of North Carolina, Charlotte</td>
+<td style="text-align: left;">https://www.uncc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of North Carolina, Greensboro</td>
+<td style="text-align: left;">https://www.uncg.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of North Carolina, Wilmington</td>
+<td style="text-align: left;">https://uncw.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Northern Colorado</td>
+<td style="text-align: left;">https://www.unco.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of North Florida</td>
+<td style="text-align: left;">http://www.unf.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of North Georgia</td>
+<td style="text-align: left;">https://ung.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of North Texas</td>
+<td style="text-align: left;">https://www.unt.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Notre Dame</td>
+<td style="text-align: left;">https://www.nd.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Nottingham, Malaysia</td>
+<td style="text-align: left;">https://www.nottingham.edu.my/index.aspx</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Nottingham, UK</td>
+<td style="text-align: left;">https://www.nottingham.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Oregon</td>
+<td style="text-align: left;">https://www.uoregon.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Oslo</td>
+<td style="text-align: left;">https://www.uio.no/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Osnabrueck</td>
+<td style="text-align: left;">https://www.uni-osnabrueck.de/en/home.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Otago</td>
+<td style="text-align: left;">http://www.otago.ac.nz/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Ottawa</td>
+<td style="text-align: left;">https://www.uottawa.ca/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Padua</td>
+<td style="text-align: left;">https://www.unipd.it/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Paris Nanterre</td>
+<td style="text-align: left;">https://university.parisnanterre.fr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Paris, Saclay</td>
+<td style="text-align: left;">https://www.universite-paris-saclay.fr/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Parma</td>
+<td style="text-align: left;">https://www.unipr.it/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Patras</td>
+<td style="text-align: left;">https://www.upatras.gr/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Pecs</td>
+<td style="text-align: left;">https://international.pte.hu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Petrosani</td>
+<td style="text-align: left;">https://www.upet.ro/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Pittsburgh</td>
+<td style="text-align: left;">https://www.pitt.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Plymouth</td>
+<td style="text-align: left;">https://www.plymouth.ac.uk</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Poitiers</td>
+<td style="text-align: left;">https://www.univ-poitiers.fr/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Portsmouth</td>
+<td style="text-align: left;">http://www.port.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Potsdam</td>
+<td style="text-align: left;">http://www.uni-potsdam.de/en/university-of-potsdam.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Prince Edward Island</td>
+<td style="text-align: left;">https://www.upei.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Quebec at Trois-Rivieres</td>
+<td style="text-align: left;">http://www.uqtr.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Quebec in Outaouais</td>
+<td style="text-align: left;">https://uqo.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Queensland</td>
+<td style="text-align: left;">http://www.uq.edu.au/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Reading</td>
+<td style="text-align: left;">http://www.reading.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Redlands</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Regina</td>
+<td style="text-align: left;">https://www.uregina.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Rennes 2</td>
+<td style="text-align: left;">https://www.univ-rennes2.fr/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Rochester</td>
+<td style="text-align: left;">https://www.rochester.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Rome Tor Vergata</td>
+<td style="text-align: left;">https://web.uniroma2.it/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Salford</td>
+<td style="text-align: left;">http://www.salford.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of San Francisco</td>
+<td style="text-align: left;">https://www.usfca.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Sao Paulo</td>
+<td style="text-align: left;">http://www5.usp.br/english/?lang=en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Sheffield</td>
+<td style="text-align: left;">https://www.sheffield.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of South Alabama</td>
+<td style="text-align: left;">https://www.southalabama.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of South Carolina</td>
+<td style="text-align: left;">https://www.sc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of South Carolina, Aiken</td>
+<td style="text-align: left;">https://www.usca.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of South Dakota</td>
+<td style="text-align: left;">http://www.usd.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Southern California</td>
+<td style="text-align: left;">https://www.usc.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of South Florida</td>
+<td style="text-align: left;">https://www.usf.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of St Andrews</td>
+<td style="text-align: left;">https://www.st-andrews.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Stirling</td>
+<td style="text-align: left;">https://www.stir.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Strathclyde</td>
+<td style="text-align: left;">https://www.strath.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Surrey</td>
+<td style="text-align: left;">https://www.surrey.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Sussex</td>
+<td style="text-align: left;">http://www.sussex.ac.uk/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Technology Sarawak</td>
+<td style="text-align: left;">https://www.uts.edu.my/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Tehran</td>
+<td style="text-align: left;">https://ut.ac.ir/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Tennessee</td>
+<td style="text-align: left;">https://www.utk.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Texas at San Antonio</td>
+<td style="text-align: left;">https://www.utsa.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Texas at Tyler</td>
+<td style="text-align: left;">https://www.uttyler.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of the Balearic Islands</td>
+<td style="text-align: left;">https://www.uib.eu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of the Basque Country</td>
+<td style="text-align: left;">http://www.ehu.eus/en/en-home</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of the Incarnate Word</td>
+<td style="text-align: left;">http://www.uiw.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of the Pacific</td>
+<td style="text-align: left;">http://www.pacific.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of the Republic</td>
+<td style="text-align: left;">http://www.universidad.edu.uy/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of the Sciences</td>
+<td style="text-align: left;">https://www.usciences.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Toledo</td>
+<td style="text-align: left;">http://www.utoledo.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Toronto</td>
+<td style="text-align: left;">https://www.utoronto.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Trento</td>
+<td style="text-align: left;">http://www.unitn.it/en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Trier</td>
+<td style="text-align: left;">https://www.uni-trier.de/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Tuebingen</td>
+<td style="text-align: left;">http://www.uni-tuebingen.de/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Turku</td>
+<td style="text-align: left;">http://www.utu.fi/en/Pages/home.aspx</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Udine</td>
+<td style="text-align: left;">https://www.uniud.it/it</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Vermont</td>
+<td style="text-align: left;">https://www.uvm.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Verona</td>
+<td style="text-align: left;">http://www.univr.it/jsp/index.jsp?lang=en</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Virginia</td>
+<td style="text-align: left;">http://www.virginia.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Warsaw</td>
+<td style="text-align: left;">http://en.uw.edu.pl/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Warwick</td>
+<td style="text-align: left;">https://warwick.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Washington</td>
+<td style="text-align: left;">https://www.washington.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Waterloo</td>
+<td style="text-align: left;">https://uwaterloo.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Western Sydney</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Winchester</td>
+<td style="text-align: left;">https://www.winchester.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Winnipeg</td>
+<td style="text-align: left;">https://www.uwinnipeg.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Wisconsin, Madison</td>
+<td style="text-align: left;">https://www.wisc.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Wisconsin, Milwaukee</td>
+<td style="text-align: left;">http://uwm.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Wisconsin, Oshkosh</td>
+<td style="text-align: left;">http://www.uwosh.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Wisconsin, Parkside</td>
+<td style="text-align: left;">https://www.uwp.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Wisconsin, Stout</td>
+<td style="text-align: left;">https://www.uwstout.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Wisconsin, Whitewater</td>
+<td style="text-align: left;">http://www.uww.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of York</td>
+<td style="text-align: left;">https://www.york.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University of Zaragoza</td>
+<td style="text-align: left;">http://www.unizar.es/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University of Zurich</td>
+<td style="text-align: left;">http://www.uzh.ch/en.html</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University Paris 8</td>
+<td style="text-align: left;">http://www.univ-paris8.fr/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University Putra Malaysia</td>
+<td style="text-align: left;">http://www.upm.edu.my/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">University Saint Anne</td>
+<td style="text-align: left;">https://www.usainteanne.ca/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">University School For Advanced Studies Iuss Pavia</td>
+<td style="text-align: left;">http://www.iusspavia.it/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uppsala University</td>
+<td style="text-align: left;">https://www.uu.se/en/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uskudar University</td>
+<td style="text-align: left;">https://uskudar.edu.tr/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Utah State University</td>
+<td style="text-align: left;">https://www.usu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utrecht University</td>
+<td style="text-align: left;">https://www.uu.nl/en</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Valparaiso University</td>
+<td style="text-align: left;">https://www.valpo.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vanderbilt University</td>
+<td style="text-align: left;">https://www.vanderbilt.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vanderbilt University Medical Center</td>
+<td style="text-align: left;">https://www.vumc.org/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vassar College</td>
+<td style="text-align: left;">https://www.vassar.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vaud University Hospital Center (CHUV)</td>
+<td style="text-align: left;">https://www.chuv.ch/fr/chuv-home</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Victoria University of Wellington</td>
+<td style="text-align: left;">https://www.victoria.ac.nz/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Villanova University</td>
+<td style="text-align: left;">http://www1.villanova.edu/main.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vilnius University</td>
+<td style="text-align: left;">https://www.vu.lt/en/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Virginia Commonwealth University</td>
+<td style="text-align: left;">https://www.vcu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Virginia Military Institute</td>
+<td style="text-align: left;">http://www.vmi.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Virginia Tech</td>
+<td style="text-align: left;">https://vt.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vishwakarma Institute of Information Technology</td>
+<td style="text-align: left;">http://www.viit.ac.in/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Viterbo University</td>
+<td style="text-align: left;">https://www4.viterbo.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wabash College</td>
+<td style="text-align: left;">https://www.wabash.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wageningen University &amp; Research</td>
+<td style="text-align: left;">https://www.wur.nl/en.htm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wake Forest University</td>
+<td style="text-align: left;">https://www.wfu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Washington State University</td>
+<td style="text-align: left;">https://wsu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Washington University, St Louis</td>
+<td style="text-align: left;">https://wustl.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wayne State University</td>
+<td style="text-align: left;">https://wayne.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Weber State University</td>
+<td style="text-align: left;">https://www.weber.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weill Cornell Medicine</td>
+<td style="text-align: left;">http://weill.cornell.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Weizmann Institute of Science</td>
+<td style="text-align: left;">https://www.weizmann.ac.il/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wellesley College</td>
+<td style="text-align: left;">http://www.wellesley.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wesleyan University</td>
+<td style="text-align: left;">https://www.wesleyan.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Western Kentucky University</td>
+<td style="text-align: left;">https://www.wku.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Western Oregon University</td>
+<td style="text-align: left;">https://www.wou.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Western University</td>
+<td style="text-align: left;">https://www.uwo.ca/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">West Liberty University</td>
+<td style="text-align: left;">https://westliberty.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Westmont College</td>
+<td style="text-align: left;">http://westmont.edu/a/index.html</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">West Virginia University</td>
+<td style="text-align: left;">https://www.wvu.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wheaton College</td>
+<td style="text-align: left;">https://www.wheaton.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Whitman College</td>
+<td style="text-align: left;">https://www.whitman.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Widener University</td>
+<td style="text-align: left;">http://www.widener.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wilfrid Laurier University</td>
+<td style="text-align: left;">https://www.wlu.ca/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">William Paterson University</td>
+<td style="text-align: left;">https://www.wpunj.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Williams College</td>
+<td style="text-align: left;">https://www.williams.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wilmington College</td>
+<td style="text-align: left;">https://www.wilmington.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wingate University</td>
+<td style="text-align: left;">https://www.wingate.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Winston-Salem State University</td>
+<td style="text-align: left;">https://www.wssu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wits Health Consortium</td>
+<td style="text-align: left;">https://www.witshealth.co.za/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wofford College</td>
+<td style="text-align: left;">https://www.wofford.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Worcester Polytechnic Institute</td>
+<td style="text-align: left;">https://www.wpi.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Worcester State University</td>
+<td style="text-align: left;">https://www.worcester.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yale University</td>
+<td style="text-align: left;">https://www.yale.edu/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yeshiva University</td>
+<td style="text-align: left;">https://www.yu.edu/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">York St John University</td>
+<td style="text-align: left;">https://www.yorksj.ac.uk/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">York University</td>
+<td style="text-align: left;">http://www.yorku.ca</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zayed University</td>
+<td style="text-align: left;">https://www.zu.ac.ae/</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zhejiang University</td>
+<td style="text-align: left;">https://www.zju.edu.cn/english/</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="map" class="level2">
+<h2 class="anchored" data-anchor-id="map">Map</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a work-in-progress.</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./weekly.html" class="pagination-link" aria-label="Weekly">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Weekly</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./investigators.html" class="pagination-link" aria-label="Investigators">
+        <span class="nav-page-text"><span class="chapter-title">Investigators</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/databrary/analytics/edit/main/src/institutions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/databrary/analytics/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
