@@ -1,0 +1,44 @@
+---
+title: "_tmp"
+format: html
+---
+
+## About
+
+This page documents Rick Gilmore's explorations of new functions for the analytics site.
+
+## Investigator footprint
+
+The goal of this analysis is to determine an investigator's footprint on Databrary.
+
+```{r}
+#| label: setup
+
+library(databraryr)
+
+login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+Get list of authorized investigators
+
+```{r}
+auth_inv <- databraryr::list_users(include_suspended = FALSE,
+                                   is_authorized_investigator = TRUE)
+```
+
+Select one.
+
+```{r}
+this_ai <- auth_inv |>
+  dplyr::filter(user_id == 6)
+```
+
+```{r}
+this_ai_affil <- list_user_affiliates(user_id = 6)
+```
+
