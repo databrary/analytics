@@ -105,7 +105,7 @@ users_plot <- gathered_stats |>
   ggtitle(paste("Authorizations as of", Sys.Date())) +
   ylab("Authorizations") +
   databrary_theme +
-  scale_y_continuous(breaks = c(0, 300, 600, 900, 1200, 1500, 1800, 2100)) +
+  scale_y_continuous(breaks = c(0, 300, 600, 900, 1200, 1500, 1800, 2100, 2400)) +
   coord_fixed(ratio = ratio.values / ratio.display)
 
 # ggsave("include/img/invest-inst-for-hnds-i.png", width=11, height=6.5, dpi=300)
@@ -120,8 +120,8 @@ p <- cowplot::ggdraw(users_plot) +
       ")"
     ),
     colour = color_teal,
-    .6,
-    .75
+    .3,
+    .6
   ) +
   cowplot::draw_label(
     paste0(
