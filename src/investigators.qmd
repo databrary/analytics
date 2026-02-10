@@ -74,6 +74,8 @@ investigators |>
   kableExtra:: scroll_box(width = "800px", height = "500px")
 ```
 
+## Clean up
+
 ```{r}
 #| label: clean-up-logout
 logout_db()

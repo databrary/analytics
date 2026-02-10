@@ -1,0 +1,267 @@
+---
+title: "_user_profile"
+format: html
+---
+
+## About
+
+This page documents work on a user_profile function.
+
+## Setup
+
+```{r}
+#| label: set-up
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+# library(dplyr)
+# library(ggplot2)
+library(databraryr)
+library(tidyverse)
+
+# Login to Databrary
+x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+         password = Sys.getenv("DB_LOGIN_PW"),
+         client_id = Sys.getenv("DB_API_CLIENT_ID"),
+         client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Test user functions
+
+```{r}
+u6 <- get_user_by_id()
+```
+
+
+```{r}
+u6_vols <- list_user_volumes()
+```
+
+This shows the list of all volumes a user has access to. I want to select volumes that the user owns.
+
+```{r}
+get_volume_by_id(1746) -> v1746
+v1746$owner_connection |> str()
+v1746_owners <- v1746$owner_connection[[1]]
+
+v1746_owner_id <- v1746_owners[[1]]
+v1746_owner_inst <- v1746_owners[[2]] |>
+  as.data.frame()
+names(v1746_owner_inst) <- paste0("inst_", names(v1746_owner_inst))
+v1746_owner_role <- v1746_owners[[4]]
+v1746_owner_expiration <- v1746_owners[[5]]
+v1746_owner_created <- v1746_owners[[6]]
+v1746_owner_updated <- v1746_owners[[7]]
+```
+
+```{r}
+#| label: define-vol_owner_info
+vol_owner_info <- function(vol_id = 1746, vb = FALSE) {
+  assertthat::is.number(vol_id)
+  assertthat::assert_that(vol_id > 0)
+  assertthat::assert_that(length(vol_id) == 1)
+  
+  assertthat::assert_that(is.logical(vb))
+  assertthat::assert_that(length(vb) == 1)
+  
+  # vol <- get_volume_by_id(vol_id, vb = vb) # Use list_volume_info instead?
+  vol <- list_volume_info(vol_id, vb = vb)
+  if (is.null(vol)) {
+    if (vb) message("No data found for vol_id ", vol_id, ".")
+    return(NULL)
+  }
+  owner <- vol$vol_owner_connection[[1]][[3]]
+  
+  vol_owner <- NULL
+  vol_owner <- tibble(vol_id = vol_id,
+         owner_id = owner$id,
+         owner_first_name = owner$first_name,
+         owner_last_name = owner$last_name,
+         owner_is_authorized_investigator = owner$is_authorized_investigator,
+         owner_has_avatar = owner$has_avatar,
+         owner_affiliation_id = owner$affiliation$id,
+         owner_affiliation_name = owner$affiliation_name
+         )
+  vol_owner
+}
+
+vol_owner_info_alt <- function(vol_id = 1746, vb = FALSE) {
+  assertthat::is.number(vol_id)
+  assertthat::assert_that(vol_id > 0)
+  assertthat::assert_that(length(vol_id) == 1)
+  
+  assertthat::assert_that(is.logical(vb))
+  assertthat::assert_that(length(vb) == 1)
+  
+  vol <- get_volume_by_id(vol_id, vb = vb) # Use list_volume_info instead?
+  # vol <- list_volume_info(vol_id, vb = vb)
+  if (is.null(vol)) {
+    if (vb) message("No data found for vol_id ", vol_id, ".")
+    return(NULL)
+  }
+  owner <- vol$owner_connection[[1]][[3]]
+  
+  vol_owner <- NULL
+  vol_owner <- tibble(vol_id = vol_id,
+         owner_id = owner$id,
+         owner_first_name = owner$first_name,
+         owner_last_name = owner$last_name,
+         owner_is_authorized_investigator = owner$is_authorized_investigator,
+         owner_has_avatar = owner$has_avatar,
+         owner_affiliation_id = owner$affiliation$id,
+         owner_affiliation_name = owner$affiliation_name
+         )
+  vol_owner
+}
+
+list_volume_owner_info <- function(vol_id = 1746, vb = FALSE) {
+  assertthat::is.number(vol_id)
+  assertthat::assert_that(vol_id > 0)
+  assertthat::assert_that(length(vol_id) == 1)
+  
+  assertthat::assert_that(is.logical(vb))
+  assertthat::assert_that(length(vb) == 1)
+  
+  vol <- get_volume_by_id(vol_id, vb = vb)
+  if (is.null(vol)) {
+    if (vb) message("No data found for vol_id ", vol_id, ".")
+    return(NULL)
+  }
+  owner <- vol$owner_connection[[1]][[3]]
+  
+  vol_owner <- NULL
+  vol_owner <- tibble(vol_id = vol_id,
+         owner_id = owner$id,
+         owner_first_name = owner$first_name,
+         owner_last_name = owner$last_name,
+         owner_is_authorized_investigator = owner$is_authorized_investigator,
+         owner_has_avatar = owner$has_avatar,
+         owner_affiliation_id = owner$affiliation$id,
+         owner_affiliation_name = owner$affiliation_name
+         )
+  vol_owner
+}
+
+user_is_vol_owner <- function(user_id = 7630, vol_id = 1746, vb = FALSE) {
+  assertthat::is.number(user_id)
+  assertthat::assert_that(user_id > 0)
+  assertthat::assert_that(length(user_id) == 1)
+  
+  assertthat::is.number(vol_id)
+  assertthat::assert_that(vol_id > 0)
+  assertthat::assert_that(length(vol_id) == 1)
+  
+  assertthat::assert_that(is.logical(vb))
+  assertthat::assert_that(length(vb) == 1)
+  
+  if (vb) message("Retrieving info for vol_id ", vol_id, ".")
+  vol <- get_volume_by_id(vol_id, vb = vb)
+  if (vb) message("Retrieving vol owner info.")
+  vol_owner <- list_volume_owner_info(vol_id, vb = vb)
+  
+  vol_owner$owner_id == user_id
+}
+
+list_owned_vols <- function(user_id = 7630, vb = FALSE) {
+  assertthat::is.number(user_id)
+  assertthat::assert_that(user_id > 0)
+  assertthat::assert_that(length(user_id) == 1)
+  
+  assertthat::assert_that(is.logical(vb))
+  assertthat::assert_that(length(vb) == 1)
+  
+  user_vols <- list_user_volumes(user_id = user_id, vb = vb)
+  if (is.null(user_vols)) {
+    if (vb) message("No volumes found for user_id ", user_id, ".")
+    return(NULL)
+  }
+  vol_ids <- user_vols$vol_id
+  if (vb) message("Found n=", dim(vol_ids)[1], " volumes for user_id ", user_id, ".")
+  
+  if (vb) message("Retrieving owners for volumes accessible to user_id ", user_id, ".")
+  vol_owners <- purrr::map(vol_ids, vol_owner_info,
+                           vb = vb, .progress = "Volume owners...") |>
+    purrr::list_rbind()
+
+  if (is.null(vol_owners)) {
+    if (vb) message("No volumes owned by user_id ", user_id, ".")
+    return(NULL)
+  }
+
+  owned_vol_ids <- vol_ids[vol_owners$owner_id == user_id]
+  user_vols |>
+    filter(vol_id %in% owned_vol_ids)
+}
+```
+
+These functions let us retrieve the volumes a user owns.
+
+We can now summarize data about these volumes.
+
+```{r}
+u7630 <- list_owned_vols(user_id = 7630)
+
+u7630 |>
+  dplyr::group_by(vol_sharing_level) |>
+  dplyr::summarise(
+    count = n()
+  )
+```
+
+```{r}
+list_user_owned_vols_sharing_info <- function(user_id = 7630, vb = FALSE) {
+  user_vols <- list_owned_vols(user_id, vb)
+  n_private <- sum(user_vols$vol_sharing_level == "private")
+  n_overview <- sum(user_vols$vol_sharing_level == "public_overview_only")
+  n_public = sum(user_vols$vol_sharing_level == "public")
+  vol_stats <- tibble(
+    user_id = user_id,
+    n_vols = dim(user_vols)[1],
+    n_public = n_public,
+    n_overview = n_overview,
+    n_private = n_private
+  )
+  vol_stats
+}
+```
+
+
+If we gather volume-level data from `list_volume_info()`, we can join it with the output from `list_owned_vols()`.
+
+```{r}
+u7630_all_vols <- purrr::map(u7630$vol_id, 
+                             list_volume_info, 
+                             .progress = "Volume details...") |>
+  purrr::list_rbind()
+```
+
+```{r}
+u7630_all_vols$vol_n_sessions
+u7630_all_vols$vol_n_sessions_shared
+#all_vols_data$vol_file_counts # List must unpack
+u7630_all_vols$vol_n_assets
+u7630_all_vols$vol_tot_size_mb
+u7630_all_vols$vol_tot_dur_hrs
+u7630_all_vols$vol_n_funders
+```
+There are some performance costs to using `list_volume_info()`:
+
+```{r}
+system.time({vol_owner_info(1746)}) # list_volume_info
+
+system.time({vol_owner_info_alt(1746)}) # get_volume_by_id
+```
+
+For now, I'm going with `get_volume_by_id()` for the speed up.
+
+## Clean up
+
+```{r}
+#| label: clean-up-logout
+logout_db()
+```
