@@ -23,7 +23,7 @@ list_volumes_user_owns <- function(user_id = 7630, vb = FALSE) {
   vol_owners <- purrr::map(vol_ids,
                            list_volume_owner_info,
                            vb = vb,
-                           .progress = "Volume owners...") |>
+                           .progress = "Owner of user's volumes...") |>
     purrr::list_rbind()
   
   if (is.null(vol_owners)) {
@@ -40,6 +40,6 @@ list_volumes_user_owns <- function(user_id = 7630, vb = FALSE) {
             user_id,
             ".")
   
-  user_vols |>
-    filter(vol_id %in% owned_vol_ids)
+  user_owns_these <- (vol_ids %in% owned_vol_ids)
+  user_vols[user_owns_these,]
 }

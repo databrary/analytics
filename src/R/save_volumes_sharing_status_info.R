@@ -1,4 +1,4 @@
-save_volumes_user_owns <- function(user_id = 7630, vb = FALSE, 
+save_volumes_sharing_status_info <- function(user_id = 7630, vb = FALSE, 
                                    save_path = tempdir()) {
   assertthat::is.number(user_id)
   assertthat::assert_that(user_id > 0)
@@ -11,13 +11,13 @@ save_volumes_user_owns <- function(user_id = 7630, vb = FALSE,
   assertthat::is.writeable(save_path)
   assertthat::assert_that(length(save_path) == 1)
   
-  vols <- list_volumes_user_owns(user_id, vb)
-  
+  vols <- list_user_owned_volumes_sharing_info(user_id, vb)
   if (is.null(vols)) {
     if (vb) message("No volumes for user_id ", user_id, ".")
     return(NULL)
   }
   
+  fn <- NULL
   if (vb) message("Saving data to file: ")
   now_str <- lubridate::as_datetime(lubridate::now()) |> 
     stringr::str_replace_all(pattern = "[: \\.]", "-")

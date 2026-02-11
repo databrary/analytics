@@ -17,9 +17,13 @@ For more information about Databrary's restricted access policies and the roles 
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 library(databraryr)
+
+# Source functions
+fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+                 full.names = TRUE)
+purrr::map(fl, suppressPackageStartupMessages(source))
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -34,7 +38,8 @@ x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
 
 ```{r}
 #| label: gather-investigator-data
-investigators <- list_users(include_suspended = FALSE, is_authorized_investigator = TRUE)
+investigators <- list_users(include_suspended = FALSE,
+                            is_authorized_investigator = TRUE)
 ```
 
 Databrary has n=`{r} dim(investigators)[1]` active authorized investigators.
@@ -68,6 +73,50 @@ Here is a full list in alphabetical order.
 investigators |>
   dplyr::select(user_last_name, user_first_name, user_affiliation_name) |>
   dplyr::arrange(user_last_name) |>
+  kableExtra::kable(format = "html") |>
+  kableExtra::kable_material() |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px", height = "500px")
+```
+
+## Numbers of volumes
+
+```{r}
+#| label: save-volume-sharing-status-info
+#| eval: false
+#| message: false
+#| warning: false
+
+ai_ids <- investigators$user_id |>
+  sort()
+
+# Save CSVs of volumes owned by authorized investigators
+purrr::map(
+  ai_ids,
+  save_volumes_sharing_status_info,
+  save_path = file.path(here::here(), "src", "private", "user_vol_sharing")
+)
+```
+
+Load previously saved data about volume sharing status.
+
+```{r}
+#| label: tbl-volumes-sharing-status
+#| eval: true
+#| message: false
+#| warning: false
+
+# Load saved csvs
+fl <- list.files(file.path(here::here(), "src", "private", "user_vol_sharing"), "*.csv", full.names = TRUE)
+vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
+  purrr::list_rbind()
+
+# Make table
+vol_info |>
+  dplyr::select(user_first_name, user_last_name, user_id, 
+                user_affiliation, n_vols, n_public, n_overview, n_private) |>
+  dplyr::filter(n_vols > 0) |>
+  dplyr::arrange(desc(n_vols)) |>
   kableExtra::kable(format = "html") |>
   kableExtra::kable_material() |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>

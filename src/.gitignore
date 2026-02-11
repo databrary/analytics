@@ -4,7 +4,6 @@ rmd
 include
 archive
 _main.html
-
 /.quarto/
-
 **/*.quarto_ipynb
+private
