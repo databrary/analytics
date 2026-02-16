@@ -1,21 +1,16 @@
-# analytics
+# Databrary analytics
 
-Analyses of Databrary usage, downloads, & data.
+Analyses of Databrary usage.
 
 ## Installation and usage
 
 - Clone the repo.
 - When you open the project, the `renv` package dependency manager is likely to install and run.
 - Run `renv::restore()` and agree to install package dependencies that are suggested.
-- Then, execute `renv::status()`. If this gives "No issues found -- the project is in a consistent state.", then proceed. If there are package issues, you should resolve them by installing missing packages using "renv::install('package_name')" for each package you want to install.
-- From the project root directory, source `R/starting_fresh_functions.R` at the R console via `source("R/starting_fresh_functions.R")`.
-- Execute `setup_anew("<my_email@my_inst.edu>")` from the R console, substituting your Databrary login email for `<my_email@my_inst.edu>`. **Note**: This will complete the setup needed for running the analytics reports, including generating local copies of various CSV files needed for the 
-system-wide reports. The process can take 1.5-2 hours, so please be patient.
-- When `setup_anew()` finishes, the (`bookdown`) rendered report should open in your default browser.
-- save Databrary login in .Renviron file 
-     - Run `usethis::edit_r_environ()` 
-     - Enter this line `DATABRARY_LOGIN="youremail@address"`
-- make sure file was saved `Sys.getenv("DATABRARY_LOGIN")`
-- run `targets::tar_make()`
-     
-
+- Save parameters in your user account's `.Renviron` file:
+  - `DB_LOGIN_ACCT`: Your Databrary account (email address)
+  - `DB_LOGIN_PW`: Your Databrary password
+  - `DB_API_CLIENT_ID`: The API client ID you have created.
+  - `DB_API_CLIENT_SECRET`: The API client secret provided by Databrary when you are given API access permission.
+- Run `quarto render src` in a terminal. 
+Note that this will fail most of the time for most users because default behavior relies on unshared CSV data files.

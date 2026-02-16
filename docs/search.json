@@ -198,5 +198,45 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Weekly</span>"
     ]
+  },
+  {
+    "objectID": "workflow.html",
+    "href": "workflow.html",
+    "title": "Workflow",
+    "section": "",
+    "text": "GitHub\nThis page describes the set of tools we use to generate these data and present them in this site.\nWe use GitHub’s pages feature to serve the web site files.\nAt present, we are using a repository associated with the Databrary organization https://github.com/databrary/analytics. This results in the analytics site having the following url: https://databrary.github.io/analytics/.\nThe site is built locally by Rick Gilmore or Andrea Seisler, then pushed to GitHub.",
+    "crumbs": [
+      "Workflow"
+    ]
+  },
+  {
+    "objectID": "workflow.html#rstudio",
+    "href": "workflow.html#rstudio",
+    "title": "Workflow",
+    "section": "RStudio",
+    "text": "RStudio\nWe use RStudio as the integrated development environment for the site. Most of the code is in Quarto and R, with some CSS and JavaScript.\nWe use a number of R packages in the workflow.\n\nDatabraryr\nThe databraryr package provides a set of tools for interacting with the Databrary API and gathering data from the site. This package may be useful to some analysts whether or not they care about Databrary-specific analytics.\nMost data and metadata used in these reports can be accessed by the public, but specific data about individual participants requires that the user be authorized and logged in to the site using the databraryr::db_login() function.\nThe package may be installed via devtools::install_github(repo=\"https://github.com/NYU-Databrary/databraryr\").\nSee https://databrary.github.io/databraryr/ for documentation about the package.\n\n\n\n\n\n\nWarning\n\n\n\nThe package is under active development. The documentation may not be up-to-date.\nNote that users wishing to script access to Databrary 2.0 must apply for permission to do so. See https://databrary.github.io/guide/more-information/api-access.html for details.\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto\nTo generate the site, we use Quarto.\nA typical sequence of commands to regenerate the site is the following:\nquarto render src\nConfiguration files using the YAML markup language control the rendering process. These files and the source R Markdown (.Rmd) files used to generate the site are in the src/ directory.\nThe rendering command creates a full website in the docs/ directory.\n\n\nPackage Reproducibility\nWe use the renv package to track package dependencies.",
+    "crumbs": [
+      "Workflow"
+    ]
+  },
+  {
+    "objectID": "workflow.html#strategy",
+    "href": "workflow.html#strategy",
+    "title": "Workflow",
+    "section": "Strategy",
+    "text": "Strategy\nSome of the data elements in the report change often, but others do not. We have found it is faster and more convenient in many cases to download various data files from Databrary and store copies as comma-separated value (CSV) text files in a private (local) directory.\nSome of the CSVs contain potentially identifiable human subjects data, so we use a special .gitignore file to keep those files out of the git tracking scheme and prevent uploading them to GitHub.\nThese data analyses and visualizations have developed piecemeal over several years. They could undoubtedly be optimized and improved.\nThe primary developer (Rick Gilmore) has had a ‘git-er-done’ attitude toward the project.\nGilmore takes some solace in the following quotation from the father of literate programming, Donald Knuth:\n\n…the real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.\n\n\n\n\n\n\n\n\nRoadmap\n\nDevise visualizations of assets by investigator/institution.\nCreate JSON lat, lon file for Databrary home page.\nReport by-user, by-institution summary data.\nAccess and report on summary data about “private” volumes.",
+    "crumbs": [
+      "Workflow"
+    ]
+  },
+  {
+    "objectID": "workflow.html#clean-up",
+    "href": "workflow.html#clean-up",
+    "title": "Workflow",
+    "section": "Clean-up",
+    "text": "Clean-up\nLog out of Databrary.",
+    "crumbs": [
+      "Workflow"
+    ]
   }
 ]

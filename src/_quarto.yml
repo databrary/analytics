@@ -11,6 +11,7 @@ book:
     - weekly.qmd
     - institutions.qmd
     - investigators.qmd
+    - workflow.qmd
     # - institutions-investigators.qmd
     # - tags-keywords.qmd
     # - funders.qmd
