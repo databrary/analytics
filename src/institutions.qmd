@@ -1,6 +1,9 @@
 ---
 title: "Institutions"
 format: html
+params:
+  refresh_volumes_sharing_data: false
+  csv_path: "private"
 ---
 
 ## About
@@ -17,9 +20,14 @@ For more information about institutional roles and responsibilities, see the [Da
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
-library(dplyr)
-library(ggplot2)
-library(databraryr)
+
+suppressPackageStartupMessages(library(databraryr))
+suppressPackageStartupMessages(library(tidyverse))
+
+# Source functions
+fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+                 full.names = TRUE)
+p <- purrr::map(fl, suppressPackageStartupMessages(source))
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -37,12 +45,13 @@ x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
 institutions <- list_institutions()
 ```
 
-We have n=`{r} dim(institutions)[1]` active institutional partners.
+Databrary has n=`{r} dim(institutions)[1]` active institutional partners.
 
 ## Recent additions
 
 ```{r}
 #| label: tbl-institutions-recent-additions
+#| tbl-cap: "List of the 10 most recent additions to the network of Databrary institutions."
 institutions |> 
   dplyr::arrange(desc(institution_id)) |> 
   dplyr::select(institution_name, institution_url) |>
@@ -63,7 +72,7 @@ Here is a full list in alphabetical order.
 
 ```{r}
 #| label: tbl-databrary-institutions
-
+#| tbl-caption: "List of all Databrary institutions in alphabetical order."
 institutions |>
   dplyr::select(institution_name, institution_url) |>
   kableExtra::kable(format = "html") |>
@@ -77,6 +86,41 @@ institutions |>
 ::: {.callout-warning}
 This is a work-in-progress.
 :::
+
+## Institutional footprint
+
+```{r}
+#| label: tbl-institutional-footprint
+#| eval: true
+#| message: false
+#| warning: false
+
+# Load saved csvs
+fl <- list.files(file.path(params$csv_path, "user_vol_sharing"), "*.csv", full.names = TRUE)
+
+vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
+  purrr::list_rbind() |>
+  dplyr::filter(n_vols > 0)
+
+inst_vols <- vol_info |>
+  group_by(user_affiliation) |>
+  summarise(n_ais = n(),
+            tot_vols = sum(n_vols),
+            tot_public = sum(n_public),
+            tot_overview = sum(n_overview),
+            tot_private = sum(n_private))
+
+inst_vols |>
+  arrange(desc(tot_vols)) |>
+  kableExtra::kable(format = "html") |>
+  kableExtra::kable_material() |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+## Clean up
+
+Logout from Databrary.
 
 ```{r}
 #| label: clean-up-logout

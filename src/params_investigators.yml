@@ -1,0 +1,3 @@
+refresh_investigator_data: true
+refresh_volumes_sharing_data: true
+csv_path: "private"

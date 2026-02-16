@@ -1,6 +1,10 @@
 ---
 title: "Investigators"
 format: html
+params:
+  refresh_investigator_data: false
+  refresh_volumes_sharing_data: false
+  csv_path: "private"
 ---
 
 ## About
@@ -17,13 +21,14 @@ For more information about Databrary's restricted access policies and the roles 
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
-library(tidyverse)
-library(databraryr)
+
+suppressPackageStartupMessages(library(databraryr))
+suppressPackageStartupMessages(library(tidyverse))
 
 # Source functions
 fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
                  full.names = TRUE)
-purrr::map(fl, suppressPackageStartupMessages(source))
+p <- purrr::map(fl, suppressPackageStartupMessages(source))
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -38,8 +43,30 @@ x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
 
 ```{r}
 #| label: gather-investigator-data
-investigators <- list_users(include_suspended = FALSE,
-                            is_authorized_investigator = TRUE)
+#| message: false
+#| warning: false
+#| 
+save_path <- file.path(params$csv_path)
+assertthat::is.string(save_path)
+assertthat::is.writeable(save_path)
+
+now_str <- lubridate::as_datetime(lubridate::now()) |>
+  stringr::str_replace_all(pattern = "[: \\.]", "-")
+
+fn <- file.path(save_path, paste0("investigators-", now_str, ".csv"))
+
+if (params$refresh_investigator_data) {
+  investigators <- list_users(include_suspended = FALSE,
+                              is_authorized_investigator = TRUE)
+  readr::write_csv(investigators, fn)
+} else {
+  fns <- list.files(save_path, pattern = "investigators-", full.names = TRUE)
+  # Newest last
+  fn <- fns[length(fns)]
+  assertthat::is.readable(fn)
+  
+  investigators <- readr::read_csv(fn, show_col_types = FALSE)
+}
 ```
 
 Databrary has n=`{r} dim(investigators)[1]` active authorized investigators.
@@ -83,49 +110,74 @@ investigators |>
 
 ```{r}
 #| label: save-volume-sharing-status-info
-#| eval: false
 #| message: false
 #| warning: false
 
 ai_ids <- investigators$user_id |>
   sort()
 
-# Save CSVs of volumes owned by authorized investigators
-purrr::map(
-  ai_ids,
-  save_volumes_sharing_status_info,
-  save_path = file.path(here::here(), "src", "private", "user_vol_sharing")
-)
+f_save_path <- file.path(params$csv_path, "user_vol_sharing")
+x <- assertthat::is.string(f_save_path)
+y <- assertthat::is.writeable(f_save_path)
+
+msg <- "Load previously saved data about volume sharing status."
+
+if (params$refresh_volumes_sharing_data) {
+  msg <- "Volumes shared by owners are up-to-date."
+  
+  # Save CSVs of volumes owned by authorized investigators
+  purrr::map(
+    ai_ids,
+    save_volumes_sharing_status_info,
+    save_path = file.path(params$csv_path, "user_vol_sharing"))
+    
+  } else {
+  msg <- "Volumes shared by owners use archived data."
+}
+
 ```
 
-Load previously saved data about volume sharing status.
+`{r} msg`
 
 ```{r}
 #| label: tbl-volumes-sharing-status
+#| tbl-cap: "Users with shared volumes by number of total volumes."
 #| eval: true
 #| message: false
 #| warning: false
 
 # Load saved csvs
-fl <- list.files(file.path(here::here(), "src", "private", "user_vol_sharing"), "*.csv", full.names = TRUE)
+fl <- list.files(file.path(here::here(), "private", "user_vol_sharing"),
+                 "*.csv",
+                 full.names = TRUE)
 vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
   purrr::list_rbind()
 
 # Make table
 vol_info |>
-  dplyr::select(user_first_name, user_last_name, user_id, 
-                user_affiliation, n_vols, n_public, n_overview, n_private) |>
+  dplyr::select(
+    user_first_name,
+    user_last_name,
+    user_id,
+    user_affiliation,
+    n_vols,
+    n_public,
+    n_overview,
+    n_private
+  ) |>
   dplyr::filter(n_vols > 0) |>
   dplyr::arrange(desc(n_vols)) |>
   kableExtra::kable(format = "html") |>
   kableExtra::kable_material() |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px", height = "500px")
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "800px", height = "500px")
 ```
 
 ## Clean up
 
+Logout from Databrary.
+
 ```{r}
 #| label: clean-up-logout
-logout_db()
+l <- logout_db()
 ```

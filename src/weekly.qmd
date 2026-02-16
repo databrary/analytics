@@ -1,17 +1,34 @@
-# Weekly
+---
+title: "Weekly"
+format: html
+params:
+  refresh_stats: false
+  csv_save_path: "private"
+---
+
+## About
 
 These data are collected and reported on roughly a weekly basis.
 
-```{r weekly-setup, include=FALSE}
+```{r weekly-setup}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
-library(dplyr)
-library(ggplot2)
-library(databraryr)
+
+suppressPackageStartupMessages(library(databraryr))
+suppressPackageStartupMessages(library(tidyverse))
+
+# Source functions
+fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+                 full.names = TRUE)
+p <- purrr::map(fl, suppressPackageStartupMessages(source))
 
 # Login to Databrary
-login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
+x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
          password = Sys.getenv("DB_LOGIN_PW"),
          client_id = Sys.getenv("DB_API_CLIENT_ID"),
          client_secret = Sys.getenv("DB_API_CLIENT_SECRET"),
@@ -48,13 +65,28 @@ databrary_theme <-
 
 ```{r}
 #| label: update-db-stats
-db_stats_new <- databraryr::get_db_stats()
+#| message: false
+#| warning: false
+#| results: hide
+#| 
+assertthat::is.string(params$csv_save_path)
+assertthat::is.writeable(params$csv_save_path)
 
-db_stats_old <- readr::read_csv("csv/institutions-investigators.csv")
-n_rows <- dim(db_stats_old)[1]
+fn_inst_invest <- file.path(params$csv_save_path, "institutions-investigators.csv")
+x <- assertthat::is.readable(fn_inst_invest)
 
-updated_stats <- rbind(db_stats_old, db_stats_new[,1:4])
-readr::write_csv(updated_stats, file = "csv/institutions-investigators.csv")
+# Don't refresh data by default; change default in params_weekly.yml
+if (params$refresh_stats) {
+  db_stats_new <- databraryr::get_db_stats()
+  
+  db_stats_old <- readr::read_csv(fn_inst_invest)
+  n_rows <- dim(db_stats_old)[1]
+  
+  updated_stats <- rbind(db_stats_old, db_stats_new[, 1:4])
+  readr::write_csv(updated_stats, file = fn_inst_invest)
+} else {
+  updated_stats <- readr::read_csv(fn_inst_invest)
+}
 ```
 
 ```{r }
@@ -63,7 +95,6 @@ readr::write_csv(updated_stats, file = "csv/institutions-investigators.csv")
 n_rows <- dim(updated_stats)[1]
 
 delta_investigators <- updated_stats$investigators[n_rows] - updated_stats$investigators[n_rows - 1]
-
 delta_institutions <- updated_stats$institutions[n_rows] - updated_stats$institutions[n_rows - 1]
 
 # filter NAs
@@ -137,8 +168,6 @@ p <- cowplot::ggdraw(users_plot) +
   )
 
 p
-
-# ggsave("include/img/invest-inst-for-hnds-i.png", width=11, height=6.5, dpi=300)
 ```
 
 
@@ -458,7 +487,13 @@ if (!(is_empty(citations))) {
 }
 ```
 
+## Clean up
+
+Logout from Databrary.
+
 ```{r}
 #| label: clean-up-logout
-logout_db()
+#| message: false
+
+x <- logout_db()
 ```

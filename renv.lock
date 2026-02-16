@@ -301,6 +301,13 @@
       ],
       "Hash": "61e097f35917d342622f21cdc79c256e"
     },
+    "commonmark": {
+      "Package": "commonmark",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8cba62334c1088d21689d353a7e87663"
+    },
     "conflicted": {
       "Package": "conflicted",
       "Version": "1.2.0",
@@ -806,6 +813,21 @@
       ],
       "Hash": "102298e238c14eb830cc4b5edd23c3e8"
     },
+    "httpuv": {
+      "Package": "httpuv",
+      "Version": "1.6.16",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "Rcpp",
+        "later",
+        "promises",
+        "utils"
+      ],
+      "Hash": "6c3c8728e40326de6529a5c46e377e5c"
+    },
     "httr": {
       "Package": "httr",
       "Version": "1.4.7",
@@ -988,6 +1010,18 @@
       ],
       "Hash": "b64ec208ac5bc1852b285f665d6368b3"
     },
+    "later": {
+      "Package": "later",
+      "Version": "1.4.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "rlang"
+      ],
+      "Hash": "dd1774a6d7bc63ea311920b278c22150"
+    },
     "lattice": {
       "Package": "lattice",
       "Version": "0.22-7",
@@ -1110,6 +1144,16 @@
       ],
       "Hash": "f7a15bd6212641dc922611dd4cb1c3ee"
     },
+    "otel": {
+      "Package": "otel",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "627d6993db1043703c0b084fa432f21f"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.11.1",
@@ -1193,6 +1237,23 @@
         "prettyunits"
       ],
       "Hash": "f4625e061cb2865f111b47ff163a5ca6"
+    },
+    "promises": {
+      "Package": "promises",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "fastmap",
+        "later",
+        "lifecycle",
+        "magrittr",
+        "otel",
+        "rlang"
+      ],
+      "Hash": "62cb899ed5fff70d4e918ec1b762bf7c"
     },
     "ps": {
       "Package": "ps",
@@ -1453,6 +1514,50 @@
         "stringr"
       ],
       "Hash": "fb6f4aacfcc16539458c66b698339e69"
+    },
+    "shiny": {
+      "Package": "shiny",
+      "Version": "1.12.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "bslib",
+        "cachem",
+        "cli",
+        "commonmark",
+        "fastmap",
+        "fontawesome",
+        "glue",
+        "grDevices",
+        "htmltools",
+        "httpuv",
+        "jsonlite",
+        "later",
+        "lifecycle",
+        "methods",
+        "mime",
+        "otel",
+        "promises",
+        "rlang",
+        "sourcetools",
+        "tools",
+        "utils",
+        "withr",
+        "xtable"
+      ],
+      "Hash": "4eee104c56972c9ef07741219099b0dd"
+    },
+    "sourcetools": {
+      "Package": "sourcetools",
+      "Version": "0.1.7-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "5f5a7629f956619d519205ec475fe647"
     },
     "stringi": {
       "Package": "stringi",
@@ -1819,6 +1924,18 @@
         "rlang"
       ],
       "Hash": "d8e98d08a4a4d03f5052acc6e6204b99"
+    },
+    "xtable": {
+      "Package": "xtable",
+      "Version": "1.8-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats",
+        "utils"
+      ],
+      "Hash": "b8acdf8af494d9ec19ccb2481a9b11c2"
     },
     "yaml": {
       "Package": "yaml",
