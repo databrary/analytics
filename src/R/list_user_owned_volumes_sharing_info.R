@@ -23,6 +23,7 @@ list_user_owned_volumes_sharing_info <- function(user_id = 7630, vb = FALSE) {
     n_private <- sum(user_vols$vol_sharing_level == "private")
     n_overview <- sum(user_vols$vol_sharing_level == "public_overview_only")
     n_public = sum(user_vols$vol_sharing_level == "public")
+    
     vol_stats <- tibble::tibble(
       user_id = user_id,
       user_first_name = user_info$prename,
