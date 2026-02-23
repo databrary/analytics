@@ -2,7 +2,9 @@
 title: "Institutions"
 format: html
 params:
-  refresh_volumes_sharing_data: false
+  refresh_investigator_data: true
+  refresh_volumes_sharing_data: true
+  save_volumes_sharing_status_info: true
   csv_path: "private"
 ---
 
@@ -25,9 +27,10 @@ suppressPackageStartupMessages(library(databraryr))
 suppressPackageStartupMessages(library(tidyverse))
 
 # Source functions
-fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+fl <- list.files(file.path(here::here(), "R"), "*.R", 
                  full.names = TRUE)
-p <- purrr::map(fl, suppressPackageStartupMessages(source))
+p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
+  purrr::quietly()
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -42,7 +45,12 @@ x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
 
 ```{r}
 #| label: gather-institutional-data
-institutions <- list_institutions()
+institutions <- list_institutions() |>
+    dplyr::mutate(institution_name = stringr::str_sub(institution_name,
+                                                    start = 1, end = 25)) |>
+  dplyr::rename(id = institution_id,
+                institution = institution_name,
+                url = institution_url)
 ```
 
 Databrary has n=`{r} dim(institutions)[1]` active institutional partners.
@@ -51,13 +59,13 @@ Databrary has n=`{r} dim(institutions)[1]` active institutional partners.
 
 ```{r}
 #| label: tbl-institutions-recent-additions
-#| tbl-cap: "List of the 10 most recent additions to the network of Databrary institutions."
+#| tbl-caption: "List of the 10 most recent additions to the network of Databrary institutions."
 institutions |> 
-  dplyr::arrange(desc(institution_id)) |> 
-  dplyr::select(institution_name, institution_url) |>
+  dplyr::arrange(desc(id)) |> 
+  dplyr::select(institution, url) |>
   head(n = 10) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra:: scroll_box(width = "800px")
 ```
@@ -74,9 +82,9 @@ Here is a full list in alphabetical order.
 #| label: tbl-databrary-institutions
 #| tbl-caption: "List of all Databrary institutions in alphabetical order."
 institutions |>
-  dplyr::select(institution_name, institution_url) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  dplyr::select(institution, url) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra:: scroll_box(width = "800px", height = "500px")
 ```
@@ -89,8 +97,15 @@ This is a work-in-progress.
 
 ## Institutional footprint
 
+This section summarizes which institutions have the largest number of volumes and Authorized Investigators.
+
+::: {.panel-tabset}
+
+## By number of volumes
+
 ```{r}
-#| label: tbl-institutional-footprint
+#| label: tbl-institutional-footprint-vols
+#| tbl-cap: "Institutions with the largest number of shared or partially shared volumes. Note that the institution names have been truncated at 25 characters."
 #| eval: true
 #| message: false
 #| warning: false
@@ -103,20 +118,48 @@ vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
   dplyr::filter(n_vols > 0)
 
 inst_vols <- vol_info |>
-  group_by(user_affiliation) |>
-  summarise(n_ais = n(),
+  dplyr::group_by(user_affiliation) |>
+  # Eliminate n_private until we can gather that data accurately.
+  # summarise(n_ais = n(),
+  #           tot_vols = sum(n_vols),
+  #           tot_public = sum(n_public),
+  #           tot_overview = sum(n_overview),
+  #           tot_private = sum(n_private))
+  dplyr::summarise(n_ais = n(),
             tot_vols = sum(n_vols),
             tot_public = sum(n_public),
-            tot_overview = sum(n_overview),
-            tot_private = sum(n_private))
+            tot_overview = sum(n_overview)) |>
+  dplyr::mutate(user_affiliation = stringr::str_sub(user_affiliation,
+                                                    start = 1, end = 25))
 
 inst_vols |>
   arrange(desc(tot_vols)) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  rename(institution = user_affiliation) |>
+  select(-c("n_ais")) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra:: scroll_box(width = "800px")
 ```
+
+## By number of investigators
+
+```{r}
+#| label: tbl-institutional-footprint-ais
+#| tbl-cap: "Institutions with the largest number of AIs."
+#| eval: true
+#| message: false
+#| warning: false
+inst_vols |>
+  arrange(desc(n_ais)) |>
+  rename(institution = user_affiliation) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+:::
 
 ## Clean up
 
@@ -124,5 +167,5 @@ Logout from Databrary.
 
 ```{r}
 #| label: clean-up-logout
-logout_db()
+x <- logout_db()
 ```

@@ -4,6 +4,7 @@ format: html
 params:
   refresh_investigator_data: false
   refresh_volumes_sharing_data: false
+  save_volumes_sharing_status_info: false
   csv_path: "private"
 ---
 
@@ -24,11 +25,13 @@ knitr::opts_chunk$set(echo = FALSE,
 
 suppressPackageStartupMessages(library(databraryr))
 suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(fs))
 
 # Source functions
-fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+fl <- list.files(file.path(here::here(), "R"), "*.R", 
                  full.names = TRUE)
-p <- purrr::map(fl, suppressPackageStartupMessages(source))
+p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
+  purrr::quietly()
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -47,8 +50,8 @@ x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
 #| warning: false
 #| 
 save_path <- file.path(params$csv_path)
-assertthat::is.string(save_path)
-assertthat::is.writeable(save_path)
+x <- assertthat::is.string(save_path)
+x <- assertthat::is.writeable(save_path)
 
 now_str <- lubridate::as_datetime(lubridate::now()) |>
   stringr::str_replace_all(pattern = "[: \\.]", "-")
@@ -63,7 +66,7 @@ if (params$refresh_investigator_data) {
   fns <- list.files(save_path, pattern = "investigators-", full.names = TRUE)
   # Newest last
   fn <- fns[length(fns)]
-  assertthat::is.readable(fn)
+  x <- assertthat::is.readable(fn)
   
   investigators <- readr::read_csv(fn, show_col_types = FALSE)
 }
@@ -80,8 +83,8 @@ investigators |>
   dplyr::arrange(desc(user_id)) |> 
   dplyr::select(user_last_name, user_first_name, user_affiliation_name) |>
   head(n = 10) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra:: scroll_box(width = "800px")
 ```
@@ -100,8 +103,8 @@ Here is a full list in alphabetical order.
 investigators |>
   dplyr::select(user_last_name, user_first_name, user_affiliation_name) |>
   dplyr::arrange(user_last_name) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra:: scroll_box(width = "800px", height = "500px")
 ```
@@ -123,7 +126,16 @@ y <- assertthat::is.writeable(f_save_path)
 msg <- "Load previously saved data about volume sharing status."
 
 if (params$refresh_volumes_sharing_data) {
-  msg <- "Volumes shared by owners are up-to-date."
+  msg <- "Gathering fresh volume sharing data."
+  
+  # Save current to _OLD*
+  old_f_save_path <- file.path(params$csv_path, "_OLD_user_vol_sharing")
+  x <- assertthat::is.string(old_f_save_path)
+  x <- assertthat::is.writeable(old_f_save_path)
+  file.copy(from = f_save_path, 
+            to = old_f_save_path)
+  fs::dir_delete(f_save_path)
+  fs::dir_create(f_save_path)
   
   # Save CSVs of volumes owned by authorized investigators
   purrr::map(
@@ -134,7 +146,6 @@ if (params$refresh_volumes_sharing_data) {
   } else {
   msg <- "Volumes shared by owners use archived data."
 }
-
 ```
 
 `{r} msg`
@@ -159,19 +170,24 @@ vol_info |>
     user_first_name,
     user_last_name,
     user_id,
-    user_affiliation,
+    # user_affiliation,
     n_vols,
     n_public,
     n_overview,
     n_private
   ) |>
+  dplyr::rename(first = user_first_name,
+                last = user_last_name,
+                id = user_id) |>
   dplyr::filter(n_vols > 0) |>
   dplyr::arrange(desc(n_vols)) |>
-  kableExtra::kable(format = "html") |>
-  kableExtra::kable_material() |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
   kableExtra::scroll_box(width = "800px", height = "500px")
 ```
+
+<!-- ## Number of Sponsored Researchers^[This is a new term for *Affiliates*.] -->
 
 ## Clean up
 

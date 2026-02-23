@@ -4,6 +4,7 @@ format: html
 params:
   refresh_stats: false
   csv_save_path: "private"
+  save_volumes_sharing_status_info: false
 ---
 
 ## About
@@ -22,10 +23,11 @@ knitr::opts_chunk$set(echo = FALSE,
 suppressPackageStartupMessages(library(databraryr))
 suppressPackageStartupMessages(library(tidyverse))
 
-# Source functions
-fl <- list.files(file.path(here::here(), "src", "R"), "*.R", 
+# Source functions (quietly)
+fl <- list.files(file.path(here::here(), "R"), "*.R", 
                  full.names = TRUE)
-p <- purrr::map(fl, suppressPackageStartupMessages(source))
+p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
+  purrr::quietly()
 
 # Login to Databrary
 x <- login_db(email = Sys.getenv("DB_LOGIN_ACCT"),
@@ -99,10 +101,7 @@ delta_institutions <- updated_stats$institutions[n_rows] - updated_stats$institu
 
 # filter NAs
 updated_stats <- updated_stats |>
-  dplyr::filter(!is.na(affiliates),
-                !is.na(investigators),
-                !is.na(affiliates),
-                !is.na(date))
+  dplyr::filter(!is.na(affiliates),!is.na(investigators),!is.na(affiliates),!is.na(date))
 ```
 
 <!-- Now, we plot the data. -->
