@@ -1,0 +1,201 @@
+---
+title: "Investigators"
+format: html
+params:
+  refresh_investigator_data: false
+  refresh_volumes_sharing_data: false
+  save_volumes_sharing_status_info: false
+  csv_path: "private"
+---
+
+## About
+
+This page provides information about Databrary's authorized investigators.
+
+For more information about Databrary's restricted access policies and the roles and responsibilities of authorized investigators, see the [Databrary Guide](https://databrary.github.io/guide).
+
+```{r}
+#| label: set-up
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+suppressPackageStartupMessages(library(databraryr))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(fs))
+
+# Source functions
+fl <- list.files(file.path(here::here(), "R"), "*.R", 
+                 full.names = TRUE)
+p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
+  purrr::quietly()
+
+# Login to Databrary
+x <- login_db(email = Sys.getenv("USERNAME"),
+         password = Sys.getenv("PASSWORD"),
+         client_id = Sys.getenv("CLIENT_ID"),
+         client_secret = Sys.getenv("CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Summary
+
+```{r}
+#| label: gather-investigator-data
+#| message: false
+#| warning: false
+#| 
+save_path <- file.path(params$csv_path)
+x <- assertthat::is.string(save_path)
+x <- assertthat::is.writeable(save_path)
+
+now_str <- lubridate::as_datetime(lubridate::now()) |>
+  stringr::str_replace_all(pattern = "[: \\.]", "-")
+
+fn <- file.path(save_path, paste0("investigators-", now_str, ".csv"))
+
+if (params$refresh_investigator_data) {
+  investigators <- list_users(include_suspended = FALSE,
+                              is_authorized_investigator = TRUE,
+                              exclude_self = FALSE)
+  readr::write_csv(investigators, fn)
+} else {
+  fns <- list.files(save_path, pattern = "investigators-", full.names = TRUE)
+  # Newest last
+  fn <- fns[length(fns)]
+  x <- assertthat::is.readable(fn)
+  
+  investigators <- readr::read_csv(fn, show_col_types = FALSE)
+}
+```
+
+Databrary has n=`{r} dim(investigators)[1]` active authorized investigators.
+
+## Recent additions
+
+```{r}
+#| label: tbl-recent-investigator-additions
+#| tbl-cap: "Recently authorized investigators and their institutions."
+investigators |> 
+  dplyr::arrange(desc(user_id)) |> 
+  dplyr::select(user_last_name, user_first_name, user_affiliation_name) |>
+  head(n = 10) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+## Full list
+
+::: {.callout-warning}
+This is a work-in-progress.
+:::
+
+Here is a full list in alphabetical order.
+
+```{r}
+#| label: tbl-databrary-authorized-investigators
+#| tbl-cap: "Full list of authorized investigators sorted by last name."
+investigators |>
+  dplyr::select(user_last_name, user_first_name, user_affiliation_name) |>
+  dplyr::arrange(user_last_name) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px", height = "500px")
+```
+
+## Numbers of volumes
+
+```{r}
+#| label: save-volume-sharing-status-info
+#| message: false
+#| warning: false
+#| echo: false
+
+ai_ids <- investigators$user_id |>
+  sort()
+
+f_save_path <- file.path(params$csv_path, "user_vol_sharing")
+x <- assertthat::is.string(f_save_path)
+y <- assertthat::is.writeable(f_save_path)
+
+msg <- "Load previously saved data about volume sharing status."
+
+if (params$refresh_volumes_sharing_data) {
+  msg <- "Gathering fresh volume sharing data."
+  
+  # Save current to _OLD*
+  old_f_save_path <- file.path(params$csv_path, "_OLD_user_vol_sharing")
+  x <- assertthat::is.string(old_f_save_path)
+  x <- assertthat::is.writeable(old_f_save_path)
+  file.copy(from = f_save_path, 
+            to = old_f_save_path)
+  fs::dir_delete(f_save_path)
+  fs::dir_create(f_save_path)
+  
+  # Save CSVs of volumes owned by authorized investigators
+  purrr::map(
+    ai_ids,
+    save_volumes_sharing_status_info,
+    save_path = file.path(params$csv_path, "user_vol_sharing"))
+    
+  } else {
+  msg <- "Volumes shared by owners use archived data."
+}
+```
+
+`{r} msg`
+
+```{r}
+#| label: tbl-volumes-sharing-status
+#| tbl-cap: "Users with shared volumes by number of total volumes."
+#| eval: true
+#| message: false
+#| warning: false
+
+# Load saved csvs
+fl <- list.files(file.path(here::here(), "private", "user_vol_sharing"),
+                 "*.csv",
+                 full.names = TRUE)
+vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
+  purrr::list_rbind()
+
+# Make table
+vol_info |>
+  dplyr::select(
+    user_first_name,
+    user_last_name,
+    user_id,
+    # user_affiliation,
+    n_vols,
+    n_public,
+    n_overview,
+    n_private
+  ) |>
+  dplyr::rename(first = user_first_name,
+                last = user_last_name,
+                id = user_id) |>
+  dplyr::filter(n_vols > 0) |>
+  dplyr::arrange(desc(n_vols)) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "800px", height = "500px")
+```
+
+<!-- ## Number of Sponsored Researchers^[This is a new term for *Affiliates*.] -->
+
+## Clean up
+
+Logout from Databrary.
+
+```{r}
+#| label: clean-up-logout
+l <- logout_db()
+```

@@ -1,0 +1,197 @@
+---
+title: "Institutions"
+format: html
+params:
+  refresh_investigator_data: true
+  refresh_volumes_sharing_data: true
+  save_volumes_sharing_status_info: true
+  csv_path: "private"
+  truncate_n_chars: 35
+---
+
+## About
+
+This page provides information about Databrary's institutional partners.
+
+For more information about institutional roles and responsibilities, see the [Databrary Guide](https://databrary.github.io/guide).
+
+```{r}
+#| label: set-up
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+suppressPackageStartupMessages(library(databraryr))
+suppressPackageStartupMessages(library(tidyverse))
+
+# Source functions
+fl <- list.files(file.path(here::here(), "R"), "*.R", 
+                 full.names = TRUE)
+p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
+  purrr::quietly()
+
+# Login to Databrary
+x <- login_db(email = Sys.getenv("USERNAME"),
+         password = Sys.getenv("PASSWORD"),
+         client_id = Sys.getenv("CLIENT_ID"),
+         client_secret = Sys.getenv("CLIENT_SECRET"),
+         store = FALSE,
+         overwrite = FALSE)
+```
+
+## Summary
+
+```{r}
+#| label: gather-institutional-data
+
+if (is.null(params$truncate_n_chars)) {
+  params$truncate_n_chars <- 30
+}
+
+institutions <- list_institutions() |>
+  dplyr::mutate(institution_name = stringr::str_sub(institution_name,                                                  start = 1, end = params$truncate_n_chars),
+                institution_url = paste0("<a href='", institution_url, "'>", institution_url, "</a>")) |>
+  dplyr::rename(id = institution_id,
+                institution = institution_name,
+                url = institution_url)
+```
+
+Databrary has n=`{r} dim(institutions)[1]` active institutional partners.
+
+## Recent additions
+
+```{r}
+#| label: tbl-institutions-recent-additions
+#| tbl-cap: "List of the 10 most recent additions to the network of Databrary institutions."
+institutions |> 
+  dplyr::arrange(desc(id)) |> 
+  dplyr::select(institution, url) |>
+  head(n = 10) |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"),
+                            full_width = FALSE) |>
+  kableExtra::scroll_box(width = "800px")
+```
+
+## Full list
+
+::: {.callout-warning}
+This is a work-in-progress.
+:::
+
+Here is a full list in alphabetical order.
+
+```{r}
+#| label: tbl-databrary-institutions
+#| tbl-cap: "List of all Databrary institutions in alphabetical order."
+institutions |>
+  dplyr::select(institution, url) |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px", height = "500px")
+```
+
+## Map
+
+::: {.callout-warning}
+This is a work-in-progress.
+:::
+
+## Institutional footprint
+
+This section summarizes which institutions have the largest number of volumes and Authorized Investigators.
+
+::: {.panel-tabset}
+
+## By number of volumes
+
+```{r}
+#| label: gather-institutional-volume-data
+#| eval: true
+#| message: false
+#| warning: false
+
+# Load saved csvs
+fl <- list.files(file.path(params$csv_path, "user_vol_sharing"), "*.csv", full.names = TRUE)
+
+vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
+  purrr::list_rbind() |>
+  dplyr::filter(n_vols > 0)
+
+# Combine user-level and institution-level data
+vol_info <- dplyr::left_join(vol_info, institutions, by = join_by(user_affiliation_id == id, user_affiliation == institution))
+
+inst_vols <- vol_info |>
+  dplyr::group_by(user_affiliation, user_affiliation_id) |>
+  # Eliminate n_private until we can gather that data accurately.
+  # summarise(n_ais = n(),
+  #           tot_vols = sum(n_vols),
+  #           tot_public = sum(n_public),
+  #           tot_overview = sum(n_overview),
+  #           tot_private = sum(n_private))
+  dplyr::summarise(
+    n_ais = n(),
+    tot_vols = sum(n_vols),
+    tot_public = sum(n_public),
+    tot_overview = sum(n_overview)
+  ) |>
+  dplyr::mutate(user_affiliation = stringr::str_sub(user_affiliation, start = 1, end = 30)) |>
+  dplyr::mutate(
+    user_affiliation = paste0(
+      "<a href='https://databrary.org/institution/",
+      user_affiliation_id,
+      "'>",
+      user_affiliation,
+      "</a>"
+    )
+  )
+```
+
+```{r}
+#| label: tbl-institutional-footprint-vols
+#| tbl-cap: "Institutions with the largest number of shared or partially shared volumes. Note that the institution names have been truncated at 25 characters."
+#| eval: true
+#| message: false
+#| warning: false
+inst_vols |>
+  arrange(desc(tot_vols)) |>
+  rename(institution = user_affiliation) |>
+  select(c("institution", "tot_vols", "tot_public", "tot_overview")) |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+## By number of investigators
+
+```{r}
+#| label: tbl-institutional-footprint-ais
+#| tbl-cap: "Institutions with the largest number of AIs."
+#| eval: true
+#| message: false
+#| warning: false
+inst_vols |>
+  arrange(desc(n_ais)) |>
+  rename(institution = user_affiliation) |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra:: scroll_box(width = "800px")
+```
+
+:::
+
+## Clean up
+
+Logout from Databrary.
+
+```{r}
+#| label: clean-up-logout
+x <- logout_db()
+```
