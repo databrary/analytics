@@ -134,8 +134,7 @@ if (params$refresh_volumes_sharing_data) {
   old_f_save_path <- file.path(params$csv_path, "_OLD_user_vol_sharing")
   x <- assertthat::is.string(old_f_save_path)
   x <- assertthat::is.writeable(old_f_save_path)
-  file.copy(from = f_save_path, 
-            to = old_f_save_path)
+  file.copy(from = f_save_path, to = old_f_save_path)
   fs::dir_delete(f_save_path)
   fs::dir_create(f_save_path)
   
@@ -143,9 +142,9 @@ if (params$refresh_volumes_sharing_data) {
   purrr::map(
     ai_ids,
     save_volumes_sharing_status_info,
-    save_path = file.path(params$csv_path, "user_vol_sharing"))
-    
-  } else {
+    save_path = file.path(params$csv_path, "user_vol_sharing")) |>
+    purrr::quietly()
+} else {
   msg <- "Volumes shared by owners use archived data."
 }
 ```
