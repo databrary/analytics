@@ -96,96 +96,96 @@ institutions |>
   kableExtra:: scroll_box(width = "800px", height = "500px")
 ```
 
-## Map
+<!-- ## Map -->
 
-::: {.callout-warning}
-This is a work-in-progress.
-:::
+<!-- ::: {.callout-warning} -->
+<!-- This is a work-in-progress. -->
+<!-- ::: -->
 
-## Institutional footprint
+<!-- ## Institutional footprint -->
 
-This section summarizes which institutions have the largest number of volumes and Authorized Investigators.
+<!-- This section summarizes which institutions have the largest number of volumes and Authorized Investigators. -->
 
-::: {.panel-tabset}
+<!-- ::: {.panel-tabset} -->
 
-## By number of volumes
+<!-- ## By number of volumes -->
 
-```{r}
-#| label: gather-institutional-volume-data
-#| eval: true
-#| message: false
-#| warning: false
+<!-- ```{r} -->
+<!-- #| label: gather-institutional-volume-data -->
+<!-- #| eval: true -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
 
-# Load saved csvs
-fl <- list.files(file.path(params$csv_path, "user_vol_sharing"), "*.csv", full.names = TRUE)
+<!-- # Load saved csvs -->
+<!-- fl <- list.files(file.path(params$csv_path, "user_vol_sharing"), "*.csv", full.names = TRUE) -->
 
-vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
-  purrr::list_rbind() |>
-  dplyr::filter(n_vols > 0)
+<!-- vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |> -->
+<!--   purrr::list_rbind() |> -->
+<!--   dplyr::filter(n_vols > 0) -->
 
-# Combine user-level and institution-level data
-vol_info <- dplyr::left_join(vol_info, institutions, by = join_by(user_affiliation_id == id, user_affiliation == institution))
+<!-- # Combine user-level and institution-level data -->
+<!-- vol_info <- dplyr::left_join(vol_info, institutions, by = join_by(user_affiliation_id == id, user_affiliation == institution)) -->
 
-inst_vols <- vol_info |>
-  dplyr::group_by(user_affiliation, user_affiliation_id) |>
-  # Eliminate n_private until we can gather that data accurately.
-  # summarise(n_ais = n(),
-  #           tot_vols = sum(n_vols),
-  #           tot_public = sum(n_public),
-  #           tot_overview = sum(n_overview),
-  #           tot_private = sum(n_private))
-  dplyr::summarise(
-    n_ais = n(),
-    tot_vols = sum(n_vols),
-    tot_public = sum(n_public),
-    tot_overview = sum(n_overview)
-  ) |>
-  dplyr::mutate(user_affiliation = stringr::str_sub(user_affiliation, start = 1, end = 30)) |>
-  dplyr::mutate(
-    user_affiliation = paste0(
-      "<a href='https://databrary.org/institution/",
-      user_affiliation_id,
-      "'>",
-      user_affiliation,
-      "</a>"
-    )
-  )
-```
+<!-- inst_vols <- vol_info |> -->
+<!--   dplyr::group_by(user_affiliation, user_affiliation_id) |> -->
+<!--   # Eliminate n_private until we can gather that data accurately. -->
+<!--   # summarise(n_ais = n(), -->
+<!--   #           tot_vols = sum(n_vols), -->
+<!--   #           tot_public = sum(n_public), -->
+<!--   #           tot_overview = sum(n_overview), -->
+<!--   #           tot_private = sum(n_private)) -->
+<!--   dplyr::summarise( -->
+<!--     n_ais = n(), -->
+<!--     tot_vols = sum(n_vols), -->
+<!--     tot_public = sum(n_public), -->
+<!--     tot_overview = sum(n_overview) -->
+<!--   ) |> -->
+<!--   dplyr::mutate(user_affiliation = stringr::str_sub(user_affiliation, start = 1, end = 30)) |> -->
+<!--   dplyr::mutate( -->
+<!--     user_affiliation = paste0( -->
+<!--       "<a href='https://databrary.org/institution/", -->
+<!--       user_affiliation_id, -->
+<!--       "'>", -->
+<!--       user_affiliation, -->
+<!--       "</a>" -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
 
-```{r}
-#| label: tbl-institutional-footprint-vols
-#| tbl-cap: "Institutions with the largest number of shared or partially shared volumes. Note that the institution names have been truncated at 25 characters."
-#| eval: true
-#| message: false
-#| warning: false
-inst_vols |>
-  arrange(desc(tot_vols)) |>
-  rename(institution = user_affiliation) |>
-  select(c("institution", "tot_vols", "tot_public", "tot_overview")) |>
-  kableExtra::kbl(format = "html", escape = FALSE) |>
-  kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
-```
+<!-- ```{r} -->
+<!-- #| label: tbl-institutional-footprint-vols -->
+<!-- #| tbl-cap: "Institutions with the largest number of shared or partially shared volumes. Note that the institution names have been truncated at 25 characters." -->
+<!-- #| eval: true -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
+<!-- inst_vols |> -->
+<!--   arrange(desc(tot_vols)) |> -->
+<!--   rename(institution = user_affiliation) |> -->
+<!--   select(c("institution", "tot_vols", "tot_public", "tot_overview")) |> -->
+<!--   kableExtra::kbl(format = "html", escape = FALSE) |> -->
+<!--   kableExtra::kable_material(full_width = F) |> -->
+<!--   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |> -->
+<!--   kableExtra:: scroll_box(width = "800px") -->
+<!-- ``` -->
 
-## By number of investigators
+<!-- ## By number of investigators -->
 
-```{r}
-#| label: tbl-institutional-footprint-ais
-#| tbl-cap: "Institutions with the largest number of AIs."
-#| eval: true
-#| message: false
-#| warning: false
-inst_vols |>
-  arrange(desc(n_ais)) |>
-  rename(institution = user_affiliation) |>
-  kableExtra::kbl(format = "html", escape = FALSE) |>
-  kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
-```
+<!-- ```{r} -->
+<!-- #| label: tbl-institutional-footprint-ais -->
+<!-- #| tbl-cap: "Institutions with the largest number of AIs." -->
+<!-- #| eval: true -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
+<!-- inst_vols |> -->
+<!--   arrange(desc(n_ais)) |> -->
+<!--   rename(institution = user_affiliation) |> -->
+<!--   kableExtra::kbl(format = "html", escape = FALSE) |> -->
+<!--   kableExtra::kable_material(full_width = F) |> -->
+<!--   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |> -->
+<!--   kableExtra:: scroll_box(width = "800px") -->
+<!-- ``` -->
 
-:::
+<!-- ::: -->
 
 ## Clean up
 

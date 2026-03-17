@@ -2,9 +2,9 @@
 title: "Investigators"
 format: html
 params:
-  refresh_investigator_data: false
-  refresh_volumes_sharing_data: false
-  save_volumes_sharing_status_info: false
+  refresh_investigator_data: true
+  refresh_volumes_sharing_data: true
+  save_volumes_sharing_status_info: true
   csv_path: "private"
 ---
 
