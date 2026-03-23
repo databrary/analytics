@@ -1,0 +1,2 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1583,COVID-19 Cafe Data Aotearoa NZ,Cafe data collected during covid-19 pandemic in New Zealand.,2023-04-01T22:01:00.798236Z,2025-03-05T16:35:37.151594Z,public_overview_only,10370,Cara,Swit,University of Canterbury

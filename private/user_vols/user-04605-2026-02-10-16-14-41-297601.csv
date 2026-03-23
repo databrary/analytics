@@ -1,0 +1,11 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+857,Mouse Home Cage Observations,This volume contains short clips showing social behavior among mice housed together in a a home-cage monitored 24/7. There are videos of adult mice mating and dams interacting with their pups.,mouse social behavior,2019-02-19T14:28:09.880293Z,2025-03-05T16:35:05.723457Z,public_overview_only,4605,Robert,Froemke,NYU School of Medicine
+871,Mouse mating behavior,"A female and a male C57BL/6 mice engaging in social and reproductive behaviors in their homecage.
+First two hours of introducing the mice to each other.
+All behaviors occur in designated breeding cage under 24-hour observation",mouse social behavior,2019-03-24T21:55:25.740133Z,2025-03-05T16:35:06.661271Z,public_overview_only,4605,Robert,Froemke,NYU School of Medicine
+1333,"Carcea et al., 2021",Videos for Carcea et al. submission.,Social transmission of maternal behavior,2021-06-28T14:50:55.346052Z,2025-03-05T16:35:25.494103Z,public_overview_only,4605,Robert,Froemke,NYU School of Medicine
+1467,Maternal behavior recordings - Mouse,24/7 recordings of dams and pups.,mat_enc,2022-05-20T16:32:34.821589Z,2025-03-05T16:35:31.564558Z,public_overview_only,4605,Robert,Froemke,NYU School of Medicine
+1509,Pup movement and dispersion,"- 3-hour long .mp4 video files of a mouse dam and pup(s) 
+- Pups range from post-natal day 5 to 19
+- Animals are recorded in a temperature and light controlled (12 hour light/dark cycle) behavior box with ad libitum access to food pellets and water (hydrogel)",NA,2022-08-18T21:15:30.512345Z,2025-03-05T16:35:33.614362Z,public,4605,Robert,Froemke,NYU School of Medicine
+1672,Long-term monitoring of maternal behavior - SfN,Videos of mice in behavioral box.,Big brodent,2023-11-14T02:22:12.356954Z,2025-03-05T16:35:42.160026Z,public_overview_only,4605,Robert,Froemke,NYU School of Medicine

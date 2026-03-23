@@ -1,0 +1,3 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+1497,DBN-South Africa-Wave 1-Data Collection,This volume contains video and audio files from data collected in South Africa during Wave 1 of the project.,2022-07-20T13:06:40.660337Z,2025-03-05T16:35:33.264342Z,public_overview_only,NA,7630,Amanda,Tarullo,Boston University
+1746,DBN - South Africa -  Datasets,This volume stores task-by-task subsets of DBN data collection in South Africa. This includes data from the Child Protocol and Parent Protocol. These data and the volume are to be kept PRIVATE!,2024-05-28T08:48:21.327570Z,2025-07-17T20:09:13.650534Z,private,,7630,Amanda,Tarullo,Boston University

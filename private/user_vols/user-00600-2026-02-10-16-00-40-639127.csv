@@ -1,0 +1,7 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+1696,PLAYProject_UALAB,"Home visit video data sessions collected as part of the University of Alabama’s contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
+-Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
+-Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
+-Ambient noise decibel meter recordings captured during the 1-hour natural play",2024-02-09T16:54:25.082468Z,2025-07-17T13:49:08.429149Z,private,PLAYProject_UALAB,600,Kelsey Louise,West,University of Alabama
+1721,Adjectives,Contains Datavyu and corresponding video files for Adjective,2024-04-08T17:47:30.451584Z,2025-03-05T16:35:45.296483Z,public_overview_only,Adjectives,600,Kelsey Louise,West,University of Alabama
+1812,Developmental cascades among siblings,"2-3 hour long home observations of infants (12-24 months), their older siblings (24-52 months), and their caregivers",2024-11-14T15:52:11.203417Z,2025-03-05T16:35:49.334939Z,public_overview_only,Sibs,600,Kelsey Louise,West,University of Alabama

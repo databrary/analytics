@@ -1,0 +1,16 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+979,PLAYProject_PRINU,"Videos collected for PLAY project collaboration
+- 1 hr play
+- 5 min structured play
+- home videos
+- questionnaires",2019-09-12T23:33:58.719209Z,2025-07-22T21:04:00.028217Z,private,NA,1371,Casey,Lew-Williams,Princeton University
+1589,Infant-Directed Communication: Examining the multimodal dynamics of infants’ everyday interactions with caregivers,"This dataset includes 21 videos depicting caregivers and infants engaged in free play at home. A total of 44 caregivers and infants are included in the associated study and manuscript, however only 21 gave permission for sharing on Databrary.
+
+Videos were recorded via Zoom and are uploaded as .mp4 files.
+
+At time of recording, all infants were between 18 and 24 months of age.
+
+Coding manuals and associated ELAN templates are available on the OSF page associated with this work: https://osf.io/u5avz/
+
+The associated paper is currently under review.",2023-04-13T20:58:37.592597Z,2025-03-05T16:35:37.216745Z,public,IDC Online Videos,1371,Casey,Lew-Williams,Princeton University
+1798,IDCxContext - For UC Riverside,These are the videos from the Princeton Baby Lab's IDCxContext study to be used by Dr. John Franchak and researchers in his lab.,2024-09-17T18:11:20.045204Z,2025-03-05T16:35:48.749803Z,public_overview_only,NA,1371,Casey,Lew-Williams,Princeton University

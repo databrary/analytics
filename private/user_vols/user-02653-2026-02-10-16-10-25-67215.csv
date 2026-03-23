@@ -1,0 +1,31 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+433,BCD Lab Adult Female Face Database,"All together this collection will contain 4 different races: Hispanic, Asian, African American, and Caucasian. There are 6 models in each race category.
+
+For all 6 of these models in each race category there are:
+
+Still Color PNG images of models looking right and left
+Still B&W PNG images of models looking right and left
+
+Still Color PNG images of models looking straight ahead
+Still B&W PNG images of models looking straight ahead
+
+(The following images are aligned by the eyes and lips to the best of our ability)
+
+Luminance Matched B&W PNG images of models looking straight ahead
+Luminance Varied B&W PNG images of models looking straight ahead
+luminance varied B&W PNG images of models looking straight ahead: no background",2017-06-19T18:44:08.021540Z,2025-03-05T16:34:53.213323Z,public,NA,2653,Lisa,Scott,University of Florida
+545,The developmental time course and topographic distribution of individual-level monkey face discrimination in the infant brain,"Data to accompany Barry-Anwar et al., (in press) paper in Neuropsychologia.  The files contain EEG signal to noise ratios for 6- and 9-month-old infants by trial and averaged by participant. The document ""Legend"" contains additional information about these data sets.",2017-11-20T16:45:09.632480Z,2025-03-05T16:34:56.413708Z,public,"Barry-Anwar et al., 2018 Neuropsychologia",2653,Lisa,Scott,University of Florida
+546,Learning to Individuate: The Specificity of Labels Differentially Impacts Infant Visual Attention,"Included in this volume are spreadsheets of ERP and eye-tracking data associated with this publication and the stimuli used.  The ""Legend"" files explains the variables in the files.",2017-11-21T14:07:04.680615Z,2025-03-05T16:34:56.428825Z,public,"Pickron et al., 2018 Child Development",2653,Lisa,Scott,University of Florida
+593,Neural and behavioral effects of subordinate-level training of novel objects across manipulations of color and spatial frequency,"Currently included are the SPSS spreadsheets for the behavioral and ERP (N170 and N250) results reported in this manuscript.  The data key is a description of variables.  We are in the process of converting the stimuli from .bmp and processed EEG data to an acceptable Databrary format, we will make them public as soon as available.",2018-02-21T17:42:11.845207Z,2025-03-05T16:34:57.933073Z,public,"Jones et al., 2018 European Journal of Neuroscience",2653,Lisa,Scott,University of Florida
+608,Differential neural responses to faces paired with labels versus faces paired with noise at 6- and at 9-months,"Data to accompany Barry-Anwar, Hadley, and Scott (2018) paper in Neuropsychologia. The file ""Amplitude_Latency"" contains amplitude and latency data for the P1, N290 and P400 components for all infants. The document ""Legend"" contains additional information about these data sets.",2018-03-22T20:32:01.709748Z,2025-03-05T16:34:58.204372Z,public,Barry-Anwar et al. (2018) Vision Reserach,2653,Lisa,Scott,University of Florida
+648,Reliable and Robust Infant Brain Responses During Face Learning,Raw EEG and Questionnaire data from the National Science Foundation Funded Infant EEG study.,2018-04-24T18:30:48.665115Z,2025-03-05T16:34:59.173575Z,public_overview_only,BEES NSF Study Data,2653,Lisa,Scott,University of Florida
+690,Changes in Visual Scanning Strategies Accompany the Acquisition of Perceptual Expertise,"Accuracy data was measured on a serial image discrimination task. As a whole, the study examined changes in visual strategies (using an eye-tracker) that accompany the acquisition of perceptual expertise after basic- and subordinate-level training",2018-05-11T17:42:12.689341Z,2025-03-05T16:35:00.066728Z,public_overview_only,Army Eye-Tracking,2653,Lisa,Scott,University of Florida
+1006,Experience with Face Groups Impacts Face Processing but Not Face Differentiation in 6- and 9-Month-Old Infants,"EEG data and code associated with this recently submitted paper including: 
+1) Spreadsheets of analyzed data
+2) Epoched EEG data (please email lscott@ufl.edu)
+Other resources associated with this study: 
+1) Stimuli: https://osf.io/7u2vc/overview?view_only=90ade4e855b144e2849c5e7299a99208
+2) Matlab scripts used to obtain the frequency information of the data (see Github: https://github.com/csea-lab/freqTag)",2019-10-14T15:19:28.234667Z,2025-11-04T19:27:57.370357Z,public_overview_only,OREP: infant own and other-race,2653,Lisa,Scott,University of Florida
+1418,Dual Eye-tracking Infant- Caregiver Shared Book Reading,Videos from the SHREAD study of infants and parents reading for 5 minutes. Includes dual eye-tracking data.,2022-02-10T17:57:17.567112Z,2025-03-05T16:35:29.074581Z,public_overview_only,SHREAD,2653,Lisa,Scott,University of Florida
+1437,Infant Selective Attention to Face Features from Familiar and Unfamiliar Groups and its Impact on Language Development,"As a whole, the study examined changes in visual attention (using an eye-tracker) for familiar and unfamiliar race face groups and its relation to language development. Data was measured during a 15s familiarization phase of a Visual Paired-Comparison (VPC) task.",2022-03-14T21:38:31.729792Z,2025-03-05T16:35:29.925696Z,public_overview_only,OREP Eye-Tracking,2653,Lisa,Scott,University of Florida
+1446,"Children Differentially Fixate Faces Based on Face Orientation, Race, and Sex","The study used eye tracking to examine children's visual attention to faces from familiar and unfamiliar race and sex groups, presented in either the upright or inverted orientation. Data was measured during free exploration of the stimuli.",2022-03-31T18:46:44.235588Z,2025-03-05T16:35:30.275801Z,public_overview_only,PSAP Eye-Tracking,2653,Lisa,Scott,University of Florida

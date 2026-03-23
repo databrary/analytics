@@ -1,0 +1,4 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+896,ManyBabies 1: Walkthrough videos,"Labs participating in ManyBabies 1: Infant-Directed Speech Preference were asked to provide a walkthrough video to illustrate their procedure. Here we collect videos that can be made public (42 of 69 contributing labs). 
+
+The detailed instructions on making walkthrough videos can be found here: https://docs.google.com/document/d/1NhstgGOWZYY19diq5eRdnxmqyW9vLQSObcpxtfsyhe8",2019-05-02T10:31:27.754145Z,2025-03-05T16:35:08.300387Z,public,MB1 Walkthrough,726,Christina,Bergmann,Max Planck Institute for Psycholinguistics

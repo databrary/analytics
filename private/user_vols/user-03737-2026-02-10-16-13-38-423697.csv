@@ -1,0 +1,106 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1801,Philadelphia Home Corpus,"2024 Sept 24, v0.1.1
+0.1.1 mod 2024 Oct 25 to add information about textgrid file
+
+D. Swingley 
+
+The files here are the release version of the Philadelphia Home Corpus
+recordings and annotations, up to the date of submission.  We are
+transcribing corpus sessions continuously and confirming first release
+versions for upload on a rolling basis.  The uploads do lag behind our
+progress substantially as of Sept 2024.
+
+The Philadelphia Home Corpus is being collected at the Department of
+Psychology at the University of Pennsylvania, by Daniel Swingley. 
+Funding was provided by the University and by NSF grant
+SBE 1917608. Parents and children are African-American and living in
+or near Philadelphia, Pennsylvania. The planned schedule of sessions
+was:
+
+- 6 months
+  o session 1: audio recording with headset mic 1 hour
+  o session 2: audio recording with headset mic 1 hour
+  o Lena: audio recording with Lena device, full day
+
+- 10 months
+  o session 1: audio recording with headset mic 1 hour
+  o session 2: audio recording with headset mic & video with camera on
+               tripod 1 hour
+  o Lena: audio recording with Lena device, full day
+
+- 14 months
+  o session 1: audio recording with headset mic 1 hour
+  o session 2: audio recording with headset mic & video with camera on
+               tripod 1 hour
+  o Lena: audio recording with Lena device, full day
+
+- 18 months: CDI administration
+- 24 months: CDI administration
+
+Our original plans also called for an in-lab visit to Penn for a
+language-guided looking word-recognition experimental
+session. Ultimately we were not successful at scheduling these
+sessions for enough of our participants for this to remain a part of
+this protocol.
+
+The following pipeline was set for the audio recordings.
+
+1. vetting and utterance segmentation of session file.
+
+research assistants vet the session recording for any material not
+suitable for release. For example, someone saying their address out
+loud, conversation considered too intimate, mention of health
+conditions, and the like.  In fact such instances were vanishingly
+rare.  In this step, researchers also assigned stretches of the
+recording to utterances. Our protocols for what exactly counts as an
+utterance did evolve somewhat over time and become more precise, so
+earlier sessions may not match older sessions.  For example, quoted
+material is difficult to assign to utterances (""Brown bear said, get
+out of my den! one, two, three!"").
+
+2. utterances were then orthographically transcribed in one of 3 ways:
+   (a) in-house by lab research assistants
+   (b) sent to a commercial company, whose outputs we then corrected
+   (c) using Whisper, which we then corrected
+
+3. utterance soundfiles and annotations were then fed through the
+Montreal Forced Aligner, which uses a dictionary and a language model
+to estimate word and phone boundaries.
+
+4. these MFA outputs were then corrected by hand.
+
+The result is a	time-aligned set of (mostly) maternal utterances, with
+an accurate phonological transcription that frequently deviates from
+the canonical pronunciation of words. The inspiration for the basic
+method was the Buckeye Corpus (Eric Fossler-Lussier, Elizabeth Hume,
+Keith Johnson, and Mark	Pitt, with several others:
+buckeyecorpus.osu.edu/php/personnel.php )
+
+These steps are very time-consuming, particularly the 4th one. We have
+focused on making progress through this pipeline, and as of this
+writing have only done superficial quality-checking of the results.
+
+Data are uploaded according to the following organization.
+
+The first level of organization is the dyad; then the age; then the
+session.
+
+Within each of these, to the extent that the data are ready, we have
+
+- the audio session file (format .wav)
+- a human-corrected TextGrid for each utterance (format ascii textfile, .TextGrid)
+- the wav-file for each utterance. (format .wav)
+- an excel document giving the notes of the annotator about noise,
+  other talkers, sung speech, and the like (format .xlsx)
+
+Note that the textgrids are provided in a single file. To extract them
+into individual files, edit and run the script 
+
+scr_unconcatenateTextgrid.py.txt
+
+first by changing its name to remove the "".txt"" at the end, and then by
+typing ""python scr_unconcatenateTextgrid.py"" into a command line.
+
+If you are using a computer system that is not python friendly, 
+get in touch with the volume maintainer (D. Swingley).
+See readme_textgrids_phillyHomeCorpus.txt for more information.",Philly home corpus,2024-09-24T13:35:28.572003Z,2025-03-05T16:35:48.886026Z,public,3737,Daniel,Swingley,University of Pennsylvania

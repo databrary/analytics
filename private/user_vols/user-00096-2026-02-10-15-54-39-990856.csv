@@ -1,0 +1,14 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+119,A-n-T: Attention and Temperament in Infancy,"This study examines the way attention may be linked to temperament and emotional behavior from the first years of life.  
+
+Children ages 4-months to 24-months with a variety of temperaments will be included in the study.  Infants will view pictures of faces and a children's video in order to examine patterns of attention.  
+
+We will use state-of-the-art eye-tracking equipment to assess where the infants are looking.  Infants will also play with a variety of objects and toys as a part of a standard assessment of temperament.  These data will will allow us to see how patterns of visual attention may be associated with social and emotional behavior over time.  Since this is a multi-step study, participating families will be paid for their time and effort.",ANTS,2015-04-16T20:13:10.888864Z,2025-03-05T16:34:43.343578Z,public_overview_only,96,Koraly,Perez-Edgar,The Pennsylvania State University
+327,iTRAC Mobile eye-tracking study,,iTRAC,2017-03-09T18:16:01.604970Z,2025-03-05T16:34:51.361567Z,public_overview_only,96,Koraly,Perez-Edgar,The Pennsylvania State University
+947,iTRAC Mobile Eye Tracking Complete,"-Final gaze corrections split by task
+-Synced videos split by task (MET footage and room footage)
+-Documentation of which videos do not have synced footage 
+-Datavyu coding sheets",iTRAC,2019-07-26T19:47:02.487957Z,2025-03-05T16:35:09.790675Z,public_overview_only,96,Koraly,Perez-Edgar,The Pennsylvania State University
+1609,Behavioral Foundations of Friendship Study (BFFs),"The Behavioral Foundations of Friendship Study (BFFs) developed from Dr. Alicia Vallorani's NIMH F31 Predoctoral Fellowship sponsored by Dr. Koraly Pérez-Edgar. Participants were emerging adulthood, platonic friend pairs who came to lab and engaged in a social interaction while mobile eye-tracking data were collected. Later, participants watched clips of the social interaction while fMRI data were collected.
+
+Video data included here are for those friend pairs where both friends consented to video data sharing. Behavioral videos, coding sheets and mobile eye-tracking videos are included. fMRI data are not stored on Databrary and will be shared via openfMRI at a later date.",BFFs,2023-06-06T19:42:44.534472Z,2025-03-05T16:35:38.531595Z,public,96,Koraly,Perez-Edgar,The Pennsylvania State University

@@ -1,0 +1,4 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1339,TikTok Facial Emotion Recognition dataset,"Task: Emotion challenge on TikTok. 
+Files: Original videos (.mp4), frames (.jpg) extracted from these videos as well as tables (.csv) corresponding to ratings of these frames.",tiktokFER,2021-07-10T22:39:25.403065Z,2025-03-05T16:35:25.684336Z,public_overview_only,4365,Dennis,Wall,Stanford University
+1340,TikTok Facial Emotion Recognition dataset,Test,tiktokFER,2021-07-10T22:43:46.936863Z,2025-03-05T16:35:25.697807Z,public_overview_only,4365,Dennis,Wall,Stanford University

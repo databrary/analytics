@@ -1,0 +1,12 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1021,Shared_Videos,Example videos of testing sessions or stimuli,Shared,2019-11-01T22:00:31.130107Z,2025-03-05T16:35:13.746527Z,public_overview_only,5475,Hyowon,Gweon,Stanford University
+1032,TBD,TBD,NA,2019-12-06T22:04:40.915317Z,2025-03-05T16:35:14.002142Z,public_overview_only,5475,Hyowon,Gweon,Stanford University
+1033,Inferring Competence,"Description of Dataset 
+Tasks: This data comes from ongoing experiments that examine children’s ability to assess the other people’s competencies at performing tasks. Children were shown a storybook and video on the computer, and asked to assess which of two people were more competent at buildings towers with blocks. 
+
+Demographic info: 7-8 year-olds, 6 - 7 year olds.  
+
+File types: .mov (Quicktime) video files, .doc coding manual, .csv coding sheets",Inferring Competence,2019-12-06T22:17:25.447943Z,2025-03-05T16:35:14.027441Z,public_overview_only,5475,Hyowon,Gweon,Stanford University
+1069,Swist Kids,Samples from Natalia Velez's Swist Kids study,Swist Kids,2020-02-22T00:56:49.678925Z,2025-03-05T16:35:15.274910Z,public_overview_only,5475,Hyowon,Gweon,Stanford University
+1127,SLL_Online_Testing,Online Testing Examples,SLL_Online_Testing,2020-04-23T03:52:40.698352Z,2025-03-05T16:35:17.385088Z,public,5475,Hyowon,Gweon,Stanford University
+1151,Online Inferring Competence,Inferring Competence participants run online,NA,2020-07-11T01:17:44.924640Z,2025-03-05T16:35:18.160773Z,public_overview_only,5475,Hyowon,Gweon,Stanford University

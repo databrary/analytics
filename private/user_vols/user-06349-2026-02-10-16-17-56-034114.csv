@@ -1,0 +1,256 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1062,An Isolated-Signing RGBD Dataset of 100 American Sign Language Signs Produced by Fluent ASL Signers,"The ASL-100-RBGD dataset consists of color and depth videos collected from ASL signers at the Linguistic and Assistive Technologies Laboratory under the direction of Matt Huenerfauth, as part of a collaborative research project with researchers at the Rochester Institute of Technology and the City University of New York.
+
+Access: After becoming an authorized user of Databrary, please contact Matt Huenerfauth if you have difficulty accessing this volume.  
+
+We have collected a new dataset consisting of color and depth videos of fluent American Sign Language signers performing sequences of 100 ASL signs.  This directed dataset had originally been collected as part of an ongoing collaborative project, to aid in the development of a sign-recognition system for identifying occurrences of these 100 signs in video.  The set of words consist of vocabulary items that would commonly be learned in a first-year ASL course offered at a university, although the specific set of signs selected for inclusion in the dataset had been motivated by project-related factors.  Given increasing interest among sign-recognition and other computer-vision researchers in red-green-blue-depth (RBGD) video, we release this dataset for use by the research community. In addition to the video files, we share depth data files from a Kinect v2 sensor, as well as additional motion-tracking files produced through post-processing of this data. 
+
+Organization of the Dataset: The dataset is organized into sub-folders, with codenames such as ""F19"" or ""F21"" etc. These codenames refer to specific human signers who were recorded in this dataset. In some cases, a human signer may have been recorded up to three times, and in that case, there will be multiple copies of the resulting recording files within each subfolder.
+
+Task: During the recording session, the participant was met by a member of our research team who was a native ASL signer.  No other individuals were present during the data collection session.  The participant was presented with a sequence of videos of a native ASL signer performing each of the desired 100 signs.  Participants were asked to perform a sequence of the 100 individual ASL signs, without lowering their hands between signs.  Signers were encouraged to hold their hands in a comfortable neutral position in the signing space in-between each of the signs.  Time permitting, we collected two to three videos per signer, with each video containing up to one production of each of the 100 ASL signs. This process yielded a total collection of 42 video files, each containing about 100 signs and approximately 4150 tokens in total.  
+
+Demographics: All 22 of our participants were fluent ASL signers. As screening, we asked our participants: Did you use ASL at home growing up, or did you attend a school as a very young child where you used ASL? All the participants responded affirmatively to this question. A total of 22 DHH participants were recruited on the Rochester Institute of Technology campus. Participants included 15 men and 7 women, aged 20 to 51 (median = 23). Fifteen of our participants reported that they began using ASL when they were seven years old or younger. The remaining of the participants reported that they had been using ASL for at least 6 years and that they regularly used ASL at work or school. 
+
+Filetypes:
+
+*.eaf: The videos were annotated using ELAN, using the gloss labels listed below, to indicate the start-time and stop-time of each token.   At times, participants in our video recordings accidentally omitted a sign that had been requested, and at other times participants intentionally did not produce one of the requested signs.  Participants in our video collection session were encouraged to produce a sign only if it is a sign that they would produce themselves; if they did not use a particular sign, e.g. due to some regional/dialectical variation, they were instructed not to skip that sign.   At other times in our videos, the participant accidentally performed a different sign than the specific form requested (as shown in the stimulus video).  For this reason, our team needed to watch the resulting videos carefully to ensure that the signs included in the video were the specific 100 signs that had been requested.  In the case of sign productions that differed from the designed token, e.g. with the signer using a different handshape or other variation, the sign was not annotated.   
+
+*.avi, *_dep.bin: The ASL-100-RGBD dataset has been captured by using a Kinect 2.0 RGBD camera. The output of this camera system includes multiple channels which include RGB, depth, skeleton joints (25 joints for every video frame), and HD face (1,347 points). The video resolution produced in 1920 x 1080 pixels for the RGB channel and 512 x 424 pixels for the depth channels respectively.   Due to limitations in the acceptable filetypes for sharing on Databrary, it was not permitted to share binary *_dep.bin files directly produced by the Kinect v2 camera system on the Databrary platform. If your research requires the original binary *_dep.bin files, then please contact Matt Huenerfauth.
+
+*_face.txt, *_HDface.txt, *_skl.txt: To make it easier for future researchers to make use of this dataset, we have also performed some post-processing of the Kinect data.  To extract the skeleton coordinates of the RGB videos, we used the Openpose system, which is capable of detecting body, hand, facial, and foot keypoints of multiple people on single images in real time. The output of Openpose includes estimation of 70 keypoints for the face including eyes, eyebrows, nose, mouth and face contour. The software also estimates 21 keypoints for each of the hands (Simon et al, 2017), including 3 keypoints for each finger, as shown in Figure 2. Additionally, there are 25 keypoints estimated for the body pose (and feet) (Cao et al, 2017; Wei et al, 2016).
+
+Reporting Bugs or Errors:
+
+Please contact Matt Huenerfauth to report any bugs or errors that you identify in the corpus. We appreciate your help in improving the quality of the corpus over time by identifying any errors.
+
+List of Glosses:
+
+ALWAYS 
+CAN'T_CANNOT 
+DODO1 
+DODO2 
+DON'T_CARE 
+DON'T_KNOW 
+DON'T_LIKE 
+DON'T_MIND 
+DON'T_WANT 
+EIGHT_O_CLOCK1 
+EIGHT_O_CLOCK2 
+ELEVEN_O_CLOCK 
+EVERY_AFTERNOON 
+EVERY_DAY 
+EVERY_FRIDAY 
+EVERY_MONDAY 
+EVERY_MORNING 
+EVERY_NIGHT 
+EVERY_SATURDAY 
+EVERY_SUNDAY 
+EVERY_THURSDAY 
+EVERY_TUESDAY 
+EVERY_WEDNESDAY 
+FIVE_O_CLOCK1 
+FIVE_O_CLOCK2 
+FOR_FOR 
+FOUR_O_CLOCK1 
+FOUR_O_CLOCK2 
+FRIDAY 
+HOW1 
+HOW2 
+I_ME 
+IF_SUPPOSE 
+IX_HE_SHE_IT 
+IX_THEY_THEM 
+LAST_WEEK 
+LAST_YEAR 
+MIDNIGHT1 
+MONDAY 
+MONTH 
+MORNING 
+NEVER 
+NEXT_WEEK1 
+NEXT_WEEK2 
+NEXT_YEAR 
+NIGHT 
+NINE_O_CLOCK1 
+NINE_O_CLOCK2 
+NO 
+NO_ONE 
+NONE 
+NOON1 
+NOT 
+NOW 
+ONE_O_CLOCK1 
+ONE_O_CLOCK2 
+PAST_PREVIOUS 
+QMWG 
+QUESTION 
+RECENT 
+SATURDAY 
+SEVEN_O_CLOCK1 
+SEVEN_O_CLOCK2 
+SINCE_UP_TO_NOW 
+SIX_O_CLOCK1 
+SIX_O_CLOCK2 
+SOMETIMES 
+SOON1 
+SOON2 
+SUNDAY 
+TEN_O_CLOCK 
+THREE_O_CLOCK1 
+THREE_O_CLOCK2 
+THURSDAY 
+THURSDAY2 
+TIME 
+TODAY 
+TOMORROW 
+TONIGHT 
+TUESDAY 
+TWELVE_O_CLOCK 
+TWO_O_CLOCK1 
+TWO_O_CLOCK2 
+WAVE_NO 
+WEDNESDAY 
+WEEK 
+WHAT1 
+WHAT2 
+WHEN1 
+WHEN2 
+WHERE 
+WHICH 
+WHO1 
+WHO2 
+WHO3 
+WHY1 
+WHY2 
+WILL_FUTURE 
+YESTERDAY 
+YOU",ASL-100-RGBD,2020-02-13T02:09:28.091107Z,2025-03-05T16:35:14.986573Z,public,6349,Matt,Huenerfauth,Rochester Institute of Technology
+1249,An RGBD Dataset of American Sign Language Homework-Assignment Videos by Students and by Fluent ASL Signers,"This dataset contains a video-recording corpus of students (and fluent signers) performing ASL phrases and sentences, as a part of homework assignments. This new dataset was collected to support the design of technologies to fundamentally advance partial-recognition of some aspects of ASL. For example, identifying linguistic and performance attributes of ASL without necessarily determining the entire sequence of signs, or automatically determining if a performance is fluent or contains errors made by ASL students. This research effort was aimed at enabling future computer-vision technologies to support educational tools to assist ASL learners in achieving fluency, with an automatic system providing feedback on their signing. 
+
+This is a novel dataset that has been collected as a part of a collaborative project between Rochester Institute of Technology, The City College of New York, and Hunter College.
+
+This material is based upon work supported by the National Science Foundation under award Nos. 1462280, 1400802, and 1400810. 
+
+Access: After becoming an authorized user of Databrary, please contact Matt Huenerfauth if you have difficulty accessing this volume.
+
+Organization of the Dataset: The dataset is organized into sub-folders, with codenames such as ""P01"" or ""F02"" etc. These codenames refer to specific human signers who were recorded in this dataset.  Participant codes beginning with ""P"" refer to non-fluent students learning ASL, and participant codes beginning with ""F"" refer to fluent ASL signers.   Folders with names beginning with ""H"" refer to specific homework assignment prompts that participants were responding to.  Sub-folders with names beginning with ""U"" refer to individual utterances which were recorded in response to that prompt; for instance, some of the homework assignment prompts asked participants to produce several short videos.
+
+Filetypes:
+
+*.eaf: The videos were annotated using ELAN.  Please see the detailed instructions and annotation guide document provided with this dataset release for documentation of the various tiers of annotation.  
+
+*.mp4, *_dep.bin: The dataset has been captured by using a Kinect 2.0 RGBD camera. The output of this camera system includes multiple channels which include RGB and depth data. The video resolution produced is 1920 x 1080 pixels for the RGB channel and 512 x 424 pixels for the depth channels respectively. Due to limitations in the acceptable filetypes for sharing on Databrary, it was not permitted to share binary *_dep.bin files directly produced by the Kinect v2 camera system on the Databrary platform. If your research requires the original binary *_dep.bin files, then please contact Matt Huenerfauth.",ASL-Homework-RGBD,2020-11-24T02:06:55.128213Z,2025-03-05T16:35:21.837540Z,public,6349,Matt,Huenerfauth,Rochester Institute of Technology
+1279,PoseASL: An RGBD Dataset of American Sign Language,"The PoseASL dataset consists of color and depth videos collected from ASL signers at the Linguistic and Assistive Technologies Laboratory under the direction of Matt Huenerfauth, as part of a collaborative research project with researchers at the Rochester Institute of Technology, Boston University, and the University of Pennsylvania.
+
+Access: After becoming an authorized user of Databrary, please contact Matt Huenerfauth if you have difficulty accessing this volume.  
+
+We have collected a new dataset consisting of color and depth videos of fluent American Sign Language signers performing sequences ASL signs and sentences.  Given interest among sign-recognition and other computer-vision researchers in red-green-blue-depth (RBGD) video, we release this dataset for use by the research community. In addition to the video files, we share depth data files from a Kinect v2 sensor, as well as additional motion-tracking files produced through post-processing of this data.
+
+Organization of the Dataset: The dataset is organized into sub-folders, with codenames such as ""P01"" or ""P16"" etc. These codenames refer to specific human signers who were recorded in this dataset.  Please note that there was no participant P11 nor P14; those numbers were accidentally skipped during the process of making appointments to collect video stimuli.
+
+Task: During the recording session, the participant was met by a member of our research team who was a native ASL signer. No other individuals were present during the data collection session. After signing the informed consent and video release document, participants responded to a demographic questionnaire. Next, the data-collection session consisted of English word stimuli and cartoon videos.  The recording session began with showing participants stimuli consisting of slides that displayed English word and photos of items, and participants were asked to produce the sign for each (PDF included in materials subfolder).  Next, participants viewed three videos of short animated cartoons, which they were asked to recount in ASL:
+- Canary Row, Warner Brothers Merrie Melodies 1950 (the 7-minute video divided into seven parts)
+- Mr. Koumal Flies Like a Bird, Studio Animovaneho Filmu 1969
+- Mr. Koumal Battles his Conscience, Studio Animovaneho Filmu 1971
+The word list and cartoons were selected as they are identical to the stimuli used in the collection of the Nicaraguan Sign Language video corpora - see: Senghas, A. (1995). Children’s Contribution to the Birth of Nicaraguan Sign Language. Doctoral dissertation, Department of Brain and Cognitive Sciences, MIT.
+
+Demographics: All 14 of our participants were fluent ASL signers. As screening, we asked our participants: Did you use ASL at home growing up, or did you attend a school as a very young child where you used ASL? All the participants responded affirmatively to this question. A total of 14 DHH participants were recruited on the Rochester Institute of Technology campus. Participants included 7 men and 7 women, aged 21 to 35 (median = 23.5).  All of our participants reported that they began using ASL when they were 5 years old or younger, with 8 reporting ASL use since birth, and 3 others reporting ASL use since age 18 months. 
+
+Filetypes:
+
+*.avi, *_dep.bin: The PoseASL dataset has been captured by using a Kinect 2.0 RGBD camera. The output of this camera system includes multiple channels which include RGB, depth, skeleton joints (25 joints for every video frame), and HD face (1,347 points). The video resolution produced in 1920 x 1080 pixels for the RGB channel and 512 x 424 pixels for the depth channels respectively. Due to limitations in the acceptable filetypes for sharing on Databrary, it was not permitted to share binary *_dep.bin files directly produced by the Kinect v2 camera system on the Databrary platform. If your research requires the original binary *_dep.bin files, then please contact Matt Huenerfauth.
+
+*_face.txt, *_HDface.txt, *_skl.txt: To make it easier for future researchers to make use of this dataset, we have also performed some post-processing of the Kinect data. To extract the skeleton coordinates of the RGB videos, we used the Openpose system, which is capable of detecting body, hand, facial, and foot keypoints of multiple people on single images in real time. The output of Openpose includes estimation of 70 keypoints for the face including eyes, eyebrows, nose, mouth and face contour. The software also estimates 21 keypoints for each of the hands (Simon et al, 2017), including 3 keypoints for each finger, as shown in Figure 2. Additionally, there are 25 keypoints estimated for the body pose (and feet) (Cao et al, 2017; Wei et al, 2016).
+
+Reporting Bugs or Errors:
+
+Please contact Matt Huenerfauth to report any bugs or errors that you identify in the corpus. We appreciate your help in improving the quality of the corpus over time by identifying any errors.
+
+Acknowledgement:  This material is based upon work supported by the National Science Foundation under award 1749376: ""Collaborative Research: Multimethod Investigation of Articulatory and Perceptual Constraints on Natural Language Evolution.""",PoseASL,2021-02-04T14:30:27.516711Z,2025-03-05T16:35:23.280844Z,public,6349,Matt,Huenerfauth,Rochester Institute of Technology
+1392,"Analyzing Deaf and Hard-of-Hearing Users’ Behavior, Usage, and Interaction with a Personal Assistant Device that Understands Sign-Language Input","This dataset is being shared to accompany the following CHI'2022 publication:
+
+Abraham Glasser, Matthew Watkins, Kira Hart, Sooyeon Lee, and Matt Huenerfauth. 2022. Analyzing Deaf and Hard-of-Hearing Users’ Behavior, Usage, and Interaction with a Personal Assistant Device that Understands Sign-Language Input. In CHI Conference on Human Factors in Computing Systems (CHI ’22), April 29-May 5, 2022, New Orleans, LA, USA. ACM, New York, NY, USA, 11 pages. https://doi.org/10.1145/3491102.3501987
+
+
+We release our video-recordings and accompanying annotation, to support future Human-Computer Interaction (HCI) research on the behavior of Deaf and Hard-of-Hearing (DHH) users of personal assistant systems, as well as serving as potential data for sign-language recognition researchers who are training artificial-intelligence models for their software. These video recordings consist of our DHH study participants issuing commands to a personal assistant system. Also available is a CSV file with our dataset annotation.
+
+
+Access: To access this dataset, you should become an Authorized User of Databrary: https://databrary.org/about/agreement.html    After becoming an authorized user of Databrary, please contact Matt Huenerfauth if you have difficulty accessing this volume.
+
+
+Dataset description:
+
+There are 21 ""session"" folders -- 1 for each participant in the user study. Each folder is named ""P01"", ""P02"", and so on, until ""P21"". In each respective folder, is a .mp4 file named ""P01"", ""P02"", and so on. These files are the video recordings from the user study as described inside the CHI 2022 paper (above).
+
+There are also two supplementary materials. One is a .csv file named ""demographics_for_sharing_chi2022"". This file is some basic demographics for the 21 participants in this study. The columns inside this .csv file and description of their contents are as follows:
+
+ID
+- Arbitrary consecutive integers to label a row
+Gender
+- Gender of the participant
+Birth Year
+- Birth year of the participant
+How would you describe yourself? [Deaf/deaf/Hard of Hearing/Hearing]
+- Participant answer to this question.
+At what age did you become DHH?
+- Participant answer to this question.
+At what age did you begin to learn ASL?
+- Participant answer to this question.
+Are your parents DHH?
+- Participant answer to this question.
+Did your parents use ASL at home?
+- Participant answer to this question.
+In elementary school, did you use ASL?
+- Participant answer to this question.
+What language do you use at home? [0= 100% English 0% ASL, 10= 0% English 100% ASL]
+- Participant answer to this question.
+What language do you use at work/school? [0= 100% English 0% ASL, 10= 0% English 100% ASL]
+- Participant answer to this question.
+What language do you use with friends/family? [0= 100% English 0% ASL, 10= 0% English 100% ASL]
+- Participant answer to this question.
+
+
+The second supplementary file is another .csv file named ""data_annotations_chi2022"". Inside this file is the data annotation for the 21 videos, as described in the CHI 2022 paper. The columns inside this .csv file and their contents are as follows:
+
+
+Participant ID
+- ID for the participant
+Video Filename
+- Name of the .mp4 file associated with the annotation
+Command number within Video ID
+- Number of command inside the video -- each video has multiple commands
+Wake up Method (only on the first of each participants)
+- Which wake-up method was employed by the participant (see CHI 2022 paper)
+Command in English
+- Transcription of the ASL command in English
+Error Type (If it happens)
+- Error type, which will be one of the following:
+----Silence (Alexa ignored the command)
+----Confusion (Alexa heard but didn't understand the command, Alexa says something like """"I don't know that"""")
+----Suggested (#2 but Alexa suggested something at the end)
+----Undesired (Alexa understood the command but didn't give the desired result)
+----Failure (Alexa crashed, hardware error, software error (e.g. captions stuck), ...)
+----Question (Alexa understood but missed key information thus asking the participant for confirmation)
+----N/A (No error, Alexa responded as expected)
+How participant followed up on the error
+- Follow-up type, which will be one of the following:
+----Repeated (Self-explanatory -- same signing and wording)
+----Reworded (Self-explanatory -- changed signing or wording, including only changing the greeting)
+----Ignored (Ignored, moved on)
+----Question (The participant asked either Alexa or the researcher about the error they're seeing -- the participant basically saying ""what can i do?"" or ""what do i do?"")
+----Played Along (When Alexa suggested something, sometimes they'll accept the suggestion even though it wasn't what they were expected. Otherwise, the error type was #4 but they accepted and asked about that result)
+----N/A
+
+Please see the CHI 2022 paper for further information and explanation on this dataset that is being shared with it.
+
+
+Reporting Bugs or Errors:
+
+Please contact Matt Huenerfauth to report any bugs or errors that you identify in the corpus. We appreciate your help in improving the quality of the corpus over time by identifying any errors.",CHI_2022_MS-ASL_WOZ,2021-11-30T19:54:35.191983Z,2025-03-05T16:35:27.649853Z,public,6349,Matt,Huenerfauth,Rochester Institute of Technology
+1447,Dataset of BERT Embeddings to Model Word Importance in Conversational Transcripts for Deaf and Hard of Hearing Users,"This dataset corresponds to a paper published in the ACL 2022 Workshop ON LANGUAGE TECHNOLOGY FOR EQUALITY, DIVERSITY, INCLUSION (LT-EDI-2022).
+
+Description: The Switchboard Corpus consists of audio recordings of approximately 260 hours of speech consisting of about 2,400 two-sided telephone conversations among 543 speakers (consisting of 302 male, 241 female) from across the United States. In January 2003, the Institute for Signal and Information Processing (ISIP) released written transcripts for the entire corpus, which consists of nearly 400,000 conversational turns. The ISIP transcripts include a complete lexicon list and automatic word alignment timing corresponding to the original audio files. In our project, we generated BERT-generated word-embeddings of around 25000 tokens. We announce the release of these embeddings as a set of supplementary files that are aligned with the human annotation of ISIP transcripts published here: http://latlab.ist.rit.edu/lrec2018/. 
+
+Abstract of Paper:  Deaf and hard of hearing individuals regularly rely on captioning while watching live TV. Live TV captioning is evaluated by regulatory agencies using various caption evaluation metrics. However,  caption evaluation metrics are often not informed by preferences of DHH users or how meaningful the captions are.  There is a need to construct caption evaluation metrics that take the relative importance of words in transcript into account. We conducted correlation analysis between two types of word embeddings and human-annotated labelled word-importance scores in existing corpus. We found that normalized contextualized word embeddings generated using BERT correlated better with manually annotated importance scores than word2vec-based word embeddings. We make available a pairing of word embeddings and their human-annotated importance scores. We also provide proof-of-concept utility by training word importance models, achieving an F1-score of 0.57 in the 6-class word importance classification task.
+
+Acknowledgments: This material is based on work supported by the Department of Health and Human Services under Award No. 90DPCP0002-0100, and by the National Science Foundation under Award No. DGE-2125362. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the Department of Health and Human Services or National Science Foundation.",BERT-Word-Importance,2022-04-06T14:04:09.850632Z,2025-03-05T16:35:30.290464Z,public,6349,Matt,Huenerfauth,Rochester Institute of Technology

@@ -1,0 +1,69 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+962,STEM Books,This study assesses how young children learn STEM-related information from the context of shared book reading. Parents read 4 STEM books to their child and children were tested on facts from the books.,Study 247,2019-08-16T13:19:03.831503Z,2025-03-05T16:35:10.344411Z,public_overview_only,5539,Patricia,Bauer,Emory University
+990,Study 213 Alena,213 DL Dolphin Kid Lab,NA,2019-09-23T21:16:29.489831Z,2025-03-05T16:35:11.825886Z,public_overview_only,5539,Patricia,Bauer,Emory University
+991,Study 245,X Representation,NA,2019-09-24T17:34:47.997533Z,2025-03-05T16:35:11.839386Z,public_overview_only,5539,Patricia,Bauer,Emory University
+992,Study 203 Alena,Dolphin in GCS,NA,2019-09-24T17:52:34.342823Z,2025-03-05T16:35:11.853319Z,public_overview_only,5539,Patricia,Bauer,Emory University
+993,Study 211,"Dolphin Home Study (Schema Manipulation)
+
+->Training- 197 Session Videos",NA,2019-09-24T20:59:45.257662Z,2025-03-05T16:35:11.867387Z,public_overview_only,5539,Patricia,Bauer,Emory University
+994,Capping Videos,Instructional capping videos,NA,2019-09-24T21:08:38.434130Z,2025-03-05T16:35:11.881534Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1000,Study 254,Adult Autobiographical Memory,NA,2019-10-04T14:06:24.351669Z,2025-03-05T16:35:12.152814Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1009,Study 225,Jillian,NA,2019-10-17T17:41:11.290319Z,2025-03-05T16:35:13.431183Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1010,Study 232,Jillian,NA,2019-10-17T17:43:02.391186Z,2025-03-05T16:35:13.444097Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1061,203 General Folder,203 Dolphin in GCS,NA,2020-02-10T16:23:04.116220Z,2025-03-05T16:35:14.953018Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1063,Study 22,Study 22 - Generalization - Found within 1 Inactive and completed studies folder,NA,2020-02-13T22:44:14.505552Z,2025-03-05T16:35:15.006399Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1065,Study 236 Videos from Camera Cards,Videos for st. 236 that were found on camera cards without labels. -Added by MH,NA,2020-02-19T17:47:55.446974Z,2025-03-05T16:35:15.040918Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1072,Study 28,Study 28 from inactive and completed studies,NA,2020-02-27T18:14:37.669330Z,2025-03-05T16:35:15.570908Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1094,Study 253,Lucy's Masters,253,2020-03-18T17:55:38.367254Z,2025-03-05T16:35:16.043892Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1130,Study 255,St. 255 Longitudinal - Learning As We Grow,NA,2020-05-06T15:29:52.413622Z,2025-03-05T16:35:17.442820Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1162,Study 257,Longitudinal,Study 257,2020-08-10T19:00:55.722329Z,2025-03-05T16:35:18.775914Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1172,Eyelink training video,eyelink video with Blaire,Eyelink training video,2020-08-20T20:28:42.788548Z,2025-03-05T16:35:19.527013Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1189,Study 262 Jelena's Honors,videos of parent/child dyads engaging with three different online learning webpages,JP Honors Thesis,2020-10-05T20:35:03.709235Z,2025-03-05T16:35:20.003891Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1193,Study 29,Sutdy 29 from the server,NA,2020-10-13T16:24:34.945965Z,2025-03-05T16:35:20.088934Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1195,Study 105,Study 105 from the server,NA,2020-10-14T19:01:34.054837Z,2025-03-05T16:35:20.215110Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1198,Study 113,Study 113,NA,2020-10-19T17:15:35.416924Z,2025-03-05T16:35:20.301477Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1199,Study 122,Kindergarten,NA,2020-10-21T20:10:54.848565Z,2025-03-05T16:35:20.315316Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1200,Study 147,IBAM,NA,2020-10-21T20:22:34.836896Z,2025-03-05T16:35:20.329229Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1201,Study 148,fMRI kids collab w Hamann lab,NA,2020-10-22T20:47:22.817632Z,2025-03-05T16:35:20.343838Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1202,Study 149,Eyetracker 16 & 20mth,NA,2020-10-23T14:24:51.792831Z,2025-03-05T16:35:20.361367Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1203,Study 150,Eyetracker collaboration with Bachevalier,NA,2020-10-23T14:27:18.197499Z,2025-03-05T16:35:20.376263Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1204,Study 151,Study 151 from the sever,NA,2020-10-23T16:03:13.592680Z,2025-03-05T16:35:20.390931Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1207,Study 153,Study 153 from the server,NA,2020-10-27T19:55:29.972059Z,2025-03-05T16:35:20.451279Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1208,Study 154,Study 154 from the server,NA,2020-10-27T20:10:01.966391Z,2025-03-05T16:35:20.466119Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1211,Study 155,Study 155 from the server,NA,2020-10-28T18:42:10.678155Z,2025-03-05T16:35:20.570003Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1212,Study 156,Study 156 from the server,NA,2020-10-28T20:07:13.351018Z,2025-03-05T16:35:20.583714Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1213,Study 157,Study 157 Toolbox from the server,NA,2020-10-28T20:25:09.983867Z,2025-03-05T16:35:20.600020Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1214,Study 158,Dolphin criterion,NA,2020-10-28T22:17:36.468426Z,2025-03-05T16:35:20.615003Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1215,Study 159,"fMRI Memory Development Study with RF, SH",NA,2020-10-28T22:28:19.975778Z,2025-03-05T16:35:20.629294Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1217,Study 160,Adult Dolphin ERP,NA,2020-10-30T18:00:13.352119Z,2025-03-05T16:35:20.657790Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1218,Study 161,161 Baby Emo; 12m-olds ERP,NA,2020-10-30T18:28:26.657168Z,2025-03-05T16:35:20.680542Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1219,Study 162,Dolphin Surface Similarity,NA,2020-10-30T18:38:53.185305Z,2025-03-05T16:35:20.693861Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1220,Study 163,Dolphin Surface Similarity Hint,NA,2020-10-30T18:45:59.880363Z,2025-03-05T16:35:20.706538Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1221,Study 164,164_AdultSurveyCueWord_ERP,NA,2020-10-30T18:53:05.947240Z,2025-03-05T16:35:20.719166Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1224,Study 165,Specificity sequence imitation 5y-olds- did NOT work,NA,2020-11-02T22:37:47.910384Z,2025-03-05T16:35:20.902591Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1226,Study 166,Study 166 Dolphin No Hint 6y-olds from the Server,NA,2020-11-04T20:23:38.334344Z,2025-03-05T16:35:20.991988Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1227,Study 167,Study 167 Dolphin Delay 6y-olds from the Server,NA,2020-11-04T20:30:27.082176Z,2025-03-05T16:35:21.008241Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1228,Study 168,Study 168 IAPS ERP 5-8y-olds from the server,NA,2020-11-04T20:38:57.174125Z,2025-03-05T16:35:21.021489Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1229,Study 169,Dolphin Stem Delay 6 yr-olds,NA,2020-11-05T20:57:40.262987Z,2025-03-05T16:35:21.035141Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1230,Study 170,Dolphin Self-Generation 5&7 y-olds- did NOT work,NA,2020-11-05T21:20:45.702942Z,2025-03-05T16:35:21.049237Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1232,Study 171,Adult Study Negative Cue Word ERP,NA,2020-11-09T22:52:22.721915Z,2025-03-05T16:35:21.085741Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1233,Study 172,Dolphin Hint Timing 4&6 yr-olds,NA,2020-11-09T23:06:49.672719Z,2025-03-05T16:35:21.099098Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1234,Study 173,Emo Beast 8y-old girls (Levanton's dissertation),NA,2020-11-10T17:45:11.786288Z,2025-03-05T16:35:21.111990Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1235,Study 174,Study 174 Attachment Cue Word ERP Adult Females from the Server,NA,2020-11-10T20:18:26.136361Z,2025-03-05T16:35:21.126504Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1236,Study 175,Study 175 Adult Dolphin ERP Integration Process from server,NA,2020-11-10T21:08:32.274954Z,2025-03-05T16:35:21.140067Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1237,Study 176,Study 176 Eyetracker (Shala Blue's dissertation) [MOVED] from the server,NA,2020-11-11T20:11:26.494587Z,2025-03-05T16:35:21.154076Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1238,Study 177,Study 177 Adult IAPS Pilot from the server,NA,2020-11-11T20:13:35.242458Z,2025-03-05T16:35:21.166728Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1239,Study 178,"Study 178 Dolphin Facilitation 4,6,8y-olds from the server",NA,2020-11-11T20:20:42.061462Z,2025-03-05T16:35:21.180952Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1240,Study 179,Study 179 Dolphin Interference -was NOT done no subjects from the server,NA,2020-11-11T21:39:06.005846Z,2025-03-05T16:35:21.196808Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1243,Study 180,Study 180 Locational Memory & Dolphin 4y-olds from the server,NA,2020-11-17T20:42:18.833724Z,2025-03-05T16:35:21.542485Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1245,Study 181,Study 181 Adult Dolphin Lag ERP from the server,NA,2020-11-17T21:04:37.065124Z,2025-03-05T16:35:21.591968Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1260,Study 182,Study 182 Autobio life periods survey from the server,NA,2020-12-14T16:28:55.749328Z,2025-03-05T16:35:22.228702Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1263,Study 183,Study 183 Adult Dolphin Lag Hint - no subjects [MOVED] from the server,NA,2020-12-15T20:48:46.634886Z,2025-03-05T16:35:22.268455Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1264,Study 184,Study 184 Dolphin Game - 8-10y-olds from the server,NA,2020-12-15T20:50:10.313707Z,2025-03-05T16:35:22.288407Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1265,Study 185,Study 185 After School Dolphin Game from the server,NA,2020-12-15T21:10:31.965409Z,2025-03-05T16:35:22.302445Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1266,Study 186,Study 186 IAPS Eyetracking -8y-olds & adults from the server,NA,2020-12-15T21:44:44.108876Z,2025-03-05T16:35:22.315891Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1293,RA Meetings,none,RA Meeting,2021-03-09T16:02:59.651934Z,2025-03-05T16:35:23.803003Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1323,Study 263,Pre-testing with children and stembook follow-up,Study 263,2021-06-07T19:18:31.766463Z,2025-03-05T16:35:24.980772Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1421,Study 273,Storybook STEM Cohesion Study,Study 273,2022-02-16T19:14:11.676329Z,2025-03-05T16:35:29.117037Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1525,Study 271 ERISS,"Webcam videos from Reactivation, Integration, and Selection tasks",NA,2022-10-13T17:29:43.848235Z,2025-03-05T16:35:34.532160Z,public_overview_only,5539,Patricia,Bauer,Emory University
+1729,Eye-Tracking Data,This is all data files from the eye-link.,NA,2024-04-24T17:56:29.438995Z,2025-03-05T16:35:45.654685Z,public_overview_only,5539,Patricia,Bauer,Emory University

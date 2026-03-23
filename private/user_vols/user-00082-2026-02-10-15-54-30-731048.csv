@@ -1,0 +1,47 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+30,The Child Affective Facial Expression (CAFE) set,"The Child Affective Facial Expression Set (CAFE) is a collection of photographs taken of 2- to 8-year-old children (M = 5.3 years; R = 2.7 – 8.7 years) posing for 6 emotional facial expressions—sadness, happiness, surprise, anger, disgust, and fear—plus a neutral face. The full set features 90 female models and 64 male models (27 African American, 16 Asian, 77 Caucasian/European American, 23 Latino, and 11 South Asian). With the exception of surprise, children were asked to pose for each expression with their mouths open and with their mouths closed. Surprised faces were only posed with their mouths open. Open mouth disgusted faces generally included a tongue protrusion. In total, we had 154 child-models pose each of these 7 expressions. Not all children were able to successfully pose for all 7 expressions, so all unsuccessful attempts were eliminated from the set. The result is 1192 total photographs. Demographic information and validity/reliability data from 100 untrained adults on each face in the set is available in a sortable Excel file under ""Materials.""
+
+Please note that the images in the CAFE set are copyright protected and cannot be published (including in journals, book chapters, etc).
+
+When using the CAFE data set please cite both the paper that introduces it:
+
+LoBue, V., & Thrasher, C. (2015). The Child Affective Facial Expression (CAFE) set: validity and reliability from untrained adults. Emotion Science, 5, 1532. http://doi.org/10.3389/fpsyg.2014.01532
+
+and the data set itself using the Databrary citation below:
+
+LoBue, V. (2014). The Child Affective Facial Expression (CAFE) set. Databrary. http://doi.org/10.17910/B7301K
+
+The set has also been recently validated in a child sample. The citation can be found here:
+
+LoBue, V., Baker, L., & Thrasher, C. (2018). Through the eyes of a child: Preschoolers’ identification of emotional expressions from the Child Affective Facial Expression (CAFE) Set. Cognition & Emotion, 32, 1122-1130.
+
+© 2014 Cat Thrasher",CAFE,2014-07-23T15:57:05.498306Z,2025-03-05T16:34:41.542592Z,public,82,Vanessa,LoBue,Rutgers University
+1170,The Child Affective Facial Expression Set Short Versions (CAFE-Ss): Development and Validation of Two Subsets of Children's Emotional Faces with Variability,"Emotion recognition plays an important role in children’s socio-emotional development.
+Research on children’s emotion recognition has heavily relied on stimulus sets of photos
+of adults posed stereotyped facial configurations. The Child Affective Facial Expression
+set (CAFE) is a relatively new stimulus set that provides researchers with photographs of
+a diverse group of children’s facial configurations in seven emotional categories—angry,
+sad, happy, fearful, disgusted, surprised, and neutral. However, the large size of the full
+CAFE set makes it less ideal for research in children. Here, we introduce two subsets of
+CAFE with 140 photographs of children’s facial configurations in each set, diverse in the
+race and ethnicity of the models, and designed to produce variability in naïve observers.
+The subsets have been validated with 1000 adult participants.",Facial Expression set short versions (CAFE-Ss),2020-08-16T19:05:18.820244Z,2025-03-05T16:35:19.500147Z,public,82,Vanessa,LoBue,Rutgers University
+1209,Reptile Picture Book Study-2,"Children and parents reviewed a picture book together containing animals commonly found in a reptile house (snakes, spiders, turtles, lizards) that are considered varying levels of biological threat to humans. Participants were randomly assigned to a control condition or an instruction condition, which provided instructions about the role of parent's language in shaping children's fear of animals.",Reptile Picture Book Study-2,2020-10-27T20:18:08.047409Z,2025-03-05T16:35:20.527095Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1225,Learning about Germs in a Global Pandemic,Children’s Knowledge and Avoidance of Contagious Illness Before and After COVID-19,NA,2020-11-04T17:34:56.273504Z,2025-03-05T16:35:20.977917Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1285,Effort-Outcome,"This volume includes tasks, videos, and participant demographics.",Effort-Outcome,2021-02-23T19:46:05.625285Z,2025-03-05T16:35:23.554979Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1288,Publications from the Longitudinal Attention and Temperament Study (LANTS),This volume includes all publications and their associated data sets from the LANTS study.,NA,2021-02-26T18:30:42.519323Z,2025-03-05T16:35:23.716373Z,public,82,Vanessa,LoBue,Rutgers University
+1304,Using Storybooks to Teach Children About Illness Transmission and Promote Adaptive Health Behavior – A Pilot Study,Data for the study,NA,2021-04-13T13:55:35.155501Z,2025-03-05T16:35:24.331720Z,public,82,Vanessa,LoBue,Rutgers University
+1314,When do children avoid infection risks: Lessons for schools during the COVID-19 pandemic,Raw data,NA,2021-05-13T14:34:55.629438Z,2025-03-05T16:35:24.729476Z,public,82,Vanessa,LoBue,Rutgers University
+1315,Learning about Germs in a Global Pandemic: Children’s Knowledge and Avoidance of Contagious Illness Before and After COVID-19,Data,NA,2021-05-13T14:36:19.215474Z,2025-03-05T16:35:24.773537Z,public,82,Vanessa,LoBue,Rutgers University
+1334,Natural Variability in Parent-Child Puzzle Play at Home,Contains data from the paper,Natural Variability in Parent-Child Puzzle Play at Home,2021-06-29T18:55:58.100096Z,2025-03-05T16:35:25.562758Z,public,82,Vanessa,LoBue,Rutgers University
+1350,Behavioral Avoidance of Contagious and Non-Contagious Adults,Data and stimuli,Behavioral Avoidance of Contagious and Non-Contagious Adults,2021-07-22T18:08:20.388574Z,2025-03-05T16:35:25.841029Z,public,82,Vanessa,LoBue,Rutgers University
+1407,Cross-Cultural Animal Study,"This volume contains videos, materials, and data for a cross-cultural study on parent-child conversations and attitudes toward different kinds of animals. Parents and children read through a picture book of snakes, spiders, turtles, and lizards, and conversations were transcribed and coded for emotional content. Participants also completed measures of attitudes toward and experience with each animal. This study is conduced in the USA, Hong Kong, and India, in order to examine cultural differences on conversations toward and perceptions of each animal category. De-identified data will be available for access here.",CCanimal,2022-01-11T18:49:30.034427Z,2025-03-05T16:35:28.252458Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1465,Humanizing Snakes,data and materials,Humanizing Snakes,2022-05-19T19:40:13.372550Z,2025-03-05T16:35:31.450236Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1466,Pet Picturebook Study,data and materials,Pet Picturebook Study,2022-05-19T19:40:56.317072Z,2025-03-05T16:35:31.551129Z,public_overview_only,82,Vanessa,LoBue,Rutgers University
+1546,PLAYProject_RUTGU,"Home visit video data sessions collected as part of Rutgers' contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
+-Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
+-Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
+-Ambient noise decibel meter recordings captured during the 1-hour natural play",NA,2022-11-18T20:02:56.933915Z,2022-11-18T20:02:56.933915Z,private,82,Vanessa,LoBue,Rutgers University
+1616,Please Delete,data,Please Delete,2023-06-20T21:34:22.625258Z,2025-03-05T16:35:39.344853Z,public,82,Vanessa,LoBue,Rutgers University
+1859,The co-development of children’s general causal reasoning and their causal reasoning of illness transmission,data from published manuscript,Children developing causal understanding of germ transmission,2025-07-18T13:24:47.317733Z,2025-07-22T12:31:31.820044Z,public,82,Vanessa,LoBue,Rutgers University
+1905,Mind the dog: Real animals elicit emotional and mental state language in parent-child conversations,Data and stimuli from paper,Mind the dog: Real animals elicit emotional and mental state language in parent-child conversations,2025-12-27T02:22:03.055045Z,2025-12-27T02:22:27.722399Z,public,82,Vanessa,LoBue,Rutgers University

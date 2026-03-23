@@ -1,0 +1,10 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1844,The Shared Book Reading Corpus: An audiovisual collection of 44 multimodal caregiver-infant interactions,"Task: Caregiver-infant dyads participated in a shared book reading session with a ‘First 100 Words’ picture book in the research lab. Caregivers were instructed to read naturally with their 13-14-month-old infants, as they typically would at home. While reading, an overview camera captured the full interaction and two head-mounted cameras worn by caregivers and infants captured their individual perspectives. Caregivers also completed questionnaires providing information about family's demographic background and their infant's vocabulary size and pointing gesture development at the time of reading.
+
+Demographic: 44 caregiver-infant dyads; infants aged 13–14 months; participants from high socioeconomic status (SES) backgrounds; all English-speaking.
+
+Filetypes:
+•	.mp4: Overview camera video recordings, caregiver and infant head-mounted camera video recordings, lab walkthrough video
+•	.mp3: Audio recordings
+•	.csv: Caregiver speech transcripts
+•	.xlsx and .txt: Corpus inventory, list of book referents, QPOINT questionnaire responses, UK-CDI Family questionnaire responses, UK-CDI Words & Gestures questionnaire responses",SBR Corpus,2025-05-27T10:47:12.407265Z,2025-08-04T09:24:43.033299Z,public,10957,Suzanne,Aussems,University of Warwick

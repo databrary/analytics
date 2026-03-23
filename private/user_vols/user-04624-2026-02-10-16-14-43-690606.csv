@@ -1,0 +1,2 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1632,Academic Language of Primary Students (ALPS),"This data set includes language samples collected from over 1000 diverse K-3 students. The contexts of language sampling include: narrative and expository, retell and generation, and oral and written. They can be sorted based on these variables and grades.",ALPS,2023-07-31T13:59:08.978366Z,2025-03-05T16:35:40.308740Z,public_overview_only,4624,Trina D,Spencer,University of Kansas

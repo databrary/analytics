@@ -1,0 +1,10 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1257,INFORMS MKT,"Data collected as part of the INFORMS MKT research grant.
+
+Data include: 
+1. Video recordings of secondary teachers instruction of exponential functions (3-5 lessons per teacher) along with pre and post interviews for each cycle of instruction.
+2. Video recordings of initial and final interview with each teacher before and after the collection of recorded lessons 
+3. Video recordings of a completion interview during which we asked teachers questions related to their Mathematical Knowledge for Teaching (MKT).
+4. Files containing relevant information to the data collected (e.g. lesson plans, worksheets, tasks, teacher work, and some student work)
+5. (optional) A pre and post student assessment
+6. (optional) Student work the teacher shared",2020-12-09T19:53:11.147132Z,2025-03-05T16:35:22.174457Z,public,7624,Jodie,Novak,University of Northern Colorado

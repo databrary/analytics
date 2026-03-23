@@ -1,0 +1,5 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+1711,"Deprecated, please delete","Please delete this, it's a duplicate of a study",2024-03-27T13:25:03.847999Z,2025-03-20T20:27:14.078321Z,public_overview_only,,10264,Drew,Abney,University of Georgia
+1712,Infant Sleep and Movement Study,"Tasks: 
+Demographic Information: Typically developing infants at 4-, 6-, 8-, and 12-months old. 
+File Types:",2024-03-27T19:02:26.150247Z,2025-03-14T14:04:35.203839Z,public_overview_only,ISM,10264,Drew,Abney,University of Georgia

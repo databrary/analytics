@@ -1,0 +1,6 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1370,PLAYProject_CHOPH,"Home visit video data sessions collected as part of CHOP's contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
+-Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
+-Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
+-Ambient noise decibel meter recordings captured during the 1-hour natural play",2021-10-07T13:13:57.928111Z,2025-03-05T16:35:26.820118Z,public_overview_only,591,Laura,Prosser,The Children's Hospital of Philadelphia/University of Pennsylvania
+1419,Unweighting infants reveals hidden motor skills,Exemplar data and coding manual,2022-02-10T21:25:56.492269Z,2025-03-05T16:35:29.088199Z,public,591,Laura,Prosser,The Children's Hospital of Philadelphia/University of Pennsylvania

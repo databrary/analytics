@@ -1,0 +1,332 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+330,SEEDLingS 6 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 6 months of age.
+
+The recordings in this volume were analyzed for the Bergelson & Aslin citation above, alongside eyetracking data.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants. The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume includes the audio and video recordings from 6 month home visits. Corresponding test dates for each audio and video recording are included as a supplementary spreadsheet, which can be accessed in the materials folder of this volume.
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording, converted from LENA's propriety algorithmic output (.its) for annotation in CHA format. 
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared files have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, please contact us as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+Further details of the project are available on our website, wiki, and GitHub repo, linked below.",2017-03-16T13:19:27.759710Z,2025-03-05T16:34:51.403615Z,public,NA,61,Elika,Bergelson,Harvard University
+335,SEEDLingS 12 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 12 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 12 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2017-03-24T13:13:11.343788Z,2025-03-05T16:34:51.457904Z,public,NA,61,Elika,Bergelson,Harvard University
+338,SEEDLingS 7 Month,"Naturalistic home recordings of 44 7-month-olds (hourling videos + daylong audios)
+Families are largely middle class, from upstate new york.
+This dataset includes only the month seven recordings; the wider dataset (and six month recordings) are fully described in this volume: https://nyu.databrary.org/volume/330 
+Together with the six month recordings above, these data have been analyzed in the following paper:
+
+Bergelson E, Amatuni A, Dailey S, Koorathota S, Tor S. Day by day, hour by hour: Naturalistic language input to infants. Dev Sci. 2018;e12715. https://doi.org/10.1111/desc.12715",2017-04-05T19:48:02.114510Z,2025-03-05T16:34:51.521917Z,public,SEEDLingS 7 Month,61,Elika,Bergelson,Harvard University
+390,Starter-ACLEW,This is the 'starter' set for the ACLEW project,2017-06-07T13:31:59.709897Z,2025-03-05T16:34:52.775052Z,public,starter-aclew,61,Elika,Bergelson,Harvard University
+653,SEEDLingS 8 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 8 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource. 
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 8 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-26T18:44:25.840381Z,2025-03-05T16:34:59.270532Z,public,NA,61,Elika,Bergelson,Harvard University
+666,SEEDLingS 9 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 9 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 9 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-27T15:49:16.985752Z,2025-03-05T16:34:59.454328Z,public,NA,61,Elika,Bergelson,Harvard University
+667,SEEDLingS 10 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 10 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 10 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-27T20:03:24.568296Z,2025-03-05T16:34:59.490588Z,public,NA,61,Elika,Bergelson,Harvard University
+668,SEEDLingS 11 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 11 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 11 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-30T13:28:34.211000Z,2025-03-05T16:34:59.524513Z,public,NA,61,Elika,Bergelson,Harvard University
+669,SEEDLingS 13 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 13 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 13 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-30T16:44:22.374293Z,2025-03-05T16:34:59.555422Z,public,NA,61,Elika,Bergelson,Harvard University
+670,SEEDLingS 14 Month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 14 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 14 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in March 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-04-30T20:54:01.703708Z,2025-03-05T16:34:59.584954Z,public,NA,61,Elika,Bergelson,Harvard University
+694,SEEDLingS 15 month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 15 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 15 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in April 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-05-16T17:18:46.515252Z,2025-03-05T16:35:00.887385Z,public,NA,61,Elika,Bergelson,Harvard University
+695,SEEDLingS 16 month,"AThese files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 16 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 16 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in October 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-05-16T17:22:27.212471Z,2025-03-05T16:35:00.918419Z,public,NA,61,Elika,Bergelson,Harvard University
+696,SEEDLingS 17 month,"These files are part of our longitudinal study, Study of Environmental Effects on Developing Linguistic Skills (SEEDLingS). This volume only includes recordings taken at 17 months of age.
+[For boring logistical reasons, each month has its own databrary volume though we are likely to consolidate to one DOI in the future]
+
+We are sharing these volumes with the community as we finish cleaning them, while several papers using this data are still in the pipeline in the spirit of open science. Our request of all users is that if you create annotations or analyses (e.g. coding of some dimension of the content by hand, automated algorithmic output, etc.) using these data that you share those resources back with us and the broader community so we can continue to enrich this resource.
+
+The broader project is described below:
+SEEDLingS is a project exploring how infants' early linguistic and environmental input plays a role in their learning. We focus on understanding how babies learn words between 6 and 18 months of age from the visual, social, and linguistic world around them. By looking at the complex environment that babies are exposed to, from their perspective, we can attempt to decode how the developing mind interprets and organizes the objects and words it faces. SEEDLingS is unique in that it combines well-controlled studies in the lab that assess what words infants know, with in-the-home audio and video recordings of what words infants hear, and what they see when they hear these words.
+
+Video and audio recordings were generated in the home every month, from 6 to 17 months of age, for a set of 44 infants (with an addition 2 infants who enrolled but then did not end up participating). The goal of this study is to assess infants' language growth over this time period, particularly in the word learning domain. Every two months, infants came into the lab for an eye-tracking study to test their word comprehension (and for older infants, their word production).
+
+This volume will eventually include the audio and video recordings from 17 month home visits; right now it's just the videos as we're doing a final cleaning pass on the audio (see details below).
+
+The day-long audio recordings were generated using child-perspective LENA recorders (LENA Research Foundation, Boulder, Colorado, United States) worn by the infant. The audio recordings are generated from one single LENA audio recording.
+
+The hour-long video recordings show a composite view of infants' typical lives with 1-4 camera feeds. In the standard setup, infants are equipped with 2 headcams, and a centralized camcorder that captures the entire room. The precise arrangement and number of cameras varies per video, as a function of whether the child would wear the hat with the cameras, and whether the cameras' files became corrupt during the recordings.
+
+Shared recordings have been scrubbed for certain personal information (e.g. full names, addresses, etc.); this leads to some silent periods on the audio track and some black-out periods on the video track. Only sections of the files that have been verified to contain no extremely personal content by human listeners (or from which such info has been scrubbed) are shared here. If you notice anything that you believe we may have missed in terms of personal information, we ask that you please let us know as soon as possible so we can rectify the issue.
+
+Infants in this sample are from the upstate New York area. The sample is generally middle class, with a range of income and an above-average maternal education level. The sample is predominantly white. All infants heard majority English at home (>75%) and had no known vision or hearing issues at birth.
+
+These data were collected at the University of Rochester, and continue to be analyzed presently at Duke University.
+
+PRIVACY AND SCRUBBING INFORMATION:
+All video files have been completely reviewed and have had sections containing personal information removed. These scrubbed portions of the video will appear blacked-out and silenced.
+
+Selected portions of the audio files have been reviewed. Sections containing personal information and the unreviewed sections of the audio files have been silenced. (For month 8-13 ~4 hours/audio file were reviewed for annotation and personal information scrubbing; for month 14-17 ~3 hours).
+
+Spreadsheets for each month listing timestamps for the scrubbed regions of both audios and videos are forthcoming! This volume was most recently updated in October 2021.
+
+Please contact Elika Bergelson directly to discuss further aspects of the sample design, annotation, and analysis at elika.bergelson@gmail.com",2018-05-16T17:31:47.526153Z,2025-03-05T16:35:00.949325Z,public,NA,61,Elika,Bergelson,Harvard University

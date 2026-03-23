@@ -1,0 +1,18 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1420,Exploring Connections between Fractions and Algebra Knowledge,"Eighth-grade students (N = 59) from the United States participated in a 3-session study on Zoom. Students completed a series of assessments of general math and cognitive skills (Session 1), fractions knowledge (Session 2), and algebra knowledge (Session 3). 
+
+Session 1 assessments included Backward Digit Span, Ravens Progressive Matrices, Whole Number Estimation, Line Ratio Comparison, Whole Number Arithmetic Fluency, and Auditory Working Memory. 
+
+Session 2 fraction tasks included speeded and unspeeded number line estimation and comparison (note: the unspeeded version of these tasks also asked children to report their strategies), fraction arithmetic, and fraction schemes and units coordination. 
+
+Session 3 involved a 45-minute algebra test on Qualtrics with a mix of multiple-choice and open-ended questions.",FAP,2022-02-14T20:18:23.558219Z,2025-03-05T16:35:29.102601Z,public_overview_only,8306,Percival,Matthews,University of Wisconsin - Madison
+1486,Judging Fraction Magnitudes across Symbolic and Nonsymbolic Formats,"College undergraduates participated in a series of 3 studies to investigate how people compare and estimate the magnitudes of nonsymbolic representations of fractions. In each study, participants were asked to compare nonsymbolic ratios made up of line-lengths, circle areas, or dot arrays to symbolic fractions by pressing a key to indicate which side had the larger fraction. These same participants also estimated the magnitude of nonsymbolic ratio in one or more formats, by typing a fraction or decimal after seeing a brief presentation of the nonsymbolic ratio. 
+
+- Study 1: Circle-symbol and Line-symbol comparisons, Circle ratio and Line ratio estimations (completely within-subject)
+- Study 2: Dot-symbol comparisons and Dot ratio estimations (two types of dot ratios, completely within-subject)
+- Study 3: Online replication: Line-symbol comparisons & estimations or Dot-symbol comparisons & estimations (formats were between-subject)",CvE,2022-07-01T16:00:41.251943Z,2025-03-05T16:35:32.477500Z,public_overview_only,8306,Percival,Matthews,University of Wisconsin - Madison
+1503,Improving Fraction Magnitude Knowledge: Is Analogy or Partitioning More Effective?,"This online experiment compared three 15-minute lessons to teach fraction magnitudes to 86 incoming 3rd and 4th grade students (M = 8.8 years). The Analogy group received a lesson teaching an analogy between whole number estimation (e.g., 3 on a number line from 0 to 4) and fraction estimation (e.g., 3/4 on a number line from 0 to 1). The Partitioning group received a lesson, adapted from Gunderson et al. (2019), teaching students to show x/y on a 0-1 number line by partitioning the line into y parts and shading in x parts. The Control group received a very similar partitioning lesson but used a square area model instead of a number line. 
+
+This study took place over three sessions on Zoom. At session 1, students completed a pretest including fraction number line estimation, comparison, and area model estimation. At session 2, students received the lesson and completed an immediate posttest. At session 3, which was about 7-10 days after session 2,  students completed a delayed posttest as well as a few covariate measures. 
+
+Study preregistered on OSF here: https://osf.io/6zvkd",LoL (Analogy vs. Partitioning vs. Area Model),2022-07-25T20:53:05.477654Z,2025-03-05T16:35:33.447173Z,public_overview_only,8306,Percival,Matthews,University of Wisconsin - Madison

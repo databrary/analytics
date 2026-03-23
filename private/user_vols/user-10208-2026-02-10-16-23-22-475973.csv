@@ -1,0 +1,11 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1110,Online Practice Suite Data Repository,"Link to website: https://tarheels.live/onlinepracticesuite/
+
+Link to access Read Me document:
+https://drive.google.com/drive/folders/1tpH6CmHkmwouLSojVDkBHEfzii2LpA6X?usp=sharing 
+
+CITATION FOR THE OPS DATABRARY:
+Online Practice Suite (2024). Online Practice Suite Data Repository. Databrary. http://doi.org/10.17910/b7.1110
+
+SEARCH TIP: Please sort the data below alphabetically by clicking the ""name"" tag under ""folder"". Click on the first file, ""OPS Repository READ ME"", to learn more about the data organization.",Online Practice Suite,2020-04-03T13:13:39.305655Z,2025-03-05T16:35:16.550912Z,public,10208,Dionne,Cross Francis,University of North Carolina at Chapel Hill
+1599,OPS Aggregate Data,Aggregated data from OPS,NA,2023-05-14T17:31:04.876848Z,2025-03-05T16:35:37.774430Z,public_overview_only,10208,Dionne,Cross Francis,University of North Carolina at Chapel Hill

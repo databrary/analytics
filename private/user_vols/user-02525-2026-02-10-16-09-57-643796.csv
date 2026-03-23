@@ -1,0 +1,76 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+968,OmissionBlender_13,"- Video study, helpful vs unhelpful, looking at reactions to emotions
+- Age: 13.15-14.15",NA,2019-09-09T22:47:36.414627Z,2025-03-05T16:35:10.603951Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+969,"1 month Visit - Paddles, CryBaby, and Imitation","- Longitudinal Study
+- Paddles: seeing to what extent babies move their heads and eyes to follow an image
+- CryBaby: monitoring how babies respond to other babies crying
+- Imitation: seeing if babies will mimic adult facial expressions
+- Age: 0.0 - 1.15",NA,2019-09-09T22:52:43.346179Z,2025-03-05T16:35:10.618243Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+972,Bullies2_Rep9,"- Puppet Show Study with food preference, seeing if babies will pick recipient of the helpful action over the recipient of the unhelpful action  
+- Age: 8.15-9.15",NA,2019-09-09T22:58:32.161986Z,2025-03-05T16:35:10.645782Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+973,Bullies2_Rep14,"- Puppet Show Study with food preference, seeing if babies will pick recipient of the helpful action over the recipient of the unhelpful action  
+- Age: 14.00-15.15",NA,2019-09-09T22:59:22.127495Z,2025-03-05T16:35:10.660278Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+974,Mislabelers_19,"- Projector study/interactive study, accurate/inaccurate labelers
+- Age: 18.00-20.00",NA,2019-09-09T23:01:24.332900Z,2025-03-05T16:35:10.674359Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+975,HappyFace_22,"- fEMG Puppet Show, Ball - Helping vs. Hindering Paradigm
+- Age: 22.15-23.15",NA,2019-09-09T23:04:13.133504Z,2025-03-05T16:35:10.688772Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+976,Bullies2_P2,"- Puppet Show, Recipient of helpful and unhelpful actions influences babies’ social preferences.
+- Age: 8.15-14.30",NA,2019-09-11T17:28:53.885477Z,2025-03-05T16:35:10.711006Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+977,EndaHill_24,"- EDA electrodes, Video study, Helpful/Unhelpful 
+- Age: 23.15 - 24.15",NA,2019-09-11T17:39:47.131162Z,2025-03-05T16:35:10.725354Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+978,MB2_,"- Eye Tracking Study, theory of mind
+- 18.0 - 26.0",NA,2019-09-11T22:35:58.309439Z,2025-03-05T16:35:10.739420Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1048,Bullies2_Rep,"- Puppet Show Study with food preference, seeing if babies will pick recipient of the helpful action over the recipient of the unhelpful action
+- Age: 8.15-14.30",NA,2020-01-27T20:48:32.071487Z,2025-03-05T16:35:14.572336Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1051,3 Month Visit (Hill/Ouch3),"- Longitudinal Study
+- Age: 3.0 - 4.0
+- Hill paradigm: protagonist tries to climb a hill and one character helps them up while the other character pushes them down the hill
+- Hill: monitoring looking time when babies are presented with the helper and hinderer character 
+- Ouch: monitoring how baby responds to a researcher injuring themselves",NA,2020-01-28T17:28:44.652157Z,2025-03-05T16:35:14.671087Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1052,"5 Month Visit - Ball, Goals, Emoji, FreePlay","- Longitudinal Study
+- Ball: examines infants preferences for helper and hinderer characters 
+- Goals: measure looking time when babies watch goal directed actions
+- Emoji: monitor eye gaze with eye tracker while babies look at adult facial expressions
+- FreePlay: Infant-Parent interaction in a controlled study room with toys
+- Age: 5.0 - 7.0",NA,2020-01-28T17:35:33.116636Z,2025-03-05T16:35:14.686768Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1382,"9 month visit (Attempts, Stargazer/Empathy, Ouch9, C3PO9)","Longitudinal Study
+- Age: 9.0 - 11.0
+- Attempts: a puppet show in which a character is attempting to open a box and retrieve a toy. Another puppet appears and either tries, but fails, to help open the box or tries, but fails, to prevent the box from opening
+- Stargazer/Empathy: a video in which a researcher looks at your infant before shifting her gaze to one of two objects on a table, followed by a 1 minute video of a baby laughing and a 1 minute video of a baby crying. interested in babies responses.
+- Ouch9: monitoring babies response to a researcher injuring themself 
+- C3PO:  monitoring the extent to which babies look at one face or pattern over another presented to them.",NA,2021-11-16T22:15:46.472555Z,2025-03-05T16:35:27.375454Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1383,"12 month visit (StangerDanger, Helping, Sharing, Cookies, Bracelets, ToM, Zoom_Cookies)","Longitudinal Study
+- Age Range: 12.0 - 14.0 
+- StrangerDanger: Strange Situation Task
+- Helping: monitoring helping behaviours in infants
+- Sharing: monitoring sharing behaviours in infants
+- Cookies: monitoring fairness distribution in infants
+- Bracelets: puppet show with food and seeing infants preference
+- ToM: theory of mind video study",NA,2021-11-16T22:59:53.564243Z,2025-03-05T16:35:27.389048Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1384,"17 month visit (Bullies_Longtime, SnackTime, Clothespins, ToM, Zoom_ToM)","Longitudinal Study
+- Age Range: 17.0 - 19.0
+- Bullies_LongTime: a researcher will offer the infant green beans and crackers and ask which they prefer. A puppet will then make either the same or a different food choice. Following this, infants will watch a puppet show in which the puppet who prefers a different food is either helped or hindered by other puppets.
+- SnackTime: monitoring infants sharing behaviours with snacks 
+- Clothespins: monitoring infants helping behaviours 
+- ToM: theory of mind video study",NA,2021-11-16T23:04:14.382140Z,2025-03-05T16:35:27.407126Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1385,"23 month visit (Happiness, Balloons, Reward/Punish, C3PO_23)","Longitudinal Study 
+- Age Range: 23.0 - 25.0 
+- Happiness: looking at infants sharing behaviours with puppets
+- Balloons: infants will watch one researcher create a drawing or clay sculpture while another researcher destroys it. We will then give infants balloons to share with the researcher who have destroyed the object.
+- Reward/Punish: Infants will watch a puppet show in which a puppet is helped or hindered by two other puppets. We will then give infants a chance to give or take a treat away from the helpful or unhelpful puppets.
+- C3PO_23: We will show infants a series of faces and abstract patterns on a screen. We will then monitor the extent to which they look at one face or pattern over another presented to them.",NA,2021-11-16T23:08:03.352971Z,2025-03-05T16:35:27.420911Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1386,Hill_ZoomBaby,"Zoom Study with Hill Paradigm 
+- Age Range: 9.0 - 12.15
+- Hill puppet show is shown to infants over zoom. We are interested to see if the study replicates over online platforms such as Zoom.",NA,2021-11-16T23:10:31.726762Z,2025-03-05T16:35:27.435193Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1387,EmoGoals,"Study with infants run over Zoom
+- Age Range: 12.15 - 14.15 
+- We are looking at the role emotion plays during helpful and unhelpful actions",NA,2021-11-16T23:13:31.549055Z,2025-03-05T16:35:27.449077Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1388,InsideOut_Zoom,"Study run over Zoom with Infants
+- Age Range: 11.0 - 13.0",NA,2021-11-16T23:17:08.239373Z,2025-03-05T16:35:27.462257Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1389,ActOVA11_Zoom,"Study run over Zoom with infants
+- Age Range: 10.15 - 11.15
+- a pre-filmed puppet show with a helpful and unhelpful character is shown to infants via Zoom",NA,2021-11-16T23:19:01.446666Z,2025-03-05T16:35:27.475260Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1390,ZoomKids,"Study run with young children over Zoom
+- Age Range: 3.0.0 - 4.11.31
+- Children will be presented with a series of short animations featuring a series of helpful and unhelpful characters. After watching the social interactions, children will be asked a series of questions regarding which character he/she prefers and which character acted appropriately. We are currently exploring how children evaluate characters who are helping versus hindering a character that was itself previously prosocial or antisocial.",NA,2021-11-16T23:20:37.924099Z,2025-03-05T16:35:27.497549Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia
+1393,21 month visit (Zoom_Equity),"The online study involves a 20-30 minute video call with one of our trained researchers. During the zoom call, infants will watch a show in which two actors are asked to clean up a pile of blocks by the researcher. Either both actors comply with the request, or one actor cleans while the other watches. The researcher then distributes stickers among the actors inequitably (same number of stickers regardless of contribution).",NA,2021-11-30T23:58:17.102809Z,2025-03-05T16:35:27.664412Z,public_overview_only,2525,Kiley,Hamlin,University of British Columbia

@@ -7,3 +7,6 @@ gh-databrary-analytics.Rproj
 .databrary.RData
 analytics.Rproj
 analytics-test.Rproj
+
+/.quarto/
+**/*.quarto_ipynb

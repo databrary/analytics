@@ -1,0 +1,109 @@
+vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
+1619,RISE Battery,"Eye-tracking tasks such as AV synchrony, word learning, prediction, etc.",2023-06-28T18:04:51.407183Z,2025-03-05T16:35:39.586249Z,public_overview_only,NA,10004,Elena,Tenenbaum,Duke University Medical Center
+1774,RISE Battery Aim 2,"Dear Researcher, 
+
+ 
+
+Welcome to the RISE Aim 2 Dataset!  
+
+ 
+
+The Remote Infant Studies of Early Learning (RISE) is a research consortium that aims to develop scalable and reliable methods to study infant cognitive development in the remote setting. 
+
+ 
+
+In this Databrary volume, you will find a series of folders. Each folder represents a single participant (titled with a 4-digit number). Within each folder are 7 video files, one for each of the 7 tasks the participant completed. For each task, the participant viewed a video stimulus (linked separately), and the corresponding file contains the computer output from the camera recording their response. We primarily use these recordings for eye-tracking data, which we analyze to assess looking preference between conditions in the stimulus. However, other meaningful information such as motor patterns or gross attentional behavior may also be extracted from these files. 
+
+ 
+
+File Nomenclature 
+
+ 
+
+4-digit number = participant ID 
+
+AV = Audiovisual Synchrony 
+
+GS = Geosocial 
+
+NUM = Numeracy 
+
+PRL = Prediction, Right then Left 
+
+PLR = Prediction, Left then Right 
+
+VPC = Visual Paired-Comparison 
+
+WR = Word Recognition 
+
+HH = Helper Hinderer 
+
+ 
+
+ 
+
+Task Descriptions 
+
+ 
+
+Audiovisual Synchrony 
+
+Domain assessed: Multimodal processing 
+
+Description: The AV Synchrony task evaluates multimodal processing (Guiraud et al., 2012; Righi et al., 2018). In this task, two videos are shown simultaneously side-by-side, but only one is synchronous with the audio track while the other precedes the audio track by 666 ms. This task includes both social (a woman talking to the camera using infant-directed speech) and nonsocial stimuli (toys being played with in a repetitive manner by adult hands). The task includes a total of 8-and 14-s trials with four social and nonsocial trials. The dependent measure is the proportion of time spent looking at the synchronous video relative to synchronous + asynchronous (see Figure 4). These specific stimuli were used in the 666 ms condition in previous work with toddlers who demonstrated success in discriminating the synchronous videos at this delay (Righi et al., 2018). 
+
+ 
+
+Geosocial 
+
+Domain assessed: Social attention 
+
+Description: The Geo-Social Attention task assesses infant preference for social stimuli (Pierce et al., 2011). In this task, two videos are displayed side-by-side. In one, a child is dancing, and in the other, a dynamic geometric figure is shown. This is repeated for a total of 10 unique 4-s trials with side of presentation for the social and nonsocial stimuli counterbalanced across trials. The dependent measure is the proportion of looks to the social stimulus relative to social + nonsocial stimuli for the length of stimulus presentation (see Figure 1). The social and abstract stimuli used in this task were based on previous examples in the literature (Imafuku et al., 2017; Pierce et al., 2011; Shi et al., 2015) but have not yet been tested in this specific paradigm remotely or in the lab. Based on previous findings using similar stimuli (Imafuku et al., 2017; Pierce et al., 2011), infants were expected to demonstrate a preference (>.50 of the trial) for the social stimuli relative to the geometric shapes. 
+
+ 
+
+Numeracy 
+
+Domain assessed: Numeracy 
+
+Description: The Numeracy task tests representations of approximate quantities (Libertus & Brannon, 2010). In this task, infants see two simultaneous image streams: one of different images all containing the same number of dots (either 5 or 20) and the other of different images that alternate between the two quantities (i.e., 5 and 20). Each image stream consists of arrays of dots presented for 500 ms followed by 300 ms of blank screen lasting a total of 20 s per trial. A 6-s animated attention grabber is inserted between trials to recapture infants’ attention. Each infant sees four trials with the location of the constant and alternating streams counterbalanced across trials. If infants are able to detect the numerical change, they are expected to look longer at the numerically alternating image stream compared to the numerically non-alternating image stream. Though both sides of the screen show sequences of dots that change with respect to location, only the numerically alternating side displays different numbers of dots. To ensure that the two image streams can only be differentiated based on number and not based on other continuous variables of the dot arrays, images are systematically equated for cumulative surface area, cumulative perimeter, or individual element size of the dots as well as density (i.e., the number of dots per cm2 within each image). Half of the images, that is, every other image across both streams, is identical. One-third of the images across both streams are matched for cumulative surface area, one-third are matched for cumulative perimeter, and one-third are matched for individual element size. Orthogonally, half of the images that differ in number is matched on density. The dependent measure is the proportion of time spent looking at the alternating stream relative to time spent looking at both sides of the screen (alternating/alternating + non-alternating). 
+
+ 
+
+Prediction 
+
+Domain assessed: Pattern Prediction 
+
+Description: The Prediction task assesses infants’ visual predictions (Reuter et al., 2018). This task consists of eight trials in which a 2-s presentation of an animated central cue is followed by a 2-s presentation of a colorful animated pinwheel (the target stimulus) on one side of the screen (i.e., eight presentations on the left side of the screen or eight presentations on the right side). Then, the target stimulus is presented eight additional times, all on the opposite side of the screen. The full task includes 16 trials. The dependent measure is the proportion of AEMs (conservatively denoted as 200 ms before center xation offset until 200 ms after target onset) to the target image location, analyzed separately for the first and second blocks (i.e., after the presentation side has switched; see Figure 3). Based on previous findings using these specific stimuli with toddlers (Reuter et al., 2018), infants were expected to show reliable AEMs in Block 1 but more variable AEMs in Block 2. 
+
+ 
+
+Visual Paired-Comparison 
+
+Domain assessed: Memory 
+
+Description: The VPC task tests memory for faces and nonface objects (e.g., Bradshaw et al., 2011; Pascalis et al., 2002) In this task, infants see a familiarization phase where they view the same stimulus on both sides of the screen for 25 s. They then see the familiar stimulus on one side of the screen and a novel stimulus on the other for 8 s. This is repeated for a second test trial in which the familiar and novel stimulus positions are reversed. Animated attention getters are presented between trials. This series is repeated six times, and the novel and familiar stimuli are counterbalanced between participants. Three trials presented faces (one trial each for White, Black, and Asian faces, paired within trials; Tottenham et al., 2009). Three trials presented complex nonface stimuli (“fribbles”) that maintain the complexity of face processing while removing the social nature of the task (Barry et al., 2014). The dependent measure is the proportion of time spent attending to the novel face or object at test (novel/novel + familiar; see Figure 2).  
+
+ 
+
+Word Recognition 
+
+Domain assessed: Word Recognition 
+
+Description: The Word Comprehension task examines receptive language skills. This specific instantiation was based on classic looking-while-listening tasks (e.g., Bergelson & Swingley, 2012; Fernald et al., 2008), with specific items borrowed from Bergelson and Swingley (2012), but this exact set of images was not used in the original study. In this task, two picture representations with labels that are familiar to young infants are presented side-by-side on the screen while participants are prompted to direct their gaze at one of the images (e.g., “Look at the foot!”). Two blocks containing 10 trials (five pairs of stimuli) are presented. Trials last 8 s and the two blocks are separated by 4 s of dynamic video to recapture attention. In each block, each word was used as both a target and a distracter, such that infants view five sets of images twice in each block, resulting in each picture being presented once as the target and again as a distractor in each block. The order of presentation is randomized between blocks. The dependent measure is the mean proportion of time spent looking at a given object when it is the target in each block (e.g., “Look at the foot!” in Figure 5) minus the mean proportion of time spent looking at that object when it is the distracter in each block (e.g., “Look at the bottle!” in Figure 5). 
+
+ 
+
+Helper Hinderer 
+
+Domain assessed: Social Evaluation 
+
+Description: In this task, infants watch videos of a character trying but failing to climb to the top of a steep hill (from Hamlin et al., 2007). On alternating events, a helper character pushes the climber to the top of the hill, facilitating its goal, and a hinderer character pushes the climber to the bottom of the hill, preventing its goal. These events are each shown three times before the characters are shown for a 30-s test trial in which preference for the helper object is measured. The series is then repeated with the same stimuli in the same roles. The Helper/Hinderer stimulus and presentation order is counterbalanced between infants. The dependent measure is the proportion of time spent looking at the helper relative to both objects (helper/helper +hinderer; see Figure 7). Because the RISE Battery is administered remotely and asynchronously, video presentations were not contingent on infant looking. Based on previous work in habituation versions of this task, infants were expected to show a preference for the helper at the test. 
+
+ 
+
+For more information about these tasks, the RISE battery, or our findings, please view our article “Remote Infant Studies of Early Learning (RISE): Scalable online replications of key findings in infant cognitive development.” (PMID: 39531700) 
+
+ 
+
+For specific inquiries, please contact risebattery@duke.edu",2024-07-09T14:10:25.174923Z,2025-07-13T21:36:10.416261Z,public,RISE Battery Aim 2,10004,Elena,Tenenbaum,Duke University Medical Center

@@ -1,0 +1,2 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1631,Exploration - fNIRS cap videos,"Videos of infants wearing fNIRS caps (full head LUMO, Gowerlabs). Recorded for cap localisation and co-registration.",LUMO CAPS,2023-07-27T21:05:50.133851Z,2025-03-05T16:35:40.279280Z,public_overview_only,1365,Lauren,Emberson,University of British Columbia

@@ -1,0 +1,6 @@
+vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
+1300,Neonatal mimicry of caregiver facial gestures at home,"Raw and example blurred video data from the study. Please note that upload of metadata (e.g., task/condition) is currently paused in Databrary.
+- Task: webcam-based neonatal mimicry task implemented on Children Helping Science, formerly known as Lookit (MIT)
+- Processing applied: None / Participating caregiver face blurred for video coding
+- Demographic: Newborn and adult caregiver
+- File type: .mp4",ni-lookit-feasibility,2021-03-26T21:16:03.176726Z,2026-01-27T02:25:11.209762Z,public,7006,Laurie,Bayet,American University
