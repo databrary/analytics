@@ -1,0 +1,19 @@
+---
+title: "_test"
+params:
+  render_me: false
+  render_thee: true
+---
+
+```{r}
+#| include: params$render_me
+
+2 + 2
+```
+
+
+```{r}
+#| include: params$render_thee
+
+3 + 3
+```

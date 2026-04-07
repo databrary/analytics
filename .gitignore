@@ -2,11 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
-gh-databrary-analytics.Rproj
 .DS_Store
 .databrary.RData
 analytics.Rproj
 analytics-test.Rproj
-
 /.quarto/
 **/*.quarto_ipynb
+private
+institution_reports

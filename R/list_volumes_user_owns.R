@@ -8,8 +8,8 @@ list_volumes_user_owns <- function(user_id = 7630, vb = FALSE) {
   
   user_vols <- databraryr::list_user_volumes(user_id = user_id, vb = vb)
   if (is.null(user_vols)) {
-    if (vb)
-      message("No volumes found for user_id ", user_id, ".")
+    # if (vb)
+    #   message("No volumes found for user_id ", user_id, ".")
     return(NULL)
   }
   

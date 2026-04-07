@@ -1,0 +1,119 @@
+---
+title: "Databrary Institution Report"
+params:
+  institution_id: 8
+  institution_name: "NYU"
+  date: today
+  render_vols_data: "no"
+output-dir: institution_reports
+embed-resources: true
+---
+
+```{r}
+#| echo: false
+x <- databraryr::login_db(
+  email = Sys.getenv("USERNAME"),
+  password = Sys.getenv("PASSWORD"),
+  client_id = Sys.getenv("CLIENT_ID"),
+  client_secret = Sys.getenv("CLIENT_SECRET"),
+  store = FALSE,
+  overwrite = FALSE
+)
+```
+
+## About
+
+This page summarizes information about the people who use Databrary at **`r params$institution_name`**.
+
+## Institutional data
+
+```{r}
+#| echo: false
+fl <- list.files("private/inst_list", pattern = ".csv", full.names = TRUE)
+fn <- fl[length(fl)] # choose last one to be most recent
+x <- assertthat::is.readable(fn)
+institutions <- readr::read_csv(file = fn, show_col_types = FALSE)
+this_institution <- institutions |>
+  dplyr::filter(institution_id == as.numeric(params$institution_id))
+
+# avatar_fn <- databraryr::get_institution_avatar(params$institution_id, dest_path = file.path(tempdir(), "avatar.jpg"))
+avatar_fn <- databraryr::get_institution_avatar(as.numeric(params$institution_id), dest_path = file.path("tmp/avatar.jpg"))
+```
+
+| Variable | Value |
+|----------|-------|
+| ID | `r as.numeric(this_institution$institution_id)` |
+| Name | `r this_institution$institution_name` |
+| URL | `r this_institution$institution_url` |
+| Has Avatar | `r this_institution$institution_has_avatar` |
+| Avatar | ![](tmp/avatar.jpg){width="150px"} |
+| Has Administrators | `r this_institution$institution_has_administrators` |
+| Latitude | `r this_institution$institution_latitude` |
+| Longitude | `r this_institution$institution_longitude` |
+| Databrary profile URL | `r paste0("<https://databrary.org/institution/", this_institution$institution_id, ">")`
+| Updated | `r this_institution$institution_updated_at` |
+
+## Authorized Investigators
+
+```{r}
+#| echo: false
+fl <- list.files("private/inst_affils", pattern = ".csv", full.names = TRUE)
+fn <- fl[stringr::str_detect(fl, stringr::str_pad(this_institution$institution_id, width = 5, pad = "0"))]
+these_affiliates <- readr::read_csv(fn, show_col_types = FALSE)
+n_ais <- dim(these_affiliates)[1]
+```
+
+`r this_institution$institution_name` has `r n_ais` authorized investigators.
+
+```{r}
+#| echo: false
+df <- these_affiliates |>
+  dplyr::rename(id = user_id,
+                first = user_prename,
+                last = user_sortname) |>
+  dplyr::mutate(Databrary_URL = paste0("<https://databrary.org/party/", id, ">")) |>
+  dplyr::arrange(id) |>
+  dplyr::select(id, first, last, Databrary_URL) 
+
+kableExtra::kbl(df, format = "markdown")
+```
+
+## Shared volumes
+
+```{r, eval = params$render_vols_data == "render", echo=FALSE}
+fl <- list.files("private/inst_invest_shared", pattern = ".csv", full.names = TRUE)
+fn <- fl[stringr::str_detect(fl, stringr::str_pad(this_institution$institution_id, width = 5, pad = "0"))]
+vols_shared <- readr::read_csv(fn, show_col_types = FALSE)
+n_ais_vols_shared <- dim(vols_shared)[1]
+```
+
+```{r, include = FALSE}
+if (params$render_vols_data == "render") {
+  vols_data_message <- paste0("N = ", n_ais_vols_shared, 
+                              " investigators (", 
+                              round(n_ais_vols_shared/n_ais*100, 2), 
+                              "%) of the total ", 
+                              n_ais, 
+                              " authorized investigators have shared a total of ",
+                              sum(vols_shared$n_vols), " volumes.")
+} else {
+  vols_data_message <- "No investigator at this institution has created or shared volumes."
+}
+```
+
+`r vols_data_message`
+
+```{r, eval = params$render_vols_data == "render", echo=FALSE}
+df <- vols_shared |>
+  dplyr::arrange(desc(n_vols)) |>
+  dplyr::select(-inst_id) |>
+  dplyr::rename(id = user_id,
+                first = first_name,
+                last = last_name,
+                total_vols = n_vols,
+                full_vols = n_public,
+                overview_vols = n_overview) |>
+  dplyr::mutate(id = paste0("[", id, "](https://databrary.org/party/", id, ")"))
+
+kableExtra::kbl(df, format = "markdown")
+```

@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 suppressPackageStartupMessages(library(databraryr))
 suppressPackageStartupMessages(library(tidyverse))
+library(ggplot2)
 
 # Source functions
 fl <- list.files(file.path(here::here(), "R"), "*.R", 
@@ -44,32 +45,30 @@ x <- databraryr::login_db(email = Sys.getenv("USERNAME"),
 ## Summary
 
 ```{r}
-#| label: gather-institutional-data
-institutions <- list_institutions() |>
-    dplyr::mutate(institution_name = stringr::str_sub(institution_name,
-                                                    start = 1, end = 25)) |>
-  dplyr::rename(id = institution_id,
-                institution = institution_name,
-                url = institution_url)
+#| label: create-institution-affiliates-list
+
+inst_affils_df <- make_inst_affil_df()
+
+n_institutions <- length(unique(inst_affils_df$id))
 ```
 
-Databrary has n=`{r} dim(institutions)[1]` active institutional partners.
+Databrary has n=`{r} n_institutions` active institutional partners.
 
 ## Recent additions
 
 ```{r}
 #| label: tbl-institutions-recent-additions
-#| tbl-caption: "List of the 10 most recent additions to the network of Databrary institutions."
-institutions |> 
-  dplyr::arrange(desc(id)) |> 
-  dplyr::select(institution, url) |>
+#| tbl-cap: "List of the 10 most recent additions to the network of Databrary institutions."
+inst_affils_df |>
+  dplyr::arrange(desc(id)) |>
+  dplyr::select(name, institution_url) |>
+  dplyr::mutate(name = stringr::str_sub(name, start = 1, end = 25)) |>
   head(n = 10) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "600px")
 ```
-
 ## Full list
 
 ::: {.callout-warning}
@@ -80,84 +79,149 @@ Here is a full list in alphabetical order.
 
 ```{r}
 #| label: tbl-databrary-institutions
-#| tbl-caption: "List of all Databrary institutions in alphabetical order."
-institutions |>
-  dplyr::select(institution, url) |>
+#| tbl-cap: "List of all Databrary institutions in alphabetical order."
+inst_affils_df |>
+  dplyr::select(name, institution_url) |>
+  dplyr::arrange(name) |>
+  dplyr::mutate(name = stringr::str_sub(name, start = 1, end = 25)) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px", height = "500px")
+  kableExtra:: scroll_box(width = "600px", height = "500px")
 ```
 
-## Map
+## Institutional participation
 
-::: {.callout-warning}
-This is a work-in-progress.
-:::
+This section summarizes data about institutional participation in Databrary.
 
-## Institutional footprint
+```{r}
+#| label: import-inst-affils-data
+inst_affils_df <- inst_affils_df |>
+  dplyr::group_by(id, name) |>
+  dplyr::summarise(n_ais = n())
+```
 
-This section summarizes which institutions have the largest number of volumes and Authorized Investigators.
+```{r}
+#| label: import-inst-shared-vols-data
+
+inst_invest_shared_path <- file.path(params$csv_path, "inst_invest_shared")
+inst_invest_shared_fl <- list.files(inst_invest_shared_path,
+                                    pattern = ".csv$",
+                                    full.names = TRUE)
+inst_invest_shared <- purrr::map(inst_invest_shared_fl, readr::read_csv, show_col_types = FALSE) |>
+  purrr::list_rbind()
+```
+
+```{r}
+#| label: clean-summarize-inst-affils-data
+
+inst_invest_shared <- inst_invest_shared |>
+  dplyr::group_by(inst_id) |>
+  dplyr::rename(id = inst_id) |>
+  dplyr::summarise(
+    n_ais_w_vols = n(),
+    tot_n_vols = sum(n_vols),
+    tot_n_public = sum(n_public),
+    tot_n_overview = sum(n_overview)
+  ) |>
+  dplyr::arrange(id)
+
+inst_summ_df <- dplyr::left_join(inst_affils_df, inst_invest_shared, by = c("id"))
+
+inst_summ_df <- inst_summ_df |>
+  dplyr::mutate(n_ais_w_vols = if_else(is.na(n_ais_w_vols), 0, n_ais_w_vols),
+                tot_n_vols = if_else(is.na(tot_n_vols), 0, tot_n_vols),
+                tot_n_public = if_else(is.na(tot_n_public), 0, tot_n_public),
+                tot_n_overview = if_else(is.na(tot_n_overview), 0, tot_n_overview))
+```
+
+### Tabular summaries
 
 ::: {.panel-tabset}
 
-## By number of volumes
-
-```{r}
-#| label: tbl-institutional-footprint-vols
-#| tbl-cap: "Institutions with the largest number of shared or partially shared volumes. Note that the institution names have been truncated at 25 characters."
-#| eval: true
-#| message: false
-#| warning: false
-
-# Load saved csvs
-fl <- list.files(file.path(params$csv_path, "user_vol_sharing"), "*.csv", full.names = TRUE)
-
-vol_info <- purrr::map(fl, readr::read_csv, show_col_types = FALSE) |>
-  purrr::list_rbind() |>
-  dplyr::filter(n_vols > 0)
-
-inst_vols <- vol_info |>
-  dplyr::group_by(user_affiliation) |>
-  # Eliminate n_private until we can gather that data accurately.
-  # summarise(n_ais = n(),
-  #           tot_vols = sum(n_vols),
-  #           tot_public = sum(n_public),
-  #           tot_overview = sum(n_overview),
-  #           tot_private = sum(n_private))
-  dplyr::summarise(n_ais = n(),
-            tot_vols = sum(n_vols),
-            tot_public = sum(n_public),
-            tot_overview = sum(n_overview)) |>
-  dplyr::mutate(user_affiliation = stringr::str_sub(user_affiliation,
-                                                    start = 1, end = 25))
-
-inst_vols |>
-  arrange(desc(tot_vols)) |>
-  rename(institution = user_affiliation) |>
-  select(-c("n_ais")) |>
-  kableExtra::kbl() |>
-  kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
-```
-
-## By number of investigators
+## Authorized Investigators
 
 ```{r}
 #| label: tbl-institutional-footprint-ais
-#| tbl-cap: "Institutions with the largest number of AIs."
+#| tbl-cap: "Institutions with the largest number of Authorized Investigators (n_ais)."
 #| eval: true
 #| message: false
 #| warning: false
-inst_vols |>
+inst_summ_df |>
+  dplyr::select(id, name, n_ais) |>
+  dplyr::filter(!is.na(n_ais), n_ais > 0) |>
   arrange(desc(n_ais)) |>
-  rename(institution = user_affiliation) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "600px")
 ```
+
+## Shared volumes
+
+```{r}
+#| label: tbl-institutional-footprint-vols
+#| tbl-cap: "Institutions with the largest number of shared volumes"
+#| eval: true
+#| message: false
+#| warning: false
+inst_summ_df |>
+  dplyr::select(id, name, tot_n_vols, tot_n_public, tot_n_overview) |>
+  dplyr::rename(n_vols = tot_n_vols,
+                n_public = tot_n_public,
+                n_overview = tot_n_overview) |>
+  dplyr::filter(!is.na(n_vols), n_vols > 0) |>
+  arrange(desc(n_vols)) |>
+  kableExtra::kbl() |>
+  kableExtra::kable_material(full_width = F) |>
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "600px")
+```
+
+:::
+
+### Statistical summaries
+
+::: {.panel-tabset}
+## Authorized Investigators
+
+```{r}
+#| label: fig-n-ais-per-institution-histogram
+#| fig-cap: "Histogram of the number of Authorized Investigators per institution."
+inst_summ_df |>
+  dplyr::select(n_ais) |>
+  dplyr::filter(n_ais > 0) |>
+  ggplot() +
+  geom_histogram(mapping = aes(n_ais), bins = 15) +
+  xlab("Authorized Investigators at an institution") +
+  ylab("Number of institutions") +
+  theme_classic()
+```
+
+## Shared volumes
+
+```{r}
+#| label: fig-n-vols-per-institution-histogram
+#| fig-cap: "Histogram of the number of shared volumes (datasets) per institution."
+
+institutions_w_vols <- inst_summ_df |>
+  dplyr::filter(tot_n_vols > 0)
+
+institutions_w_vols |>
+  dplyr::select(tot_n_vols) |>
+  ggplot() +
+  geom_histogram(mapping = aes(tot_n_vols), bins = 15) +
+  xlab("Total volumes shared by investigators at an institution") +
+  ylab("Number of institutions") +
+  theme_classic()
+```
+
+```{r}
+n_institutions_w_vols <- length(unique(institutions_w_vols$id))
+p_institutions_shared_vols <- n_institutions_w_vols/n_institutions
+```
+
+N=`{r} n_institutions_w_vols` institutions have Authorized Investigators who have shared volumes. This is `{r} round(100*p_institutions_shared_vols, 2)`% of the total number of institutions.
 
 :::
 
