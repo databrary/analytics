@@ -67,7 +67,7 @@ inst_affils_df |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra::scroll_box(width = "600px")
+  kableExtra::scroll_box(width = "700px")
 ```
 ## Full list
 
@@ -87,7 +87,7 @@ inst_affils_df |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "600px", height = "500px")
+  kableExtra:: scroll_box(width = "700px", height = "500px")
 ```
 
 ## Institutional participation
@@ -143,44 +143,51 @@ inst_summ_df <- inst_summ_df |>
 
 ```{r}
 #| label: tbl-institutional-footprint-ais
-#| tbl-cap: "Institutions with the largest number of Authorized Investigators (n_ais)."
+#| tbl-cap: "Institutions with the largest number of Authorized Investigators (n_ais). Also reported are the percent of authorized investigators who own publicly visible volumes (p_vols)."
 #| eval: true
 #| message: false
 #| warning: false
-inst_summ_df |>
-  dplyr::select(id, name, n_ais) |>
+
+inst_invest <- inst_summ_df[,c(2:4)]
+inst_invest |>
+  # dplyr::select(name, n_ais, n_ais_w_vols) |>
   dplyr::filter(!is.na(n_ais), n_ais > 0) |>
   arrange(desc(n_ais)) |>
+  dplyr::mutate(p_vols = round(100*n_ais_w_vols/n_ais, 1)) |>
+  dplyr::select(name, n_ais, p_vols) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra::scroll_box(width = "600px")
+  kableExtra::scroll_box(width = "700px")
 ```
 
 ## Shared volumes
 
 ```{r}
 #| label: tbl-institutional-footprint-vols
-#| tbl-cap: "Institutions with the largest number of shared volumes"
+#| tbl-cap: "Institutions with the largest number of shared volumes (n_vols). Also shown is the percent of volumes shared by investigators at an institution that are shared publicly."
 #| eval: true
 #| message: false
 #| warning: false
-inst_summ_df |>
-  dplyr::select(id, name, tot_n_vols, tot_n_public, tot_n_overview) |>
+
+inst_vols <- inst_summ_df[,c(2,5:7)]
+inst_vols |>
   dplyr::rename(n_vols = tot_n_vols,
                 n_public = tot_n_public,
                 n_overview = tot_n_overview) |>
   dplyr::filter(!is.na(n_vols), n_vols > 0) |>
   arrange(desc(n_vols)) |>
+  dplyr::mutate(p_public = round(100*n_public/n_vols, 1)) |>
+  dplyr::select(name, n_vols, p_public) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra::scroll_box(width = "600px")
+  kableExtra::scroll_box(width = "700px")
 ```
 
 :::
 
-### Statistical summaries
+### Histograms
 
 ::: {.panel-tabset}
 ## Authorized Investigators
@@ -194,6 +201,21 @@ inst_summ_df |>
   ggplot() +
   geom_histogram(mapping = aes(n_ais), bins = 15) +
   xlab("Authorized Investigators at an institution") +
+  ylab("Number of institutions") +
+  theme_classic()
+```
+
+## Investigators with volumes
+
+```{r}
+#| label: fig-p-ais-per-institution-histogram
+#| fig-cap: "Histogram of percent of Investigators at an Institution who have created publicly visible volumes."
+inst_invest |>
+  dplyr::mutate(p_vols = round(100*n_ais_w_vols/n_ais, 1)) |>
+  dplyr::select(p_vols) |>
+  ggplot() +
+  geom_histogram(mapping = aes(p_vols), bins = 15) +
+  xlab("Percent of Authorized Investigators") +
   ylab("Number of institutions") +
   theme_classic()
 ```

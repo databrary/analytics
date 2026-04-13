@@ -8,5 +8,5 @@ analytics.Rproj
 analytics-test.Rproj
 /.quarto/
 **/*.quarto_ipynb
-private
-institution_reports
+private/*
+institution_reports/*

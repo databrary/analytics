@@ -77,7 +77,7 @@ inst_affils |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px")
+  kableExtra:: scroll_box(width = "700px")
 ```
 
 ## Full list
@@ -93,8 +93,8 @@ inst_affils |>
   dplyr::arrange(last_name) |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
-  kableExtra:: kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra:: scroll_box(width = "800px", height = "500px")
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::scroll_box(width = "700px", height = "500px")
 ```
 
 ## Numbers of volumes
@@ -132,7 +132,7 @@ ais_w_shared_vols |>
   kableExtra::kbl() |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
-  kableExtra::scroll_box(width = "800px", height = "500px")
+  kableExtra::scroll_box(width = "700px", height = "500px")
 ```
 
 ## Clean up
