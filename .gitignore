@@ -10,3 +10,4 @@ analytics-test.Rproj
 **/*.quarto_ipynb
 private/*
 institution_reports/*
+.positai
