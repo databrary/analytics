@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: docs
+  # pre-render:
+  #   - export_reports_data.R
   
 book:
   title: "Databrary Analytics"

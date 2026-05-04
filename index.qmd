@@ -6,8 +6,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.path = "include/img/")
 
 suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(targets))
-suppressPackageStartupMessages(library(ggmap))
+# suppressPackageStartupMessages(library(ggmap))
 
 #source("../R/constants.R")
 list.files("../R", "\\.R$", full.names = TRUE) |>
