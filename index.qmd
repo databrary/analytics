@@ -1,14 +1,19 @@
-# 
+---
+title: "Home"
+format: html
+---
 
-```{r setup-index, echo=FALSE}
+```{r setup-index}
+#| include: false
+#| message: false
+#| warning: false
+#| 
 knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center",
                       fig.path = "include/img/")
 
 suppressPackageStartupMessages(library(tidyverse))
-# suppressPackageStartupMessages(library(ggmap))
 
-#source("../R/constants.R")
 list.files("../R", "\\.R$", full.names = TRUE) |>
   purrr::walk(source, echo = FALSE, print.eval = FALSE)
 ```
