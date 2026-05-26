@@ -13,11 +13,14 @@ logged_in <- databraryr::login_db(email = Sys.getenv("USERNAME"),
                           overwrite = FALSE)
 
 if (logged_in) {
+  message("Exporting institution list.")
   export_institution_list()
+  message("Exporting institution investigators.")
   export_all_institution_investigators()
+  message("Exporting sharing data.")
   export_all_institutions_sharing_data()  
 } else {
   message("Unable to log in to Databrary.")
 }
 
-
+databraryr::logout_db()
