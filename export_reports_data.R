@@ -5,10 +5,10 @@ purrr::map(fl, suppressPackageStartupMessages(source)) |>
   purrr::quietly()
 
 # Login to Databrary
-logged_in <- databraryr::login_db(email = Sys.getenv("USERNAME"),
-                          password = Sys.getenv("PASSWORD"),
-                          client_id = Sys.getenv("CLIENT_ID"),
-                          client_secret = Sys.getenv("CLIENT_SECRET"),
+logged_in <- databraryr::login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+                          password = Sys.getenv("DATABRARY_PASSWORD"),
+                          client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+                          client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
                           store = FALSE,
                           overwrite = FALSE)
 
