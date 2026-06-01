@@ -1,7 +1,0 @@
-vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1644,A longitudinal study of how university students transitioned during COVID-19 pandemic,"● Longitudinal dataset tracking students’ transition into virtual learning during the COVID-19 pandemic with two time points: Time 1 (2020) and Time 2 (2021).
-● Measures include qualitative & quantitative questions on COVID-19 as well as Brief Coping Scale, Online Teaching, Differential Emotions Scale, Cognitive Engagement, Flourishing, and Post Traumatic Growth.
-● Participant sample comprises students in STEM and Psychology majors or non-STEM majors.
-● Participant demographic data includes age, gender, racial background, parental educational background, year in university, college major, and GPA.
-● For full breakdown of measures, sub-scales, demographic variables, please refer to uploaded codebook on Databrary. 
-● To contact research team, please email Viviane Seyranian, Ph.D. at vseyranian@cpp.edu.",VTS,2023-09-13T18:45:31.319939Z,2025-03-05T16:35:40.819432Z,public,3766,Viviane,Seyranian,Cal Poly Pomona

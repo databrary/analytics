@@ -1,7 +1,0 @@
-vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1398,Speech-to-Speech Synchronization Test,"This volumen contains data collected with the two versions of the Speech-to-Speech Synchronization Test (Explicit Accelerated and Implicit Fixed versions) in two different modalities: in the lab or remotely. Data has been collected with unrestricted participation requirements other than being between 18 and 50 years old and native American speaker.
-
-Files are distributed in folders as follows:
-Explicit accelerated in lab (ENG_ExpAcc_InLab; N= 115), explicit accelerated online (ENG_ExpAcc_Online; N= 77),  the implicit fixed in lab (ENG_ImpFix_InLab, N=129), and the implicit fixed online (ENG_ImpFix_Online N=144). 
-
-For most participants, two audio files are included, except when for technical reasons one of the audio files could not be retrieved.",Speech Synchronization,2021-12-08T22:43:26.559246Z,2025-03-05T16:35:27.928315Z,public_overview_only,9203,Pablo,Ripolles,New York University

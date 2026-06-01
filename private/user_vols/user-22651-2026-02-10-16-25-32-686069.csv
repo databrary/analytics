@@ -1,5 +1,0 @@
-vol_id,vol_name,vol_description,vol_short_name,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1867,PAIRS: Prediction and interception research study,"Tasks: Five computer-based interception tasks, including time estimation, spatial prediction, ball catching, ball bouncing, and a simple reaction time task. All tasks were implemented in the Lookit platform.
-Demographic information: Age (7-17 years), sex, autism diagnosis (all autistic children and adolescents were recruited through the SPARK database)
-Data types: video recording (.mp4) and frame-by-frame kinematics (.csv)
-MATLAB codes to extract the demographic and kinematic information out of individual csv files.",PAIRS Lookit prediction games,2025-08-18T15:23:57.548779Z,2025-10-08T20:27:15.004872Z,public,22651,Se-Woong,Park,University of Texas at San Antonio

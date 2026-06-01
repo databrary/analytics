@@ -1,5 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1562,DBN - Israel (Jewish sample) - Wave 1 - Data collection,"This volume contains video and audio files from data
-collected in Israel (Jewish sample) during Wave 1 of the project.",2023-01-22T10:26:11.593908Z,2025-03-05T16:35:36.266667Z,public_overview_only,7551,Gil,Diesendruck,Bar-Ilan University
-1797,DBN - Israel -  Datasets,"This volume stores task-by-task subsets of DBN data collection in Israel. This includes data from the Child Protocol, Parent Protocol, and Religious Landscape Survey. These data and the volume are to be kept PRIVATE!",2024-09-15T16:38:27.903768Z,2025-03-05T16:35:48.688008Z,public_overview_only,7551,Gil,Diesendruck,Bar-Ilan University
-1819,DBN - Israel (Muslim sample) - Wave 1 - Data collection,This volume contains video and audio files from data collected in Israel during Wave 1 of the project.,2024-12-10T06:59:01.054735Z,2025-03-05T16:35:49.688044Z,public_overview_only,7551,Gil,Diesendruck,Bar-Ilan University

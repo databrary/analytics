@@ -1,5 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
-1663,PLAYProject_UPITT,"Home visit video data sessions collected as part of Pitt’s contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
--Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
--Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
--Ambient noise decibel meter recordings captured during the 1-hour natural play",2023-11-02T16:51:05.224222Z,2025-07-17T14:51:23.489974Z,private,NA,2708,Melissa,Libertus,University of Pittsburgh

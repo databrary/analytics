@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------------
 make_inst_df_from_csvs <-
-  function(csv_dir = "src/csv",
+  function(csv_dir = "private/csv",
            omit_inst_id = '00002',
            vb = FALSE) {
     stopifnot(is.character(csv_dir))

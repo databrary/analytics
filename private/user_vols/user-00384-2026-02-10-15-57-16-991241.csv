@@ -1,6 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-784,Spontaneous movement during 1st year of life,Home observation study,2018-10-24T18:45:00.696346Z,2025-03-05T16:35:03.850292Z,public_overview_only,384,Do Kyeong,Lee,California State University Fullerton
-1481,PLAYProject_CSUFL,"Home visit video data sessions collected as part of CSUFL’s contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
--Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
--Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
--Ambient noise decibel meter recordings captured during the 1-hour natural play",2022-06-23T22:06:21.027163Z,2022-06-23T22:06:21.027163Z,private,384,Do Kyeong,Lee,California State University Fullerton

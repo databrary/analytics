@@ -1,5 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1397,PLAYProject_UHOUS,"Home visit video data sessions collected as part of UH's contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
--Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
--Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
--Ambient noise decibel meter recordings captured during the 1-hour natural play",2021-12-08T22:20:11.639299Z,2021-12-08T22:20:11.639299Z,private,298,Hanako,Yoshida,University of Houston

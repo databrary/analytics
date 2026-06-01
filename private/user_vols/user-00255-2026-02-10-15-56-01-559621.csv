@@ -1,9 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
-982,PLAYProject_VCOMU,"Videos collected for PLAY project:
--Natural Play
--House Walkthrough
--Structured Play
--Questionnaires",2019-09-16T18:07:16.649070Z,2025-03-05T16:35:11.031503Z,public_overview_only,NA,255,Stacey,Dusing,University of Southern California
-1678,Does Timing Matter? Efficacy of a Cognitive and Motor Intervention for Very Preterm Infants (SPEEDI-2),"This data represented the outcome measures from a 3 arm clinical trial.  Infants born at less than 32 weeks of gestation were enrolled from 3 NICU when medically stable.  Infants were randomized into usual care (UC), SPEEDI_Early (starting in NICU), or SPEEDI_Late (Starting about 4 months old).  
-
-Measures including Bayley III, GMFM, HINE, APSP, a parent child interaction, Parent stress index, medical and social history, AMHEAD.",2023-12-05T17:43:33.041335Z,2025-03-18T16:25:51.491351Z,public_overview_only,SPEEDI-2,255,Stacey,Dusing,University of Southern California

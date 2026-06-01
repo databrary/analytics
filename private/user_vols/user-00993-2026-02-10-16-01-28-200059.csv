@@ -1,6 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,vol_short_name,user_id,user_prename,user_sortname,user_affiliation
-1363,PLAYProject_PURDU,"Home visit video data sessions collected as part of Purdue’s contributions to the NIH-funded Play and Learning Across a Year (PLAY) Project. Session data consist of the following:
--Video files of 1-hour natural play, 5-minute structured play, house walk-through, and questionnaires
--Responses to questionnaires covering the participant’s demographics, language, temperament, and locomotion
--Ambient noise decibel meter recordings captured during the 1-hour natural play",2021-09-20T14:45:07.029875Z,2025-07-18T18:51:53.045437Z,private,NA,993,Laura,Claxton,Purdue
-1557,Integration of Visual Task Demands and Postural Sway in Infants,Supplemental materials: deidentified processed data,2022-12-15T18:50:58.813817Z,2025-03-05T16:35:35.966852Z,public_overview_only,Infant Postural Sway and Pictures,993,Laura,Claxton,Purdue

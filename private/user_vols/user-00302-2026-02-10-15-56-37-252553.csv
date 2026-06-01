@@ -1,6 +1,0 @@
-vol_id,vol_name,vol_description,vol_created_at,vol_updated_at,vol_sharing_level,user_id,user_prename,user_sortname,user_affiliation
-1606,Pareidolia on Lookit,"All data in this volume was collected via Lookit.mit.edu. 
-
-Each participant will have their own folder for their videos and the corresponding JSON output
-
-This study investigated the development of pareidolia in infants between 7 and 9 months old.",2023-05-30T19:33:13.221831Z,2025-03-05T16:35:38.309495Z,public_overview_only,302,Cara,Cashon,University of Louisville

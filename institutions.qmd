@@ -34,22 +34,26 @@ p <- purrr::map(fl, suppressPackageStartupMessages(source)) |>
   purrr::quietly()
 
 # Login to Databrary
-x <- databraryr::login_db(email = Sys.getenv("USERNAME"),
-         password = Sys.getenv("PASSWORD"),
-         client_id = Sys.getenv("CLIENT_ID"),
-         client_secret = Sys.getenv("CLIENT_SECRET"),
+x <- login_db(email = Sys.getenv("DATABRARY_LOGIN"),
+         password = Sys.getenv("DATABRARY_PASSWORD"),
+         client_id = Sys.getenv("DATABRARY_CLIENT_ID"),
+         client_secret = Sys.getenv("DATABRARY_CLIENT_SECRET"),
          store = FALSE,
-         overwrite = FALSE)
+         overwrite = FALSE,
+         vb = TRUE)
 ```
 
 ## Summary
 
 ```{r}
 #| label: create-institution-affiliates-list
+#| 
+inst_invest_df <- load_institutions_invest_data()
+inst_df <- load_inst_df()
 
 inst_affils_df <- make_inst_affil_df()
 
-n_institutions <- length(unique(inst_affils_df$id))
+n_institutions <- length(unique(inst_df$id))
 ```
 
 Databrary has n=`{r} n_institutions` active institutional partners.
@@ -59,7 +63,7 @@ Databrary has n=`{r} n_institutions` active institutional partners.
 ```{r}
 #| label: tbl-institutions-recent-additions
 #| tbl-cap: "List of the 10 most recent additions to the network of Databrary institutions."
-inst_affils_df |>
+inst_df |>
   dplyr::arrange(desc(id)) |>
   dplyr::select(name, institution_url) |>
   dplyr::mutate(name = stringr::str_sub(name, start = 1, end = 25)) |>
@@ -71,16 +75,12 @@ inst_affils_df |>
 ```
 ## Full list
 
-::: {.callout-warning}
-This is a work-in-progress.
-:::
-
 Here is a full list in alphabetical order.
 
 ```{r}
 #| label: tbl-databrary-institutions
 #| tbl-cap: "List of all Databrary institutions in alphabetical order."
-inst_affils_df |>
+inst_df |>
   dplyr::select(name, institution_url) |>
   dplyr::arrange(name) |>
   dplyr::mutate(name = stringr::str_sub(name, start = 1, end = 25)) |>
@@ -96,10 +96,13 @@ This section summarizes data about institutional participation in Databrary.
 
 ```{r}
 #| label: import-inst-affils-data
-inst_affils_df <- inst_affils_df |>
+inst_affils_df <- dplyr::left_join(inst_df, inst_invest_df, by = "id") |>
   dplyr::group_by(id, name) |>
-  dplyr::summarise(n_ais = n())
+  dplyr::summarise(n_ais = n()) |>
+  dplyr::arrange(desc(n_ais)) |>
+  dplyr::mutate(name = paste0("<a href='https://databrary.org/institution/", id, "'>", name, "</a>"))
 ```
+
 
 ```{r}
 #| label: import-inst-shared-vols-data
@@ -139,7 +142,19 @@ inst_summ_df <- inst_summ_df |>
 
 ::: {.panel-tabset}
 
-## Authorized Investigators
+<!-- ### Authorized Investigators -->
+
+<!-- ```{r} -->
+<!-- inst_affils_df |> -->
+<!--   head(n = 25) |> -->
+<!--   dplyr::select(name, n_ais) |> -->
+<!--   kableExtra::kbl(format = 'html', escape = FALSE) |> -->
+<!--   kableExtra::kable_material(full_width = F) |> -->
+<!--   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |> -->
+<!--   kableExtra::scroll_box(width = "700px") -->
+<!-- ``` -->
+
+### Investigators
 
 ```{r}
 #| label: tbl-institutional-footprint-ais
@@ -150,18 +165,18 @@ inst_summ_df <- inst_summ_df |>
 
 inst_invest <- inst_summ_df[,c(2:4)]
 inst_invest |>
-  # dplyr::select(name, n_ais, n_ais_w_vols) |>
+  dplyr::select(name, n_ais, n_ais_w_vols) |>
   dplyr::filter(!is.na(n_ais), n_ais > 0) |>
-  arrange(desc(n_ais)) |>
   dplyr::mutate(p_vols = round(100*n_ais_w_vols/n_ais, 1)) |>
   dplyr::select(name, n_ais, p_vols) |>
-  kableExtra::kbl() |>
+  kableExtra::kbl(format = 'html', escape = FALSE) |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::column_spec(1, width = "5cm") |>
   kableExtra::scroll_box(width = "700px")
 ```
 
-## Shared volumes
+### Shared volumes
 
 ```{r}
 #| label: tbl-institutional-footprint-vols
@@ -179,9 +194,10 @@ inst_vols |>
   arrange(desc(n_vols)) |>
   dplyr::mutate(p_public = round(100*n_public/n_vols, 1)) |>
   dplyr::select(name, n_vols, p_public) |>
-  kableExtra::kbl() |>
+  kableExtra::kbl(format = 'html', escape = FALSE) |>
   kableExtra::kable_material(full_width = F) |>
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) |>
+  kableExtra::column_spec(1, width = "5cm") |>
   kableExtra::scroll_box(width = "700px")
 ```
 
@@ -209,7 +225,7 @@ inst_summ_df |>
 
 ```{r}
 #| label: fig-p-ais-per-institution-histogram
-#| fig-cap: "Histogram of percent of Investigators at an Institution who have created publicly visible volumes."
+#| fig-cap: "Histogram of percent of Investigators at an Institution who have created publicly visible (*Shared* or *Overview Only*) volumes."
 inst_invest |>
   dplyr::mutate(p_vols = round(100*n_ais_w_vols/n_ais, 1)) |>
   dplyr::select(p_vols) |>
@@ -243,7 +259,7 @@ n_institutions_w_vols <- length(unique(institutions_w_vols$id))
 p_institutions_shared_vols <- n_institutions_w_vols/n_institutions
 ```
 
-N=`{r} n_institutions_w_vols` institutions have Authorized Investigators who have shared volumes. This is `{r} round(100*p_institutions_shared_vols, 2)`% of the total number of institutions.
+*N*=`{r} n_institutions_w_vols` institutions have Authorized Investigators who have shared volumes. This is `{r} round(100*p_institutions_shared_vols, 2)`% of the total number of institutions.
 
 :::
 
